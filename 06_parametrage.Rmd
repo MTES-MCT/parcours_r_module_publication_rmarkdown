@@ -1,0 +1,12 @@
+# Paramétrage
+
+## Paramétrage général du fichier .Rmd
+
+
+
+Dimension, format de sortie, table des matière, css, yml, 
+
+
+
+
+
