@@ -24,7 +24,7 @@ dest_file = str_c(destfolder, "/RPLS_data.zip")
 # Enlever le commentaire pour télécharger le fichier
 # Normalement, le fichier est déjà téléchargé sur votre ordinateur
 
-# download.file(url, destfile = dest_file)
+download.file(url, destfile = dest_file)
 
 # Détail du contenu du dossier
 details_dossier <- unzip(dest_file, list = TRUE)
