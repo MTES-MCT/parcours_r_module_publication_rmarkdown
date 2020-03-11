@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 6 - Publications reproductibles avec RMarkdown</title>
+  <meta name="description" content="Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 6 - Publications reproductibles avec RMarkdown" />
+  
+  
+  
+
+<meta name="author" content="Groupe des référents R" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p style="text-align:center;"><img src="https://mtes-mct.github.io/parcours-r/assets/images/logo_marianne_fond_blanc.png" style="width:100px;"/></p></li>
+<li><a href="./">Découvrir R et RStudio</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#introduction"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path=""><a href="#le-parcours-de-formation"><i class="fa fa-check"></i><b>1.1</b> Le parcours de formation</a></li>
+<li class="chapter" data-level="1.2" data-path=""><a href="#objectifs-du-module-6"><i class="fa fa-check"></i><b>1.2</b> Objectifs du module 6</a></li>
+<li class="chapter" data-level="1.3" data-path=""><a href="#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i><b>1.3</b> Exemples de productions avec R Markdown</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 6 - Publications reproductibles avec RMarkdown</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Module 6 - Publications reproductibles avec RMarkdown</h1>
+<p class="author"><em>Groupe des référents R</em></p>
+<p class="date"><em>09 mars 2020</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapitre 1</span> Introduction</h1>
+<p><img src="images/couleuvre.jpg" /></p>
+<p><font size="2">
+<em>Crédit photographique Pascal Boulin</em>
+</font></p>
+<div id="le-parcours-de-formation" class="section level2">
+<h2><span class="header-section-number">1.1</span> Le parcours de formation</h2>
+<p>Ce dispositif de formation vise à faire monter en compétence les agents du MTES (Ministère de la transition écologique et solidaire) et du MCT (Ministère de la cohésion des territoires) dans le domaine de la science de la donnée avec le logiciel R. Il est conçu pour être déployé à l’échelle nationale par le réseau des CVRH (Centre de Valorisation des Ressources Humaines).</p>
+<p>Le parcours proposé est structuré en modules de 2 jours chacun. Les deux premiers (ou un niveau équivalent) sont des pré-requis pour suivre les suivants qui sont proposés “à la carte” :</p>
+<ol style="list-style-type: decimal">
+<li>Socle : Premier programme en R</li>
+<li>Socle : Préparation des données</li>
+<li>Statistiques descriptives</li>
+<li>Analyses multivariées</li>
+<li>Datavisualisation : Produire des graphiques, des cartes et des tableaux</li>
+<li>Documents reproductibles avec RMarkdown</li>
+</ol>
+<p>… et en perspective : analyse spatiale, applis interactives avec Shiny, big data, etc.</p>
+<p>La mise à disposition des supports de formation se fait désormais par la <a href="https://mtes-mct.github.io/parcours-r/">page d’accueil du parcours de formation</a>. Ces supports sont en <a href="https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf">licence ouverte</a>.</p>
+<p>Si vous souhaitez accéder aux sources, données mobilisées pendant les formations, il faut directement les télécharger depuis le <a href="https://github.com/MTES-MCT/parcours-r/tree/master/Supports_formations">Github du ministère</a>.</p>
+<p>Pour vous tenir au courant de l’offre de formation proposée par le réseau des CVRH, <a href="http://oups-cmvrh.e2.rie.gouv.fr/">consultez la plateforme OUPS</a>. Vous pouvez vous y abonner pour recevoir les annonces qui vous intéressent.</p>
+<p>Il existe une liste pour diffuser de l’information, échanger autour de R ou lever des points de blocage. Pour s’insrire, envoyer un message vide avec le titre “subscribe labo.communaute-r” à l’adresse <a href="mailto:sympa@developpement-durable.gouv.fr" class="email">sympa@developpement-durable.gouv.fr</a>.</p>
+</div>
+<div id="objectifs-du-module-6" class="section level2">
+<h2><span class="header-section-number">1.2</span> Objectifs du module 6</h2>
+<p>A l’issue de la formation sur ce module, les stagiaires devraient être en capacité de produire une publication reproductible et paramétrable relativement simple de A à Z. Il sera fait appel aux compétences acquises lors des précédents modules, en particulier des modules “socle”. Le langage utilisé est [R Markdown], qui permet d’avoir dans un seul fichier du texte mis en forme, du code (R, mais aussi Python, Julia, C++, SQL et même SAS !) et les sorties du code.</p>
+<p>Les points abordés comprendront :</p>
+<ul>
+<li>La syntaxe R Markdown</li>
+<li>L’insertion de code R</li>
+<li>Les outils de mise en forme</li>
+<li>Les formats de sortie .html, .pdf</li>
+<li>L’assemblage de plusieurs documents R Markdown (package <code>bookdown</code>)</li>
+<li>La publication des documents produits</li>
+</ul>
+</div>
+<div id="exemples-de-productions-avec-r-markdown" class="section level2">
+<h2><span class="header-section-number">1.3</span> Exemples de productions avec R Markdown</h2>
+<p>R markdown permet de produire des sorties dans un grand nombre de formats. Quelques exemples :</p>
+<ul>
+<li>Des documents “simples” en format html, word, epub, pdf, etc.</li>
+<li>Des diaporamas en formats Powerpoint, Beamer, Ioslides, Revealjs, etc.</li>
+<li>Des tableaux de bord interactifs en combinant avec des widgets html ou des éléments produits par le package shiny.
+<a href="https://beta.rstudioconnect.com/jjallaire/htmlwidgets-highcharter/htmlwidgets-highcharter.html#sales-by-category">Exemple</a></li>
+<li>Des pages web statiques comme des <a href="https://rawgit.com/MTES-MCT/parcours-r/master/Supports_formations/m2_preparation_donnees/_book/index.html">supports de formation</a></li>
+<li>Des publications paramétrables faciles à mettre à jour
+<ul>
+<li><a href="http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html">Conjoncture logement neuf en Pays-de-Loire</a><br />
+</li>
+<li><a href="https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance">Dans les Hauts-de-France</a></li>
+</ul></li>
+<li>Et même des livres :</li>
+</ul>
+<div class="figure">
+<img src="images/r4ds.png" alt="R for data science" />
+<p class="caption">R for data science</p>
+</div>
+<ul>
+<li>divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
