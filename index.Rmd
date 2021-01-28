@@ -45,7 +45,12 @@ Si vous souhaitez accéder aux sources, données mobilisées pendant les formati
 
 Pour vous tenir au courant de l'offre de formation proposée par le réseau des CVRH, [consultez la plateforme OUPS](http://oups-cmvrh.e2.rie.gouv.fr/). Vous pouvez vous y abonner pour recevoir les annonces qui vous intéressent.
 
-Il existe une liste pour diffuser de l'information, échanger autour de R ou lever des points de blocage. Pour s'insrire, envoyer un message vide avec le titre "subscribe labo.communaute-r" à l'adresse sympa@developpement-durable.gouv.fr.
+
+Pour échanger de l’information, discuter autour de R ou encore faire part de difficultés et trouver ensemble les solutions, il existe deux solutions propres au ministère :   
+
+- S’insrire, en envoyant un message vide avec le titre “subscribe labo.communaute-r,” à l’adresse [sympa@developpement-durable.gouv.fr](mailto:sympa@developpement-durable.gouv.fr?subject=subscribe%20labo.communaute-r).   
+
+- rejoindre le fil Ariane # utilisateurs_r.  
 
 ## Objectifs du module 6
 
@@ -70,6 +75,7 @@ R markdown permet de produire des sorties dans un grand nombre de formats. Quelq
 [Exemple](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-highcharter/htmlwidgets-highcharter.html#sales-by-category)
 + Des pages web statiques comme des [supports de formation](https://rawgit.com/MTES-MCT/parcours-r/master/Supports_formations/m2_preparation_donnees/_book/index.html)
 + Des publications paramétrables faciles à mettre à jour  
+    - [Publications RPLS 2020 régionales]("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/")  
     - [Conjoncture logement neuf en Pays-de-Loire](http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html)  
     - [Dans les Hauts-de-France](https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance)
    
