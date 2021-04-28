@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "atelier1.html",
+      "title": "Introduction",
+      "author": [],
+      "contents": "\r\n⚠️ Site en construction ⚠️\r\nObjectifs\r\nAprès cet atelier vous saurez :\r\ncomprendre ce qu’est un package\r\ncomprendre la structure d’un package\r\ncréer votre premier package\r\nsupports\r\ndiaporama\r\n\r\n\r\n\r\nfitvids('.shareagain', {players: 'iframe'});\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-04-28T11:11:09+02:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Publications reproductibles avec RMarkdown",
+      "description": "Ce site présente les supports pour la formation rmarkdown du MTES\n",
+      "author": [],
+      "contents": "\r\n⚠️ Site en construction ⚠️\r\nLe document de référence\r\nLe document de référence de la formation\r\nDéroulé\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nIntroduction\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nLe format bookdown\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nLe format pagedown\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-04-28T11:34:46+02:00"
+    }
+  ],
+  "collections": []
+}

@@ -1,0 +1,140 @@
+
+
+```{r library, include=FALSE}
+library("banR")
+library("stringr")
+library("curl")
+library("tidyverse")
+library("leaflet") 
+library("readxl")
+```
+
+```{r DLfile}
+
+
+url = "https://www.statistiques.developpement-durable.gouv.fr/sites/default/files/2019-02/RPLS%202018%20-%20Donnees%20detaillees%20au%20logement.zip"
+
+
+# Localisation du dossier de destination
+
+destfolder = str_c(getwd(), "/data")
+if ( dir.exists(destfolder)){
+    dir.create(destfolder)
+}
+
+dest_file = str_c(destfolder, "/RPLS_data.zip")
+download.file(url, destfile = dest_file)
+
+# Détail du contenu du dossier
+details_dossier <- unzip(dest_file, list = TRUE)
+
+# On dézippe le fichier
+unzip(dest_file, exdir = destfolder)
+
+# On prend un des fichiers les moins lourds
+chosen_file = str_c(destfolder,"/", details_dossier[order(details_dossier$Length),"Name"][7])
+
+```
+
+
+```{r geoloc, echo=TRUE}
+
+# Essayer de mettre input$chosen_file pour permettre la selection du fichier utilisé
+RPLS_data <- read_delim(chosen_file,";", escape_double = FALSE, locale = locale(decimal_mark = ",", 
+                        encoding = "ASCII"), trim_ws = TRUE, col_types = cols(.default = col_character()))
+
+# On crée une adresse à partir des variables disponibes
+RPLS_data$ADRESSE = str_c(RPLS_data$NUMVOIE,RPLS_data$TYPVOIE, RPLS_data$NOMVOIE, sep = " ")
+       
+# On ne géolocalise une même adresse qu'une seule fois
+RPLS_data_chunked = unique(RPLS_data[, c("ADRESSE", "CODEPOSTAL", "DEPCOM")] ) 
+
+RPLS_data_chunked = RPLS_data_chunked[1:2000,] %>% 
+                      geocode_tbl(adresse = ADRESSE, code_insee = DEPCOM, code_postal = CODEPOSTAL)                                                                                                                                            
+
+head(RPLS_data_chunked)
+
+  
+```
+
+```{r map, echo=TRUE}
+
+
+# On va regarder ou sont ces logements et combien il y en a par adresse trouvée
+map_data = RPLS_data_chunked[RPLS_data_chunked$latitude != "", c("result_city", "latitude", "longitude", "result_label")] %>% group_by(result_city, latitude, longitude, result_label) %>% count()
+
+# map_data = RPLS_data[RPLS_data$x != "", c("LIBCOM", "x", "y")] %>% group_by(LIBCOM, x, y, adresse_trouvee) %>% count()
+
+# % de logements non géolocalisés
+nrow(map_data[is.na(map_data$result_city),])/nrow(map_data[!is.na(map_data$result_city),])
+
+
+# map_data$x <- as.numeric(map_data$x)
+# map_data$y <- as.numeric(map_data$y)
+
+# Create a color palette with handmade bins.
+mybins=seq(1, max(map_data$n), by=10)
+mypalette = colorBin( palette="YlOrBr", domain=map_data$n , na.color="transparent", bins=mybins)
+
+mytext=paste("Commune ", map_data$result_city, "<br/>", "Adresse: ", map_data$result_label, "<br/>", "Latitude: ", map_data$latitude, "<br/>", "Longitude: ", map_data$longitude, sep="") %>%
+  lapply(htmltools::HTML)
+
+renderLeaflet({
+ carte <- leaflet() %>%
+    addTiles() %>%
+    addMarkers(data = map_data, lat = ~latitude, lng = ~longitude, clusterOptions = markerClusterOptions(), 
+               label = mytext)
+  
+  return(carte)
+})
+
+```
+```{r jointure, echo=TRUE}
+# Comparateur de territoire
+url2 = "https://www.insee.fr/fr/statistiques/fichier/2521169/base_cc_comparateur.zip"
+
+destfile2 = str_c(destfolder, "/BASECC.zip")
+  
+download.file(url = url2, destfile = destfile2)
+unzip(zipfile = destfile2, exdir = destfolder)
+
+base_cc_comparateur <- read_excel("data/base_cc_comparateur.xls", 
+    skip = 5)
+
+RPLS_data <- left_join(RPLS_data, RPLS_data_chunked, by = "ADRESSE") %>% left_join(RPLS_data, base_cc_comparateur, by = c("DEPCOM" = "CODGEO"))
+
+
+
+```
+
+
+
+### jointure des tables
+### Données tabulées
+### Requêter une API
+### Données géo
+
+## Création des objets
+### Tables
+packages DT, [formattable](https://www.littlemissdata.com/blog/prettytables)
+Fonction knitr::kable et kableextra cf. exemple [ici] (https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+
+### Graphiques
+Types de graphiques; interactivité plotly et highcharter
+
+### Cartes
+leaflet ; fond de carte OSM
+géolocalisation : corresp adresses-données
+formats de cartes geojson, shp
+donnée ponctuelle, polygones
+
+
+
+## Assemblage
+dimensions
+formats de sortie. Besoin de Latex ?
+  
+
+règles de semiologie dans m5
+hébergement html
+tenir Thierry au courant

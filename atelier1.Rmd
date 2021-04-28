@@ -1,0 +1,27 @@
+---
+title: "Introduction"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+`r emo::ji("warning")` Site en construction `r emo::ji("warning")`
+
+## Objectifs
+
+Après cet atelier vous saurez : 
+
+  -  comprendre ce qu'est un package
+  
+  -  comprendre la structure d'un package
+
+  -  créer votre premier package
+
+## supports
+
+- [diaporama](slides/rmarkdown.html)
+
+```{r embed-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "slides/rmarkdown.html", ratio = "16:9")
+```

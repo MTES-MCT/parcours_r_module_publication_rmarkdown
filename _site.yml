@@ -1,0 +1,20 @@
+name: "Publications reproductibles avec RMarkdown"
+title: "Publications reproductibles avec RMarkdown"
+description: |
+  Supports de la formation à Rmarkdown du MTES - MCTRCT
+output_dir: "docs"
+include: slides/
+exclude: ["renv", "book_source"]
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Document de reference"
+      href: book/index.html
+    - text: "Ateliers"
+      menu:
+        - text: "Introduction"
+          href: atelier1.html
+output:
+  distill::distill_article:
+    theme: theme.css
