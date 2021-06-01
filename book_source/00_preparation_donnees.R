@@ -6,7 +6,7 @@ library("leaflet") # Cartes
 library("readxl")
 library("DT")
 library("highcharter") # Graphiques
-
+library("fs")
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Téléchargement du fichier ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 url = "https://www.statistiques.developpement-durable.gouv.fr/sites/default/files/2019-02/RPLS%202018%20-%20Donnees%20detaillees%20au%20logement.zip"
