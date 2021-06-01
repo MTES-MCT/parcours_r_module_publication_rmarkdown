@@ -26,12 +26,27 @@ library(gouvdown.fonts)
 ::::{.home-card}
 :::{.home-card-img}
 ```{r, fig.link = "atelier1.html"}
-knitr::include_graphics("slides/www/diapo.png", dpi=200)
+knitr::include_graphics("slides/www/rmarkdown.png", dpi=200)
 ```
  
 :::
 :::{.home-card-box}
 Introduction
+:::
+::::
+:::::
+
+
+:::::{.home-card-container}
+::::{.home-card}
+:::{.home-card-img}
+```{r, fig.link = "parametres.html"}
+knitr::include_graphics("slides/www/parametres.png", dpi=200)
+```
+ 
+:::
+:::{.home-card-box}
+Paramétrer un rapport
 :::
 ::::
 :::::
