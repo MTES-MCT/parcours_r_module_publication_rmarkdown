@@ -57,10 +57,10 @@ Commencer par rajouter un script à votre projet qui commencera par :
 
 ```{r eval = F}
 library (rmarkdown)
-library (tidyverse)
+library (dplyr)
 
 load("data/data_exercices_formation.RData")
-load("data/ODD.RData")
+
 ```
 
 
