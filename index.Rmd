@@ -34,29 +34,4 @@ knitr::include_graphics("slides/www/diapo.png", dpi=200)
 Introduction
 :::
 ::::
-
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier1.html"}
-knitr::include_graphics("slides/www/diapo.png", dpi=200)
-```
- 
-:::
-:::{.home-card-box}
-Le format bookdown
-:::
-::::
-
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier1.html"}
-knitr::include_graphics("slides/www/diapo.png", dpi=200)
-```
- 
-:::
-:::{.home-card-box}
-Le format pagedown
-:::
-::::
-
 :::::
