@@ -1,0 +1,88 @@
+---
+title: "Module 6 - Publications reproductibles avec RMarkdown"
+author: "Groupe des référents R"
+date: '`r format(Sys.time(), "%d %B %Y")`'
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r init, include=FALSE}
+knitr::opts_chunk$set (echo = TRUE)
+```
+
+
+# Introduction
+
+![](images/couleuvre.jpg)
+
+<font size="2"> 
+*Crédit photographique Pascal Boulin*
+</font> 
+
+
+## Le parcours de formation
+
+  Ce dispositif de formation vise à faire monter en compétence les agents du MTES (Ministère de la transition écologique et solidaire) et du MCT (Ministère de la cohésion des territoires) dans le domaine de la science de la donnée avec le logiciel R. Il est conçu pour être déployé à l'échelle nationale par le réseau des CVRH (Centre de Valorisation des Ressources Humaines).
+
+Le parcours proposé est structuré en modules de 2 jours chacun. Les deux premiers (ou un niveau équivalent) sont des pré-requis pour suivre les suivants qui sont proposés "à la carte" :
+
+1. Socle : Premier programme en R
+2. Socle : Préparation des données
+3. Statistiques descriptives
+4. Analyses multivariées
+5. Datavisualisation : Produire des graphiques, des cartes et des tableaux
+6. Documents reproductibles avec RMarkdown
+
+... et en perspective : analyse spatiale, applis interactives avec Shiny, big data, etc.
+
+
+La mise à disposition des supports de formation se fait désormais par la [page d'accueil du parcours de formation](https://mtes-mct.github.io/parcours-r/). Ces supports sont en [licence ouverte](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
+
+
+Si vous souhaitez accéder aux sources, données mobilisées pendant les formations, il faut directement les télécharger depuis le [Github du ministère](https://github.com/MTES-MCT/parcours-r/tree/master/Supports_formations).
+
+Pour vous tenir au courant de l'offre de formation proposée par le réseau des CVRH, [consultez la plateforme OUPS](http://oups-cmvrh.e2.rie.gouv.fr/). Vous pouvez vous y abonner pour recevoir les annonces qui vous intéressent.
+
+
+Pour échanger de l’information, discuter autour de R ou encore faire part de difficultés et trouver ensemble les solutions, il existe deux solutions propres au ministère :   
+
+- S’insrire, en envoyant un message vide avec le titre “subscribe labo.communaute-r,” à l’adresse [sympa@developpement-durable.gouv.fr](mailto:sympa@developpement-durable.gouv.fr?subject=subscribe%20labo.communaute-r).   
+
+- rejoindre le fil Ariane # utilisateurs_r.  
+
+## Objectifs du module 6
+
+A l'issue de la formation sur ce module, les stagiaires devraient être en capacité de produire une publication reproductible et paramétrable relativement simple de A à Z. Il sera fait appel aux compétences acquises lors des précédents modules, en particulier des modules "socle". Le langage utilisé est [R Markdown], qui permet d'avoir dans un seul fichier du texte mis en forme, du code (R, mais aussi Python, Julia, C++, SQL et même SAS !) et les sorties du code.
+
+Les points abordés comprendront :
+
++ La syntaxe R Markdown
++ L'insertion de code R
++ Les outils de mise en forme
++ Les formats de sortie .html, .pdf
++ L'assemblage de plusieurs documents R Markdown (package `bookdown`)
++ La publication des documents produits
+
+## Exemples de productions avec R Markdown
+
+R markdown permet de produire des sorties dans un grand nombre de formats. Quelques exemples :
+
++ Des documents "simples" en format html, word, epub, pdf, etc.
++ Des diaporamas en formats Powerpoint, Beamer, Ioslides, Revealjs, etc.
++ Des tableaux de bord interactifs en combinant avec des widgets html ou des éléments produits par le package shiny.
+[Exemple](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-highcharter/htmlwidgets-highcharter.html#sales-by-category)
++ Des pages web statiques comme des [supports de formation](https://rawgit.com/MTES-MCT/parcours-r/master/Supports_formations/m2_preparation_donnees/_book/index.html)
++ Des publications paramétrables faciles à mettre à jour  
+    - [Publications RPLS 2020 régionales]("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/")  
+    - [Conjoncture logement neuf en Pays-de-Loire](http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html)  
+    - [Dans les Hauts-de-France](https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance)
+   
++ Et même des livres : 
+
+![R for data science](images/r4ds.png)
+
++ divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
+
+
