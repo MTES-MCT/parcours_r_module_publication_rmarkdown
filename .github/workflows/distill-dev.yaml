@@ -49,10 +49,11 @@ jobs:
           find slides/ -type f -name "*.png" -exec mv {} slides/www/ \;
       - name: Build bookdown
         run: |
-          R -e 'setwd("book_source/");bookdown::render_book(input = "index.Rmd", output_dir = "book/");fs::dir_copy("book/", "../book/");setwd("..");'
+          R -e 'setwd("book_source/");bookdown::render_book(input = "index.Rmd", output_dir = "book/");setwd("..");'
       - name: Build site
         run: Rscript -e 'source("R/distill_prod_to_dev.R");distill_prod_to_dev();rmarkdown::render_site();distill_dev_to_prod();'
-
+      - name: move bookdown
+        run: Rscript - e 'fs::dir_copy("book_source/book/", "docs/dev/book/");'
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
