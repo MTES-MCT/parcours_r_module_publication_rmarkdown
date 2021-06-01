@@ -9,6 +9,13 @@
     ]
   },
   "Packages": {
+    "AsioHeaders": {
+      "Package": "AsioHeaders",
+      "Version": "1.16.1-1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9305444d113b052089eba3694047d42d"
+    },
     "COVID19": {
       "Package": "COVID19",
       "Version": "2.3.2",
@@ -276,7 +283,7 @@
       "RemoteUsername": "spyrales",
       "RemoteRef": "HEAD",
       "RemoteSha": "d40dfe7cd22fbe9f476b7f480b6cc2a263c95264",
-      "Hash": "2ddbe8a5ddf28f4deed822d05d39e841"
+      "Hash": "981434676b5ab1df6bc3891db04b2792"
     },
     "gridExtra": {
       "Package": "gridExtra",
@@ -474,6 +481,13 @@
       "Repository": "CRAN",
       "Hash": "f4dbc5a47fd93d3415249884d31d6791"
     },
+    "pagedown": {
+      "Package": "pagedown",
+      "Version": "0.14",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "773ffdf73cccffaee9623adf91461521"
+    },
     "pillar": {
       "Package": "pillar",
       "Version": "1.6.1",
@@ -502,6 +516,13 @@
       "Repository": "CRAN",
       "Hash": "95ef9167b75dde9d2ccc3c7528393e7e"
     },
+    "processx": {
+      "Package": "processx",
+      "Version": "3.5.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0cbca2bc4d16525d009c4dbba156b37c"
+    },
     "progress": {
       "Package": "progress",
       "Version": "1.2.2",
@@ -515,6 +536,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4ab2c43adb4d4699cf3690acd378d75d"
+    },
+    "ps": {
+      "Package": "ps",
+      "Version": "1.6.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "32620e2001c1dce1af49c49dccbb9420"
     },
     "purrr": {
       "Package": "purrr",
@@ -725,6 +753,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "55e157e2aa88161bdb0754218470d204"
+    },
+    "websocket": {
+      "Package": "websocket",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "39668631bda1dd7f693fdbb7b4c9fed8"
     },
     "whisker": {
       "Package": "whisker",
