@@ -27,6 +27,7 @@ knitr::opts_chunk$set(echo = TRUE, eval=TRUE, warning = FALSE,message = FALSE,er
 ```
 
 ```{r xaringan-themer, include=FALSE, warning=FALSE, eval=TRUE}
+library(showtext)
 library(xaringanthemer)
 style_mono_accent(
   base_color = "#000091",
