@@ -36,7 +36,7 @@ jobs:
           R -e 'install.packages("renv");install.packages("remotes");'
           R -e 'renv::restore(packages = "renv")'
           R -e 'renv::restore()'
-          R -e 'remotes::install_github(c("spyrales/gouvdown.fonts","gadenbuie/xaringanExtra","hadley/emo"))'
+          R -e 'remotes::install_github(c("spyrales/gouvdown.fonts","gadenbuie/xaringanExtra","hadley/emo", "rstudio/webshot2"))'
       - name: Build slides
         run: Rscript -e 'purrr::map(list.files(path = "slides",pattern = ".Rmd",full.names = TRUE), ~rmarkdown::render(.x))'
 
