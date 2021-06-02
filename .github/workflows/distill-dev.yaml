@@ -51,7 +51,8 @@ jobs:
         run: |
           R -e 'setwd("book_source/");bookdown::render_book(input = "index.Rmd", output_dir = "book/");setwd("..");'
       - name: Build site
-        run: Rscript -e 'source("R/distill_prod_to_dev.R");distill_prod_to_dev();rmarkdown::render_site(output_dir = ".");distill_dev_to_prod();'
+        run: |
+          Rscript -e 'source("R/distill_prod_to_dev.R");distill_prod_to_dev();rmarkdown::render_site();distill_dev_to_prod();'
       - name: move bookdown
         run: Rscript - e 'fs::dir_copy("book_source/book/", "docs/dev/book/");'
       - name: Deploy to GitHub Pages

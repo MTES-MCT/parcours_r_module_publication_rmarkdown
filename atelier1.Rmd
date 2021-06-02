@@ -10,13 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Objectifs
 
-Après cet atelier vous saurez : 
-
-  -  comprendre ce qu'est un package
-  
-  -  comprendre la structure d'un package
-
-  -  créer votre premier package
+Cet atelier permet de comprendre ce qu'est Rmarkdown.
 
 ## supports
 

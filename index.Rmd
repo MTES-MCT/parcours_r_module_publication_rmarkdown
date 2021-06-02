@@ -40,7 +40,7 @@ Introduction
 :::::{.home-card-container}
 ::::{.home-card}
 :::{.home-card-img}
-```{r, fig.link = "parametres.html"}
+```{r, fig.link = "atelier2.html"}
 knitr::include_graphics("slides/www/parametres.png", dpi=200)
 ```
  
@@ -50,3 +50,4 @@ Paramétrer un rapport
 :::
 ::::
 :::::
+

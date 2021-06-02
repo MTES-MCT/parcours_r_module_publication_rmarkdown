@@ -4,7 +4,7 @@ description: |
   Supports de la formation à Rmarkdown du MTES - MCTRCT
 output_dir: "docs"
 include: slides/
-exclude: ["renv", "book_source", "R"]
+exclude: ["renv", "book_source", "R","docs"]
 navbar:
   right:
     - text: "Home"
