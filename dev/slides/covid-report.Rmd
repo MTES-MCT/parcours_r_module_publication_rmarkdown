@@ -1,0 +1,36 @@
+---
+title: "Rapport Covid 19"
+author: "Guillaume RRRozier"
+date: "26/05/2021"
+output: html_document
+params:
+  country_name: "France"
+---
+
+```{r setup, include=FALSE, warning = FALSE,message = FALSE,results='hide'}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE,message = FALSE)
+```
+
+## Vaccination
+
+```{r lib,results='hide'}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(COVID19)
+data <- covid19()
+
+```
+
+
+```{r viz}
+data %>% 
+  filter(administrative_area_level_1 == params$country_name,
+         year(date) == 2021) %>% 
+  ggplot() + 
+  geom_line(aes(x = date, y = vaccines)) + 
+  theme_minimal() + 
+  scale_y_continuous(labels = scales::number_format(big.mark = " ")) + 
+  labs(title = glue::glue("Evolution du nombre de personnes vaccinées contre la COVID-19 en {params$country_name}"), y = NULL)
+```
+
