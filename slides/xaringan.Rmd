@@ -195,6 +195,32 @@ Contenu markdown colonne droite
 
 ---
 
+# Le code d'une slide
+
+.pull-left[
+## Code d'insertion d'image
+
+````md
+
+```{r, echo=FALSE}`r ''`
+knitr::include_graphics("www/xaringan_background_class.png", dpi=150)
+
+```
+
+````
+
+]
+.pull-right[
+## Rendu d'insertion d'image
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringan_background_class.png", dpi=150)
+```
+
+]
+
+---
+
 class: inverse, center, middle
 # A vous de jouer `r emo::ji("pen")`
 ---
@@ -214,24 +240,77 @@ knitr::include_graphics("www/xaringan_template.png", dpi=150)
 ]
 ---
 
-## Aller plus loin
+## Aller plus loin : xaringanExtra
 
-Des extensions du package Xaringan offrent des options supplémentaires :
+https://github.com/gadenbuie/xaringanExtra
 
-xaringanExtra (https://github.com/gadenbuie/xaringanExtra) : 
+.pull-left[
 - tile_view : vision étendue des slides (appuyer sur ***o*** dans la slide pour faire apparaître)
 - use_editable : permet de rendre une slide éditable (## .can-edit[You can edit this slide title]). Possible de conserver les modifications. Conseillé de ne permettre la modifications que sur des parties très spécifiques du texte. 
-- use_scribble : permet de disposer de crayons pour écrire/intéragir sur les slidess
+- use_scribble : permet de disposer de crayons pour écrire/intéragir sur les slides
 - embed_xaringan : Intégration à Rmarkdown
+]
+.pull-right[
 
-voir ici : https://github.com/gadenbuie/xaringanExtra pour plus d'infos
+````md
 
-xaringanthemer : permet de paramétrer le thème de sa présentation rapidement.
-Liste des thèmes disponibles ici : xxxx
-Liste des paramètres des thèmes : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#theme-settings-1
+
+```{r xaringanExtraAll, echo=FALSE, eval=TRUE}`r ''`
+xaringanExtra::use_xaringan_extra(c("tile_view", 
+                                    "editable", 
+                                    "scribble"))
+```
+
+```{r xaringan-tile-view-only, echo=FALSE, evalo=TRUE}`r ''`
+xaringanExtra::use_tile_view()
+
+```
+
+
+````
+]
+
+---
+
+## Aller plus loin : xaringanthemer
+
+.pull-left[
+
+- permet de paramétrer le thème de sa présentation rapidement.
+ - possibilité d'utiliser un des thèmes par défaut
+ - possibilité de faire correspondre à un thème en particulier
+
+- Liste des thèmes disponibles ici : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#themes-1
+
+- Liste des paramètres des thèmes : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#theme-settings-1
+
+]
+
+.pull-right[
+
+````md
+
+```{r xaringan-themer-example, include=FALSE, warning=FALSE, eval=TRUE}`r ''`
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#000091",
+  text_font_family = 'Marianne',
+  code_font_family = 'Fira Code',
+  background_color = 'white',
+  title_slide_text_color = "#000091"
+)
+```
+
+````
+]
+
+---
+
+## Aller plus loin : trucs et astuces
 
 Raccourcis clavier : https://bookdown.org/yihui/rmarkdown/xaringan-key.html
 
+Rendu automatique : xaringan::inf_mr()
 
 ---
 class: inverse, center, middle
