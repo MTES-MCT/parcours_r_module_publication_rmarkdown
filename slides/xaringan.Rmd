@@ -1,0 +1,252 @@
+---
+title: "Les slides avec Xaringan"
+author: "Maël THEULIERE"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["xaringan-themer.css", "slide-themer.css"]
+    self_contained: true
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+
+```{css, echo=FALSE}
+pre {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+pre[class] {
+  max-height: 100px;
+}
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(echo = TRUE, eval=TRUE, warning = FALSE,message = FALSE,error = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE, eval=TRUE}
+library(xaringanthemer)
+style_mono_accent(
+  base_color = "#000091",
+  text_font_family = 'Marianne',
+  code_font_family = 'Fira Code',
+  background_color = 'white',
+  title_slide_text_color = "#000091"
+)
+```
+
+
+```{r xaringanpanelset, echo=FALSE, eval=TRUE}
+xaringanExtra::use_panelset(in_xaringan = TRUE)
+```
+
+```{r share-again, echo=FALSE, eval=TRUE}
+xaringanExtra::use_share_again()
+```
+
+```{r xaringan-tile-view, echo=FALSE, eval=TRUE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-tachyons, echo=FALSE, eval=TRUE}
+xaringanExtra::use_tachyons()
+```
+
+```{r meta, echo=FALSE, eval=TRUE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "Aprendre comment intégrer un dataset dans votre package.",
+    generator = "xaringan et remark.js"
+  ) %>% 
+  meta_name("github-repo" = "maeltheuliere/ateliers_rpackage") %>% 
+  meta_social(
+    title = "Créer son premier package R - Rajouter un dataset dans votre package",
+    url = "https://maeltheuliere.github.io/ateliers_rpackage/atelier3.html",
+    image = "https://maeltheuliere.github.io/ateliers_rpackage/slides/www/slide3-card.png",
+    image_alt = "Diapo titre du diaporama rajouter un dataset dans votre package",
+    og_type = "website",
+    og_author = "Maël THEULIERE",
+    twitter_card_type = "summary_large_image"
+  )
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE, eval=TRUE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+
+```{r xaringan-extra-styles, include=FALSE, warning=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,
+  mute_unhighlighted_code = TRUE
+)
+```
+
+---
+
+class: center, middle
+
+.fl.w-40.pa2[
+```{r, include=TRUE,echo=FALSE}
+knitr::include_graphics("www/rmarkdownlogo.png",dpi = 100)
+```
+]
+
+.fl.w-60.pa2[
+
+.f3[Formation publications reproductibles avec] .yellow.f3[RMarkdown]
+
+.yellow.f1[2 - Les slides de présentation avec Xaringan ]
+]
+
+.tr[
+.f4[Maël THEULIERE - Marouane ZELLOU]
+]
+
+---
+
+## Qu'est qu'une slide dans R ? 
+
+- Une page HTML sous la forme de slides avec (remarkJS)[https://remarkjs.com]
+- Généré avec Rmarkdown et YAML
+- Se compile de la même manière qu'un markdown (knit)
+- Dispose d'options similaires à celles d'un document Rmarkdown (écriture en markdown, intéraction avec R)
+- Permet d'inclure images, graphiques interactifs directement dans un document rmarkdown
+- Générer automatiquement des slides à partir de données
+
+---
+
+class: center, middle
+
+## Le code d'une slides 
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_code_xaringan.png", dpi=150)
+```
+
+---
+
+# Le code d'une slide
+
+.pull-left[
+## Rendu YAML
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringan_yaml.png", dpi=150)
+```
+]
+.pull-right[
+## Rendu slide avec background
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringan_background_class.png", dpi=150)
+```
+]
+
+---
+
+# Le code d'une slide
+
+```md
+.pull-left[
+## Colonne gauche
+
+Contenu markdown colonne gauche
+
+]
+.pull-right[
+## Colonne droite
+Contenu markdown colonne droite
+]
+```
+
+---
+
+# Le code d'une slide
+
+.pull-left[
+## Colonne gauche
+
+Contenu markdown colonne gauche
+
+]
+.pull-right[
+## Colonne droite
+Contenu markdown colonne droite
+]
+
+---
+
+class: inverse, center, middle
+# A vous de jouer `r emo::ji("pen")`
+---
+
+# A vous de jouer `r emo::ji("pen")`  
+
+.pull-left[
+- ### Ouvrir Rstudio et télécharger le package xaringan
+- ### Créer un ficher markdown avec comme template "Ninja Presentation"
+- ### Créer une slide avec une liste à gauche et une image à droite
+- ### Appuyer sur `knit`
+]
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringan_template.png", dpi=150)
+```
+]
+---
+
+## Aller plus loin
+
+Des extensions du package Xaringan offrent des options supplémentaires :
+
+xaringanExtra (https://github.com/gadenbuie/xaringanExtra) : 
+- tile_view : vision étendue des slides (appuyer sur ***o*** dans la slide pour faire apparaître)
+- use_editable : permet de rendre une slide éditable (## .can-edit[You can edit this slide title]). Possible de conserver les modifications. Conseillé de ne permettre la modifications que sur des parties très spécifiques du texte. 
+- use_scribble : permet de disposer de crayons pour écrire/intéragir sur les slidess
+- embed_xaringan : Intégration à Rmarkdown
+
+voir ici : https://github.com/gadenbuie/xaringanExtra pour plus d'infos
+
+xaringanthemer : permet de paramétrer le thème de sa présentation rapidement.
+Liste des thèmes disponibles ici : xxxx
+Liste des paramètres des thèmes : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#theme-settings-1
+
+Raccourcis clavier : https://bookdown.org/yihui/rmarkdown/xaringan-key.html
+
+
+---
+class: inverse, center, middle
+# A vous de jouer `r emo::ji("pen")`
+---
+# A vous de jouer `r emo::ji("pen")`  
+
+.pull-left[
+- ### A partir du premier fichier généré : changer le thème (css) des slides à l'aide de 'xaringanthemer'
+- ### Rendre le titre de la slide éditable et faire des dessins dessus avec xaringanExtra
+- ### Intégrer la slide à un document Rmarkdown ?
+]
+.pull-right[
+```{r, echo=FALSE}
+knitr::include_graphics("www/exo_md.png", dpi=150)
+```
+]
+
