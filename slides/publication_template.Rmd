@@ -141,7 +141,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/163582/519427
 .fl.w-third.pa2.tc[
 ## Officer
 ```{r, echo=FALSE, out.width='50%'}
-knitr::include_graphics("https://davidgohel.github.io/officer/reference/figures/logo.png")
+knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
 ```
 
 ]
@@ -231,7 +231,7 @@ directory/
 
 La balise yaml du fichier `index.Rmd` contient des options spécifiques au format bookdown sur la gestion de la bibliographie.
 
-```{yaml}
+```yaml
 title: "A Minimal Book Example"
 author: "Yihui Xie"
 date: "`r Sys.Date()`"
@@ -258,7 +258,7 @@ Par exemple :
 ]
 .fl.w-50.pa2[
 
-```{yaml}
+```yaml
 book_filename: "mon_premier_bookdown"
 delete_merged_file: true
 language:
@@ -287,7 +287,7 @@ Pour le format html, c'est là par exemple que vous pouvez spécifier entre autr
 ]
 
 .fl.w-50.pa2[
-```{yaml}
+```yaml
 bookdown::gitbook:
   css: style.css
   config:
@@ -390,7 +390,7 @@ Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout docum
 ]
 .fl.w-50.pa2[
 
-```{yaml}
+```yaml
 title: "A Multi-page HTML Document"
 author: "Yihui Xie and Romain Lesur"
 date: "`r Sys.Date()`"
@@ -403,7 +403,236 @@ output:
 \#knit: pagedown::chrome_print
 ```
 ]
----
-# Configurer votre document pagedown
 
-Apprendre à customiser un document pagedown va vous demander d'investir sur l'apprentissage du CSS en général et de pagedjs en particulier.
+---
+#### Configurer votre document pagedown
+# Configurer votre yaml
+
+Voici quelques options du yaml intéressantes à connaître : 
+
+.fl.w-100.pa2[
+.fl.w-30.pa2[
+```md
+toc-title: sommaire
+```
+]
+
+.fl.w-70.pa2[
+Pour modifier le nom du sommaire du document.
+]
+]
+.fl.w-100.pa2[
+.fl.w-30.pa2[
+```md
+lot: true
+lot-title: "Tableaux"
+lof: true
+lof-title: "Graphiques"
+```
+]
+
+.fl.w-70.pa2[
+Pour ajouter et configurer une liste de tableau et de graphique dans le sommaire. Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser `lot-unlisted: true`.
+]
+]
+.fl.w-100.pa2[
+.fl.w-30.pa2[
+```md
+chapter_name: "Chapitre\\ "
+```
+]
+.fl.w-70.pa2[
+Pour modifier le préfixe du titre du chapitre. Vous pouvez ensuite insérer un chapitre en utilisant `# Ceci est un titre de chapitre {.chapter}`
+]
+]
+---
+#### Configurer votre document pagedown
+# Configurer votre yaml
+
+Voici quelques options du yaml intéressantes à connaître.
+
+.fl.w-100.pa2[
+.fl.w-30.pa2[
+```md
+links-to-footnotes: true
+```
+]
+
+.fl.w-70.pa2[
+Cette option transforme automatiquement un lien url dans votre document en note de bas de page. Ainsi `[CRAN](https://cran.r-project.org/)` sera traduit comme `[CRAN]^(https://cran.r-project.org/)`.
+]
+]
+
+.fl.w-100.pa2[
+.fl.w-30.pa2[
+```md
+---
+output:
+  pagedown::html_paged:
+    front_cover: !expr system.file("help","figures","lter_penguins.png",package = "palmerpenguins")
+    back_cover: https://www.r-project.org/Rlogo.png
+---
+```
+]
+.fl.w-70.pa2[
+Pour rajouter une image pour la première de couverture et la 4ème de couverture. On peut utiliser le prefix !expr pour insérer du code R créant en sortie une image.
+]
+]
+
+
+---
+#### Configurer votre document pagedown
+# Quelques balises importantes à connaître
+
+.fl.w-100.pa2[
+.fl.w-40.pa2[
+`.page-break-before` et `.page-break-after` vous permettent d'insérer un saut de page.
+]
+.fl.w-60.pa2[
+```md
+### Nouveau chapitre après un saut de page {.page-break-before}
+```
+]
+]
+.fl.w-100.pa2[
+`[Chapitre 1]` vous permet de rajouter un lien vers la section `Chapitre 1`.
+]
+---
+#### Configurer votre document pagedown
+# Modifier le CSS
+
+Apprendre à customiser un document pagedown va vous demander d'investir sur l'apprentissage du CSS en général et de pagedjs en particulier pour construire un template ad hoc.
+
+C'est un investissement en soit, qui pourra vous être utile de la même façon que la gestion de la mise en page d'un document bureautique.
+
+Vous pouvez aussi centraliser cet investissement pour votre équipe sur une ou deux personnes, ou travailler avec votre service web sur vos projets.
+
+Quelques ressources pour apprendre le CSS : 
+
+- [Le site de la fondation Mozilla](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/CSS_basics)
+
+- [Le site du W3C](https://www.w3.org/Style/Examples/011/firstcss.fr.html)
+
+---
+#### Configurer votre document pagedown
+# Modifier le CSS
+
+Voici déjà quelques recettes de base pour commencer à modifier votre document.
+
+Première étape : importer les css par défaut de pagedown dans votre document.
+
+```{r, eval = FALSE}
+
+files <- c("default-fonts", "default-page", "default")
+from <- pagedown:::pkg_resource(paste0("css/", files, ".css"))
+to <- c("custom-fonts.css", "custom-page.css", "custom.css")
+file.copy(from = from, to = to)
+```
+
+Ajouter une référence à ces fichiers dans le yaml :
+
+```yaml
+output:
+  pagedown::html_paged:
+    css:
+    - custom-fonts.css
+    - custom-page.css
+    - custom.css
+    toc: true
+    self_contained: false
+```
+---
+#### Configurer votre document pagedown
+# Modifier le CSS
+
+- Lancer dans la console `xaringan::inf_mr()`, qui permet de compiler un document Rmarkdown en ayant un aperçu live du rendu.
+.fl.w-100.pa2[
+.fl.w-60.pa2[
+
+- Appuyer ensuite sur `Show in new window` pour consulter le document sur votre navigateur par défaut.
+]
+.fl.w-40.pa2[
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/show_new_window.png")
+```
+]
+]
+.fl.w-100.pa2[
+.fl.w-60.pa2[
+- Puis sur `Clear all viewer item`, pour que vos modifications puisse s'afficher en live.
+]
+.fl.w-40.pa2[
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/clear_all_viewer_item.png")
+```
+]
+]
+---
+---
+#### Configurer votre document pagedown
+# Modifier le CSS
+
+Vous pouvez commencer à modifier vos fichiers css et voir le résultats immédiatement.
+
+Les 3 fichiers correspondent aux éléments suivants :
+
+- `custom-fonts.css` correspond aux polices de caractères
+- `custom-page.css` correspond aux paramètres de la page (format de la page, orientation,...)
+- `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
+
+---
+# Simplifier l'usage de {pagedown} avec {pagedreport}
+
+.fl.w-60.pa2[
+[`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css.
+
+Il n'est pas encore sur le cran, pour l'installer : 
+
+```{r, eval = FALSE}
+remotes::install_github("rfortherestofus/pagedreport)
+```
+]
+
+.fl.w-40.pa2[
+```{r, echo = FALSE}
+knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif")
+```
+]
+---
+# Simplifier l'usage de {pagedown} avec {pagedreport}
+
+`{pagedreport}` vous simplifie l'utilisation de pagedown en proposant trois templates avancés paramétrables via de nouvelles options à intégrer dans le yaml :
+
+.fl.w-50.pa2[
+- `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
+- `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
+- `paged_grid::front_img` et `paged_grid::back_img` vous permettent de choisir deux images pour la première et la quatrième de couverture.
+- `main-color` et `secondary-color` vous permette de choisir les couleurs principales et secondaires de votre document.
+- `main-font` et `header-font` vous permettent de choisir une police de caractère pour le texte et vos titres. Si `google-font` est à TRUE, vous pouvez sélectionner toute police disponible sur google font.
+
+]
+
+.fl.w-50.pa2[
+```{yaml}
+---
+title: "Vaccination contre la covid 19 en France"
+subtitle: "Au 1er juin 2021"
+author: "Guillaume RRRRRozier"
+date: "11 juin 2021"
+output: 
+    pagedreport::paged_grid:
+      logo: "https://upload.wikimedia.org/wikipedia/fr/7/72/Logo_du_Gouvernement_de_la_R%C3%A9publique_fran%C3%A7aise_%282020%29.svg"
+knit: pagedown::chrome_print
+toc-title: "Sommaire"
+main-color: "#000091"
+secondary-color: "#000091"
+google-font: TRUE
+main-font: "Open Sans"
+header-font: "Open Sans"
+---
+
+```
+]
+---
