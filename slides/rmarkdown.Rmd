@@ -736,6 +736,17 @@ knitr::include_graphics("www/comprendre_rmd_code_R.png")
 
 .pull-left[
 Partout ailleurs, le texte va pouvoir s'écrire avec la syntaxe *markdown*.
+
+Vous pouvez dans le texte insérer du code R avec la syntaxe `` `r ` ``. 
+
+Par exemple je peux écrire :
+
+2 et 2 font `` `r  knitr::inline_expr('2+2')` ``
+
+Et cela s'affichera comme cela : 
+
+2 et 2 font `r 2+2` 
+
 ]
 
 .pull-right[
