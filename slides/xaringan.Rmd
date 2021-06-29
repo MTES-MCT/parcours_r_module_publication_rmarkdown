@@ -127,7 +127,7 @@ knitr::include_graphics("www/rmarkdownlogo.png",dpi = 100)
 
 ## Qu'est qu'une slide dans R ? 
 
-- Une page HTML sous la forme de slides avec (remarkJS)[https://remarkjs.com]
+- Une page HTML sous la forme de slides avec remarkJS (https://remarkjs.com)
 - Généré avec Rmarkdown et YAML
 - Se compile de la même manière qu'un markdown (knit)
 - Dispose d'options similaires à celles d'un document Rmarkdown (écriture en markdown, intéraction avec R)
@@ -223,6 +223,7 @@ knitr::include_graphics("www/xaringan_background_class.png", dpi=150)
 
 class: inverse, center, middle
 # A vous de jouer `r emo::ji("pen")`
+
 ---
 
 # A vous de jouer `r emo::ji("pen")`  
@@ -238,6 +239,7 @@ class: inverse, center, middle
 knitr::include_graphics("www/xaringan_template.png", dpi=150)
 ```
 ]
+
 ---
 
 ## Aller plus loin : xaringanExtra
@@ -245,10 +247,10 @@ knitr::include_graphics("www/xaringan_template.png", dpi=150)
 https://github.com/gadenbuie/xaringanExtra
 
 .pull-left[
-- tile_view : vision étendue des slides (appuyer sur ***o*** dans la slide pour faire apparaître)
-- use_editable : permet de rendre une slide éditable (## .can-edit[You can edit this slide title]). Possible de conserver les modifications. Conseillé de ne permettre la modifications que sur des parties très spécifiques du texte. 
-- use_scribble : permet de disposer de crayons pour écrire/intéragir sur les slides
-- embed_xaringan : Intégration à Rmarkdown
+- ***tile_view*** : vision étendue des slides (appuyer sur ***o*** dans la slide pour faire apparaître)
+- ***use_editable*** : permet de rendre une slide éditable (## .can-edit[You can edit this slide title]). Possible de conserver les modifications. Conseillé de ne permettre la modifications que sur des parties très spécifiques du texte. 
+- ***use_scribble*** : permet de disposer de crayons pour écrire/intéragir sur les slides
+- ***embed_xaringan*** : Intégration à Rmarkdown
 ]
 .pull-right[
 
@@ -272,6 +274,24 @@ xaringanExtra::use_tile_view()
 
 ---
 
+## Aller plus loin : xaringanExtra
+
+.pull-left[
+# Tile view 
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringan_tile_view.png", dpi=150)
+```
+]
+.pull-right[
+# Editable
+
+![Une slide éditable](https://raw.githubusercontent.com/gadenbuie/xaringanExtra/master/man/figures/editable.gif)
+
+]
+
+---
+
 ## Aller plus loin : xaringanthemer
 
 .pull-left[
@@ -279,7 +299,7 @@ xaringanExtra::use_tile_view()
 - permet de paramétrer le thème de sa présentation rapidement.
  - possibilité d'utiliser un des thèmes par défaut
  - possibilité de faire correspondre à un thème en particulier
-
+ 
 - Liste des thèmes disponibles ici : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#themes-1
 
 - Liste des paramètres des thèmes : https://pkg.garrickadenbuie.com/xaringanthemer/articles/xaringanthemer.html#theme-settings-1
@@ -306,16 +326,63 @@ style_mono_accent(
 
 ---
 
-## Aller plus loin : trucs et astuces
+class: center
 
-Raccourcis clavier : https://bookdown.org/yihui/rmarkdown/xaringan-key.html
+## Aller plus loin : xaringanthemer
 
-Rendu automatique : xaringan::inf_mr()
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringanthemer_mono_dark.png", dpi=150)
+```
+
+````md
+
+```{r xaringan-themer-example, include=FALSE, warning=FALSE, eval=TRUE}`r ''`
+library(xaringanthemer)
+style_mono_dark(base_color = "#cbf7ed")
+```
+
+````
 
 ---
+
+## Aller plus loin : xaringanthemer
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/xaringanthemer_mono_light.png", dpi=150)
+```
+
+````md
+
+```{r xaringan-themer-example, include=FALSE, warning=FALSE, eval=TRUE}`r ''`
+library(xaringanthemer)
+style_mono_light(base_color = "#23395b")
+```
+
+````
+
+---
+
+## Aller plus loin : raccourcis clavier
+
+Lorsque vous êtes sur une slide, vous pouvez utiliser l'un des raccourcis clavier suivants : 
+
+- Slide suivante : ```Flèche → ou ↓```
+- Slide précédente : ```md Flèche ← ou ↑```
+- Première slide : ```Bouton début ↖```
+- Dernière slide : ```md Bouton Fin```
+- Slide n°x :  ```Appuyer sur un numéro puis Entrer```
+- Inverser slide :  ```Bouton M```
+- Plein écran : ```Bouton F```
+- Liste des raccourcis : ```Bouton H```
+
+
+---
+
 class: inverse, center, middle
 # A vous de jouer `r emo::ji("pen")`
+
 ---
+
 # A vous de jouer `r emo::ji("pen")`  
 
 .pull-left[
