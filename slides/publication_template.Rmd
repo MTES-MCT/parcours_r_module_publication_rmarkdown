@@ -117,6 +117,8 @@ class: center, middle
 
 Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, ...) ou de type de rendu (diaporama, rapport, livre, note, cv, ...).
 
+Tous ces formats disposent de gabarits prédéfinis permettant de structurer rapidement vos projets.
+
 ---
 
 # Déroulé
@@ -192,12 +194,12 @@ knitr::include_graphics("www/bookdown.gif")
 ---
 ## La structure du projet
 
-Quand vous créé un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants : 
+Quand vous créz un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants : 
 
 .fl.w-70.pa2[
 - `index.Rmd`, le seul fichier Rmarkdown qui contient comme usuellement un yaml en entête. C'est le premier chapitre de votre livre.
 
-- `01-intro.Rmd` à `06-references.Rmd` des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier comment par le titre du chapitre.
+- `01-intro.Rmd` à `06-references.Rmd` sont les fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est d'un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier commence par le titre du chapitre.
 
 - `_bookdown.yml` Un fichier de configuration de votre document bookdown.
 
@@ -276,7 +278,7 @@ rmd_files: ["index.Rmd", "01-intro.Rmd", "05-summary.Rmd"]
 .fl.w-50.pa2[
 
 
-Le fichier `_output.yml` est utilisé pour spécifier les type de format de sortie (pdf, html...) et les options relatives à ces formats.
+Le fichier `_output.yml` est utilisé pour spécifier les types de format de sortie (pdf, html...) et les options relatives à ces formats.
 
 
 Pour le format html, c'est là par exemple que vous pouvez spécifier entre autre : 
@@ -308,7 +310,7 @@ bookdown::gitbook:
 - Vous pouvez exclure un chapitre de la numérotation, en rajoutant `{-}` devant son nom dans le fichier Rmd.
 
 - Vous pouvez structurer vos chapitres en partie. 
-Pour commencer une partie rajouter `# ( PART) Nom de votre partie {-}` devant un chapitre.
+Pour commencer une partie rajouter `# (PART) Nom de votre partie {-}` devant un chapitre.
 
 ---
 
@@ -344,7 +346,7 @@ knitr::include_graphics("https://user-images.githubusercontent.com/163582/519427
 
 Ces spécifications visent à pouvoir réaliser des documents prêt pour l'impression avec les technologies du web (html, css, js).
 
-Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraimente reconnues par les principaux navigateurs. D'où le besoin de cette bibliothèque javascrit pour pouvoir les mettre en oeuvre.
+Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraiment reconnues par les principaux navigateurs. D'où le besoin de cette bibliothèque javascript pour pouvoir les mettre en oeuvre.
 ]
 
 .fl.w-30.pa2[
@@ -367,7 +369,7 @@ install.packages('rstudio/pagedown')
 
 Depuis Rstudio, cela vous apporte un nouveau type de document rmarkdown, accessible depuis `File -> New File -> Rmarkdown... -> From template -> Paged HTML document`.
 
-Une fois celui ci créé, vous pouvez cliquer sur knit de l'interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
+Une fois celui-ci créé, vous pouvez cliquer sur knit de l'interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
 ]
 .fl.w-60.pa2[
 ```{r, echo=FALSE}
@@ -569,7 +571,7 @@ knitr::include_graphics("www/clear_all_viewer_item.png")
 ```
 ]
 ]
----
+
 ---
 #### Configurer votre document pagedown
 # Modifier le CSS
@@ -607,7 +609,6 @@ knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/u
 
 .fl.w-50.pa2[
 - `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
-- `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
 - `paged_grid::front_img` et `paged_grid::back_img` vous permettent de choisir deux images pour la première et la quatrième de couverture.
 - `main-color` et `secondary-color` vous permette de choisir les couleurs principales et secondaires de votre document.
 - `main-font` et `header-font` vous permettent de choisir une police de caractère pour le texte et vos titres. Si `google-font` est à TRUE, vous pouvez sélectionner toute police disponible sur google font.
@@ -635,4 +636,4 @@ header-font: "Open Sans"
 
 ```
 ]
----
+
