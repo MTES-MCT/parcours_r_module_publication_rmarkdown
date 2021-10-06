@@ -5,7 +5,7 @@ description: |
 site: distill::distill_website
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(gouvdown.fonts)
 # Learn more about creating websites with Distill at:
@@ -41,7 +41,7 @@ Introduction
 ::::{.home-card}
 :::{.home-card-img}
 ```{r, fig.link = "atelier2.html"}
-knitr::include_graphics("slides/www/parametres.png", dpi=200)
+knitr::include_graphics("slides/www/param_premier_rapport.png", dpi=200)
 ```
  
 :::
