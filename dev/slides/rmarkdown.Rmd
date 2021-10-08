@@ -60,21 +60,20 @@ xaringanExtra::use_tachyons()
 library(metathis)
 meta() %>%
   meta_general(
-    description = "Aprendre comment intégrer un dataset dans votre package.",
+    description = "Une introduction à RMarkdown",
     generator = "xaringan et remark.js"
-  ) %>% 
-  meta_name("github-repo" = "maeltheuliere/ateliers_rpackage") %>% 
+  ) %>%
+  meta_name("github-repo" = "MTES-MCT/parcours_r_module_publication_rmarkdown") %>%
   meta_social(
-    title = "Créer son premier package R - Rajouter un dataset dans votre package",
-    url = "https://maeltheuliere.github.io/ateliers_rpackage/atelier3.html",
-    image = "https://maeltheuliere.github.io/ateliers_rpackage/slides/www/slide3-card.png",
-    image_alt = "Diapo titre du diaporama rajouter un dataset dans votre package",
+    title = "Une introduction à RMarkdown",
+    url = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/atelier1.html",
+    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/rmarkdown.png",
+    image_alt = "Diapo titre du diaporama une introduction à RMarkdown",
     og_type = "website",
-    og_author = "Maël THEULIERE",
+    og_author = "Maël THEULIERE - Marouane ZELLOU",
     twitter_card_type = "summary_large_image"
   )
 ```
-
 ```{r xaringanExtra-clipboard, echo=FALSE, eval=TRUE}
 htmltools::tagList(
   xaringanExtra::use_clipboard(
