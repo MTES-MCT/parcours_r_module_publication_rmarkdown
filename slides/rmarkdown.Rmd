@@ -67,7 +67,7 @@ meta() %>%
   meta_social(
     title = "Une introduction à RMarkdown",
     url = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/atelier1.html",
-    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/rmarkdown.png",
+    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/card-rmarkdown.png",
     image_alt = "Diapo titre du diaporama une introduction à RMarkdown",
     og_type = "website",
     og_author = "Maël THEULIERE - Marouane ZELLOU",
