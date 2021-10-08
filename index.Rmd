@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = FALSE)
 library(gouvdown.fonts)
 # Learn more about creating websites with Distill at:
 # https://rstudio.github.io/distill/website.html
+library(htmltools)
+source("R/create_proj_card.R")
 
 ```
 
@@ -22,53 +24,24 @@ library(gouvdown.fonts)
 ## Déroulé
 
 
-:::::{.home-card-container}
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier1.html"}
-knitr::include_graphics("slides/www/rmarkdown.png", dpi=200)
-```
- 
-:::
-:::{.home-card-box}
-Introduction
-:::
-::::
-:::::
+## Déroulé
 
-
-:::::{.home-card-container}
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier2.html"}
-knitr::include_graphics("slides/www/param_premier_rapport.png", dpi=200)
-```
- 
-:::
-:::{.home-card-box}
-Paramétrer un rapport
-:::
-::::
-:::::
-
-:::::{.home-card-container}
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier2.html"}
-knitr::include_graphics("slides/www/parametres.png", dpi=200)
-```
- 
-:::
-:::{.home-card-box}
-Découvrir les principaux templates Rmarkdown adaptés aux publications
-:::
-::::
-:::::
-
-:::::{.home-card-container}
-::::{.home-card}
-:::{.home-card-img}
-```{r, fig.link = "atelier2.html"}
-knitr::include_graphics("slides/www/templatespublications.png", dpi=200)
-```
- 
+```{r}
+create_proj_card(
+  img_src = "slides/www/card-rmarkdown.png",
+  url = "atelier1.html",
+  title = "Atelier 1 : introduction à Rmarkdown",
+  text = "Comprendre ce qu'est Rmarkdown"
+)
+create_proj_card(
+  img_src = "slides/www/card-parametres.png",
+  url = "atelier2.html",
+  title = "Atelier 2 : paramétrer un rapport Rmarkdown",
+  text = "Apprendre comment paramétrer un rapport"
+)
+create_proj_card(
+  img_src = "slides/www/card-templatespublications.png",
+  url = "atelier3.html",
+  title = "Atelier 3 : Découvrir les templates adaptés aux publications",
+  text = "Découvrir bookdown, pagedown et Officer"
+)
