@@ -45,7 +45,7 @@ jobs:
 
       - name: Build slides png
         run: |
-          R -e 'source("R/screenshot_share_image.R"); purrr::map(list.files(path = "slides",pattern = ".Rmd",full.names = TRUE), ~screenshot_share_image(.x, path_image = xfun::with_ext(paste0(.x,"-card"),"png")))'
+          R -e 'source("R/screenshot_share_image.R"); purrr::map(list.files(path = "slides",pattern = ".Rmd",full.names = TRUE), ~screenshot_share_image(.x, path_image = xfun::with_ext(paste0(xfun::sans_ext(.x),"-card"),"png")))'
           find slides/ -type f -name "*.png" -exec mv {} slides/www/ \;
       - name: Build bookdown
         run: |
