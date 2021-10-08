@@ -28,21 +28,21 @@ source("R/create_proj_card.R")
 
 ```{r}
 create_proj_card(
-  img_src = "slides/www/card-rmarkdown.png",
+  img_src = "slides/www/rmarkdown-card.png",
   url = "atelier1.html",
   title = "Atelier 1 : introduction à Rmarkdown",
   text = "Comprendre ce qu'est Rmarkdown",
   text2=""
 )
 create_proj_card(
-  img_src = "slides/www/card-parametres.png",
+  img_src = "slides/www/parametres-card.png",
   url = "atelier2.html",
   title = "Atelier 2 : paramétrer un rapport Rmarkdown",
   text = "Apprendre comment paramétrer un rapport",
   text2=""
 )
 create_proj_card(
-  img_src = "slides/www/card-templatespublications.png",
+  img_src = "slides/www/templatespublications-card.png",
   url = "atelier3.html",
   title = "Atelier 3 : Découvrir les templates adaptés aux publications",
   text = "Découvrir bookdown, pagedown et Officer",

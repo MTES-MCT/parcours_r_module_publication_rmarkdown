@@ -75,7 +75,7 @@ meta() %>%
   meta_social(
     title = "Les rapports paramétrés avec RMarkdown",
     url = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/atelier2.html",
-    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/card-parametres.png",
+    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/parametres-card.png",
     image_alt = "Diapo titre du diaporama mes rapports paramétrés avec RMarkdown",
     og_type = "website",
     og_author = "Maël THEULIERE - Marouane ZELLOU",

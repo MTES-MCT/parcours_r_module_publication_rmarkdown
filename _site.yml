@@ -22,3 +22,4 @@ navbar:
 output:
   distill::distill_article:
     theme: theme.css
+    css: card.css
