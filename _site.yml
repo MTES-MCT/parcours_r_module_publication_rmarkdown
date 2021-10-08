@@ -15,6 +15,10 @@ navbar:
       menu:
         - text: "Introduction"
           href: atelier1.html
+        - text: "Rapport paramétrés"
+          href: atelier2.html
+        - text: "Les templates Rmarkdown pour les publications"
+          href: atelier3.html
 output:
   distill::distill_article:
     theme: theme.css

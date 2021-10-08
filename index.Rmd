@@ -51,3 +51,24 @@ Paramétrer un rapport
 ::::
 :::::
 
+:::::{.home-card-container}
+::::{.home-card}
+:::{.home-card-img}
+```{r, fig.link = "atelier2.html"}
+knitr::include_graphics("slides/www/parametres.png", dpi=200)
+```
+ 
+:::
+:::{.home-card-box}
+Découvrir les principaux templates Rmarkdown adaptés aux publications
+:::
+::::
+:::::
+
+:::::{.home-card-container}
+::::{.home-card}
+:::{.home-card-img}
+```{r, fig.link = "atelier2.html"}
+knitr::include_graphics("slides/www/templatespublications.png", dpi=200)
+```
+ 
