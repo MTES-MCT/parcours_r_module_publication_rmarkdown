@@ -67,7 +67,7 @@ meta() %>%
   meta_social(
     title = "Découvrir les principaux templates Rmarkdown adaptés aux publications",
     url = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/atelier3.html",
-    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/card-templatespublications.png",
+    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/templatespublications-card.png",
     image_alt = "Diapo titre du diaporama découvrir les principaux templates Rmarkdown adaptés aux publications",
     og_type = "website",
     og_author = "Maël THEULIERE - Marouane ZELLOU",

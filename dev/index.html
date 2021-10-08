@@ -2403,8 +2403,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <style type="text/css">
+  
+  
+  .card {
+      color: #474747;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border-radius: 10px; 
+      margin: 16px 16px;
+      text-decoration: none;
+      display: flex;
+  }
+  
+  .card-body {
+    padding: 2px 16px;
+  }
+  
+  .card-img {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    border-radius: 30px;
+  }
+  
+  .card-footer {
+    background-color: #000;
+    color: white;
+    text-align: right;
+    padding-right: 5px;
+  }
+  
+  </style>
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="card.css" type="text/css"/>
 
 </head>
 
@@ -2464,7 +2498,7 @@ Ateliers
 <h2 id="déroulé-1">Déroulé</h2>
 <div class="layout-chunk" data-layout="l-body">
 <div class="card">
-<img class="card-img-top" src="slides/www/card-rmarkdown.png" style="width:300px;"/>
+<img class="card-img-top" src="slides/www/rmarkdown-card.png" style="width:300px;"/>
 <div class="card-body">
 <h4>
 <a href="atelier1.html">Atelier 1 : introduction à Rmarkdown</a>
@@ -2477,7 +2511,7 @@ Comprendre ce qu'est Rmarkdown
 </div>
 </div>
 <div class="card">
-<img class="card-img-top" src="slides/www/card-parametres.png" style="width:300px;"/>
+<img class="card-img-top" src="slides/www/parametres-card.png" style="width:300px;"/>
 <div class="card-body">
 <h4>
 <a href="atelier2.html">Atelier 2 : paramétrer un rapport Rmarkdown</a>
@@ -2490,7 +2524,7 @@ Apprendre comment paramétrer un rapport
 </div>
 </div>
 <div class="card">
-<img class="card-img-top" src="slides/www/card-templatespublications.png" style="width:300px;"/>
+<img class="card-img-top" src="slides/www/templatespublications-card.png" style="width:300px;"/>
 <div class="card-body">
 <h4>
 <a href="atelier3.html">Atelier 3 : Découvrir les templates adaptés aux publications</a>
