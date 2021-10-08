@@ -5,7 +5,21 @@
       "title": "Introduction",
       "author": [],
       "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre ce qu’est Rmarkdown.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
-      "last_modified": "2021-10-06T13:56:20+00:00"
+      "last_modified": "2021-10-08T07:42:58+00:00"
+    },
+    {
+      "path": "atelier2.html",
+      "title": "Paramétrage",
+      "author": [],
+      "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre comment paramétrer un rapport.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
+      "last_modified": "2021-10-08T07:42:58+00:00"
+    },
+    {
+      "path": "atelier3.html",
+      "title": "Les templates adaptés aux publications",
+      "author": [],
+      "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre les principaux templates adaptés aux publications.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
+      "last_modified": "2021-10-08T07:42:59+00:00"
     },
     {
       "path": "index.html",
@@ -13,7 +27,7 @@
       "description": "Ce site présente les supports pour la formation rmarkdown du MTES\n",
       "author": [],
       "contents": "\n⚠️ Site en construction ⚠️\nLe document de référence\nLe document de référence de la formation\nDéroulé\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\nParamétrer un rapport\n\n\n\n\n\n\n",
-      "last_modified": "2021-10-06T13:56:20+00:00"
+      "last_modified": "2021-10-08T07:42:59+00:00"
     }
   ],
   "collections": []
