@@ -2,10 +2,6 @@
 title: "Module 6 - Publications reproductibles avec RMarkdown"
 author: "Groupe des référents R"
 date: '`r format(Sys.time(), "%d %B %Y")`'
-output:
-  html_document: default
-  word_document: default
-  pdf_document: default
 ---
 
 ```{r init, include=FALSE}
