@@ -5,29 +5,29 @@
       "title": "Introduction",
       "author": [],
       "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre ce qu’est Rmarkdown.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
-      "last_modified": "2021-10-08T08:08:34+00:00"
+      "last_modified": "2021-10-08T08:36:54+00:00"
     },
     {
       "path": "atelier2.html",
       "title": "Paramétrage",
       "author": [],
       "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre comment paramétrer un rapport.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
-      "last_modified": "2021-10-08T08:08:34+00:00"
+      "last_modified": "2021-10-08T08:36:55+00:00"
     },
     {
       "path": "atelier3.html",
       "title": "Les templates adaptés aux publications",
       "author": [],
       "contents": "\n⚠️ Site en construction ⚠️\nObjectifs\nCet atelier permet de comprendre les principaux templates adaptés aux publications.\nsupports\ndiaporama\n\n\n\nfitvids('.shareagain', {players: 'iframe'});\n\n\n\n\n",
-      "last_modified": "2021-10-08T08:08:35+00:00"
+      "last_modified": "2021-10-08T08:36:56+00:00"
     },
     {
       "path": "index.html",
       "title": "Publications reproductibles avec RMarkdown",
       "description": "Ce site présente les supports pour la formation rmarkdown du MTES\n",
       "author": [],
-      "contents": "\n⚠️ Site en construction ⚠️\nLe document de référence\nLe document de référence de la formation\nDéroulé\n\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\n\n\n\n\n\n\n\nParamétrer un rapport\n\n\n\n\n\n\n\n\n\n\n\nDécouvrir les principaux templates Rmarkdown adaptés aux publications\n\n\n\n:::::{.home-card-container} ::::{.home-card} :::{.home-card-img}\n\n\n\n\n\n\n",
-      "last_modified": "2021-10-08T08:08:36+00:00"
+      "contents": "\n⚠️ Site en construction ⚠️\nLe document de référence\nLe document de référence de la formation\nDéroulé\nDéroulé\n\n\n\n\nAtelier 1 : introduction à Rmarkdown\n\n\nComprendre ce qu'est Rmarkdown\n\n\n\n\n\n\nAtelier 2 : paramétrer un rapport Rmarkdown\n\n\nApprendre comment paramétrer un rapport\n\n\n\n\n\n\nAtelier 3 : Découvrir les templates adaptés aux publications\n\n\nDécouvrir bookdown, pagedown et Officer\n\n\n\n\n\n\n\n",
+      "last_modified": "2021-10-08T08:36:57+00:00"
     }
   ],
   "collections": []
