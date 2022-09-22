@@ -6,8 +6,4 @@
 renv.lock
 renv/
 *.Rproj
-_book
-_bookdown_files
-book
-docs/
-**.html
+
