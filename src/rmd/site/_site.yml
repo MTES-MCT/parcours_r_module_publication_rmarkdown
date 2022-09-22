@@ -2,6 +2,11 @@ name: "Publications reproductibles avec RMarkdown"
 title: "Publications reproductibles avec RMarkdown"
 description: |
   Supports de la formation à Rmarkdown du MTES - MCTRCT
+output_dir: "../../../build"
+output:
+  distill::distill_article:
+    theme: assets/css/theme.css
+    css: assets/css/card.css
 navbar:
   right:
     - text: "Home"
@@ -16,8 +21,9 @@ navbar:
           href: atelier2.html
         - text: "Les templates Rmarkdown pour les publications"
           href: atelier3.html
-output_dir: "../../../build"
-output:
-  distill::distill_article:
-    theme: assets/css/theme.css
-    css: assets/css/card.css
+    - text: "Exemples"
+      menu:
+        - text: "Essai n°1"
+          href: report_examples/covid-report.html
+        - text: "Essai n°2"
+          href: report_examples/covid-report2.html

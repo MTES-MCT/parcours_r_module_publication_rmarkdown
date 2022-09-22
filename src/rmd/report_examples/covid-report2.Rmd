@@ -29,7 +29,6 @@ titre <- data %>%
   filter(date == max(date))
 titre_valeur <- format(titre$vaccines, big.mark = " ")
 titre_date <- format(titre$date,format = "%A %d %B %Y")
-
 ```
 
 ---
@@ -39,11 +38,23 @@ title: "Rapport Covid 19 - `r titre_valeur` personnes vaccinées au `r titre_dat
 ```{r viz}
 data %>% 
   filter(administrative_area_level_1 == params$country_name,
-         year(date) == 2021) %>% 
+         lubridate::year(date) == 2021) %>%
+  mutate(
+    vacnb = as.numeric(people_vaccinated),
+    vacnbf = as.numeric(people_fully_vaccinated),
+  ) %>% 
+  tidyr::pivot_longer(cols=c(vacnb,vacnbf), names_to='type', values_to='nb') %>% 
   ggplot() + 
-  geom_line(aes(x = date, y = vaccines)) + 
-  theme_minimal() + 
-  scale_y_continuous(labels = scales::number_format(big.mark = " ")) + 
-  labs(title = glue::glue("Evolution du nombre de personnes vaccinées contre la COVID-19 en {params$country_name}"), y = NULL)
+    geom_line(aes(x = date, y = nb, color=type)) + 
+    theme_minimal() + 
+    scale_y_continuous(labels = scales::number_format(big.mark = " ")) +
+    labs(color='Personnes') +
+    scale_color_discrete(labels=c('vaccinées', 'totalement vaccinées')) +
+    labs(title = glue::glue("Evolution du nombre de personnes vaccinées contre la COVID-19 en {params$country_name}"), y = NULL)
 ```
 
+
+# Pour en savoir plus ...
+
+  - Les variables accessibles dans le modèle de données utilisé sont décrites en ligne dans le [dictionnaire des variables](https://covid19datahub.io/articles/docs.html).
+  - Ainsi que la présentation du 'package' [COVID19](https://rviews.rstudio.com/2021/12/08/the-r-package-covid19/)
