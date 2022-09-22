@@ -19,26 +19,27 @@ library(lubridate)
 library(COVID19)
 data <- covid19()
 
+
 ```
 
 ```{r titre, echo = FALSE}
 titre <- data %>% 
   filter(administrative_area_level_1 == params$country_name,
-         !is.na(vaccines)
+         !is.na(people_fully_vaccinated)
          ) %>% 
   filter(date == max(date))
-titre_valeur <- format(titre$vaccines, big.mark = " ")
+titre_valeur <- format(titre$people_fully_vaccinated, big.mark = " ")
 titre_date <- format(titre$date,format = "%A %d %B %Y")
 ```
 
 ---
-title: "Rapport Covid 19 - `r titre_valeur` personnes vaccinées au `r titre_date` en `r params$country_name`"
+title: "Rapport Covid 19 - `r titre_valeur` personnes présentant un schéma de vaccination complet au `r titre_date` en `r params$country_name`"
 ---
 
 ```{r viz}
 data %>% 
   filter(administrative_area_level_1 == params$country_name,
-         lubridate::year(date) == 2021) %>%
+         lubridate::year(date) > 2020) %>%
   mutate(
     vacnb = as.numeric(people_vaccinated),
     vacnbf = as.numeric(people_fully_vaccinated),
