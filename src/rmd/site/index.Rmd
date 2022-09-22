@@ -12,7 +12,6 @@ library(gouvdown.fonts)
 # https://rstudio.github.io/distill/website.html
 library(htmltools)
 source("R/create_proj_card.R")
-
 ```
 
 `r emo::ji("warning")` Site en construction `r emo::ji("warning")`
@@ -28,21 +27,21 @@ source("R/create_proj_card.R")
 
 ```{r}
 create_proj_card(
-  img_src = "slides/www/rmarkdown-card.png",
+  img_src = "assets/img/rmarkdown-card.png",
   url = "atelier1.html",
   title = "Atelier 1 : introduction à Rmarkdown",
   text = "Comprendre ce qu'est Rmarkdown",
   text2=""
 )
 create_proj_card(
-  img_src = "slides/www/parametres-card.png",
+  img_src = "assets/img/parametres-card.png",
   url = "atelier2.html",
   title = "Atelier 2 : paramétrer un rapport Rmarkdown",
   text = "Apprendre comment paramétrer un rapport",
   text2=""
 )
 create_proj_card(
-  img_src = "slides/www/templatespublications-card.png",
+  img_src = "assets/img/templatespublications-card.png",
   url = "atelier3.html",
   title = "Atelier 3 : Découvrir les templates adaptés aux publications",
   text = "Découvrir bookdown, pagedown et Officer",
