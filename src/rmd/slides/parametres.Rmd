@@ -4,8 +4,7 @@ author: "Maël THEULIERE"
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    css: ["xaringan-themer.css", "slide-themer.css"]
+    css: ["xaringan-themer.css", "assets/css/slide-themer.css"]
     self_contained: true
     seal: false
     nature:
@@ -106,7 +105,7 @@ class: center, middle
 
 .fl.w-40.pa2[
 ```{r, include=TRUE,echo=FALSE}
-knitr::include_graphics("www/rmarkdownlogo.png",dpi = 100)
+knitr::include_graphics("assets/img/parametres/rmarkdownlogo.png",dpi = 100)
 ```
 ]
 
@@ -128,7 +127,7 @@ Un rapport rmarkdown peut prendre en entrée des *paramètres* à déclarer dans
 Par exemple le rapport ci contre permet de paramétrer un rapport sur la covid 19 en sélectionnant un pays.
 
 ```{r, echo = FALSE, out.width='80%'}
-knitr::include_graphics("www/param_premier_rapport.png")
+knitr::include_graphics("assets/img/parametres/param_premier_rapport.png")
 ```
 ---
 ## Comment déclarer les paramètres ?
@@ -168,7 +167,7 @@ render("covid-report.Rmd",
 .fl.w-50.pa2[
 
 ```{r, echo = FALSE}
-knitr::include_graphics("www/knit_with_parameters.png")
+knitr::include_graphics("assets/img/parametres/knit_with_parameters.png")
 ```
 ]
 ---
@@ -193,7 +192,7 @@ map(pays, ~render("covid-report.Rmd",
 ]
 .fl.w-50.pa2[
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
-knitr::include_graphics("www/purrr-render.png")
+knitr::include_graphics("assets/img/parametres/purrr-render.png")
 ```
 ]
 ---
@@ -217,7 +216,7 @@ title: "Rapport Covid 19 - `r params$country_name`"
 
 .fl.w-50.pa2[
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
-knitr::include_graphics("www/param-title.png")
+knitr::include_graphics("assets/img/parametres/param-title.png")
 ```
 ]
 ---
@@ -281,7 +280,7 @@ data %>%
 
 .fl.w-40.pa2[
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
-knitr::include_graphics("www/param-title2.png")
+knitr::include_graphics("assets/img/parametres/param-title2.png")
 ```
 ]
 
@@ -316,6 +315,6 @@ params:
 ```
 
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
-knitr::include_graphics("www/param-gui.gif")
+knitr::include_graphics("assets/img/parametres/param-gui.gif")
 ```
 ]

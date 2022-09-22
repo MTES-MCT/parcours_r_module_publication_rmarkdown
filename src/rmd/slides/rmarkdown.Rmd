@@ -5,8 +5,7 @@ author:
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    css: ["xaringan-themer.css", "slide-themer.css"]
+    css: ["xaringan-themer.css","assets/css/slide-themer.css"]
     self_contained: true
     seal: false
     nature:
@@ -97,7 +96,7 @@ class: center, middle
 
 .fl.w-40.pa2[
 ```{r, include=TRUE,echo=FALSE}
-knitr::include_graphics("www/rmarkdownlogo.png",dpi = 100)
+knitr::include_graphics("assets/img/rmarkdown/rmarkdownlogo.png",dpi = 100)
 ```
 ]
 
@@ -147,7 +146,7 @@ Cette lourdeur entraine :
 .pull-right[
 .shadow-1[
 ```{r, include=TRUE,echo=FALSE}
-knitr::include_graphics("www/writer.png")
+knitr::include_graphics("assets/img/rmarkdown/writer.png")
 ```
 ]
 ]
@@ -167,7 +166,7 @@ class: inverse,center, middle
 .pull-left[
 .shadow-1[
 ```{r, include=TRUE,echo=FALSE}
-knitr::include_graphics("www/html_rendu.png")
+knitr::include_graphics("assets/img/rmarkdown/html_rendu.png")
 ```
 ]
 ]
@@ -175,7 +174,7 @@ knitr::include_graphics("www/html_rendu.png")
 .pull-right[
 .shadow-1[
 ```{r, include=TRUE,echo=FALSE}
-knitr::include_graphics("www/html_source.png")
+knitr::include_graphics("assets/img/rmarkdown/html_source.png")
 ```
 ]
 ]
@@ -247,7 +246,7 @@ class: inverse,center, middle
 .pull-right[
 .shadow-3[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/rapport.png")
+knitr::include_graphics("assets/img/rmarkdown/rapport.png")
 ```
 ]
 ]
@@ -262,7 +261,7 @@ class: inverse,center, middle
 .pull-right[
 .shadow-3[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/bookdown.png")
+knitr::include_graphics("assets/img/rmarkdown/bookdown.png")
 ```
 ]
 ]
@@ -276,7 +275,7 @@ class: inverse,center, middle
 .pull-right[
 .shadow-3[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/diapo.png")
+knitr::include_graphics("assets/img/rmarkdown/diapo.png")
 ```
 ]
 ]
@@ -290,7 +289,7 @@ class: inverse,center, middle
 .pull-right[
 .shadow-3[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/website.png")
+knitr::include_graphics("assets/img/rmarkdown/website.png")
 ```
 ]
 ]
@@ -390,7 +389,7 @@ class: inverse, center, middle
 ]
 .pull-right[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/exo_md.png", dpi=150)
+knitr::include_graphics("assets/img/rmarkdown/exo_md.png", dpi=150)
 ```
 
 ]
@@ -502,7 +501,7 @@ class: inverse, center, middle
 ## Rmarkdown
 
 ```{r, echo=FALSE}
-knitr::include_graphics("www/rmarkdownlogo.png", dpi=200)
+knitr::include_graphics("assets/img/rmarkdown/rmarkdownlogo.png", dpi=200)
 ```
 
 ---
@@ -519,7 +518,7 @@ knitr::include_graphics("www/rmarkdownlogo.png", dpi=200)
 
 .fl.w-40.pa2.shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/rmakdown_code.png")
+knitr::include_graphics("assets/img/rmarkdown/rmakdown_code.png")
 ```
 ]
 .fl.w-10.pa2.f2.tc.b.green[
@@ -529,7 +528,7 @@ knitr::include_graphics("www/rmakdown_code.png")
 ]
 .fl.w-40.pa2.shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/rmakdown_render.png")
+knitr::include_graphics("assets/img/rmarkdown/rmakdown_render.png")
 ```
 ]
 ---
@@ -537,7 +536,7 @@ knitr::include_graphics("www/rmakdown_render.png")
 ## Decripter un fichier Rmarkdown
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd.png")
 ```
 ]
 ---
@@ -545,7 +544,7 @@ knitr::include_graphics("www/comprendre_rmd.png")
 ## Decripter un fichier Rmarkdown
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R.png")
 ```
 ]
 ---
@@ -553,7 +552,7 @@ knitr::include_graphics("www/comprendre_rmd_code_R.png")
 ## Decripter un fichier Rmarkdown
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R_md.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R_md.png")
 ```
 ]
 ---
@@ -561,7 +560,7 @@ knitr::include_graphics("www/comprendre_rmd_code_R_md.png")
 ## Decripter un fichier Rmarkdown
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R_md_yaml.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R_md_yaml.png")
 ```
 ]
 ---
@@ -569,7 +568,7 @@ knitr::include_graphics("www/comprendre_rmd_code_R_md_yaml.png")
 ## Decripter un fichier Rmarkdown
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R_md_yaml_knit.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R_md_yaml_knit.png")
 ```
 ]
 ---
@@ -587,7 +586,7 @@ C'est dans le YAML que vous aller définir :
 .pull-right[
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_yaml.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_yaml.png")
 ```
 ]
 ]
@@ -698,7 +697,7 @@ Les chunks sont gérés dans `{Rmarkdown}` par `{knitr}`. Il y a plus de 50 opti
 .pull-right[
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R.png")
 ```
 ]
 ]
@@ -725,7 +724,7 @@ knitr::opts_chunk$set(
 .pull-right[
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_code_R.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R.png")
 ```
 ]
 ]
@@ -751,7 +750,7 @@ Et cela s'affichera comme cela :
 .pull-right[
 .shadow-1[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/comprendre_rmd_md.png")
+knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_md.png")
 ```
 ]
 ]

@@ -5,8 +5,7 @@ author:
 date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    lib_dir: libs
-    css: ["xaringan-themer.css", "slide-themer.css"]
+    css: ["xaringan-themer.css", "assets/css/slide-themer.css"]
     self_contained: true
     seal: false
     nature:
@@ -98,7 +97,7 @@ class: center, middle
 
 .fl.w-40.pa2[
   ```{r, include=TRUE,echo=FALSE}
-  knitr::include_graphics("www/rmarkdownlogo.png",dpi = 100)
+  knitr::include_graphics("assets/img/templatespublications/rmarkdownlogo.png",dpi = 100)
   ```
 ]
 
@@ -186,7 +185,7 @@ install.packages('bookdown')
 .fl.w-60.pa2[
 
 ```{r, echo=FALSE}
-knitr::include_graphics("www/bookdown.gif")
+knitr::include_graphics("assets/img/templatespublications/bookdown.gif")
 ```
 ]
 ---
@@ -371,7 +370,7 @@ Une fois celui ci créé, vous pouvez cliquer sur knit de l'interface de Rstudio
 ]
 .fl.w-60.pa2[
 ```{r, echo=FALSE}
-knitr::include_graphics("www/pagedown.gif")
+knitr::include_graphics("assets/img/templatespublications/pagedown.gif")
 ```
 ]
 ---
@@ -554,7 +553,7 @@ output:
 .fl.w-40.pa2[
 
 ```{r, echo=FALSE}
-knitr::include_graphics("www/show_new_window.png")
+knitr::include_graphics("assets/img/templatespublications/show_new_window.png")
 ```
 ]
 ]
@@ -565,7 +564,7 @@ knitr::include_graphics("www/show_new_window.png")
 .fl.w-40.pa2[
 
 ```{r, echo=FALSE}
-knitr::include_graphics("www/clear_all_viewer_item.png")
+knitr::include_graphics("assets/img/templatespublications/clear_all_viewer_item.png")
 ```
 ]
 ]
