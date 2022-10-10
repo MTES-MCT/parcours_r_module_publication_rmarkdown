@@ -1,126 +1,21 @@
----
-title: "Les templates de type document"
-author:
-  - "Maël THEULIERE"
-date: '`r Sys.Date()`'
-output:
-  xaringan::moon_reader:
-    css: ["xaringan-themer.css", "assets/css/slide-themer.css"]
-    self_contained: true
-    seal: false
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      ratio: 16:9
-      slideNumberFormat: |
-        <div class="progress-bar-container">
-        <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
-        </div>
-        </div>
----
-
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(echo = TRUE, eval=TRUE, warning = FALSE,message = FALSE,error = FALSE)
-```
-
-```{r xaringan-themer, include=FALSE, warning=FALSE, eval=TRUE}
-library(showtext)
-library(pagedown)
-library(xaringanthemer)
-style_mono_accent(
-  base_color = "#000091",
-  text_font_family = 'Marianne',
-  code_font_family = 'Fira Code',
-  background_color = 'white',
-  title_slide_text_color = "white"
-)
-```
 
 
-```{r xaringanpanelset, echo=FALSE, eval=TRUE}
-xaringanExtra::use_panelset(in_xaringan = TRUE)
-```
-
-```{r share-again, echo=FALSE, eval=TRUE}
-xaringanExtra::use_share_again()
-```
-
-```{r xaringan-tile-view, echo=FALSE, eval=TRUE}
-xaringanExtra::use_tile_view()
-```
-
-```{r xaringan-tachyons, echo=FALSE, eval=TRUE}
-xaringanExtra::use_tachyons()
-```
-
-```{r meta, echo=FALSE, eval=TRUE}
-library(metathis)
-meta() %>%
-  meta_general(
-    description = "Découvrir les principaux templates Rmarkdown adaptés aux publications",
-    generator = "xaringan et remark.js"
-  ) %>%
-  meta_name("github-repo" = "MTES-MCT/parcours_r_module_publication_rmarkdown") %>%
-  meta_social(
-    title = "Découvrir les principaux templates Rmarkdown adaptés aux publications",
-    url = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/atelier3.html",
-    image = "https:/MTES-MCT.github.io/parcours_r_module_publication_rmarkdown/slides/www/templatespublications-card.png",
-    image_alt = "Diapo titre du diaporama découvrir les principaux templates Rmarkdown adaptés aux publications",
-    og_type = "website",
-    og_author = "Maël THEULIERE - Marouane ZELLOU",
-    twitter_card_type = "summary_large_image"
-  )
-```
-
-```{r xaringanExtra-clipboard, echo=FALSE, eval=TRUE}
-htmltools::tagList(
-  xaringanExtra::use_clipboard(
-    button_text = "<i class=\"fa fa-clipboard\"></i>",
-    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
-    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
-  ),
-  rmarkdown::html_dependency_font_awesome()
-)
-```
 
 
-```{r xaringan-extra-styles, include=FALSE, warning=FALSE}
-xaringanExtra::use_extra_styles(
-  hover_code_line = TRUE,
-  mute_unhighlighted_code = TRUE
-)
-```
+ Formation publications reproductibles avec RMarkdown
 
-class: center, middle
+ 2 - Les principaux templates pour créer des publications
 
-.fl.w-40.pa2[
-  ```{r, include=TRUE,echo=FALSE}
-  knitr::include_graphics("assets/img/templatespublications/rmarkdownlogo.png",dpi = 100)
-  ```
-]
 
-.fl.w-60.pa2[
 
-  .f3[Formation publications reproductibles avec] .yellow.f3[RMarkdown]
+ Maël THEULIERE - Marouane ZELLOU
 
-  .f1[2 - Les principaux templates pour créer des ] .f1[publications]
-]
-
-.tr[
-  .f4[Maël THEULIERE - Marouane ZELLOU]
-]
----
-# Introduction
 
 Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, ...) ou de type de rendu (diaporama, rapport, livre, note, cv, ...).
 
----
-
 # Déroulé
 
-.fl.w-third.pa2.tc[
+
 ## Bookdown
 
 
@@ -128,31 +23,26 @@ Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer d
 knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
 ```
 
-]
-.fl.w-third.pa2.tc[
+
+
 ## Pagedown
 
 ```{r, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
 ```
 
-]
-.fl.w-third.pa2.tc[
+
+
 ## Officer
 ```{r, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
 ```
 
-]
 
 
----
-class: inverse, center, middle
-# Bookdown
----
-## Bookdown
 
-.fl.w-60.pa2[
+
+
 Le format Bookdown permet de gérer des projets Rmarkdown plus large qu'un simple document de quelques pages.
 
 Par ailleurs, le format bookdown apporte plusieurs améliorations : 
@@ -162,15 +52,13 @@ Par ailleurs, le format bookdown apporte plusieurs améliorations :
 - Des fonctionnalités de mise en forme supplémentaires sont ajoutées, telles que les références croisées et la numérotation des figures, des équations et des tableaux.
 
 - Les documents peuvent être facilement exportés dans une gamme de formats adaptés à la publication (PDF, epub, HTML).
-]
-.fl.w-40.pa2.tc[
+
+
 ```{r, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
 ```
-]
----
-## Comment créer son premier bookdown
-.fl.w-40.pa2[
+
+
 
 Installer bookdown depuis le CRAN
 
@@ -181,19 +69,17 @@ install.packages('bookdown')
 - Depuis Rstudio, cela vous apporte un nouveau type de projet, accessible depuis `File -> New Project -> New Directory -> Book Project using bookdown`.
 
 - Une fois celui ci créé, vous pouvez cliquer sur `Build book` dans l'onglet `Build` de Rstudio. Cela vous compilera le document en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
-]
-.fl.w-60.pa2[
+
+
 
 ```{r, echo=FALSE}
 knitr::include_graphics("assets/img/templatespublications/bookdown.gif")
 ```
-]
----
-## La structure du projet
+
 
 Quand vous créé un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants : 
 
-.fl.w-70.pa2[
+
 - `index.Rmd`, le seul fichier Rmarkdown qui contient comme usuellement un yaml en entête. C'est le premier chapitre de votre livre.
 
 - `01-intro.Rmd` à `06-references.Rmd` des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier comment par le titre du chapitre.
@@ -205,8 +91,8 @@ Quand vous créé un projet bookdown, vous avez dans votre projet automatiquemen
 - `book.bib` un fichier de bibliographie au format [BibTeX](https://fr.wikipedia.org/wiki/BibTeX).
 
 - `preamble.tex` et `style.css` des fichiers de configuration de l'apparence de votre document pour sa version pdf (réalisé en LaTeX) et sa version html (réalisé en css).
-]
-.fl.w-30.pa2[
+
+
 
 ```md
 directory/
@@ -224,9 +110,7 @@ directory/
 ├──  README.md
 └──  style.css
 ```
-]
----
-## La structure du projet - index.Rmd
+
 
 La balise yaml du fichier `index.Rmd` contient des options spécifiques au format bookdown sur la gestion de la bibliographie.
 
@@ -241,11 +125,9 @@ biblio-style: apalike
 link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ```
----
-
 ## La structure du projet - _bookdown.yml
 
-.fl.w-50.pa2[
+
 
 Le fichier `_bookdown.yml` permet de spécifier des options de configuration supplémentaires pour construire le livre.
 
@@ -254,8 +136,8 @@ Par exemple :
 - changer le nom du fichier (`book_filename`)
 - franciser le préfixe devant le numéro du chapitre (`chapter_name`) ou le préfixe des tableau et des graphiques (`fig` et `tab`)
 - changer l'ordre de fusion des fichiers (`rmd_files`)
-]
-.fl.w-50.pa2[
+
+
 
 ```yaml
 book_filename: "mon_premier_bookdown"
@@ -268,11 +150,9 @@ language:
     tab: "Tableau "
 rmd_files: ["index.Rmd", "01-intro.Rmd", "05-summary.Rmd"]
 ```
-]
----
-## La structure du projet - _output.yml
 
-.fl.w-50.pa2[
+
+
 
 
 Le fichier `_output.yml` est utilisé pour spécifier les type de format de sortie (pdf, html...) et les options relatives à ces formats.
@@ -283,9 +163,9 @@ Pour le format html, c'est là par exemple que vous pouvez spécifier entre autr
 - la feuille de style css à utiliser
 - les textes inscrit en haut et en bas du menu de navigation
 - les options de partage sur les réseaux sociaux que vous voulez (si vous en voulez, vous pouvez aussi tous les désactiver avec l'option `sharing` ci contre)
-]
 
-.fl.w-50.pa2[
+
+
 ```yaml
 bookdown::gitbook:
   css: style.css
@@ -300,63 +180,52 @@ bookdown::gitbook:
     info: no
 ```
 
-]
----
-## Quelques trucs et à astuces
+
 
 - Vous pouvez exclure un chapitre de la numérotation, en rajoutant `{-}` devant son nom dans le fichier Rmd.
 
 - Vous pouvez structurer vos chapitres en partie. 
 Pour commencer une partie rajouter `# ( PART) Nom de votre partie {-}` devant un chapitre.
 
----
-
-class: inverse, center, middle
 
 # Pagedown
----
-
 ## Pagedown
 
-.fl.w-70.pa2[
+
 
 
 Pagedown est une implémentation pour Rmarkdown de [paged.js](https://www.pagedjs.org/), qui permet de réaliser des documents html paginés.
 
-]
 
-.fl.w-30.pa2[
+
+
 
 ```{r, echo=FALSE}
 knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
 ```
 
-]
 
----
 
 ## Paged.js
 
-.fl.w-70.pa2[
 
-[paged.js](https://www.pagedjs.org/) est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés](https://www.w3.org/TR/css-page-3/) du W3C.
+
+[paged.js](https://www.pagedjs.org/) est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés(https://www.w3.org/TR/css-page-3/) du W3C.
 
 Ces spécifications visent à pouvoir réaliser des documents prêt pour l'impression avec les technologies du web (html, css, js).
 
 Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraimente reconnues par les principaux navigateurs. D'où le besoin de cette bibliothèque javascrit pour pouvoir les mettre en oeuvre.
 ]
 
-.fl.w-30.pa2[
+
 
 
 ```{r, echo=FALSE}
 knitr::include_graphics("https://www.pagedmedia.org/wp-content/uploads/2018/12/pagedjs-logo.png")
 ```
-]
----
-# Comment créer son premier pagedown
 
-.fl.w-40.pa2[
+
+
 
 Pour installer pagedown depuis le CRAN : 
 
@@ -367,17 +236,15 @@ install.packages('rstudio/pagedown')
 Depuis Rstudio, cela vous apporte un nouveau type de document rmarkdown, accessible depuis `File -> New File -> Rmarkdown... -> From template -> Paged HTML document`.
 
 Une fois celui ci créé, vous pouvez cliquer sur knit de l'interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
-]
-.fl.w-60.pa2[
+
+
 ```{r, echo=FALSE}
 knitr::include_graphics("assets/img/templatespublications/pagedown.gif")
 ```
-]
----
-# La structure du yaml
 
 
-.fl.w-50.pa2[
+
+
 
 La structure du yaml est relativement proche d'un document Rmarkdown classique.
 
@@ -386,8 +253,8 @@ A noter toutefois une option utile à retenir, la balise `knit: pagedown::chrome
 Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout document html en pdf ou en format image. Elle utilise la technologie d'impression de google chrome.
 
 
-]
-.fl.w-50.pa2[
+
+
 
 ```yaml
 title: "A Multi-page HTML Document"
@@ -401,103 +268,91 @@ output:
 \# uncomment this line to produce HTML and PDF in RStudio:
 \#knit: pagedown::chrome_print
 ```
-]
 
----
-#### Configurer votre document pagedown
+
 # Configurer votre yaml
 
 Voici quelques options du yaml intéressantes à connaître : 
 
-.fl.w-100.pa2[
-.fl.w-30.pa2[
+
+
 ```md
 toc-title: sommaire
 ```
-]
 
-.fl.w-70.pa2[
+
+
 Pour modifier le nom du sommaire du document.
-]
-]
-.fl.w-100.pa2[
-.fl.w-30.pa2[
+
+
+
+
 ```md
 lot: true
 lot-title: "Tableaux"
 lof: true
 lof-title: "Graphiques"
 ```
-]
 
-.fl.w-70.pa2[
+
+
 Pour ajouter et configurer une liste de tableau et de graphique dans le sommaire. Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser `lot-unlisted: true`.
-]
-]
-.fl.w-100.pa2[
-.fl.w-30.pa2[
+
+
+
+
 ```md
 chapter_name: "Chapitre\\ "
 ```
-]
-.fl.w-70.pa2[
+
+
 Pour modifier le préfixe du titre du chapitre. Vous pouvez ensuite insérer un chapitre en utilisant `# Ceci est un titre de chapitre {.chapter}`
-]
-]
----
-#### Configurer votre document pagedown
+
+
 # Configurer votre yaml
 
 Voici quelques options du yaml intéressantes à connaître.
 
-.fl.w-100.pa2[
-.fl.w-30.pa2[
+
+
 ```md
 links-to-footnotes: true
 ```
+
+
+
+Cette option transforme automatiquement un lien url dans votre document en note de bas de page. Ainsi `[CRAN](https://cran.r-project.org/)` sera traduit comme `[CRAN^(https://cran.r-project.org/)`.
+
 ]
 
-.fl.w-70.pa2[
-Cette option transforme automatiquement un lien url dans votre document en note de bas de page. Ainsi `[CRAN](https://cran.r-project.org/)` sera traduit comme `[CRAN]^(https://cran.r-project.org/)`.
-]
-]
 
-.fl.w-100.pa2[
-.fl.w-30.pa2[
+
 ```md
----
-output:
   pagedown::html_paged:
     front_cover: !expr system.file("help","figures","lter_penguins.png",package = "palmerpenguins")
     back_cover: https://www.r-project.org/Rlogo.png
----
-```
-]
-.fl.w-70.pa2[
+
+
 Pour rajouter une image pour la première de couverture et la 4ème de couverture. On peut utiliser le prefix !expr pour insérer du code R créant en sortie une image.
-]
-]
 
 
----
-#### Configurer votre document pagedown
+
+
 # Quelques balises importantes à connaître
 
-.fl.w-100.pa2[
-.fl.w-40.pa2[
+
+
 `.page-break-before` et `.page-break-after` vous permettent d'insérer un saut de page.
-]
-.fl.w-60.pa2[
+
+
 ```md
 ### Nouveau chapitre après un saut de page {.page-break-before}
 ```
-]
-]
-.fl.w-100.pa2[
+
+
+
 `[Chapitre 1]` vous permet de rajouter un lien vers la section `Chapitre 1`.
-]
----
-#### Configurer votre document pagedown
+
 # Modifier le CSS
 
 Apprendre à customiser un document pagedown va vous demander d'investir sur l'apprentissage du CSS en général et de pagedjs en particulier pour construire un template ad hoc.
@@ -512,8 +367,6 @@ Quelques ressources pour apprendre le CSS :
 
 - [Le site du W3C](https://www.w3.org/Style/Examples/011/firstcss.fr.html)
 
----
-#### Configurer votre document pagedown
 # Modifier le CSS
 
 Voici déjà quelques recettes de base pour commencer à modifier votre document.
@@ -540,36 +393,32 @@ output:
     toc: true
     self_contained: false
 ```
----
-#### Configurer votre document pagedown
 # Modifier le CSS
 
 - Lancer dans la console `xaringan::inf_mr()`, qui permet de compiler un document Rmarkdown en ayant un aperçu live du rendu.
-.fl.w-100.pa2[
-.fl.w-60.pa2[
+
+
 
 - Appuyer ensuite sur `Show in new window` pour consulter le document sur votre navigateur par défaut.
-]
-.fl.w-40.pa2[
+
+
 
 ```{r, echo=FALSE}
 knitr::include_graphics("assets/img/templatespublications/show_new_window.png")
 ```
-]
-]
-.fl.w-100.pa2[
-.fl.w-60.pa2[
+
+
+
+
 - Puis sur `Clear all viewer item`, pour que vos modifications puisse s'afficher en live.
-]
-.fl.w-40.pa2[
+
+
 
 ```{r, echo=FALSE}
 knitr::include_graphics("assets/img/templatespublications/clear_all_viewer_item.png")
 ```
-]
-]
----
----
+
+
 #### Configurer votre document pagedown
 # Modifier le CSS
 
@@ -581,10 +430,8 @@ Les 3 fichiers correspondent aux éléments suivants :
 - `custom-page.css` correspond aux paramètres de la page (format de la page, orientation,...)
 - `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
 
----
-# Simplifier l'usage de {pagedown} avec {pagedreport}
 
-.fl.w-60.pa2[
+
 [`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css.
 
 Il n'est pas encore sur le cran, pour l'installer : 
@@ -592,31 +439,27 @@ Il n'est pas encore sur le cran, pour l'installer :
 ```{r, eval = FALSE}
 remotes::install_github("rfortherestofus/pagedreport)
 ```
-]
 
-.fl.w-40.pa2[
+
+
 ```{r, echo = FALSE}
 knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif")
 ```
-]
----
-# Simplifier l'usage de {pagedown} avec {pagedreport}
+
 
 `{pagedreport}` vous simplifie l'utilisation de pagedown en proposant trois templates avancés paramétrables via de nouvelles options à intégrer dans le yaml :
 
-.fl.w-50.pa2[
+
 - `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
 - `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
 - `paged_grid::front_img` et `paged_grid::back_img` vous permettent de choisir deux images pour la première et la quatrième de couverture.
 - `main-color` et `secondary-color` vous permette de choisir les couleurs principales et secondaires de votre document.
 - `main-font` et `header-font` vous permettent de choisir une police de caractère pour le texte et vos titres. Si `google-font` est à TRUE, vous pouvez sélectionner toute police disponible sur google font.
 
-]
 
-.fl.w-50.pa2[
+
+
 ```{yaml}
----
-title: "Vaccination contre la covid 19 en France"
 subtitle: "Au 1er juin 2021"
 author: "Guillaume RRRRRozier"
 date: "11 juin 2021"
@@ -630,8 +473,5 @@ secondary-color: "#000091"
 google-font: TRUE
 main-font: "Open Sans"
 header-font: "Open Sans"
----
-
 ```
-]
----
+
