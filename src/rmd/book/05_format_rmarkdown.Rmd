@@ -2,7 +2,7 @@
 
 La "cheatsheet" rmarkdown est uen aide précieuse pour débuter. Elle est accessible [sur le site de RStudio](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf) ou directement depuis RStudio :
 
-![](images/cheat_sheet.png)
+![](assets/img/cheat_sheet.png)
 
 
 
@@ -17,11 +17,11 @@ library (rmarkdown)
 
 Ensuite :
 
-![](images/new_rmarkdown.jpg)
+![](assets/img/new_rmarkdown.jpg)
 
 Puis :
 
-![](images/new_rmarkdown2.jpg)
+![](assets/img/new_rmarkdown2.jpg)
 
 Pour commencer simple, on choisit un format de sortie HTML.
 L'extension de ce type de fichier est `.Rmd`.
@@ -30,7 +30,7 @@ L'extension de ce type de fichier est `.Rmd`.
 
 Un fichier R Markdown est constitué de 3 éléments principaux.
 
-![](images/script.png)
+![](assets/img/script.png)
 
 L'en-tête, au format YAML, contient des métadonnées basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.). Il est délimité par deux séries de `---`.
 
@@ -42,11 +42,11 @@ L'en-tête est suivi du corps du document constitué de morceaux de code (les *c
 
 Dans l'IDE RStudio, le développeur dispose d'outils qui simplifient la production du fichier R Markdown (**si possible images à reprendre et à traduire**. Source : rmarkdown cheatsheet de 02/2016).
 
-![](images/rmd_dans_rstudio1.png)
+![](assets/img/rmd_dans_rstudio1.png)
 
 Le travail comprend les étapes suivantes :
 
-![](images/rmd_dans_rstudio2.png)
+![](assets/img/rmd_dans_rstudio2.png)
 
 
 
@@ -56,7 +56,7 @@ Le travail comprend les étapes suivantes :
 
 Les bases du langage sont très bien expliquées dans cet ouvrage :
 
-![](images/rmarkdown_definitive_guide_cover.png)
+![](assets/img/rmarkdown_definitive_guide_cover.png)
 
 Yihui Xie est le créateur du package `rmarkdown`.
 
@@ -210,7 +210,7 @@ On peut aussi utiliser la fonction `knitr::include_graphics` :
 
 ````
 ```{r eval=TRUE} `r ''`
-knitr::include_graphics("images/couleuvre.jpg")
+knitr::include_graphics("assets/img/couleuvre.jpg")
 ```
 ````
 Cette dernière méthode est préconisée quand le format de sortie n'est pas du html.
@@ -228,7 +228,7 @@ Par exemple `$S=\pi \cdot \dfrec{D^2}{4}$` donne $S=\pi \cdot \dfrac{D^2}{4}$
 
 On peut prévisualiser une équation en positionnant le curseur dans l'équation dans le script :
 
-![](images/latex.png)
+![](assets/img/latex.png)
 
 
 

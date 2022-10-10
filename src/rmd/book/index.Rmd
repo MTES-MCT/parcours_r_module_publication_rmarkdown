@@ -11,7 +11,7 @@ knitr::opts_chunk$set (echo = TRUE)
 
 # Introduction
 
-![](images/couleuvre.jpg)
+![](assets/img/couleuvre.jpg)
 
 <font size="2"> 
 *Crédit photographique Pascal Boulin*
@@ -77,7 +77,7 @@ R markdown permet de produire des sorties dans un grand nombre de formats. Quelq
    
 + Et même des livres : 
 
-![R for data science](images/r4ds.png)
+![R for data science](assets/img/r4ds.png)
 
 + divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
 
