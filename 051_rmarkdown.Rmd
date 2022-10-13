@@ -152,153 +152,153 @@ knitr::include_graphics("assets/img/rmarkdown/website.png")
 ```
 
 
-## Juste
+<!-- ## Juste -->
 
-## avec
+<!-- ## avec -->
 
-## markdown
+<!-- ## markdown -->
 
-## Les bases du markdown
+<!-- ## Les bases du markdown -->
 
 
-```md
-de *l'italique*
+<!-- ```md -->
+<!-- de *l'italique* -->
 
-du **gras**
+<!-- du **gras** -->
 
-de ***l'italique gras***
-```
+<!-- de ***l'italique gras*** -->
+<!-- ``` -->
 
 
 
 
-de *l'italique*
+<!-- de *l'italique* -->
 
-du **gras**
+<!-- du **gras** -->
 
-de ***l'italique gras***
+<!-- de ***l'italique gras*** -->
 
 
 
-```md
-# un titre 1
+<!-- ```md -->
+<!-- # un titre 1 -->
 
-## un titre 2
+<!-- ## un titre 2 -->
 
-### un titre 3
-```
+<!-- ### un titre 3 -->
+<!-- ``` -->
 
 
 
 
-# un titre 1
+<!-- # un titre 1 -->
 
-## un titre 2
+<!-- ## un titre 2 -->
 
-### un titre 3
+<!-- ### un titre 3 -->
 
 
 
-```md
-Une liste avec : 
+<!-- ```md -->
+<!-- Une liste avec :  -->
 
-- un item
-- un autre item
-- un dernier item
-```
+<!-- - un item -->
+<!-- - un autre item -->
+<!-- - un dernier item -->
+<!-- ``` -->
 
 
 
 
 
-Une liste avec : 
+<!-- Une liste avec :  -->
 
-- un item
-- un autre item
-- un dernier item
+<!-- - un item -->
+<!-- - un autre item -->
+<!-- - un dernier item -->
 
 
 
 
-- ### Ouvrir Rstudio
-- ### Créer un ficher markdown
-- ### Créer un texte avec un titre, un paragraphe, une liste d'item
-- ### Appuyer sur `preview`
+<!-- - ### Ouvrir Rstudio -->
+<!-- - ### Créer un ficher markdown -->
+<!-- - ### Créer un texte avec un titre, un paragraphe, une liste d'item -->
+<!-- - ### Appuyer sur `preview` -->
 
 
-```{r, echo=FALSE}
-knitr::include_graphics("assets/img/rmarkdown/exo_md.png", dpi=150)
-```
+<!-- ```{r, echo=FALSE} -->
+<!-- knitr::include_graphics("assets/img/rmarkdown/exo_md.png", dpi=150) -->
+<!-- ``` -->
 
 
-# Aller plus loin sur le formatage markdown
+<!-- # Aller plus loin sur le formatage markdown -->
 
 
 
-```md
-Une liste avec : 
+<!-- ```md -->
+<!-- Une liste avec :  -->
 
-1.  un item
-2. un autre item
-3. un dernier item
-```
+<!-- 1.  un item -->
+<!-- 2. un autre item -->
+<!-- 3. un dernier item -->
+<!-- ``` -->
 
 
 
 
 
-Une liste avec : 
+<!-- Une liste avec :  -->
 
-1.  un item
-2. un autre item
-3. un dernier item
+<!-- 1.  un item -->
+<!-- 2. un autre item -->
+<!-- 3. un dernier item -->
 
 
 
 
-```md
-Une liste avec : 
+<!-- ```md -->
+<!-- Une liste avec :  -->
 
-1.  un item
-2. un autre item
-  - avec un sous item
-  - et un autre sous item
-3. un dernier item
-```
+<!-- 1.  un item -->
+<!-- 2. un autre item -->
+<!--   - avec un sous item -->
+<!--   - et un autre sous item -->
+<!-- 3. un dernier item -->
+<!-- ``` -->
 
 
 
 
 
-Une liste avec : 
+<!-- Une liste avec :  -->
 
-1.  un item
-2. un autre item
-  - avec un sous item
-  - et un autre sous item
-3. un dernier item
+<!-- 1.  un item -->
+<!-- 2. un autre item -->
+<!--   - avec un sous item -->
+<!--   - et un autre sous item -->
+<!-- 3. un dernier item -->
 
 
 
 
 
-```md
-[Ceci](https://fr.wikipedia.org/) 
-est un lien vers wikipedia.
-```
+<!-- ```md -->
+<!-- [Ceci](https://fr.wikipedia.org/)  -->
+<!-- est un lien vers wikipedia. -->
+<!-- ``` -->
 
 
 
-[Ceci](https://fr.wikipedia.org/) 
-est un lien vers wikipedia.
+<!-- [Ceci](https://fr.wikipedia.org/)  -->
+<!-- est un lien vers wikipedia. -->
 
 
 
 
-```md
-![](https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg)
+<!-- ```md -->
+<!-- ![](https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg) -->
 
-```
+<!-- ``` -->
 
 
 
@@ -310,9 +310,9 @@ est un lien vers wikipedia.
 Crédits : [Kevin Pluck](https://www.flickr.com/photos/27109510@N00), [Creative Commons(https://en.wikipedia.org/wiki/fr:Creative_Commons) [Attribution 2.0 Générique](https://creativecommons.org/licenses/by/2.0/deed.fr)
 ]
 
-- ### Reprendre votre texte précédent
-- ### Rajouter une image en dessous du titre principal
-- ### Rajouter à la fin un lien en savoir plus vers le site de votre choix.
+<!-- - ### Reprendre votre texte précédent -->
+<!-- - ### Rajouter une image en dessous du titre principal -->
+<!-- - ### Rajouter à la fin un lien en savoir plus vers le site de votre choix. -->
 
 
 ## Rmarkdown
@@ -394,77 +394,77 @@ knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_yaml.png")
 
 
 
-## Le YAML sert à définir les paramètres de votre document
+<!-- ## Le YAML sert à définir les paramètres de votre document -->
 
-```md
-author: "Marouane ZELLOU"
-date: "22/03/2021"
-output: html_document
+<!-- ```md -->
+<!-- author: "Marouane ZELLOU" -->
+<!-- date: "22/03/2021" -->
+<!-- output: html_document -->
 
-## Le YAML sert à définir les paramètres de votre document
+<!-- ## Le YAML sert à définir les paramètres de votre document -->
 
-On peut rajouter plusieurs auteurs : 
+<!-- On peut rajouter plusieurs auteurs :  -->
 
-```md
-author: 
-  - "Maël THEULIERE"
-  - "Maël THEULIERE"
-date: "22/03/2021"
-output: html_document
-## Le YAML sert à définir les paramètres de votre document
+<!-- ```md -->
+<!-- author:  -->
+<!--   - "Maël THEULIERE" -->
+<!--   - "Maël THEULIERE" -->
+<!-- date: "22/03/2021" -->
+<!-- output: html_document -->
+<!-- ## Le YAML sert à définir les paramètres de votre document -->
 
-On peut rajouter des options pour un output : 
+<!-- On peut rajouter des options pour un output :  -->
 
-```md
-author: 
-  - "Maël THEULIERE"
-  - "Marouane ZELLOU"
-date: "22/03/2021"
-output: 
-  html_document:
-    toc: true
-    theme: flatly
-```
-
-
+<!-- ```md -->
+<!-- author:  -->
+<!--   - "Maël THEULIERE" -->
+<!--   - "Marouane ZELLOU" -->
+<!-- date: "22/03/2021" -->
+<!-- output:  -->
+<!--   html_document: -->
+<!--     toc: true -->
+<!--     theme: flatly -->
+<!-- ``` -->
 
 
-- `toc: true` permet de rajouter un sommaire à notre document.
-- `theme: flatly` permet de changer le thème du document.
-
-## Le YAML sert à définir les paramètres de votre document
-
-On peut rajouter plusieurs outputs : 
-
-```md
-author: 
-  - "Maël THEULIERE"
-  - "Marouane ZELLOU"
-date: "22/03/2021"
-output: 
-  pdf_document: default
-  html_document:
-    toc: true
-    theme: flatly
 
 
-- ### Créer un document rmarkdown html
-- ### Mettez vous en auteur du document
-- ### Rajouter un theme spécifique
-- ### Chercher dans l'aide comment obtenir des titres numérotés
-- ### Cliquer sur *knit* pour compiler le document
-# Le code R s'insère dans des chunks
+<!-- - `toc: true` permet de rajouter un sommaire à notre document. -->
+<!-- - `theme: flatly` permet de changer le thème du document. -->
+
+<!-- ## Le YAML sert à définir les paramètres de votre document -->
+
+<!-- On peut rajouter plusieurs outputs :  -->
+
+<!-- ```md -->
+<!-- author:  -->
+<!--   - "Maël THEULIERE" -->
+<!--   - "Marouane ZELLOU" -->
+<!-- date: "22/03/2021" -->
+<!-- output:  -->
+<!--   pdf_document: default -->
+<!--   html_document: -->
+<!--     toc: true -->
+<!--     theme: flatly -->
 
 
-C'est dans les chunks que vous pouvoir insérer le code R que vous voulez voir exécuter. 
-Chaque chunk doit être nommé, et peut recevoir des options qui permettent par exemple : 
+<!-- - ### Créer un document rmarkdown html -->
+<!-- - ### Mettez vous en auteur du document -->
+<!-- - ### Rajouter un theme spécifique -->
+<!-- - ### Chercher dans l'aide comment obtenir des titres numérotés -->
+<!-- - ### Cliquer sur *knit* pour compiler le document -->
+<!-- # Le code R s'insère dans des chunks -->
 
-- d'afficher ou non le code (`echo`)
-- de lancer ou non la commande rentrée (`eval`)
-- d'afficher ou non le résultat du code (`include`)
-- de modifier la largeur ou la hauteur d'une figure (`fig.width` et `fig.height`)
 
-Les chunks sont gérés dans `{Rmarkdown}` par `{knitr}`. Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver l'ensemble de la documentation [ici](https://yihui.org/knitr/options/).
+<!-- C'est dans les chunks que vous pouvoir insérer le code R que vous voulez voir exécuter.  -->
+<!-- Chaque chunk doit être nommé, et peut recevoir des options qui permettent par exemple :  -->
+
+<!-- - d'afficher ou non le code (`echo`) -->
+<!-- - de lancer ou non la commande rentrée (`eval`) -->
+<!-- - d'afficher ou non le résultat du code (`include`) -->
+<!-- - de modifier la largeur ou la hauteur d'une figure (`fig.width` et `fig.height`) -->
+
+<!-- Les chunks sont gérés dans `{Rmarkdown}` par `{knitr}`. Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver l'ensemble de la documentation [ici](https://yihui.org/knitr/options/). -->
 
 
 
@@ -476,18 +476,18 @@ knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_code_R.png")
 
 
 
-Vous pouvez aussi affecter des valeurs par défaut à l'ensemble de vos chunks avec la fonction `knitr::opts_chunk$set()` à intégrer dans votre premier chunk : 
+<!-- Vous pouvez aussi affecter des valeurs par défaut à l'ensemble de vos chunks avec la fonction `knitr::opts_chunk$set()` à intégrer dans votre premier chunk :  -->
 
-````md
-```{r, include=FALSE}`r ''`
-knitr::opts_chunk$set(
-  echo = FALSE, 
-  eval=TRUE, 
-  include=TRUE, 
-  fig.width = 6
-)
-```
-````
+<!-- ````md -->
+<!-- ```{r, include=FALSE}`r ''` -->
+<!-- knitr::opts_chunk$set( -->
+<!--   echo = FALSE,  -->
+<!--   eval=TRUE,  -->
+<!--   include=TRUE,  -->
+<!--   fig.width = 6 -->
+<!-- ) -->
+<!-- ``` -->
+<!-- ```` -->
 
 
 
@@ -523,11 +523,11 @@ knitr::include_graphics("assets/img/rmarkdown/comprendre_rmd_md.png")
 
 
 
-Vous aurez besoin souvent de pouvoir par exemple définir un document en plusieurs colonne, avec par exemple une illustration sur une moitiée de la page, un texte sur l'autre.
+<!-- Vous aurez besoin souvent de pouvoir par exemple définir un document en plusieurs colonne, avec par exemple une illustration sur une moitiée de la page, un texte sur l'autre. -->
 
-Pour cela vous aller devoir séparer vos deux blocs dans des *"div"*.
+<!-- Pour cela vous aller devoir séparer vos deux blocs dans des *"div"*. -->
 
-Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`. Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
+<!-- Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`. Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante. -->
 
 
 
