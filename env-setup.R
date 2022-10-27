@@ -4,7 +4,7 @@ needed_packages <- c(
   
   'bookdown',
   
-  'devtools',
+  'devtools'
   
 )
 
@@ -12,3 +12,6 @@ needed_packages <- c(
 install.packages(needed_packages)
 
 devtools::install_github("hadley/emo")
+
+install.packages ("rmarkdown")
+library (rmarkdown)
