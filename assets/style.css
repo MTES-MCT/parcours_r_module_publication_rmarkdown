@@ -12,3 +12,15 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+
+.warning {
+  padding: 1em;
+  background: #FAB57F;
+  color: black;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
+}
