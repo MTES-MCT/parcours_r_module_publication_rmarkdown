@@ -1,91 +1,181 @@
----
-title: Composer des livres, le package Bookdown
-author: Laurent Beltran
-date: 04/11/2022
----
+# ---
+# title: Composer des livres, le package Bookdown
+# author: Laurent Beltran
+# date: 04/11/2022
+# ---
 
 # Composer des livres, le package bookdown
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+Le paquet bookdown est construit sur les fondations données par R
+Markdown <http://rmarkdown.rstudio.com>. Il s'appuie ainsi sur la
+simplicité de la syntaxe Markdown aussi bien que sur l'éventail des
+multiples formats de rendus possibles. Il apporte, quant à lui, un
+certain nombre de fonctionnalités complémentaires, comme la capacité
+de générer un ensemble HTML multipages, celle d'établir des liens
+internes de renvoi vers des illustrations, des tableaux, des sections
+spécifiques du document ou encore des équations, ou encore celle de
+faciliter la gestion d'annexes, pour n'en citer que quelques unes.
+
+En dépit du nommage du paquet qui contient explicitement le terme
+'book' ('livre' en anglais), le paquet bookdown ne trouve pas sa seule
+utilité dans la production de livres. Ou plutôt, le "livre" qu'il
+produit peut-être utiliser à toute fins qui consiste à agréger un
+ensemble de documents R Markdown destinés à être lus de manière
+linéaire, tels qu'une compilation de cours, un rapport d'étude, un
+manuel d'utilisation, une thèse ou même un journal.
+
+Il faut cependant signaler l'esprit qui a conduit l'auteur Yihui Xie à
+élaborer ce paquet, l'idée était qu'il souhaitait faciliter la
+génération d'un livre sous de multiples formats, cela en restant
+sobre, c'est-à-dire en essayant de ne couvrir que les fonctionnalités
+communes et en préservant la même syntaxe à travers tous les formats
+de sortie rendus possibles.
 
 ## Démarrer un projet de livre de la page blanche
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+Après cette présentation rapide du paquet bookdown, il est temps
+d'aborder les aspects pratiques de son utilisation en essayant de
+répondre à une première question pratique : comment puis-créer mon
+premier livre avec bookdown ?
 
 ### Installer le package bookdown
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+:::: {.warning data-latex=""}
+::: {.center data-latex=""}
+**TODO**
+:::
+
+Il faudrait se mettre d'accord sur la manière de renvoyer vers 
+les différentes méthodes d'installation.
+::::
+
+
 
 ### Initialiser un modèle de livre
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+Il s'agit non pas de chercher l'entrée de menu correspondante dans
+l'entrée `Fichier>Nouveau fichier` mais bien sous le chemin
+`Fichier>Nouveau projet...`. En effet, à la différence des
+manipulations qui ont été abordées précédemment dans ce guide, le
+système bookdown est tout entier tourné vers la conversion d'un
+ensemble de fichiers pour les assembler en une série logique
+monolithique.
+
+Il est donc intéressant de s'en rendre compte en utilisant les modèles
+de démonstration mis à notre disposition par le système. En effet,
+lorsque nous recourrons au menu de création d'un nouveau `bookdown`
+ce n'est pas une structure vierge qui va être initialisée mais bien un
+document modèle complètement fonctionnel. Il va être établit dans le
+répertoire que nous aurons préalablement désigné.
 
 ### Générer le livre et le (re)lire
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+Une fois donc que l'action `Fichier>Nouveau projet...`, `Nouveau
+répertoire>Book project using bookdown` nous a rendu la main, après
+que nous lui ayons spécifié une localisation dans notre espace de
+fichier et éventuellement précisé un format (soit gitbook, soit
+bs4_book), alors nous avons à disposition un exemple de source
+complètement fonctionnel. Mais ce ne sont que des sources, comme nos
+fichiers `Rmarkdown` précédents, pour véritablement se rendre compte
+du résultat final, il faut procéder à l'étape de rendu.
+
+Ce qui nous amène a explorer plus avant les principes d'organisation
+de RStudio en tant qu'interface, si l'organisation initiale n'a pas
+été trop bouleversée le cadran haut-droit regroupe un certain nombre
+d'onglets qui ont tous plus ou moins trait à l'environnement du projet
+et à son pilotage, il y réside notamment un onglet Build (Construire)
+qui dans son menu propose un bouton avec une icône représentant un
+marteau qui va nous permettre de lancer le rendu (la construction) de
+l'ensemble de fichiers Rmarkdown, par défaut sous une forme de "site
+web" très en usage en ce qui concerne les manuels logiciels sur
+l'Internet.
+
+Exécuter la construction de manière effective en appuyant sur le
+bouton et après le défilé d'un certain volume d'informations rendant
+compte des différent traitements effectués, si tout se passe bien une
+fenêtre (navigateur web interne de RStudio) devrait s'ouvrir au
+premier plan et présenter le rendu final, un bouton de cette fenêtre
+permet aussi d'ouvrir et d'explorer le rendu dans le navigateur web
+configurer pour le système hôte.
+
+Le document résultant de la phase de construction est pour le coup une
+véritable vitrine qui présentes et montre à l'oeuvre les principales
+fonctionnalité de `bookdown`.
+
+3 pour le prix d'1. Si vous avez la curiosté d'explorer le
+sous-répertoire `_book` du dossier projet, vous y trouverez aussi le
+rendu sous forme d'un "livre" en pdf (format reconnu princpalement pour
+sa portabilité en matière d'impression) et encore en epub (format
+adapté pour la lecture notament sur liseuse mais plus généralement
+pour tout écran portafif). 
 
 ### Se lancer dans l'écriture
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+À ce stade rien de plus simple, ni rien de bien différent de ce qui
+a été vu précédemment, il s'agit d'éditer des fichiers R Markdown,
+ceux-là mêmes qui sont marqués par des extensions `.Rmd`.
+
+Et de relancer la construction (compilation?) pour se rendre compte de
+l'évolution du contenu.
+
+Des chapitres en trop, ou des chapitres à rajouter, il suffit d'opérer
+sur la quantité de fichiers `Rmarkdown` respectivement en supprimer,
+ou en créer. Ils seront ordonnés automatiquement selon leur ordre
+alphabétique, c'est pour ça que bien souvent vous trouverez des
+fichiers numérotés `01-...`, `02-...` ce qui est une manière très
+explicite de maîtriser l'ordre de composition du document général.
 
 ## Composer son livre quand la matière est déjà disponible
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ### Organisation des sources d'un bookdown
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ### Illustration pratique d'une composition
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ## Au-délà du fond s'attaquer aux goûts et couleurs
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ### Les "formats" de sorties
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ### Couleurs et polices de caractères, un style
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ### Un choix esthétique cadré
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 ## Quelques options et détails techniques complémentaires 
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ### Options triées sur le volet
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ### Retour sur le fonctionnement global
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ## Etude d'un exemple bookdown : propre.rpls
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ### Exemple d'appropriation d'une publication Rpls
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
 
 ### Compréhension globale de l'architecture du paquet propre.rpl
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-s
+
 
 ## Focus sur l'envoi au photocopieur du livre ou comment imprime
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-r ?
+
 
 ## Bookdown, maintenant et au-delà
 
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
