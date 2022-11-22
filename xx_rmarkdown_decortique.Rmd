@@ -13,7 +13,7 @@ Ils sont accessibles [sur le site de RStudio](https://www.rstudio.com/resources/
 
 ![](assets/img/cheat_sheet.png)
 
-## Rmarkdown dans RStudio
+## R markdown dans RStudio
 
 Pour utiliser R Markdown, il faut que les packages `rmarkdown` et `markdown` soient installés :
 
@@ -115,6 +115,7 @@ date: "31/10/2022"
 output: html_document
 ```
 
+*je mettrai bien le passage sur les options des output dans le $ dédié à la fin*
 On peut rajouter des options pour un output (ces options dépendant du type d'output demandé):
 
 ``` {.md}
@@ -131,7 +132,9 @@ output:
 
 -   `toc: true` permet de rajouter un sommaire à notre document.
 -   `theme: flatly` permet de changer le thème du document.
--   `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre dans le sommaire. L'ensemble des options est listé page 5 du [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+-   `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre dans le sommaire. 
+
+L'ensemble des options est listé page 5 du [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 On peut rajouter plusieurs outputs :
 
@@ -252,7 +255,7 @@ Rend :
 
 > Texte à mettre dans un encart
 
-#### liens et note de bas de page
+#### Liens et note de bas de page
 
 Pour faire un lien vers un site internet, on met le texte affiché entre `[]` et l'adresse http  entre `()`  
 
@@ -290,7 +293,7 @@ Chaque chunk peut recevoir des options. Voici quelques exemples utilisés fréqu
 
 -   `eval = TRUE` : Le chunk est exécuté.
 
--   `include = TRUE` : Le code contenu dans le chunk est éxecuté sans que soient affichés ni le chunk ni son résultat.
+-   `include = FALSE` : Le code contenu dans le chunk est éxecuté sans que soient affichés ni le chunk ni son résultat.
     Ses résultats sont utilisables par d'autres chunks.
 
 -   `echo = FALSE` : permet de ne pas afficher les codes dans le rendu.
@@ -414,8 +417,9 @@ Lorsque le code est excécuté, par défaut les résultats (sorties), et les plo
 #### exo3
 
 -   Partir du fichier .Rmd de l'exercice précédent
--   Ajouter un chunk, qui sera traité mais non affiché dans le document final *quel traitement de données?*
--   Ajouter un chunk, qui sera traité et affiché dans le document final *quel output*
+-   Définir des options générales
+-   Ajouter un chunk créant une table, qui sera traité mais non affiché dans le document final *quel traitement de données?*
+-   Ajouter un chunk créant un graphique, qui sera traité et affiché dans le document final *quel output*
 -   Générer le document 
 
 
@@ -441,9 +445,17 @@ On peut aussi utiliser la fonction `knitr::include_graphics` :
 Cette dernière méthode, préconisée quand le format de sortie n'est pas du html, permet de mieux controller l'affichage de l'image.
 
 
-### autres !!!!!!!!!!!!!!!
+### Autres 
 
-mises en commentaires indentation auto?
+#### Commentaires 
+
+Pour mettre une partie du fichier en commentaires, non traitée, il faut encadrer la partie par `<!-- commentaires -->`. 
+Pour cale on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou la commande dans le menu "Code".
+
+
+*indentation auto?*
+
+#### Affichages sur plusieurs colonnes
 
 Vous aurez besoin souvent de pouvoir par exemple définir un document en plusieurs colonne, avec par exemple une illustration sur une moitiée de la page, un texte sur l'autre.
 
@@ -452,24 +464,68 @@ Pour cela vous aller devoir séparer vos deux blocs dans des *"div"*.
 Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
 Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
 
+
 ## Convertir le fichier Rmarkdown pour utilisation
-
-### Ajouter des parametres
-
-dans l'entete puis utilisation comme variables
-
-#### exo4
 
 ### Les formats de sortie
 
+Lors de la création du fichier .Rmd, vous avez dû choisir le format par défaut du document qui sera généré. Ce choix se retrouve dans l'option `output`de l'en-tête.
+
+Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou en cliquant sur la flèche vers le bas, du bouton knit.
+
+Il existe deux types de format dans le package `rmarkdown`: documents et présentations. Tous les formats possibles sont listés ci-dessous:
+
+- beamer_presentation
+- context_document
+- github_document
+- html_document
+- ioslides_presentation
+- latex_document
+- md_document
+- odt_document
+- pdf_document
+- powerpoint_presentation
+- rtf_document
+- slidy_presentation
+- word_document
+
+*est ce qu'on parle des présentations?*
+Nous allons vous présenter les formats les plus courants.
+
 #### HTML
 
-#### PDF
+A l'origine, Markdown a été conçu pour générer du HTML; c'est ce format qui a le plus de possibilités parmi tous les formats.
+Pour obtenir un document HTML, il faut mettre l'option `output: html_document` dans l'en-tête.
 
+Voici les options utilisées fréquemment:
+
+-   `toc: true` permet d'ajouter une table des matières (table of contents en anglais) à notre document.
+-   `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre dans la table des matières (par défaut 3). 
+-   `toc_float : true` permet de rendre la table des matières flottante. Elle sera systématiquement visible, meme si on défile le document. Ce paramètre accepte des options.
+-   `number_sections : true` permet de numéroter les titres.
+-   `theme: flatly` permet de changer le thème du document (tiré de la librairie [Bootswatch](https://bootswatch.com/3/).
+-   `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut la largeur et la hauteur des figures.
+-   `fig_caption : true` permettent de définir les figures contiennent une légende.
+
+#### PDF !!!!
+
+... $3.3 
 ```{r, eval=FALSE}
 install.packages('tinytex')
 tinytex::install_tinytex() 
 
 ```
+
+#### exo4
+
+#### Documentation
+L'ensemble des options est listé page 5 du [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
+
+Each output format is often accompanied with several format options. All these options are documented on the R package help pages. For example, you can type ?rmarkdown::html_document in R to open the help page of the html_document format. When you want to use certain options, you have to translate the values from R to YAML
+The translation is often straightforward. Remember that R’s TRUE, FALSE, and NULL are true, false, and null, respectively, in YAML. Character strings in YAML often do not require the quotes (e.g., dev: 'svg' and dev: svg are the same), unless they contain special characters, such as the colon :. 
+
+### Ajouter des parametres
+
+dans l'entete puis utilisation comme variables
 
 #### exo5
