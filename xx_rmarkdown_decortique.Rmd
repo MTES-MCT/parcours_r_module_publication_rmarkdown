@@ -380,9 +380,8 @@ Par exemple le code suivant:
 ```{r, echo=FALSE}`r ''`
 numero = 6  
 ```
-Je suis actuellement en train de me former au module r numero.
+Je suis actuellement en train de me former au module `r '\x60r numero\x60'`.
 ````
-*comment afficher les côtes pour r numero?*
 donne dans le document:
 
  ```{r, echo=FALSE}
