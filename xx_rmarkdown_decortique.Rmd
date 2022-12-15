@@ -1,21 +1,69 @@
 ---
 title: "xx_rmarkdown_decortique"
-output: html_document
-editor_options: 
-  markdown: 
-    wrap: sentence
+output:
+  html_document:
+    md_extensions: +fenced_divs+ascii_identifiers
+    toc: yes
+    toc_float: yes
+    toc_depth: 5
+  pdf_document:
+    toc: yes
+    toc_depth: '5'
+css: assets/css/style.css
+editor_options:
+  chunk_output_type: console
 ---
+
+
+
+<!-- 
+
+Codification utilisée dans le cadre de l'élaboration du document
+
+ASK: marqueur pour identifier les sujets à débattre
+ANS: possible réponse
+<a name="TD-1"/>TD.1  : marquage des TD
+
+-->
+
+
+
+
+
+
+
+
 
 # Le fichier *R Markdown*
 
-La "cheatsheet" rmarkdown et le [document de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) sont une aide précieuse.
-Ils sont accessibles [sur le site de RStudio](https://www.rstudio.com/resources/cheatsheets/) ou directement depuis RStudio :
+Ce chapitre n'a pas l'ambition de se substituer au 
+[guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) 
+mais peut faciliter à un certain nombre de lecteurs francophones l'approche 
+et la compréhension du système de production de documents **R Markdown** 
+car à notre connaissance le guide n'a pas encore été traduit. 
+
+Plus précisément ce document entend progressivement prendre la place d'un support
+de référence dans le cadre du parcours de formation "R" et pourrait-être un
+outil d'acculturation à faire vivre pour établir un lien avec la communauté
+des utilisateurs concernés.
+
+Au-delà du manuel de référence dont le volume est imposant, il existe une 
+[anti-sèche (cheatsheet) rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf) 
+qui réussit en deux pages à synthétiser l'essentiel de ce qu'il faut savoir 
+pour exploiter le système de production proposé au travers de RStudio.
+La formation proposée et le présent chapitre ont d'ailleurs pour principal 
+objectif de permettre à tout un chacun de pouvoir complètement en tirer profit.
+
+Le guide officiel (R Markdown Reference Guide) ainsi que l'antisèche 
+(R Markdown Cheat Sheet) sont accessibles facilement depuis RStudio en passant 
+par le menu Aide/Help.
 
 ![](assets/img/cheat_sheet.png)
 
 ## R markdown dans RStudio
 
-Pour utiliser R Markdown, il faut que les packages `rmarkdown` et `markdown` soient installés :
+Pour utiliser R Markdown, il faut que les packages `rmarkdown` et `markdown` 
+soient installés :
 
 ```{r install, eval = FALSE, warning = FALSE, error = FALSE}
 install.packages ("rmarkdown")
@@ -24,50 +72,94 @@ install.packages ("markdown")
 library (markdown)
 ```
 
-Dans l'environnement de développement intégré RStudio de votre bureau, le développeur dispose d'outils qui simplifient la production d'un fichier R Markdown.
+> ASK: Concernant cette partie, je ne suis pas sûr de ce que l'on veut
+> passer comme information.
+> En réalité, pour faire du R Markdown le paquet `rmarkdown` est le 
+> seul strictement nécessaire (dans les faits il repose sur knitr et
+> quelques autres) mais justement le paquet markdown n'est q'un plugin
+> possible de knitr pour un usage aujourd'hui un peu révolu).
+> Ce qui reste vrai, c'est que RStudio oblige à l'installation de tout 
+> un tas de paquet pour faire tourner son environnement de rendu et là 
+> figurent bien souvent `markdown` et tout un tas d'autres comme shiny
+> qui ne d'ailleurs pas forcément des plus légers, mais en l'occurence
+> il n'y a pas trop à réfléchier puisqu'il faut se laisser guider par 
+> l'interface et la laisser faire.
+> --- LBn
+
+Dans l'environnement de développement intégré RStudio de votre bureau,
+le développeur dispose d'outils qui simplifient la production d'un
+fichier R Markdown.
 
 ![](assets/img/rmd_dans_rstudio1.png)
 
-Le travail comprend les étapes suivantes :\
-1.
-Ouvrir un nouveau fichier .Rmd prérempli avec des exemples\
-2 et 3
-. Compléter le document en ajoutant du code et en écrivant le texte (à partir des exemples proposés si on le souhaite)\
-4. Modifier l'en-tête
-\
-5. Enregistrer le fichier et lancer la génération du documen
-t\
-6. Publier le docu
-ment
+Le travail comprend généralement les étapes suivantes, toutefois les
+étapes 2 à 4 peuvent se faire dans n'importe quel ordre :
+
+  1. Ouvrir un nouveau fichier .Rmd (prérempli avec des exemples)
+  2. Écrire des instructions de traitement des données
+  3. Compléter le document en ajoutant du texte
+  4. Adapter l'en-tête
+  5. Lancer la génération du document
+  6. Publier le document (particulier)
 
 ### Créer un fichier .Rmd
 
-On crée un nouveau fichier de type Rmarkdown en allant dans le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown
+> ASK: Début d'un TD (travail dirigé) ?
+> --- LBn
+
+On crée un nouveau fichier de type Rmarkdown en allant dans le menu
+File $\Rightarrow$ New file $\Rightarrow$ R Markdown
 
 ![](assets/img/new_rmarkdown.jpg)
 
-Une pop-up s'ouvre alors pour parametrer le fichier créé:
+Une pop-up s'ouvre alors pour donner quelques informations afin
+d'initialiser le fichier qui va être créé autrement dit afin de
+remplir quelques champs fortement recommandé par le processus global,
+voire imposés.
 
 ![](assets/img/new_rmarkdown2.jpg)
 
-Pour commencer simplement, on choisit un format de sortie HTML.
-C'est le format de sortie par défaut, très utilisé (nous verrons les autres formats de sortie par la suite).
-RStudio crée un fichier contenant des exemples des éléments structurant un fichier R markdown.
+Pour commencer simplement, on choisit un format de sortie HTML.  C'est
+le format de sortie par défaut, très utilisé (nous verrons les autres
+formats de sortie par la suite).  RStudio crée un fichier contenant
+des exemples des éléments structurant un fichier R markdown.
 L'extension de ce type de fichier est `.Rmd`.
 
 ### Lancer la génération du document
 
-Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png).
-Vous pouvez aussi prévisualiser le document en sortie en cliquant sur l'icône **compas** qui donne accès au "visual editor".
+Une fois le fichier .Rmd complété et enregistré, vous pouvez
+visualiser la table des matières en cliquant sur l'icône
+![](assets/img/icone_table_matiere.png).  Vous pouvez aussi
+prévisualiser le document en sortie en cliquant sur l'icône **compas**
+qui donne accès au "visual editor".
 
-Pour générer un document à partir du fichier .Rmd, il suffit de cliquer sur le bouton **knit**.
-Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le repertoire de travail (là où vous avez créé votre projet R), et en même temps le document généré s'ouvre dans le viewer de R Studio (ou dans une pop-up).
+Pour générer un document à partir du fichier .Rmd, il suffit de
+cliquer sur le bouton **knit**.  Un fichier (html si vous avez choisi
+ce format de sortie) portant le même nom que le fichier.Rmd est alors
+créé dans le repertoire de travail (là où vous avez créé votre projet
+R), et en même temps le document généré s'ouvre dans le viewer de R
+Studio (ou dans une pop-up).
 
-> On peut générer le document d'autres façons: render(nom_fichier.Rmd) ou grâce au raccourci `Ctrl + Shift + K`
 
-Ce document contient l'ensemble des informations du fichier .Rmd, que cela soit le texte (mis en forme), la visualisation du code intégré (si celle-ci est demandée) et ce qui est produit par ce code.
+::::: {.trucsetastuces}:::::: 
+  **Trucs & Astuces**
+  
+  On peut générer le document d'autres façons: 
 
-*est ce qu'on met une image des icones?* *est ce qu'on met une image du document généré par le fichier de base?*
+    rmarkdown::render(nom_fichier.Rmd)
+
+  ou grâce au raccourci `Ctrl + Shift + K`
+:::::::::::::::::::::::::::::
+
+
+Ce document contient l'ensemble des informations du fichier .Rmd, que
+cela soit le texte (mis en forme), la visualisation du code intégré
+(si celle-ci est demandée) et ce qui est produit par ce code.
+
+> ASK: Est ce qu'on met une image des icones? 
+> Est ce qu'on met une image du document généré par le fichier de
+> base?
+> --- CCn
 
 ## Les éléments d'un fichier .Rmd
 
@@ -75,27 +167,43 @@ Un fichier R Markdown est constitué de 3 éléments principaux.
 
 ![](assets/img/script.png)
 
-L'en-tête contient les métadonnées pour guider la génération du document.
-Il est suivi du corps du futur document, constitué de morceaux de code (les *chunks*) à éxécuter et du texte à afficher avec des élements de mise en forme.
+L'**en-tête** contient les métadonnées pour guider la génération du
+document.  Il est suivi du corps du futur document, constitué de
+**morceaux de code** (les *chunks*) à éxécuter et de partie de
+**textes** à afficher avec des élements de mise en forme.
+
+Dans les sections suivantes ces composants seront détaillés un par un.
 
 ### L'en-tête
 
-L'en-tête s'écrit au format YAML ([format](https://fr.wikipedia.org/wiki/YAML) ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable).
-Il est parfois appelé le Header ou le YAML.\
-Il sert à définir les paramètres de votre document comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).
-Il est délimité par deux séries de `---`.
+L'en-tête s'écrit au format YAML c'est un
+[format](https://fr.wikipedia.org/wiki/YAML) ayant pour objectif de
+représenter des informations plus élaborées que le simple CSV en
+gardant cependant une lisibilité presque comparable.  
 
-> Pour modifier l'en-tête, attention à bien respecter l'alignement des indentations.
-> Ce sont elles qui indiquent la hiérarchie entre les éléments texte.
+Il est parfois appelé le Header ou le YAML. Il sert à définir les
+paramètres de votre document comme les informations basiques sur le
+document ainsi que des choix relatifs au format de sortie (PDF, HTML,
+DOCX, etc.).  Il est délimité par deux séries de `---`.
 
-C'est dans le YAML que vous allez définir :
 
--   le titre (initialisé lors de la création du fichier)
--   les auteurs
--   la date de votre document
--   le format de sortie (initialisé lors de la création du fichier)
--   des options
--   des paramètres.
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+  Pour modifier l'en-tête, attention à bien respecter l'alignement des indentations.
+  Ce sont elles qui indiquent la hiérarchie entre les éléments texte.
+:::::::::::::::::::::::::::::
+
+
+C'est dans le YAML que vous allez définir notamment :
+
+  - le titre (initialisé lors de la création du fichier)
+  - les auteurs
+  - la date de votre document
+  - le format de sortie (initialisé lors de la création du fichier)
+  - des options
+  - des paramètres.
+
 
 ``` {.md}
 title: "mon_premier_document"
@@ -104,7 +212,9 @@ date: "31/10/2022"
 output: html_document
 ```
 
+
 On peut rajouter plusieurs auteurs :
+
 
 ``` {.md}
 title: "mon_premier_document"
@@ -115,7 +225,10 @@ date: "31/10/2022"
 output: html_document
 ```
 
-*je mettrai bien le passage sur les options des output dans le $ dédié à la fin*
+> ASK: je mettrai bien le passage sur les options des output dans le $ 
+> dédié à la fin
+> --- CCn
+
 On peut rajouter des options pour un output (ces options dépendant du type d'output demandé):
 
 ``` {.md}
@@ -130,11 +243,14 @@ output:
     theme: flatly
 ```
 
--   `toc: true` permet de rajouter un sommaire à notre document.
--   `theme: flatly` permet de changer le thème du document.
--   `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre dans le sommaire. 
 
-L'ensemble des options est listé page 5 du [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+  - `toc: true` permet de rajouter un sommaire à notre document.
+  - `theme: flatly` permet de changer le thème du document.
+  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
+    dans le sommaire. 
+
+L'ensemble des options est listé page 5 du 
+[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
 On peut rajouter plusieurs outputs :
 
@@ -151,26 +267,41 @@ output:
     theme: flatly
 ```
 
-#### exo0
+<a name="TD-1"/>TD.1  
 
--   Ouvrir Rstudio
--   Créer un fichier markdown, format html
--   Mettez-vous en auteur du document
--   Rajouter un theme spécifique
--   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
+  - Ouvrir Rstudio
+  - Créer un fichier markdown, format html
+  - Mettez-vous en auteur du document
+  - Rajouter un theme spécifique
+  - Cliquer sur *knit* pour compiler le document et identifier 
+    les correspondances entre fichier .Rmd et fichier html
 
 ### Les éléments texte
 
-Les bases du langage sont très bien expliquées dans [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html).
+Les bases du langage sont très bien expliquées dans 
+[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html).
 Un des auteurs, Yihui Xie, est le créateur du package `rmarkdown`.
 
-![](assets/img/rmarkdown_definitive_guide_cover.png)
+![](assets/img/rmarkdown_definitive_guide_cover.png){class='centered' width='30%'}
 
-Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour Markdown.
-Vous trouverez la documentation complète sur le PANDOC pour Markdown [ici](https://pandoc.org/MANUAL.html#pandocs-markdown).
 
-> De manière générale, il est préférable de laisser au moins une ligne blanche entre différentes éléments (par exemple entre un titre et le paragraphe).
-> Cela évite toute confusion lors de la génération du document (tous les processus de génération n'interprete pas exactement la même chose pour une même synthaxe).
+Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour
+Markdown.  Vous trouverez la documentation complète sur le PANDOC pour
+Markdown [ici](https://pandoc.org/MANUAL.html#pandocs-markdown).
+
+
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+  De manière générale, il est préférable de laisser au moins une ligne
+  blanche entre différentes éléments (par exemple entre un titre et le
+  paragraphe).  
+  Cela évite toute confusion lors de la génération du
+  document (tous les processus de génération n'interpretent pas exactement
+  la même chose pour une même synthaxe).
+:::::::::::::::::::::::::::::
+
+
 
 #### Le texte simple
 
@@ -178,18 +309,29 @@ Le texte simple est directement interprété sans besoin de balisage.
 
 #### La mise en forme à la volée
 
-Pour les *caractères en italique*, entourer de deux `*` ou deux `_` : `*caractères italiques*`.\
-Pour les **caractères gras**, entourer de deux `**` ou deux `__` : `**caractères gras**`.\
-Pour les ~indices~ et les ^exposants^, entourer des caractères `~indices~`ou `^exposants^` respectivement.\
+Pour les *caractères en italique*, entourer de deux `*` ou deux `_` : 
+`*caractères italiques*`.\
+
+Pour les **caractères gras**, entourer de deux `**` ou deux `__` : 
+`**caractères gras**`.\
+
+Pour les ~indices~ et les ^exposants^, entourer des caractères `~indices~`ou
+`^exposants^` respectivement.\
+
 Pour les ~~barrés~~, entourer des caractères `~~barrés~~`.\
+
 Pour un style `code`, entourer des caractères `` `code` ``.\
-Pour un bloc de code, entourer des caractères ```` ``` ```` ou on commence chaque ligne par au moins 4 espaces.
 
-Pour forcer le retour à la ligne, terminer par un double espace ou un `\` ou sauter une ligne.
+Pour un bloc de code, entourer des caractères ```` ``` ```` 
+ou on commence chaque ligne par au moins 4 espaces.
 
-#### Les titres
+Pour forcer le retour à la ligne, terminer par un double espace 
+ou un `\` ou sauter une ligne.
 
-Contrairement à la pratique en R, le `#` indique les titres. Par défaut, dans Rmarkdown, ils ne sont pas numérotés.
+##### Les titres
+
+Contrairement à la pratique en R, le `#` indique les titres. Par
+défaut, dans Rmarkdown, ils ne sont pas numérotés.
 
 -   `#` pour le Titre1
 -   `##` pour le Titre2
@@ -201,9 +343,11 @@ Contrairement à la pratique en R, le `#` indique les titres. Par défaut, dans 
 Rend:\
 ![](assets/img/titres.png)
 
-Pour une numérotation automatique des titres, tableaux, figures, cartes, équations, etc. il faut passer au package `bookdown` (voir partie suivante).
+Pour une numérotation automatique des titres, tableaux, figures,
+cartes, équations, etc. il faut passer au package `bookdown` (voir
+partie suivante).
 
-#### Les listes
+##### Les listes
 
 **Liste à puces**
 
@@ -245,7 +389,7 @@ Rend :
     ii) Sous-élément 2 
 
 
-#### Les encarts
+##### Les encarts
 
 Les encarts sont pratiques pour mettre en valeur les éléments "à retenir".
 
@@ -255,88 +399,153 @@ Rend :
 
 > Texte à mettre dans un encart
 
-#### Liens et note de bas de page
+##### Liens et note de bas de page
 
-Pour faire un lien vers un site internet, on met le texte affiché entre `[]` et l'adresse http  entre `()`  
+Pour faire un lien vers un site internet, on met le texte affiché entre `[]` 
+et l'adresse http  entre `()`  
 
-`[Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)` rend [Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
+`[Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)` 
 
-_comment faire un renvoi vers un paragraphe du document? # ne fonctionne pas_
-`[Retour vers le paragraphe](#Les éléments texte)` rend [Retour vers le paragraphe](## Les éléments d'un fichier .Rmd)
+rend
 
-Les notes de bas de page s'écrivent à l'intérieur de `^[]`. `^[Ceci est une note de bas de page]` rend ^[Ceci est une note de bas de page].
+[Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
 
-#### exo1
+> ASK: comment faire un renvoi vers un paragraphe du document ? 
+> ne fonctionne pas
+> --- CCn
 
--   Partir du fichier .Rmd de l'exercice précédent
--   Créer un texte avec un titre, un paragraphe, une liste d'item, un encart et un lien
--   Appuyer sur `visual` pour avoir un aperçu du rendu final
+> ANS: en fait cela fonctionne bien mais sous condiitions
+> sera ma première réponse pour éviter de rentrer trop dans les détails
+> mais il y a une configuration pour que cela marche à coup sûr localement
+> avec un langage à caractère acentué comme le français
+> elle nécessite l'extension pandoc (md_extensions) ascii_identifiers
+> --- LBn
+
+<!-- `[Retour vers le paragraphe](#Les éléments texte)`  -->
+
+`` [Retour vers le paragraphe](#les-elements-texte) ``
+
+rend 
+
+<!-- [Retour vers le paragraphe](#Les éléments texte) -->
+
+[Retour vers le paragraphe](#les-elements-texte)
+
+
+> ASK: Concernant des éléments encore plus génériques (hors titres)
+> Le plus simple c'est de reccourrir en html à un hack en mettant une ancre
+> html, en gros c'est aussi un des problème qu'adressait le démarrage de bookdown
+> ne fonctionne pas
+> En clair une solution possible
+> poser une ancre ``<a name="id-unique"/>``
+> et plus loin dans le texte y faire référence du genre ``[vers mon ancre](#id-unique)``
+> --- LBn
+
+Les notes de bas de page s'écrivent à l'intérieur de `^[]`. 
+`^[Ceci est une note de bas de page]` rend ^[Ceci est une note de bas de page].
+
+<a name="TD-2"/>TD.2
+
+ - Partir du fichier .Rmd de l'exercice précédent
+ - Créer un texte avec un titre, un paragraphe, une liste d'item, 
+   un encart et un lien
+ - Appuyer sur `visual` pour avoir un aperçu du rendu final
 
 
 ### Les *chunks* 
 
-Les parties de code R sont contenues dans des blocs, appelés *chunks*. Ces chunks commencent et finissent par les balises ```` ``` ````. 
+Les parties de code R sont contenues dans des blocs, appelés
+*chunks*. 
 
-C'est dans les chunks que vous pouvoir insérer le code R que vous voulez voir exécuter. 
+Ces chunks commencent et finissent par les balises ```` ``` ````. 
 
- ![](assets/img/chunk_cars.png)
+C'est dans les chunks que vous pouvoir insérer le code R que vous
+voulez voir exécuter.
 
-On peut créer un nouveau chunk en cliquant sur le bouton ![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier `Ctrl + Alt + I`.
+![](assets/img/chunk_cars.png)
 
-Ces chunks peuvent être nommés (avec des caractères alphanumériques minuscules et majuscules et des tirets `-`). Dans l’exemple précédent, le nom du chunk est cars.
+On peut créer un nouveau chunk en cliquant sur le bouton 
+
+![](assets/img/icone_ajout_chunk.png) 
+
+ou grâce au raccourci clavier `Ctrl + Alt + I`.
+
+Ces chunks peuvent être nommés (avec des caractères alphanumériques
+minuscules et majuscules et des tirets `-`). Dans l’exemple précédent,
+le nom du chunk est cars.
 
 #### Les options des *chunks*
 
-Au début de chaque chunk se trouve une accolade contenant la lettre r. C’est dans cette accolade, après la lettre r (il ne faut pas l’enlever) que les options vont pouvoir être passées. Elles permettent de controller finement ce qui est produit par le chunk, pour choisir de faire apparaître, ou non, le code dans le rapport dynamique, ainsi que les résultats, ou encore pour définir la taille des plots.
+Au début de chaque chunk se trouve une accolade contenant la lettre
+r. C’est dans cette accolade, après la lettre r (il ne faut pas
+l’enlever) que les options vont pouvoir être passées. Elles permettent
+de controller finement ce qui est produit par le chunk, pour choisir
+de faire apparaître, ou non, le code dans le rapport dynamique, ainsi
+que les résultats, ou encore pour définir la taille des plots.
 
-Chaque chunk peut recevoir des options. Voici quelques exemples utilisés fréquemment :
+Chaque chunk peut recevoir des options. Voici quelques exemples utilisés 
+fréquemment :
 
--   `eval = TRUE` : Le chunk est exécuté.
+  - `eval = TRUE` : Le chunk est exécuté.
 
--   `include = FALSE` : Le code contenu dans le chunk est éxecuté sans que soient affichés ni le chunk ni son résultat.
-    Ses résultats sont utilisables par d'autres chunks.
+  - `include = FALSE` : Le code contenu dans le chunk est éxecuté
+    sans que soient affichés ni le chunk ni son résultat.  Ses
+    résultats sont utilisables par d'autres chunks.
 
--   `echo = FALSE` : permet de ne pas afficher les codes dans le rendu.
+  - `echo = FALSE` : permet de ne pas afficher les codes dans le rendu.
     Par contre le résultat est affiché.
 
--   `message = FALSE` : empêche l'affichage des messages d'information générés par les codes.
+  - `message = FALSE` : empêche l'affichage des messages d'information générés par les codes.
 
--   `warning = FALSE` : empêche l'affichage des messages d'alerte générés par les codes.
+  - `warning = FALSE` : empêche l'affichage des messages d'alerte générés par les codes.
 
--   `error = FALSE` : empêche l'affichage des messages d'erreur générés par les codes.
+  - `error = FALSE` : empêche l'affichage des messages d'erreur générés par les codes.
 
--   `fig.cap = "..."` : ajoute une légende aux graphiques.
+  - `fig.cap = "..."` : ajoute une légende aux graphiques.
 
--   `fig.align = "..."` : alignement des graphiques (choix : `left`, `right` ou `center`).
+  - `fig.align = "..."` : alignement des graphiques (choix : `left`, `right` ou `center`).
 
--   `fig.height = 6, fig.width = 8` : dimensions de la figure (en pouces).
+  - `fig.height = 6, fig.width = 8` : dimensions de la figure (en pouces).
 
 
 Les chunks sont gérés dans `{Rmarkdown}` par `{knitr}`.
-Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver l'ensemble de la documentation [ici](https://yihui.org/knitr/options/).
+
+Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver
+l'ensemble de la documentation
+[ici](https://yihui.org/knitr/options/).
 
 
 #### Les options globales des chunks
 
-Il est possible définir des options globales qui seront appliquées à chacun des chunks qui sont contenus dans le fichier, sauf spécifications contraires dans les options d'un chunk.
+Il est possible définir des options globales qui seront appliquées à
+chacun des chunks qui sont contenus dans le fichier, sauf
+spécifications contraires dans les options d'un chunk.
 
  ![](assets/img/chunk_setup.png)
 
-Ce chunk *setup* se trouve en dessous de l’en-tête, il permet de régler les options par défaut de tous les chunks. Par exemple, on va pouvoir indiquer que l’on ne veut pas faire apparaitre les messages et les warnings qui pourraient être générés lors de l’exécution des chunks. Au lieu de le faire pour tous les chunks, on peut le faire une seule fois ici.
+Ce chunk *setup* se trouve en dessous de l’en-tête, il permet de
+régler les options par défaut de tous les chunks. Par exemple, on va
+pouvoir indiquer que l’on ne veut pas faire apparaitre les messages et
+les warnings qui pourraient être générés lors de l’exécution des
+chunks. Au lieu de le faire pour tous les chunks, on peut le faire une
+seule fois ici.
 
  
 #### Utiliser des outputs 
 
-A l'intérieur du chunk, de nombreuses choses peuvent être faites, comme traiter des données, produire une table, des graphiques ou du textes.
-Pour cela, on utilise, dans un chunk, différentes fonctions R comme `plot` ou `kable`.
+A l'intérieur du chunk, de nombreuses choses peuvent être faites,
+comme traiter des données, produire une table, des graphiques ou du
+textes.
+
+Pour cela, on utilise, dans un chunk, différentes fonctions R comme
+`plot` ou `kable`.
+
 
 On peut par exemple inclure un **graphique**:
 
-```` {.md}
-```{r, echo=FALSE}`r ''`
-plot(pressure)
+```{embed, file = "./hack_verbatim_chunks/insverba-a.Rmd"}
 ```
-````
+
 ce qui affiche dans le document, directement après le chunk:
 
 ```{r, echo=FALSE}
@@ -344,82 +553,100 @@ plot(pressure)
 ```
 
 Ou des **données** non mises en forme
-```` {.md}
-```{r, echo=FALSE}`r ''`
-summary(cars)
+
+```{embed, file = "./hack_verbatim_chunks/insverba-b.Rmd"}
 ```
-````
+
 
 ```{r, echo=FALSE}
 summary(cars)
 ```
 
 Ou des **tableaux**
-```` {.md}
-```{r, echo=FALSE}`r ''`
-knitr::kable(iris[1:5, ], caption = 'A caption')
+
+
+```{embed, file = "./hack_verbatim_chunks/insverba-c.Rmd"}
 ```
-````
+
+
+Qui rend 
 
 ```{r, echo=FALSE}
 knitr::kable(iris[1:5, ], caption = 'A caption')
 ```
 
-**est ce qu'on parle de cela ou non? si oui où?**
-
-PDF documents are generated through the LaTeX files generated from R Markdown. A highly surprising fact to LaTeX beginners is that figures float by default: even if you generate a plot in a code chunk on the first page, the whole figure environment may float to the next page. This is just how LaTeX works by default. It has a tendency to float figures to the top or bottom of pages. Although it can be annoying and distracting, we recommend that you refrain from playing the “Whac-A-Mole” game in the beginning of your writing, i.e., desparately trying to position figures “correctly” while they seem to be always dodging you. You may wish to fine-tune the positions once the content is complete using the fig.pos chunk option (e.g., fig.pos = 'h').
-
-If you are looking for more advanced control of the styling of tables, you are recommended to use the kableExtra package, which provides functions to customize the appearance of PDF and HTML tables. Formatting tables can be a very complicated task, especially when certain cells span more than one column or row. It is even more complicated when you have to consider different output formats. For example, it is difficult to make a complex table work for both PDF and HTML output. We know it is disappointing, but sometimes you may have to consider alternative ways of presenting data, such as using graphics.
-**fin**
 
 
-Enfin, il est possible d'**insérer la valeur d'objets R** (variable, liste, résultat de calcul simple...) dans du texte. Pour cela il faut inclure l'objet R entre `` `r ` ``.
+
+#### Les insertions de code en ligne
+
+Enfin, il est possible d'**insérer la valeur d'objets R** (variable,
+liste, résultat de calcul simple...) dans du texte. Pour cela il faut
+inclure l'objet R entre `` `r knitr::inline_expr("...code...")` ``.
+
+```{r echo=FALSE,include=FALSE}
+numero <- 6
+```
 
 Par exemple le code suivant:
-```` {.md}
-```{r, echo=FALSE}`r ''`
-numero = 6  
+
+```{embed, file = "./hack_verbatim_chunks/insverba-d.Rmd"}
 ```
-Je suis actuellement en train de me former au module `r '\x60r numero\x60'`.
-````
-donne dans le document:
 
- ```{r, echo=FALSE}
- numero = 6
- ```
+> ASK: comment afficher les côtes pour r numero?
+> --- CCn
 
- Je suis actuellement en train de me former au module  `r numero`.
+> ANS: cf. exemple 
+> `` `r knitr::inline_expr("numero")` ``
+> la doc officielle 
+> https://bookdown.org/yihui/rmarkdown-cookbook/verbatim-code-chunks.html#show-a-verbatim-inline-expression
+> [ndr] le premier hack ne semble pas tellement fonctionner pour moi aujourd'hui 
+> et de manière générale les verbatims sont encore aussi des choses un peu 
+> subtiles à prendre en compte par l'EDI d'où le hack `embed` que j'utilise plus
+> bas
+> --- LBn
 
-#### Le cache (*à garder?*)
+Je suis actuellement en train de me former au module `` `r knitr::inline_expr("numero")` ``.
 
-Si le temps d'éxecution du code est trop long, il est possible d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les performances d'éxécution du code.
+Ce qui donne dans le document:
 
-Vous pouvez aussi affecter des valeurs par défaut à l'ensemble de vos chunks avec la fonction `knitr::opts_chunk$set()` à intégrer dans votre premier chunk :
+Je suis actuellement en train de me former au module  `r numero`.
 
-```` {.md}
-```{r, include=FALSE}`r ''`
-knitr::opts_chunk$set(
-  echo = FALSE, 
-  eval=TRUE, 
-  include=TRUE, 
-  fig.width = 6
-)
+
+
+Vous pouvez aussi affecter des valeurs par défaut à l'ensemble de vos
+chunks avec la fonction `knitr::opts_chunk$set()` à intégrer dans
+votre premier chunk :
+
+```{embed, file = "./hack_verbatim_chunks/insverba-e.Rmd"}
 ```
-````
 
 #### Exécuter le code des chunks
-Les codes contenus dans les chunks d’un document.Rmd peuvent être exécutés comme les codes contenus dans un script R en .R. Vous pouvez exécuter l’ensemble en faisant CTRL + A pour tout sélectionner et CRTL + ENTER pour exécuter. 
-Vous pouvez aussi exécuter le code chunk par chunk en placer votre souris au début d’un chunk puis en utilisant CTRL + ENTER ou en cliquant sur le bouton **play vert** en haut du chunk. D’autres options sont disponibles dans le menu déroulant du bouton run en haut à droite.
 
-Lorsque le code est excécuté, par défaut les résultats (sorties), et les plots sont affichés dans le document .Rmd. Pour afficher les sorties dans la console et les plots dans la fenêtre graphique, il faut choisir l’option “Chunk Output in Console“.
+Les codes contenus dans les chunks d’un document.Rmd peuvent être
+exécutés comme les codes contenus dans un script R en .R. Vous pouvez
+exécuter l’ensemble en faisant CTRL + A pour tout sélectionner et
+CRTL + ENTER pour exécuter.  Vous pouvez aussi exécuter le code chunk
+par chunk en placer votre souris au début d’un chunk puis en utilisant
+CTRL + ENTER ou en cliquant sur le bouton **play vert** en haut du
+chunk. D’autres options sont disponibles dans le menu déroulant du
+bouton run en haut à droite.
 
-#### exo3
 
--   Partir du fichier .Rmd de l'exercice précédent
--   Définir des options générales
--   Ajouter un chunk créant une table, qui sera traité mais non affiché dans le document final *quel traitement de données?*
--   Ajouter un chunk créant un graphique, qui sera traité et affiché dans le document final *quel output*
--   Générer le document 
+Lorsque le code est excécuté, par défaut les résultats (sorties), et
+les plots sont affichés dans le document .Rmd. Pour afficher les
+sorties dans la console et les plots dans la fenêtre graphique, il
+faut choisir l’option “Chunk Output in Console“.
+
+<a name="TD-3"/>TD.3
+
+  - Partir du fichier .Rmd de l'exercice précédent
+  - Définir des options générales
+  - Ajouter un chunk créant une table, qui sera traité mais non
+    affiché dans le document final *quel traitement de données?*
+  - Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
+    le document final *quel output*
+  - Générer le document 
 
 
 ### Insérer des images
@@ -432,99 +659,192 @@ On peut adapter les dimensions de l'image :
 
 `![Légende de la figure.](chemin/vers/image.png){ width=50% }`
 
-> NB : les caractères 'espace' ne sont pas autorisés autour du signe égal `=`, ni entre la parenthèse fermante et l'accolade ouvrante.
-> On a `){`.
+
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+  NB : les caractères 'espace' ne sont pas autorisés autour du signe
+  égal `=`, 
+  ni entre la parenthèse fermante et l'accolade ouvrante.
+  On a `){`.
+:::::::::::::::::::::::::::::
+
 
 On peut aussi utiliser la fonction `knitr::include_graphics` :
 
-    ```{r eval=TRUE} `r ''`
-    knitr::include_graphics("assets/img/couleuvre.jpg")
-    ```
+```{r eval=TRUE}
+knitr::include_graphics("assets/img/couleuvre.jpg")
+```
 
-Cette dernière méthode, préconisée quand le format de sortie n'est pas du html, permet de mieux controller l'affichage de l'image.
+Cette dernière méthode, préconisée quand le format de sortie n'est pas
+du html, permet de mieux controller l'affichage de l'image.
 
 
 ### Autres 
 
 #### Commentaires 
 
-Pour mettre une partie du fichier en commentaires, non traitée, il faut encadrer la partie par `<!-- commentaires -->`. 
-Pour cale on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou la commande dans le menu "Code".
+Pour mettre une partie du fichier en commentaires, non traitée, il
+faut encadrer la partie par `<!-- commentaires -->`.
+
+Pour cela on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou
+la commande dans le menu "Code".
 
 
-*indentation auto?*
+> ASK: indentation auto?
+> --- CCn
 
 #### Affichages sur plusieurs colonnes
 
-Vous aurez besoin souvent de pouvoir par exemple définir un document en plusieurs colonne, avec par exemple une illustration sur une moitiée de la page, un texte sur l'autre.
+Vous aurez besoin souvent de pouvoir par exemple définir un document
+en plusieurs colonne, avec par exemple une illustration sur une
+moitiée de la page, un texte sur l'autre.
 
 Pour cela vous aller devoir séparer vos deux blocs dans des *"div"*.
 
 Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
-Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
+
+Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
+vous devrez utiliser la propriété css `display: flex;` dans une `div`
+englobante.
 
 
 ## Convertir le fichier Rmarkdown pour utilisation
 
 ### Les formats de sortie
 
-Lors de la création du fichier .Rmd, vous avez dû choisir le format par défaut du document qui sera généré. Ce choix se retrouve dans l'option `output`de l'en-tête.
+Lors de la création du fichier .Rmd, vous avez dû choisir le format
+par défaut du document qui sera généré. Ce choix se retrouve dans
+l'option `output`de l'en-tête.
 
-Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou en cliquant sur la flèche vers le bas, du bouton knit.
+Il est possible de modifier le format du document généré, soit en
+modifiant l'option de l'en-tête ou en cliquant sur la flèche vers le
+bas, du bouton knit.
 
-Il existe deux types de format dans le package `rmarkdown`: documents et présentations. Tous les formats possibles sont listés ci-dessous:
+Il existe deux types de format dans le package `rmarkdown`: documents
+et présentations. Tous les formats possibles sont listés ci-dessous:
 
-- beamer_presentation
-- context_document
-- github_document
-- html_document
-- ioslides_presentation
-- latex_document
-- md_document
-- odt_document
-- pdf_document
-- powerpoint_presentation
-- rtf_document
-- slidy_presentation
-- word_document
+  - beamer_presentation
+  - context_document
+  - github_document
+  - html_document
+  - ioslides_presentation
+  - latex_document
+  - md_document
+  - odt_document
+  - pdf_document
+  - powerpoint_presentation
+  - rtf_document
+  - slidy_presentation
+  - word_document
 
-*est ce qu'on parle des présentations?*
+
+> ASK: est ce qu'on parle des présentations?
+> --- CCn
+
 Nous allons vous présenter les formats les plus courants.
 
 #### HTML
 
-A l'origine, Markdown a été conçu pour générer du HTML; c'est ce format qui a le plus de possibilités parmi tous les formats.
-Pour obtenir un document HTML, il faut mettre l'option `output: html_document` dans l'en-tête.
+A l'origine, Markdown a été conçu pour générer du HTML; c'est ce
+format qui a le plus de possibilités parmi tous les formats.
+
+Pour obtenir un document HTML, il faut mettre l'option `output:
+html_document` dans l'en-tête.
 
 Voici les options utilisées fréquemment:
 
--   `toc: true` permet d'ajouter une table des matières (table of contents en anglais) à notre document.
--   `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre dans la table des matières (par défaut 3). 
--   `toc_float : true` permet de rendre la table des matières flottante. Elle sera systématiquement visible, meme si on défile le document. Ce paramètre accepte des options.
--   `number_sections : true` permet de numéroter les titres.
--   `theme: flatly` permet de changer le thème du document (tiré de la librairie [Bootswatch](https://bootswatch.com/3/).
--   `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut la largeur et la hauteur des figures.
--   `fig_caption : true` permettent de définir les figures contiennent une légende.
+  - `toc: true` permet d'ajouter une table des matières 
+    (table of contents en anglais) à notre document.
+  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
+    dans la table des matières (par défaut 3). 
+  - `toc_float : true` permet de rendre la table des matières flottante. 
+     Elle sera systématiquement visible, meme si on défile le document. 
+     Ce paramètre accepte des options.
+  - `number_sections : true` permet de numéroter les titres.
+  - `theme: flatly` permet de changer le thème du document 
+    (tiré de la librairie [Bootswatch](https://bootswatch.com/3/).
+  - `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut 
+    la largeur et la hauteur des figures.
+  - `fig_caption : true` permettent de définir les figures contiennent 
+    une légende.
 
-#### PDF !!!!
+#### PDF 
 
-... $3.3 
+... $3.3
+
+> ASK: D'où l'importance de mon militantisme sur l'installation locale !!
+> voici en insert dans le code les commandes que je conseille fortement
+> --- LBn
+
 ```{r, eval=FALSE}
 install.packages('tinytex')
-tinytex::install_tinytex() 
-
+# lbn-fashion--start
+install_path <- file.path(Sys.getenv("LOCALAPPDATA"),'programs','RDIR','TinyTex',fsep = "\\")
+# lbn-fashion--end
+tinytex::install_tinytex(dir=install_path) 
 ```
 
-#### exo4
+> ASK: Est ce qu'on parle de cela ou non? si oui où?
+> --- CCn
 
-#### Documentation
-L'ensemble des options est listé page 5 du [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
+PDF documents are generated through the LaTeX files generated from R
+Markdown. A highly surprising fact to LaTeX beginners is that figures
+float by default: even if you generate a plot in a code chunk on the
+first page, the whole figure environment may float to the next
+page. This is just how LaTeX works by default. It has a tendency to
+float figures to the top or bottom of pages. Although it can be
+annoying and distracting, we recommend that you refrain from playing
+the “Whac-A-Mole” game in the beginning of your writing, i.e.,
+desparately trying to position figures “correctly” while they seem to
+be always dodging you. You may wish to fine-tune the positions once
+the content is complete using the fig.pos chunk option (e.g., fig.pos
+= 'h').
 
-Each output format is often accompanied with several format options. All these options are documented on the R package help pages. For example, you can type ?rmarkdown::html_document in R to open the help page of the html_document format. When you want to use certain options, you have to translate the values from R to YAML
-The translation is often straightforward. Remember that R’s TRUE, FALSE, and NULL are true, false, and null, respectively, in YAML. Character strings in YAML often do not require the quotes (e.g., dev: 'svg' and dev: svg are the same), unless they contain special characters, such as the colon :. 
+If you are looking for more advanced control of the styling of tables,
+you are recommended to use the kableExtra package, which provides
+functions to customize the appearance of PDF and HTML
+tables. Formatting tables can be a very complicated task, especially
+when certain cells span more than one column or row. It is even more
+complicated when you have to consider different output formats. For
+example, it is difficult to make a complex table work for both PDF and
+HTML output. We know it is disappointing, but sometimes you may have
+to consider alternative ways of presenting data, such as using
+graphics.  
+
+<a name="TD-4"/>TD.4
+
+  TODO
+
+
+## Documentation (comment aller plus loin ?)
+
+### Options possibles par type de sortie
+
+L'ensemble des options est listé page 5 du 
+[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
+
+Each output format is often accompanied with several format
+options. All these options are documented on the R package help
+pages. For example, you can type ?rmarkdown::html_document in R to
+open the help page of the html_document format. When you want to use
+certain options, you have to translate the values from R to YAML The
+translation is often straightforward. Remember that R’s TRUE, FALSE,
+and NULL are true, false, and null, respectively, in YAML. Character
+strings in YAML often do not require the quotes (e.g., dev: 'svg' and
+dev: svg are the same), unless they contain special characters, such
+as the colon :.
 
 ### Ajouter des parametres
 
 dans l'entete puis utilisation comme variables
 
-#### exo5
+## ?? A intégrer ou pas ??
+
+
+#### Le cache (*à garder?*)
+
+Si le temps d'éxecution du code est trop long, il est possible
+d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
+performances d'éxécution du code.
+
