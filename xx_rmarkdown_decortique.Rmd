@@ -15,7 +15,6 @@ editor_options:
 ---
 
 
-
 <!-- 
 
 Codification utilisée dans le cadre de l'élaboration du document
@@ -30,24 +29,19 @@ ANS: possible réponse
 
 
 
-
-
-
-
 # Le fichier *R Markdown*
 
 Ce chapitre n'a pas l'ambition de se substituer au 
+[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) 
+(un des auteurs, Yihui Xie, est le créateur du package `rmarkdown`) ou au
 [guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) 
 mais peut faciliter à un certain nombre de lecteurs francophones l'approche 
 et la compréhension du système de production de documents **R Markdown** 
-car à notre connaissance le guide n'a pas encore été traduit. 
+car à notre connaissance ces guides n'ont pas encore été traduits. 
 
-Plus précisément ce document entend progressivement prendre la place d'un support
-de référence dans le cadre du parcours de formation "R" et pourrait-être un
-outil d'acculturation à faire vivre pour établir un lien avec la communauté
-des utilisateurs concernés.
+![](assets/img/rmarkdown_definitive_guide_cover.png){class='centered' width='30%'}
 
-Au-delà du manuel de référence dont le volume est imposant, il existe une 
+Au-delà de ces manuels de référence, certes complets mais imposants, il existe une 
 [anti-sèche (cheatsheet) rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf) 
 qui réussit en deux pages à synthétiser l'essentiel de ce qu'il faut savoir 
 pour exploiter le système de production proposé au travers de RStudio.
@@ -62,29 +56,13 @@ par le menu Aide/Help.
 
 ## R markdown dans RStudio
 
-Pour utiliser R Markdown, il faut que les packages `rmarkdown` et `markdown` 
-soient installés :
+Pour utiliser R Markdown, il faut que le package `rmarkdown`
+soit installé :
 
 ```{r install, eval = FALSE, warning = FALSE, error = FALSE}
 install.packages ("rmarkdown")
 library (rmarkdown)
-install.packages ("markdown")
-library (markdown)
 ```
-
-> ASK: Concernant cette partie, je ne suis pas sûr de ce que l'on veut
-> passer comme information.
-> En réalité, pour faire du R Markdown le paquet `rmarkdown` est le 
-> seul strictement nécessaire (dans les faits il repose sur knitr et
-> quelques autres) mais justement le paquet markdown n'est q'un plugin
-> possible de knitr pour un usage aujourd'hui un peu révolu).
-> Ce qui reste vrai, c'est que RStudio oblige à l'installation de tout 
-> un tas de paquet pour faire tourner son environnement de rendu et là 
-> figurent bien souvent `markdown` et tout un tas d'autres comme shiny
-> qui ne d'ailleurs pas forcément des plus légers, mais en l'occurence
-> il n'y a pas trop à réfléchier puisqu'il faut se laisser guider par 
-> l'interface et la laisser faire.
-> --- LBn
 
 Dans l'environnement de développement intégré RStudio de votre bureau,
 le développeur dispose d'outils qui simplifient la production d'un
@@ -100,12 +78,15 @@ Le travail comprend généralement les étapes suivantes, toutefois les
   3. Compléter le document en ajoutant du texte
   4. Adapter l'en-tête
   5. Lancer la génération du document
-  6. Publier le document (particulier)
+  6. Publier le document (cas particulier, facultatif)
 
 ### Créer un fichier .Rmd
 
 > ASK: Début d'un TD (travail dirigé) ?
 > --- LBn
+> ANS: je pensais faire le TD après les explications
+> pour l'instant le TD est positionné apres l'en-tete. peut etre le mettre avant
+et inclure la modif de l'entete dans le TD 2 --- CCn
 
 On crée un nouveau fichier de type Rmarkdown en allant dans le menu
 File $\Rightarrow$ New file $\Rightarrow$ R Markdown
@@ -113,13 +94,12 @@ File $\Rightarrow$ New file $\Rightarrow$ R Markdown
 ![](assets/img/new_rmarkdown.jpg)
 
 Une pop-up s'ouvre alors pour donner quelques informations afin
-d'initialiser le fichier qui va être créé autrement dit afin de
-remplir quelques champs fortement recommandé par le processus global,
-voire imposés.
+d'initialiser le fichier qui va être créé en remplissant quelques champs 
+imposés ou fortement recommandés par le processus global.
 
 ![](assets/img/new_rmarkdown2.jpg)
 
-Pour commencer simplement, on choisit un format de sortie HTML.  C'est
+Pour commencer simplement, on choisit un format de sortie HTML. C'est
 le format de sortie par défaut, très utilisé (nous verrons les autres
 formats de sortie par la suite).  RStudio crée un fichier contenant
 des exemples des éléments structurant un fichier R markdown.
@@ -158,7 +138,8 @@ cela soit le texte (mis en forme), la visualisation du code intégré
 
 > ASK: Est ce qu'on met une image des icones? 
 > Est ce qu'on met une image du document généré par le fichier de
-> base?
+> base? cela permettrait que les stagiaires visualisent 
+> directement de quoi on parle
 > --- CCn
 
 ## Les éléments d'un fichier .Rmd
@@ -181,7 +162,7 @@ L'en-tête s'écrit au format YAML c'est un
 représenter des informations plus élaborées que le simple CSV en
 gardant cependant une lisibilité presque comparable.  
 
-Il est parfois appelé le Header ou le YAML. Il sert à définir les
+L'en-tête est parfois appelé le Header ou le YAML. Il sert à définir les
 paramètres de votre document comme les informations basiques sur le
 document ainsi que des choix relatifs au format de sortie (PDF, HTML,
 DOCX, etc.).  Il est délimité par deux séries de `---`.
@@ -225,34 +206,14 @@ date: "31/10/2022"
 output: html_document
 ```
 
-> ASK: je mettrai bien le passage sur les options des output dans le $ 
-> dédié à la fin
+> les options sont vues entierement dans le $1.3.1
 > --- CCn
 
-On peut rajouter des options pour un output (ces options dépendant du type d'output demandé):
-
-``` {.md}
-title: "mon_premier_document"
-author: 
-  - "Moi"
-  - "Toi"
-date: "31/10/2022"
-output: 
-  html_document:
-    toc: true
-    theme: flatly
-```
+On peut rajouter des options pour un output, ce qui sera vu en détail 
+dans le paragraphe 1.3.1.
 
 
-  - `toc: true` permet de rajouter un sommaire à notre document.
-  - `theme: flatly` permet de changer le thème du document.
-  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
-    dans le sommaire. 
-
-L'ensemble des options est listé page 5 du 
-[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
-
-On peut rajouter plusieurs outputs :
+Il est possible de rajouter plusieurs outputs :
 
 ``` {.md}
 title: "mon_premier_document"
@@ -267,23 +228,19 @@ output:
     theme: flatly
 ```
 
+
+
 <a name="TD-1"/>TD.1  
 
   - Ouvrir Rstudio
   - Créer un fichier markdown, format html
+  - prévisualiser le document avant toutes modifications
   - Mettez-vous en auteur du document
   - Rajouter un theme spécifique
   - Cliquer sur *knit* pour compiler le document et identifier 
     les correspondances entre fichier .Rmd et fichier html
 
 ### Les éléments texte
-
-Les bases du langage sont très bien expliquées dans 
-[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html).
-Un des auteurs, Yihui Xie, est le créateur du package `rmarkdown`.
-
-![](assets/img/rmarkdown_definitive_guide_cover.png){class='centered' width='30%'}
-
 
 Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour
 Markdown.  Vous trouverez la documentation complète sur le PANDOC pour
@@ -351,7 +308,7 @@ partie suivante).
 
 **Liste à puces**
 
-Les listes à puces, sans ordre, commence par `-` ou `*` ou `+`, en précédant la liste par une ligne vide.
+Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédant la liste par une ligne vide.
 On peut créer des listes imbriquées en indentant la sous-liste.
 
     - Premier élément  
@@ -410,36 +367,6 @@ rend
 
 [Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
 
-> ASK: comment faire un renvoi vers un paragraphe du document ? 
-> ne fonctionne pas
-> --- CCn
-
-> ANS: en fait cela fonctionne bien mais sous condiitions
-> sera ma première réponse pour éviter de rentrer trop dans les détails
-> mais il y a une configuration pour que cela marche à coup sûr localement
-> avec un langage à caractère acentué comme le français
-> elle nécessite l'extension pandoc (md_extensions) ascii_identifiers
-> --- LBn
-
-<!-- `[Retour vers le paragraphe](#Les éléments texte)`  -->
-
-`` [Retour vers le paragraphe](#les-elements-texte) ``
-
-rend 
-
-<!-- [Retour vers le paragraphe](#Les éléments texte) -->
-
-[Retour vers le paragraphe](#les-elements-texte)
-
-
-> ASK: Concernant des éléments encore plus génériques (hors titres)
-> Le plus simple c'est de reccourrir en html à un hack en mettant une ancre
-> html, en gros c'est aussi un des problème qu'adressait le démarrage de bookdown
-> ne fonctionne pas
-> En clair une solution possible
-> poser une ancre ``<a name="id-unique"/>``
-> et plus loin dans le texte y faire référence du genre ``[vers mon ancre](#id-unique)``
-> --- LBn
 
 Les notes de bas de page s'écrivent à l'intérieur de `^[]`. 
 `^[Ceci est une note de bas de page]` rend ^[Ceci est une note de bas de page].
@@ -466,9 +393,7 @@ voulez voir exécuter.
 
 On peut créer un nouveau chunk en cliquant sur le bouton 
 
-![](assets/img/icone_ajout_chunk.png) 
-
-ou grâce au raccourci clavier `Ctrl + Alt + I`.
+![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier `Ctrl + Alt + I`.
 
 Ces chunks peuvent être nommés (avec des caractères alphanumériques
 minuscules et majuscules et des tirets `-`). Dans l’exemple précédent,
@@ -477,8 +402,8 @@ le nom du chunk est cars.
 #### Les options des *chunks*
 
 Au début de chaque chunk se trouve une accolade contenant la lettre
-r. C’est dans cette accolade, après la lettre r (il ne faut pas
-l’enlever) que les options vont pouvoir être passées. Elles permettent
+r. C’est dans cette accolade, après la lettre r (qu'il ne faut pas
+enlever) que les options vont pouvoir être passées. Elles permettent
 de controller finement ce qui est produit par le chunk, pour choisir
 de faire apparaître, ou non, le code dans le rapport dynamique, ainsi
 que les résultats, ou encore pour définir la taille des plots.
@@ -503,12 +428,13 @@ fréquemment :
 
   - `fig.cap = "..."` : ajoute une légende aux graphiques.
 
-  - `fig.align = "..."` : alignement des graphiques (choix : `left`, `right` ou `center`).
+  - `fig.align = "..."` : aligne les graphiques (choix : `left`, `right` ou `center`).
 
-  - `fig.height = 6, fig.width = 8` : dimensions de la figure (en pouces).
+  - `fig.height = 6, fig.width = 8` : permet de modifier les dimensions 
+  de la figure (en pouces).
 
 
-Les chunks sont gérés dans `{Rmarkdown}` par `{knitr}`.
+Les chunks sont gérés dans `{Rmarkdown}` par le package `{knitr}`.
 
 Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver
 l'ensemble de la documentation
@@ -517,14 +443,18 @@ l'ensemble de la documentation
 
 #### Les options globales des chunks
 
-Il est possible définir des options globales qui seront appliquées à
+Il est possible de définir des options globales qui seront appliquées à
 chacun des chunks qui sont contenus dans le fichier, sauf
 spécifications contraires dans les options d'un chunk.
 
- ![](assets/img/chunk_setup.png)
+ 
+```{embed, file = "./hack_verbatim_chunks/insverba-e.Rmd"}
+```
+
 
 Ce chunk *setup* se trouve en dessous de l’en-tête, il permet de
-régler les options par défaut de tous les chunks. Par exemple, on va
+régler les options par défaut de tous les chunks grâce à la fonction 
+`knitr::opts_chunk$set()`. Par exemple, on va
 pouvoir indiquer que l’on ne veut pas faire apparaitre les messages et
 les warnings qui pourraient être générés lors de l’exécution des
 chunks. Au lieu de le faire pour tous les chunks, on peut le faire une
@@ -535,10 +465,10 @@ seule fois ici.
 
 A l'intérieur du chunk, de nombreuses choses peuvent être faites,
 comme traiter des données, produire une table, des graphiques ou du
-textes.
+texte.
 
-Pour cela, on utilise, dans un chunk, différentes fonctions R comme
-`plot` ou `kable`.
+Pour cela, on utilise différentes fonctions R comme
+`plot` ou `kable` dans un chunk.
 
 
 On peut par exemple inclure un **graphique**:
@@ -546,7 +476,7 @@ On peut par exemple inclure un **graphique**:
 ```{embed, file = "./hack_verbatim_chunks/insverba-a.Rmd"}
 ```
 
-ce qui affiche dans le document, directement après le chunk:
+ce qui affiche le graphique dans le document, directement après le chunk:
 
 ```{r, echo=FALSE}
 plot(pressure)
@@ -569,7 +499,7 @@ Ou des **tableaux**
 ```
 
 
-Qui rend 
+qui rend 
 
 ```{r, echo=FALSE}
 knitr::kable(iris[1:5, ], caption = 'A caption')
@@ -592,34 +522,11 @@ Par exemple le code suivant:
 
 ```{embed, file = "./hack_verbatim_chunks/insverba-d.Rmd"}
 ```
-
-> ASK: comment afficher les côtes pour r numero?
-> --- CCn
-
-> ANS: cf. exemple 
-> `` `r knitr::inline_expr("numero")` ``
-> la doc officielle 
-> https://bookdown.org/yihui/rmarkdown-cookbook/verbatim-code-chunks.html#show-a-verbatim-inline-expression
-> [ndr] le premier hack ne semble pas tellement fonctionner pour moi aujourd'hui 
-> et de manière générale les verbatims sont encore aussi des choses un peu 
-> subtiles à prendre en compte par l'EDI d'où le hack `embed` que j'utilise plus
-> bas
-> --- LBn
-
-Je suis actuellement en train de me former au module `` `r knitr::inline_expr("numero")` ``.
-
-Ce qui donne dans le document:
+permet d'afficher dans le document:
 
 Je suis actuellement en train de me former au module  `r numero`.
 
 
-
-Vous pouvez aussi affecter des valeurs par défaut à l'ensemble de vos
-chunks avec la fonction `knitr::opts_chunk$set()` à intégrer dans
-votre premier chunk :
-
-```{embed, file = "./hack_verbatim_chunks/insverba-e.Rmd"}
-```
 
 #### Exécuter le code des chunks
 
@@ -633,7 +540,7 @@ chunk. D’autres options sont disponibles dans le menu déroulant du
 bouton run en haut à droite.
 
 
-Lorsque le code est excécuté, par défaut les résultats (sorties), et
+Lorsque le code est excécuté, par défaut les résultats (sorties) et
 les plots sont affichés dans le document .Rmd. Pour afficher les
 sorties dans la console et les plots dans la fenêtre graphique, il
 faut choisir l’option “Chunk Output in Console“.
@@ -642,11 +549,17 @@ faut choisir l’option “Chunk Output in Console“.
 
   - Partir du fichier .Rmd de l'exercice précédent
   - Définir des options générales
-  - Ajouter un chunk créant une table, qui sera traité mais non
-    affiché dans le document final *quel traitement de données?*
+  - Ajouter un chunk créant une table, qui sera traitée mais non
+    affichée dans le document final *quel traitement de données?*
   - Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
     le document final *quel output*
   - Générer le document 
+
+
+> ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
+> de données et le graphique attendu?
+> il faut prévoir un temps pour expliciter les données utilisées (RPLS) 
+> --- CCn
 
 
 ### Insérer des images
@@ -691,16 +604,16 @@ Pour cela on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou
 la commande dans le menu "Code".
 
 
-> ASK: indentation auto?
+> ASK: est ce qu'on peut faire de l'indentation auto?
 > --- CCn
 
 #### Affichages sur plusieurs colonnes
 
-Vous aurez besoin souvent de pouvoir par exemple définir un document
-en plusieurs colonne, avec par exemple une illustration sur une
+Vous pourrez avoir besoin de définir un document
+en plusieurs colonnes, avec par exemple une illustration sur une
 moitiée de la page, un texte sur l'autre.
 
-Pour cela vous aller devoir séparer vos deux blocs dans des *"div"*.
+Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
 
 Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
 
@@ -708,6 +621,9 @@ Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
 vous devrez utiliser la propriété css `display: flex;` dans une `div`
 englobante.
 
+
+> ASK: est ce que vous pouvez me donner un exemple à ajouter ?
+> --- CCn
 
 ## Convertir le fichier Rmarkdown pour utilisation
 
@@ -718,8 +634,8 @@ par défaut du document qui sera généré. Ce choix se retrouve dans
 l'option `output`de l'en-tête.
 
 Il est possible de modifier le format du document généré, soit en
-modifiant l'option de l'en-tête ou en cliquant sur la flèche vers le
-bas, du bouton knit.
+modifiant l'option de l'en-tête ou celle de la fonction knit (via sur la flèche
+vers le bas du bouton knit ou via les options de la ligne de code).
 
 Il existe deux types de format dans le package `rmarkdown`: documents
 et présentations. Tous les formats possibles sont listés ci-dessous:
@@ -738,16 +654,20 @@ et présentations. Tous les formats possibles sont listés ci-dessous:
   - slidy_presentation
   - word_document
 
+Chaque format a son propre lot d'options, qui sont documentées dans la 
+documentation de la fonction associcée (par exemple `?rmarkdown::html_document`)
 
-> ASK: est ce qu'on parle des présentations?
+> ASK: est ce qu'on parle des présentations? du package xaringan?
 > --- CCn
 
-Nous allons vous présenter les formats les plus courants.
+Nous allons vous présenter les formats les plus utiles.
 
 #### HTML
 
 A l'origine, Markdown a été conçu pour générer du HTML; c'est ce
-format qui a le plus de possibilités parmi tous les formats.
+format qui a le plus de possibilités parmi tous les formats. C'est aussi celui 
+qui est le plus compatible avec les différents packages R de production
+d'output
 
 Pour obtenir un document HTML, il faut mettre l'option `output:
 html_document` dans l'en-tête.
@@ -769,7 +689,29 @@ Voici les options utilisées fréquemment:
   - `fig_caption : true` permettent de définir les figures contiennent 
     une légende.
 
-#### PDF 
+
+``` {.md}
+title: "mon_premier_document"
+author: 
+  - "Moi"
+  - "Toi"
+date: "31/10/2022"
+output: 
+  html_document:
+    toc: true
+    theme: flatly
+```
+
+
+L'ensemble des options est listé page 5 du 
+[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+#### odt_document  --> TODO
+
+les tableaux faits en kableExtra ne sortent pas correctement. 
+
+
+#### PDF
 
 ... $3.3
 
@@ -780,12 +722,13 @@ Voici les options utilisées fréquemment:
 ```{r, eval=FALSE}
 install.packages('tinytex')
 # lbn-fashion--start
-install_path <- file.path(Sys.getenv("LOCALAPPDATA"),'programs','RDIR','TinyTex',fsep = "\\")
+install_path <- file.path(Sys.getenv("APPDATA"),'programs','RDIR','TinyTex',fsep = "\\")
 # lbn-fashion--end
 tinytex::install_tinytex(dir=install_path) 
 ```
 
 > ASK: Est ce qu'on parle de cela ou non? si oui où?
+> install_tinytex ne fonctionne toujours pas chez moi! chemin non trouvé
 > --- CCn
 
 PDF documents are generated through the LaTeX files generated from R
@@ -814,37 +757,37 @@ graphics.
 
 <a name="TD-4"/>TD.4
 
-  TODO
+  
+pagedown pour faire du PDF sans Latex?
 
 
-## Documentation (comment aller plus loin ?)
-
-### Options possibles par type de sortie
-
-L'ensemble des options est listé page 5 du 
-[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)  
-
-Each output format is often accompanied with several format
-options. All these options are documented on the R package help
-pages. For example, you can type ?rmarkdown::html_document in R to
-open the help page of the html_document format. When you want to use
-certain options, you have to translate the values from R to YAML The
-translation is often straightforward. Remember that R’s TRUE, FALSE,
-and NULL are true, false, and null, respectively, in YAML. Character
-strings in YAML often do not require the quotes (e.g., dev: 'svg' and
-dev: svg are the same), unless they contain special characters, such
-as the colon :.
 
 ### Ajouter des parametres
 
 dans l'entete puis utilisation comme variables
 
-## ?? A intégrer ou pas ??
 
 
-#### Le cache (*à garder?*)
+
+## Pour aller plus loin
+
+### Autres formats de sortie
+gouvdown? où on trouve la doc?
+distill? 
+xaringan ?
+
+### reference .R files 
+
+### Le cache 
 
 Si le temps d'éxecution du code est trop long, il est possible
 d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
 performances d'éxécution du code.
+
+> ASK: Est ce qu'on parle de cela ou non? 
+> --- CCn
+
+## Bibliographie 
+video 
+guides
 

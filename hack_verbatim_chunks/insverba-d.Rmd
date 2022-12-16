@@ -2,3 +2,4 @@
 ```{r, echo=FALSE}
 numero <-  6  
 ```
+Je suis actuellement en train de me former au module  `r numero`.

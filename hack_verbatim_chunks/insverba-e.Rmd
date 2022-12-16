@@ -1,9 +1,7 @@
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE, 
-  eval=TRUE, 
-  include=TRUE, 
-  fig.width = 6
+  message = FALSE, 
+  warning = FALSE
 )
 ```
