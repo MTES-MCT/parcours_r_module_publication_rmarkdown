@@ -1,0 +1,32 @@
+---
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2022"
+output: html_document
+params:
+  espece: setosa
+  printcode: TRUE
+---
+
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE,
+  echo = params$printcode
+)
+```
+
+
+Les résultats affichés ci-dessus concernent l'espece `r params$espece`.
+
+```{r, include=FALSE}
+
+print(params)
+
+summary(iris)
+
+extrait <- iris %>%
+  filter(Species==params$espece)
+
+```

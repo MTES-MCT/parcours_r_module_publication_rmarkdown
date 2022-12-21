@@ -85,8 +85,9 @@ Le travail comprend généralement les étapes suivantes, toutefois les
 > ASK: Début d'un TD (travail dirigé) ?
 > --- LBn
 > ANS: je pensais faire le TD après les explications
-> pour l'instant le TD est positionné apres l'en-tete. peut etre le mettre avant
-et inclure la modif de l'entete dans le TD 2 --- CCn
+> pour l'instant le TD est positionné apres l'en-tete. 
+> peut etre le mettre avant
+> et inclure la modif de l'entete dans le TD 2 --- CCn
 
 On crée un nouveau fichier de type Rmarkdown en allant dans le menu
 File $\Rightarrow$ New file $\Rightarrow$ R Markdown
@@ -346,15 +347,15 @@ Rend :
     ii) Sous-élément 2 
 
 
-##### Les encarts
+##### Les mentions
 
-Les encarts sont pratiques pour mettre en valeur les éléments "à retenir".
+Les "mentions" sont pratiques pour mettre en valeur les éléments "à retenir".
 
-    > Texte à mettre dans un encart
+    > Texte à mettre en mention
 
 Rend : 
 
-> Texte à mettre dans un encart
+> Texte à mettre en mention
 
 ##### Liens et note de bas de page
 
@@ -432,7 +433,12 @@ fréquemment :
 
   - `fig.height = 6, fig.width = 8` : permet de modifier les dimensions 
   de la figure (en pouces).
+  
+  - `fig.pos = "..."` : permet de définir la position des graphiques 
+  (choix : ????).
 
+> ASK: comment on utilise l'option fig.pos? 
+> --- CCn
 
 Les chunks sont gérés dans `{Rmarkdown}` par le package `{knitr}`.
 
@@ -545,16 +551,6 @@ les plots sont affichés dans le document .Rmd. Pour afficher les
 sorties dans la console et les plots dans la fenêtre graphique, il
 faut choisir l’option “Chunk Output in Console“.
 
-<a name="TD-3"/>TD.3
-
-  - Partir du fichier .Rmd de l'exercice précédent
-  - Définir des options générales
-  - Ajouter un chunk créant une table, qui sera traitée mais non
-    affichée dans le document final *quel traitement de données?*
-  - Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
-    le document final *quel output*
-  - Générer le document 
-
 
 > ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
 > de données et le graphique attendu?
@@ -591,6 +587,18 @@ knitr::include_graphics("assets/img/couleuvre.jpg")
 
 Cette dernière méthode, préconisée quand le format de sortie n'est pas
 du html, permet de mieux controller l'affichage de l'image.
+
+<a name="TD-3"/>TD.3
+
+  - Partir du fichier .Rmd de l'exercice précédent
+  - Définir des options générales
+  - Ajouter un chunk créant une table, qui sera traitée mais non
+    affichée dans le document final
+  - Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
+    le document final 
+  - Ajouter une image
+  - Générer le document 
+
 
 
 ### Autres 
@@ -655,7 +663,19 @@ et présentations. Tous les formats possibles sont listés ci-dessous:
   - word_document
 
 Chaque format a son propre lot d'options, qui sont documentées dans la 
-documentation de la fonction associcée (par exemple `?rmarkdown::html_document`)
+documentation de la fonction associée (par exemple `?rmarkdown::html_document`).
+
+
+
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+ Attention : quand on inclut du code R dans un document, il faut s'assurer que 
+ les packages R utilisés sont compatibles avec le(s) format(s) choisi(s).
+ Les packages du tidyverse sont compatibles avec les formats HTML et PDF. 
+ La compatibilité entre packages et formats doit être vérifiée au cas par cas.
+:::::::::::::::::::::::::::::
+
 
 > ASK: est ce qu'on parle des présentations? du package xaringan?
 > --- CCn
@@ -667,7 +687,7 @@ Nous allons vous présenter les formats les plus utiles.
 A l'origine, Markdown a été conçu pour générer du HTML; c'est ce
 format qui a le plus de possibilités parmi tous les formats. C'est aussi celui 
 qui est le plus compatible avec les différents packages R de production
-d'output
+d'output.
 
 Pour obtenir un document HTML, il faut mettre l'option `output:
 html_document` dans l'en-tête.
@@ -706,75 +726,181 @@ output:
 L'ensemble des options est listé page 5 du 
 [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
-#### odt_document  --> TODO
-
-les tableaux faits en kableExtra ne sortent pas correctement. 
-
 
 #### PDF
 
-... $3.3
+Pour générer des documents PDF, il est nécessaire d'avoir installé LaTeX. 
+Pour ceux qui ne l'ont pas déjà installé, nous conseillons 
+[TinyTeX](https://yihui.name/tinytex/) qui est une distribution LaTeX légère, 
+portable et facile à maintenir. Le package `tinytex` installe automatiquement 
+les packages LaTeX manquants lors que la compilation de documents R Markdown 
+en PDF.
 
-> ASK: D'où l'importance de mon militantisme sur l'installation locale !!
-> voici en insert dans le code les commandes que je conseille fortement
-> --- LBn
+Le code suivant permet d'installer `tinytex` :
 
-```{r, eval=FALSE}
-install.packages('tinytex')
-# lbn-fashion--start
-install_path <- file.path(Sys.getenv("APPDATA"),'programs','RDIR','TinyTex',fsep = "\\")
-# lbn-fashion--end
-tinytex::install_tinytex(dir=install_path) 
+```{embed, file = "./hack_verbatim_chunks/insverba-f.Rmd"}
 ```
 
-> ASK: Est ce qu'on parle de cela ou non? si oui où?
-> install_tinytex ne fonctionne toujours pas chez moi! chemin non trouvé
+LaTeX est un logiciel externe qui vient en complément de R pour produire des 
+PDF. Pour pouvoir l'utiliser il faut l'installer (via TinyTeX) mais aussi 
+prévenir R du lieu de ces nouveaux éxécutables. Pour cela, il faut modifier 
+le fichier caché .Renviron présent dans notre Home. 
+Il faut ajouter les lignes de code suivantes:
+
+
+``` {.md}
+TINYTEX_HOME="${LOCALAPPDATA}\TinyTex\bin\win32"
+PATH="${TINYTEX_HOME};${PATH}"
+```
+
+> ASK: est ce que cela est correct et clair?
+> install_tinytex ne fonctionne toujours pas chez moi! multirow.sty non trouvé
 > --- CCn
 
-PDF documents are generated through the LaTeX files generated from R
-Markdown. A highly surprising fact to LaTeX beginners is that figures
-float by default: even if you generate a plot in a code chunk on the
-first page, the whole figure environment may float to the next
-page. This is just how LaTeX works by default. It has a tendency to
-float figures to the top or bottom of pages. Although it can be
-annoying and distracting, we recommend that you refrain from playing
-the “Whac-A-Mole” game in the beginning of your writing, i.e.,
-desparately trying to position figures “correctly” while they seem to
-be always dodging you. You may wish to fine-tune the positions once
-the content is complete using the fig.pos chunk option (e.g., fig.pos
-= 'h').
+Il est important de noter qu'en LaTeX, les figures sont flottantes par défaut.
+Même si on crée un graphique dans un bout de code présent sur la 1ere page, 
+celui-ci peut finalement apparaitre sur la page suivante. LaTeX a tendance à 
+faire apparaitre les figures au début ou à la fin des pages. Nous vous 
+conseillons de ne traiter le posionnement des figures à la fin, une fois la 
+totalité du contenu écrite. Pour cela il faudra utiliser les options de 
+positionnement dans les chunks (par exemple fig_pos = "h")
 
-If you are looking for more advanced control of the styling of tables,
-you are recommended to use the kableExtra package, which provides
-functions to customize the appearance of PDF and HTML
-tables. Formatting tables can be a very complicated task, especially
-when certain cells span more than one column or row. It is even more
-complicated when you have to consider different output formats. For
-example, it is difficult to make a complex table work for both PDF and
-HTML output. We know it is disappointing, but sometimes you may have
-to consider alternative ways of presenting data, such as using
-graphics.  
+
+Pour obtenir un document PDF, il faut mettre l'option `output:
+pdf_document` dans l'en-tête.
+
+Voici les options utilisées fréquemment:
+
+  - `toc: true` permet d'ajouter une table des matières 
+    (table of contents en anglais) à notre document.
+  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
+    dans la table des matières (par défaut 2). 
+  - `number_sections : true` permet de numéroter les titres.
+  - `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut 
+    la largeur et la hauteur des figures (par défaut 6.5x4.5).
+  - `fig_caption : true` permettent de définir les figures contiennent 
+    une légende (par défaut `true`).
+  
+  
+  
+
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+ Si vous souhaitez accéder à plus d'options de mise en forme de tableau, le 
+ package `kableExtra` contient des fonctions compatibles avec les formats 
+ HMTL et PDF. 
+ Cependant cela reste compliqué de mettre en forme des tableaux complexes, 
+ en particulier si vous souhaitez plusieurs formats en sortie. Nous vous 
+ conseillons d'adapter la mise en forme pour chaque format ou de trouver 
+ une nouvelle façon de représenter la donnée.
+:::::::::::::::::::::::::::::
+
 
 <a name="TD-4"/>TD.4
 
+  - Partir du fichier .Rmd de l'exercice précédent
+  - Modifier les options pour avoir un sommaire flottant affichant un seul 
+  niveau de titre
+  - Changer le thème utilisé
+  - Générer le document 
+  - Repartir du fichier .Rmd pour générer un document PDF. Il est important 
+  de vérifier la compatibilité des éléemnts définits avec ce nouveau format.
+
+
+### Ajouter des paramètres
+
+Un des nombreux avantages de R Markdown est la possibilité de reproduire des 
+analyses très facilement en actualisant une partie du travail ou en changeant 
+un des entrants du document.
+Utiliser des paramètres permet d'aller encore plus loin pour créer un document 
+qui peut être réutilisé pour plusieurs scenarios. On peut ainsi créer des 
+documents pour des territoires ou des années différents, faire tourner une 
+analyse en changeant une des hypothèses ou changer le comportement de `knitr` 
+selon les cas rencontrés.
+
+
+Les paramètres sont spécifiés dans l'en-tête avec l'option `params` dans 
+laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.
+
+
+Les paramètres peuvent etre de type `character`, `numeric`, `integer` et 
+`logical` mais aussi des expressions R tant qu'elles sont précédées de `!r `. 
+L'en-tête, et donc le code pouvant y être présent, est éxécuté avant le reste 
+du code donc il est nécéssaire d'expliciter les packages utilisés.
+
+Par exemple: 
+
+
+``` {.md}
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2022"
+output: html_document
+params:
+  annee: 2022
+  region: Bretagne
+  date: !r lubricate::today()
+```
+
+Une fois définis dans l'en-tête, ces parametres sont accessibles depuis le 
+fichier .RMD (texte ou code) mais aussi depuis la console. Ils sont stockés 
+dans une liste en lecture nommée *params*. 
+
+Le code suivant montre quelques exemples d'utilisation des paramètres :
+
+```{embed, file = "./hack_verbatim_chunks/insverba-g.Rmd"}
+```
+
+Il existe 3 façons de générer un document avec des paramètres:
+  - utiliser le bouton **knit**, ce qui prend les valeur par défaut des paramètres
   
-pagedown pour faire du PDF sans Latex?
+  - utiliser l'interface RStudio selectionnant l'option **Knit with Parameters** du bouton **knit**. Cela ouvre une nouvelle fenêtre demandant de choisir les valeurs des paramètres indiqués dans l'en-tête.
+  
+  - utiliser la fonction `rmarkdown::render()`. Sans autre option cette fonction 
+  utilisera les paramètres par défaut définis dans l'en-tête. On peut aussi 
+  définir de nouvelles   valeurs en utilisant l'option `params=`. 
+  Cela donne par exemple :
+  
+```{embed, file = "./hack_verbatim_chunks/insverba-h.Rmd"}
+```
 
+Cette dernière façon de faire, via la fonction `rmarkdown::render()` permet 
+d'automatiser encore plus les choses en générant autant de documents que de 
+valeurs différentes d'un paramètre. En effet, dans un script .R, il est 
+possible de créer une fonction ayant en entrée les paramètres que l'on veut 
+modifier plusieurs fois mais aussi le nom du document généré.
 
-
-### Ajouter des parametres
-
-dans l'entete puis utilisation comme variables
-
-
+En reprenant l'exemple précédant, on peut faire:
+  
+```{embed, file = "./hack_verbatim_chunks/insverba-i.R"}
+```
 
 
 ## Pour aller plus loin
 
 ### Autres formats de sortie
+
+
+Il existe des packages permettant d'obtenir des formats de sortie spécifiques. 
+A chaque fois il convient de vérifier que ces formats des sorties et votre 
+code sont compatibles.
+  
+pagedown pour faire du PDF sans Latex?
 gouvdown? où on trouve la doc?
 distill? 
 xaringan ?
+officer et officedown?
+
+#### odt_document  --> TODO
+
+les tableaux faits en kableExtra et knitr::kable ne sortent pas correctement. 
+les graphiques ne sont pas complets (titres coupés par ex)
+ce format pourrait etre utile uniquement pour le texte. 
+les graphiques seraient à faire séparement?
+
+> ASK: Est ce qu'on parle de cela ou non? 
+> --- CCn
 
 ### reference .R files 
 
@@ -788,6 +914,15 @@ performances d'éxécution du code.
 > --- CCn
 
 ## Bibliographie 
-video 
-guides
+
+Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown 
+mais aussi tous les packages et logiciels en lien avec ce sujet:
+
+  - [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
+  - [Le guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) 
+  - [La syntaxe Markdown sur laquelle s'appuie `rmarkdown`]`(https://daringfireball.net/projects/markdown/syntax#philosophy)
+  - [Pour en savoir plus sur PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
+  - [Pour en savoir plus sur TinyTeX](https://yihui.org/tinytex/)
+  - [Une vidéo en anglais pour aller plus loin dasn l'utilisation de R Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
+  - et évidemment les documentations de tous les packages cités!
 
