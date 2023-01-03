@@ -84,10 +84,8 @@ Le travail comprend généralement les étapes suivantes, toutefois les
 
 > ASK: Début d'un TD (travail dirigé) ?
 > --- LBn
-> ANS: je pensais faire le TD après les explications
-> pour l'instant le TD est positionné apres l'en-tete. 
-> peut etre le mettre avant
-> et inclure la modif de l'entete dans le TD 2 --- CCn
+> ANS: le mettre avant
+> et inclure la modif de l'entete dans le TD 2 --- CCn ok!!!!!
 
 On crée un nouveau fichier de type Rmarkdown en allant dans le menu
 File $\Rightarrow$ New file $\Rightarrow$ R Markdown
@@ -141,6 +139,7 @@ cela soit le texte (mis en forme), la visualisation du code intégré
 > Est ce qu'on met une image du document généré par le fichier de
 > base? cela permettrait que les stagiaires visualisent 
 > directement de quoi on parle
+OK
 > --- CCn
 
 ## Les éléments d'un fichier .Rmd
@@ -206,9 +205,6 @@ author:
 date: "31/10/2022"
 output: html_document
 ```
-
-> les options sont vues entierement dans le $1.3.1
-> --- CCn
 
 On peut rajouter des options pour un output, ce qui sera vu en détail 
 dans le paragraphe 1.3.1.
@@ -552,12 +548,6 @@ sorties dans la console et les plots dans la fenêtre graphique, il
 faut choisir l’option “Chunk Output in Console“.
 
 
-> ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
-> de données et le graphique attendu?
-> il faut prévoir un temps pour expliciter les données utilisées (RPLS) 
-> --- CCn
-
-
 ### Insérer des images
 
 La syntaxe la plus simple pour insérer une image est la suivante :
@@ -590,6 +580,12 @@ du html, permet de mieux controller l'affichage de l'image.
 
 <a name="TD-3"/>TD.3
 
+> ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
+> de données et le graphique attendu? oui!
+> il faut prévoir un temps pour expliciter les données utilisées (RPLS) 
+> --- CCn
+
+
   - Partir du fichier .Rmd de l'exercice précédent
   - Définir des options générales
   - Ajouter un chunk créant une table, qui sera traitée mais non
@@ -612,26 +608,6 @@ Pour cela on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou
 la commande dans le menu "Code".
 
 
-> ASK: est ce qu'on peut faire de l'indentation auto?
-> --- CCn
-
-#### Affichages sur plusieurs colonnes
-
-Vous pourrez avoir besoin de définir un document
-en plusieurs colonnes, avec par exemple une illustration sur une
-moitiée de la page, un texte sur l'autre.
-
-Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
-
-Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
-
-Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
-vous devrez utiliser la propriété css `display: flex;` dans une `div`
-englobante.
-
-
-> ASK: est ce que vous pouvez me donner un exemple à ajouter ?
-> --- CCn
 
 ## Convertir le fichier Rmarkdown pour utilisation
 
@@ -677,8 +653,6 @@ documentation de la fonction associée (par exemple `?rmarkdown::html_document`)
 :::::::::::::::::::::::::::::
 
 
-> ASK: est ce qu'on parle des présentations? du package xaringan?
-> --- CCn
 
 Nous allons vous présenter les formats les plus utiles.
 
@@ -879,6 +853,28 @@ En reprenant l'exemple précédant, on peut faire:
 
 ## Pour aller plus loin
 
+
+#### Affichages sur plusieurs colonnes
+
+cela se fait très bien en format PDF, c'est plus compliqué en HTML.
+Vous pourrez avoir besoin de définir un document
+en plusieurs colonnes, avec par exemple une illustration sur une
+moitiée de la page, un texte sur l'autre.
+
+Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
+
+Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
+
+Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
+vous devrez utiliser la propriété css `display: flex;` dans une `div`
+englobante.
+
+
+> ASK: est ce que vous pouvez me donner un exemple à ajouter ?
+https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+> --- CCn
+
+
 ### Autres formats de sortie
 
 
@@ -889,6 +885,7 @@ code sont compatibles.
 pagedown pour faire du PDF sans Latex?
 gouvdown? où on trouve la doc?
 distill? 
+les présentations
 xaringan ?
 officer et officedown?
 
@@ -899,8 +896,6 @@ les graphiques ne sont pas complets (titres coupés par ex)
 ce format pourrait etre utile uniquement pour le texte. 
 les graphiques seraient à faire séparement?
 
-> ASK: Est ce qu'on parle de cela ou non? 
-> --- CCn
 
 ### reference .R files 
 
