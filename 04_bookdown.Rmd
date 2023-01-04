@@ -169,7 +169,7 @@ Le document résultant de la phase de construction est pour le coup une
 véritable vitrine qui présente et montre à l'oeuvre les principales
 fonctionnalité de `bookdown`.
 
-**3 pour le prix d'1 !** Si vous avez la curiosté d'explorer le
+**3 pour le prix d'1 !** Si vous avez la curiosité d'explorer le
 sous-répertoire `_book` du dossier projet, vous y trouverez aussi le
 rendu sous forme d'un "livre" en pdf (format reconnu princpalement pour
 sa portabilité en matière d'impression) et encore en epub (format
@@ -195,9 +195,9 @@ explicite de maîtriser l'ordre de composition du document général.
 ## Composer son livre quand la matière est déjà disponible
 
 Un rapport bookdown contient de manière caractéristique plusieurs
-chapitres, chacun de ces chapitres consiste en un fichier R Markdown,
+chapitres et chacun de ces chapitres est un fichier R Markdown,
 portant l'extension `.Rmd`. Ces fichiers R Markdown doivent débuter
-*immédiatement* par le titre du chapitre en utilisant le marquage
+**immédiatement après l'en-tête** par le titre du chapitre en utilisant le marquage
 propre à un titre de premier niveau, par exemple : `# Titre du
 chapitre`. Pour le bon fonctionnement général, tous les fichiers R
 Markdown doivent être encodés en UTF-8, notamment pour les langages
@@ -210,26 +210,25 @@ présentant des caractères accentués (comme le français).
 :::
 
   Sans être très féru de tout ce qui concerne l'encodage, vous
-  trouverez un certain nombre de facilités dans RStudio,
+  trouverez un certain nombre de facilités dans RStudio:
   
-  la première  pour ouvrir un fichier avec l'encodage qui vous
-  convient 
-  
-  File $\Rightarrow$ Reopen file with encoding...
+  - pour ouvrir un fichier avec l'encodage qui vous convient 
   
   Fichier $\Rightarrow$ Réouvrir avec encodage...
   
-  et son pendant pour enregistrer un fichier au bon encodage :
+![](assets/img/ouvrir_encodage.png)
   
-  File $\Rightarrow$ Save with encoding...
+  - pour enregistrer un fichier au bon encodage 
   
   Fichier $\Rightarrow$ Sauvegarder avec l'encodage...
-  
+    
+![](assets/img/enregistrer_encodage.png)
+
   Concernant la première fonctionnalité "Réouvrir avec encodage...",
-  dans la fenêtre de dialogue n'hésitez surtout pas à séléectionner
+  dans la fenêtre de dialogue n'hésitez surtout pas à sélectionner
   UTF-8 et cocher l'option : "Définir comme encodage par défaut pour
   les fichiers sources", vous n'aurez ainsi quasiment plus de question
-  à vous posez par la suite.
+  à vous poser par la suite.
 
 ::::
 
@@ -238,29 +237,29 @@ présentant des caractères accentués (comme le français).
 
 #### Faire d'un ensemble une unité
 
-Allons maintenant au-délà de l'interface RStudio et du système
+Allons maintenant au-delà de l'interface RStudio et du système
 relativement mécanique de ce que nous appelons le
-clique-bouton. Non que le clique-bouton n'ai pas sa raison d'être,
+clique-bouton. Non que le clique-bouton n'ait pas sa raison d'être,
 mais parce que les contingeances auxquelles il est soumis nous brident,
 pour l'instant encore, dans notre capacité d'exploration et d'analyse.
 
 Pour se faire déconnetez votre souris de l'ordinateur, ou
-désactivez-en le clavier tactile ... ... vous n'êtez évidemment pas
+désactivez-en le clavier tactile ... ... vous n'êtes évidemment pas
 obligés d'en arriver jusqu'à cette extrémité, mais vous avez compris
 l'idée. Il s'agit maintenant de communiquer en language
-R$.
+R.
 
 Rappellons-nous que pour rendre (transformer) un fichier source R
 Markdown en un format de consultation plus généraliste (odt, pdf,
 docx, html ...), le package `rmarkdown` nous fournit la fonction
-`rmarkdown::render()`, `bookdown` en offre une du même niveau : 
+`rmarkdown::render()`. `bookdown` en offre une du même niveau : 
 `bookdown::render_book()`.
 
 La première prend logiquement comme paramètre d'entrée obligatoire un
 fichier R Markdown (ou markdown tout simple, voire même simplement du
-R), quand la seconde n'exige même pas information car par défaut elle
+R), quand la seconde n'exige même pas d'information car par défaut elle
 prendra le répertoire en cours pour tenter d'exploiter tous les
-fichiers `.Rmd` disponible afin d'en constituer un *livre*. Le
+fichiers `.Rmd` disponibles afin d'en constituer un **livre**. Le
 paramètre `input` permet toutefois un peu de souplesse en indiquant
 plus spécifiquement quel répertoire `rendre` sans être forcément
 obligé par avance de le définir comme répertoire de travail courant
