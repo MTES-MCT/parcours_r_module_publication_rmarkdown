@@ -16,10 +16,12 @@ Markdown <http://rmarkdown.rstudio.com>. Il s'appuie ainsi sur la
 simplicité de la syntaxe Markdown aussi bien que sur l'éventail des
 multiples formats de rendus possibles. 
 Il apporte, quant à lui, un certain nombre de fonctionnalités complémentaires :
+
   - générer un ensemble HTML multipages, 
   - établir des liens internes de renvoi vers des illustrations, 
   des tableaux, des sections spécifiques du document ou encore des équations,
   - faciliter la gestion d'annexes.
+  
 Pour ne citer que les fonctionnalités par lesquelles l'extension bookdown 
 enrichit significativement l'écosystème R Markdown.
 
@@ -89,12 +91,12 @@ rendue c'est extrêmement simple cette opération pour quiconque
 pratique un peu de R} puisque tout se
 passe justement dans sa console : 
 
-```r
-# Note : il faut avoir un windows au moins de version 10
-install.packages('tinytex')
-prop_inst_path <- file.path(Sys.getenv('LOCALAPPDATA'), 'TinyTex', fsep='\\')
-create.dir(prop_inst_path)
-tinytex::install_tintex(dir=prop_inst_path)
+```{r, eval=FALSE}
+  # Note : il faut avoir un windows au moins de version 10
+  install.packages('tinytex')
+  prop_inst_path <- file.path(Sys.getenv('LOCALAPPDATA'), 'TinyTex', fsep='\\')
+  create.dir(prop_inst_path)
+  tinytex::install_tintex(dir=prop_inst_path)
 ```
 
 ### Initialiser un modèle de livre
@@ -279,9 +281,7 @@ Prérequis
 Etapes
 
 
-#### Vous aviez promis des formats !
-
-
+#### Vous aviez promis des rendus stylés ! {#styled-outputs}
 
 Nous espérons que l'expérimentation précédente vous aura
 permis de vous rendre compte concrètement de ce qui fait une
@@ -379,8 +379,7 @@ bookdown::render_book(output_format = c('bookdown::pdf_book','bookdown::gitbook'
 
 
 Laissez libre court à vos envies et explorez parmi les multiples
-[modèles de sortie
-proposés](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats) 
+[modèles de sortie proposés](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats) 
  soyez conscient de leur limite et des contraintes qu'ils imposeront 
  mais aussi posez-vous la question de ce que vous voulez vraiment
  faire :
@@ -414,7 +413,6 @@ proposés](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-fo
     - context_document2
     - github_document2
     - odt_document2
-
     - powerpoint_presentation2
     - rtf_document2
     - word_document2
@@ -454,6 +452,27 @@ setwd('../mybs4book')
 list.files()
 bookdown::render_book(output_format = 'bookdown::bs4_book')
 ```
+  - <DIR> _bookdown_files
+  - <DIR> _book
+  - mybs4book.Rproj
+  - README.md
+  - index.Rmd
+  - 01-intro.Rmd
+  - 02-cross-refs.Rmd
+  - 03-parts.Rmd
+  - 04-citations.Rmd
+  - 05-blocks.Rmd
+  - 06-share.Rmd
+  - 07-references.Rmd
+  - _bookdown.yml
+  - _common.R
+  - _output.yml
+  - preamble.tex
+  - style.css
+  - book.bib
+  - packages.bib
+  - chicago-fullnote-bibliography.csl
+  - mybs4book.rds
 
 
   - 17:41 01-intro.Rmd
@@ -478,7 +497,132 @@ bookdown::render_book(output_format = 'bookdown::bs4_book')
   - 17:41 README.md
   - 17:41 style.css
 
+
+
 ![](assets/img/bookdown-chap/bs4_book_default_files.png)
+
+
+## Au-delà du fond s'attaquer aux goûts et couleurs
+
+Si vous nous avez lu jusqu'ici dans notre découverte pratico-pratique
+du package `bookdown`, de sa place dans l'écosystème des publications
+reproductibles qui reviennent sur le devant de la scène et prennent un
+nouveau jour, alors : félicitations !
+
+
+De notre côté, il nous semble que les éléments fournis jusqu'ici dans
+un accompagnement par la manipulation doivent vous permettre desormais
+de produire vos livres sans problème.  
+Il nous resterait encore à aborder deux autres fonctionnallités de `bookdown`
+pour être totalement complet, ce sont :
+
+  - les liens de renvoi internes,
+  - l'utilisation de référence bibliographique,
+  
+ces facettes seront couvertes dans une édition ultérieure de ce
+document (pour l'instant des liens seront données en fin de chapitre à
+l'attention de ceux pour qui ces fonctionnalités sont indispensables).
+Mais, excepté ces deux fonctionnalités spécifiques d'ailleurs peu
+fréquentes d'utilisation dans nos métiers, considérons pour l'heure
+que vous êtes désormais un utilisateur éclairé de `bookdown`. La
+partie à laquelle nous nous attaquons ici a pour but de vous faire
+atteindre le niveau `maîtrise`.
+
+
+Partons du postulat que sitôt vous aurez modelé votre matière de fond
+en un livre, sitôt vous vous direz que cette production ressemble à
+toutes les autres, or, vous voudrez plutôt quelle vous ressemble !
+Nous allons tenter de voir en suivant quelles sont vos options pour
+cela et à l'occasion ce balayage nous emmenera à investiguer un peu
+plus profodémment quelques aspects techniques du package `bookdown`.
+
+
+### Les types de sorties, ou les différents rendus possibles
+
+Dans la section \@ref(#styled-outputs) nous avons vu qu'à partir d'un
+même projet source `bookdown` nous pouvions choisir entre différents
+types de sorties, nous devons maintenant être plus précis que
+cela. Dans la pratique, il y a plusieurs étages à la fusée, en effet
+tout part du format terminal d'enregistrement sur le disque dur
+autrement dit : en quel type de fichier va être converti
+notre projet `bookdown` in fine.
+
+Concentrons nous sur les transformations mères (*Book output format*),
+celles-là mêmes qui au départ ont motivées la création de `bookdown`
+au-delà de l'apparente multiplicité des types de sorties possibles,
+pas moins de 8 (gitbook, pdf_book, epub_book, bs4_book,
+bs4_book_theme, html_chapters, html_book, tufte_html_book), il n'est
+en fait question que de trois types de fichiers : `pdf`, `epub` et `html`.
+
+Notons tout de suite l'exception du format de fichier `html`, c'est le
+seul format où la transformation `bookdown` et plus généralement
+`rmarkdown` se traduit *matériellement" par plusieurs fichiers, c'est
+sa nature même. En clair, la résultante d'une transformation source
+`bookdown` en l'un des types de sorties (git_book,, bs4_book,
+bs4_book_theme, html_chapters, html_book, tufte_html_book) va résulter
+en la création d'un répertoire nommé par défaut `_book` dans le
+répertoire projet. Ce répertoire `_book` va contenir quantité de
+fichiers constituant un mini-site statique (ensemble de pages web
+cohérent) qui s'appuie sur une grande variété de type de fichiers :
+`html` bien évidemment, `css`, `javascript`, des resources liées
+(images, icônes, fichiers de police de charactère et autres), bref
+tout un écosystème.
+
+La magie du *web* repose sur quelques conventions, par exemple une fois
+ce répertoire `_book` mis sur un serveur internet (appelons le
+https://mon-site.com), s'il contient un fichier nommé `index.html`
+alors l'appel du répertoire
+^[dans la pratique le chemin sur un serveur s'appelle une `URL`]
+http:://mon-site.com/_book/ par un
+navigateur quelconque (Chrome, Firefox, Edge ...) ouvrira
+naturellement cette page `index.html` évitant à devoir invoquer
+explicitement la page d'entrée par son nommage exact. C'est pourquoi
+la convention de débuter par un fichier `index.Rmd` fait sens.
+
+Nous le voyons rien que cette précision sur les types de sorties
+reposant sur le format `html` peut appeler à de longues digressions si
+l'on vise l'exhaustivité didactique. C'est hors de portée pour nous
+dans le cadre de ce modeste support de formation. La difficulté
+d'expliquer s'étend aussi au format `pdf` et `epub` qui ne sont pas
+plus simples, alors notre pirouette sera de vous renvoyer vers les
+documents fondateurs de ces formats, ce qu'on appelle les
+spécifications, mais même en faisant cela vous ne serez pas encore
+arrivés pour certaines raisons que nous commentons :
+
+  - [spécifications epub](https://www.w3.org/publishing/epub3/epub-spec.html)
+    le lien donné ici renvoi vers le format en version 3.2, oui
+    notons au passage que les formats évoluent et s'améliorent avec le
+    temps, le standard epub est pris en premier exemple, car le
+    curieux ou le téméraire pourrait se dire : il suffit que je
+    connaisse ça. L'organisme de publication W3C est complètement
+    transparent, tout est publié est accessible gratuitement.
+	
+  - [spécification html](https://html.spec.whatwg.org/multipage/),
+    les choses se compliquent l'histoire et en marche, le W3C publié
+    originellement des spécifications versionnées, mais le `html` est
+    tellement stratégique et central aujourd'hui que non seulement une
+	nouvelle *institution* est née, mais en plus les spécifications
+    s'affirment elles-mêmes comme vivantes.
+	
+  - [spécifications pdf](https://www.pdfa.org/resource/pdf-specification-index/)
+	l'histoire du format pdf possède aussi des détours, et là les
+	choses se corsent encore plus pour accèder à la connaissance
+	totale puisque l'organisme qui à normaliser ces spécifications est
+	l'ISO et qu'il faut s'acquitter monaitairement de certains droits
+	pour pouvoir accèder au document valant norme.
+	
+	
+L'équipe d'auteurs de ce document a-t'elle lu ces spécifications ? Pas
+du tout ! Heureusement d'ailleurs, car cela aurait peut-être été une
+perte de temps collosale par rapport à nos besoins directs, et même
+parfois inutile.
+
+Dans le cadre du `pdf` cela aurait été du pur temps perdu et inutile
+puisque en fait `bookdown` lui-même ne produit pas directement du
+`pdf` mais un format intermédiaire
+[$\LaTeX$](https://www.latex-project.org/).
+
+
 
 
 ## Au-délà du fond s'attaquer aux goûts et couleurs
@@ -487,8 +631,74 @@ bookdown::render_book(output_format = 'bookdown::bs4_book')
 ### Les "formats" de sorties
 
 
+{lbn} [babatdwrm::4.2](https://bookdown.org/yihui/bookdown/theming.html)
 
-### Couleurs et polices de caractères, un style
+Quelques fois vous pouvez avoir envie de changer le thème global de
+votre sortie, et cela peut en être fait grâce à l'option
+`output/includes/in_header`.
+
+-here-
+
+Cette option prend en paramètre un nom de fichier et va permettre
+d'insérer simplement dans l'en
+
+Sometimes you may want to change the overall theme of the output, and
+usually this can be done through the in_header option described in the
+previous section, or the css option if the output is HTML. Some output
+formats have their unique themes, such as gitbook, tufte_html_book,
+and tufte_book2, and you may not want to customize these themes too
+much. By comparison, the output formats html_book() and pdf_book() are
+not tied to particular themes and more customizable.
+
+As mentioned in Section 3.1.3, the default style for html_book() is
+the Bootstrap style. The Bootstrap style actually has several built-in
+themes that you can use, including default, bootstrap, cerulean,
+cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone,
+simplex, spacelab, united, and yeti. You can set the theme via the
+theme option, e.g.,
+
+---
+output:
+  bookdown::html_book:
+    theme: united
+---
+
+If you do not like any of these Bootstrap styles, you can set theme to
+null, and apply your own CSS through the css or includes option.
+
+For pdf_book(), besides the in_header option mentioned in the previous
+section, another possibility is to change the document class. There
+are many possible LaTeX classes for books, such as memoir
+(https://www.ctan.org/pkg/memoir), amsbook
+(https://www.ctan.org/pkg/amsbook), KOMA-Script
+(https://www.ctan.org/pkg/koma-script) and so on. Here is a brief
+sample of the YAML metadata specifying the scrbook class from the
+KOMA-Script package:
+
+---
+documentclass: scrbook
+output:
+  bookdown::pdf_book:
+    template: null
+---
+
+Some publishers (e.g., Springer and Chapman & Hall/CRC) have their own
+LaTeX style or class files. You may try to change the documentclass
+option to use their document classes, although typically it is not as
+simple as that. You may end up using in_header, or even design a
+custom Pandoc LaTeX template to accommodate these document classes.
+
+Note that when you change documentclass, you are likely to specify an
+additional Pandoc argument --top-level-division=chapter so that Pandoc
+knows the first-level headers should be treated as chapters instead of
+sections (this is the default when documentclass is book), e.g.,
+
+documentclass: krantz
+output:
+  bookdown::pdf_book:
+    pandoc_args: --top-level-division=chapter
+
+### Polices de caractères et couleurs, imposez votre style
 
 
 ### Un choix esthétique cadré
@@ -524,4 +734,5 @@ bookdown::render_book(output_format = 'bookdown::bs4_book')
 
 ## Bookdown, maintenant et au-delà
 
+quarto
 
