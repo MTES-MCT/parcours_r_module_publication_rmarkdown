@@ -19,7 +19,7 @@ Il apporte, quant à lui, un certain nombre de fonctionnalités complémentaires
 
   - générer un ensemble HTML multipages, 
   - établir des liens internes de renvoi vers des illustrations, 
-  des tableaux, des sections spécifiques du document ou encore des équations,
+    des tableaux, des sections spécifiques du document ou encore des équations,
   - faciliter la gestion d'annexes.
   
 Pour ne citer que les fonctionnalités par lesquelles l'extension bookdown 
@@ -354,14 +354,14 @@ engagement que porte `bookdown`.
 Dans la pratique, comment devons-nous poursuivre nos manipulations
 pour obtenir un fichier pdf ?
 
-Et bien simplement en passant option spécifiant que c'est le format
-attendu.
+Réponse : simplement en passant une option spécifiant que c'est le
+format attendu.
 
 ```r
 bookdown::render_book(output_format = 'bookdown::pdf_book')
 ```
 
-à l'issu du traitement vous aurez un retour d'information vous
+à l'issue du traitement vous aurez un retour d'information vous
 signalant que votre pdf est servi !
 
 ```
@@ -473,30 +473,6 @@ bookdown::render_book(output_format = 'bookdown::bs4_book')
   - packages.bib
   - chicago-fullnote-bibliography.csl
   - mybs4book.rds
-
-
-  - 17:41 01-intro.Rmd
-  - 17:41 02-cross-refs.Rmd
-  - 17:41 03-parts.Rmd
-  - 17:41 04-citations.Rmd
-  - 17:41 05-blocks.Rmd
-  - 17:41 06-share.Rmd
-  - 17:41 07-references.Rmd
-  -  d17:43 _book
-  - 17:41 book.bib
-  -  d17:43 _bookdown_files
-  - 17:41 _bookdown.yml
-  - 17:41 chicago-fullnote-bibliography.csl
-  - 17:41 _common.R
-  - 17:41 index.Rmd
-  - 17:43 mybs4book.rds
-  - 17:41 mybs4book.Rproj
-  - 17:41 _output.yml
-  - 17:43 packages.bib
-  - 17:41 preamble.tex
-  - 17:41 README.md
-  - 17:41 style.css
-
 
 
 ![](assets/img/bookdown-chap/bs4_book_default_files.png)
@@ -619,87 +595,116 @@ parfois inutile.
 
 Dans le cadre du `pdf` cela aurait été du pur temps perdu et inutile
 puisque en fait `bookdown` lui-même ne produit pas directement du
-`pdf` mais un format intermédiaire
+`pdf` mais un format intermédiaire dans un langage appelé 
 [$\LaTeX$](https://www.latex-project.org/).
 
 
 
+### Un choix esthétique cadré
 
-## Au-délà du fond s'attaquer aux goûts et couleurs
+Parfois vous pouvez vouloir changer le thème global de sortie, et de
+manière générale ce peut-être réalisé grâce à l'option `in_hearder`,
+ou l'option `css` plus particulièrement adaptée pour les sorties
+`HTML`. Certains formats de sortie ont leur propre thème, tel que
+`gitbook`, `tuft_html_book`, et `tufte_book2`, d'ailleurs cela vous ne
+devriez pas souhaitez les modifier de trop, d'abord parce qu'ils
+tendent vers des objectifs très précis ensuite par que techniquement
+le effort pour les modifier seront importants puisqu'ils reposent sur
+des mécaniques complexes. Par comparaison les formats de sortie
+`html_book()` et `pdf_book()` ne sont pas attachés à des thèmes
+spécifiques en conséquence ils peuvent être facilement modifiables et
+adaptables.
 
-
-### Les "formats" de sorties
-
-
-{lbn} [babatdwrm::4.2](https://bookdown.org/yihui/bookdown/theming.html)
-
-Quelques fois vous pouvez avoir envie de changer le thème global de
-votre sortie, et cela peut en être fait grâce à l'option
-`output/includes/in_header`.
-
--here-
-
-Cette option prend en paramètre un nom de fichier et va permettre
-d'insérer simplement dans l'en
-
-Sometimes you may want to change the overall theme of the output, and
-usually this can be done through the in_header option described in the
-previous section, or the css option if the output is HTML. Some output
-formats have their unique themes, such as gitbook, tufte_html_book,
-and tufte_book2, and you may not want to customize these themes too
-much. By comparison, the output formats html_book() and pdf_book() are
-not tied to particular themes and more customizable.
-
-As mentioned in Section 3.1.3, the default style for html_book() is
-the Bootstrap style. The Bootstrap style actually has several built-in
-themes that you can use, including default, bootstrap, cerulean,
+Ainsi, le thème de défaut, ou style, pour `html_book()` est le style
+nommé `Bootstrap`. Le style `Bootstrap` possède lui-même en réalité
+plusieurs choix de thème auxquels vous pouvez reccourir, votre choix
+s'étend parmis les valeurs : default, bootstrap, cerulean,
 cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone,
-simplex, spacelab, united, and yeti. You can set the theme via the
-theme option, e.g.,
+simplex, spacelab, united, and yeti. Vous pouvez indiquez lequel de
+ces thèmes vous voulez appliquer en paramétrant l'option `theme` comme
+suit :
 
+```{yaml}
 ---
 output:
   bookdown::html_book:
     theme: united
 ---
+```
 
-If you do not like any of these Bootstrap styles, you can set theme to
-null, and apply your own CSS through the css or includes option.
+Si éventuellement il advenait que vous n'apréciiez aucun des thèmes
+proposé par `Bootstrap`, il vous reste le recours de fixer l'option
+`theme` à `null` et d'appliquer votre propre feuille de style css,
+grâce aux options (`css` ou `in_header`). 
 
-For pdf_book(), besides the in_header option mentioned in the previous
-section, another possibility is to change the document class. There
-are many possible LaTeX classes for books, such as memoir
-(https://www.ctan.org/pkg/memoir), amsbook
-(https://www.ctan.org/pkg/amsbook), KOMA-Script
-(https://www.ctan.org/pkg/koma-script) and so on. Here is a brief
-sample of the YAML metadata specifying the scrbook class from the
-KOMA-Script package:
+Pour le format de sortie `pdf_book()`, en plus de l'option `in_header`
+déjà évoquée, une autre solution est de changer la classe
+(`documentclass`) de document. Il existe de très nombreuses classes
+possibles pour les mise en forme de type livres, telles que `memoir`
+(https://www.ctan.org/pkg/memoir), `amsbook`
+(https://www.ctan.org/pkg/amsbook), `KOMA-Script`
+(https://www.ctan.org/pkg/koma-script) et bien d'autre. Voici un bref
+example de l'entête de données YAML pouvant permettre de déclarer le
+thème de sortie `scrbook` proposé au travers de l'extension $LaTeX$
+`KOMA-Script` :
 
+```{yaml}
 ---
 documentclass: scrbook
 output:
   bookdown::pdf_book:
     template: null
 ---
+```
 
-Some publishers (e.g., Springer and Chapman & Hall/CRC) have their own
-LaTeX style or class files. You may try to change the documentclass
-option to use their document classes, although typically it is not as
-simple as that. You may end up using in_header, or even design a
-custom Pandoc LaTeX template to accommodate these document classes.
 
-Note that when you change documentclass, you are likely to specify an
-additional Pandoc argument --top-level-division=chapter so that Pandoc
-knows the first-level headers should be treated as chapters instead of
-sections (this is the default when documentclass is book), e.g.,
+A titre d'information, quelques maisons d'édition spécialisées (telles
+que Springer et Chapman & Hall/CRC) disposent de leur propre style 
+$LaTeX$, de leur propre fichiers de classe (`.sty`). Dans ce cas là
+vous pourriez essayer de changer l'option `documentclass`
+afin de spécifier en lieu et place celle de leur style, mais vous
+constaterez que bien souvent ce n'est pas aussi simple que cela. Votre
+recours le plus efficace sera soit d'utiliser l'option `in_header`
+soit plus surement encore d'aller modifier le modèle de document de
+sortie $LaTex$ utilisé par `Pandoc` pour l'adapter à ces feuilles de
+style particulière.
 
+Notez bien par ailleurs que lorsque vous changez le paramètre
+`documentclass`, vous êtes suscceptibles de spécifier un paramètre `Pandoc`
+aditionnel  `--top-level-division=chapter` afin que `Pandoc` sache
+bien quel premier niveau de titres il doit traiter comme chapitre en
+lieu et place des sections (c'est en effet le fonctionnement par
+défaut quand la `documentclass` est `book`, autrement dit pour une
+structuration du rendu en mode 'livre'), les options s'exprimeraient
+par exemple ainsi :
+
+```{yaml}
 documentclass: krantz
 output:
   bookdown::pdf_book:
     pandoc_args: --top-level-division=chapter
+```
+
+
+
 
 ### Polices de caractères et couleurs, imposez votre style
 
+Revenons sur l'option `output/includes/in_header`.
+
+Cette option prend en paramètre un nom de fichier et va permettre
+d'insérer simplement aux environs des premières lignes du fichier
+`html` qui sera généré en sortie (exactement dans son entête`<head>`)
+le contenu dudit fichier pour influer sur la mise en forme des
+différents composants et de leur rendu final. Cette adaptation
+présuppose évidement une certaine maîtrise du `html` et du sous
+langage de domaine spécifique qui lui est associé pour stylisation :
+le `css`. Le `html` (et le `css`) sortent du cadre de notre guide et
+nous devons vous renvoyer vers des ressources extérieures, cela étant,
+il s'agit de standards ouverts et vous ne devriez avoir aucun mal à
+trouver sur l'Inter de quoi rasasier envie d'apprendre, le tutoriel du
+W3C ["Débuter avec HTML + CSS"](https://www.w3.org/Style/Examples/011/firstcss.fr.html) nous
+semble un bon point d'attaque.
 
 ### Un choix esthétique cadré
 
