@@ -2,6 +2,10 @@
 title: "Module 6 - Publications reproductibles avec RMarkdown"
 author: "Groupe des référents R"
 date: '`r format(Sys.time(), "%d %B %Y")`'
+site: bookdown::bookdown_site
+params:
+  annee: ""
+  code_reg: ""
 ---
 
 ```{r init, include=FALSE}
