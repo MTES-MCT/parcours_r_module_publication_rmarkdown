@@ -1,13 +1,14 @@
----
-title: "Composer des livres, le package Bookdown"
-author: "Laurent Beltran"
-date: "14/12/2022"
-output: 
-  pdf_document: 
-    toc: yes
-    includes:
-      in_header: assets/latex/preamble.tex
----
+
+<!-- --- -->
+<!-- title: "Composer des livres, le package Bookdown" -->
+<!-- author: "Laurent Beltran" -->
+<!-- date: "14/12/2022" -->
+<!-- output:  -->
+<!--   pdf_document:  -->
+<!--     toc: yes -->
+<!--     includes: -->
+<!--       in_header: assets/latex/preamble.tex -->
+<!-- --- -->
 
 # Composer des livres, le package bookdown
 
