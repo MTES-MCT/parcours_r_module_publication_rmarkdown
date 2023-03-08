@@ -6,6 +6,5 @@ language:
 rmd_files: [
   "index.Rmd",
   "04_bookdown.Rmd",
-  "xx_rmarkdown_decortique.Rmd",
-  "xx_rmarkdown_decortique_exo.Rmd"
-]
+  "xx_rmarkdown_decortique.Rmd"
+  ]
