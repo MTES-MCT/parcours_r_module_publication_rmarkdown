@@ -37,6 +37,7 @@ pre code {
   font-size: 90%;
 }
 
+
 kbd {
     background-color: #eee;
     border-radius: 3px;
@@ -49,4 +50,14 @@ kbd {
     line-height: 1;
     padding: 2px 4px;
     white-space: nowrap;
-   }
+}
+
+
+.exo {
+  padding: 1em;
+  color: black;
+  background-color: aliceblue;
+  border: 2px solid skyblue;
+  border-radius: 5px;
+  margin: 5% auto;
+}
