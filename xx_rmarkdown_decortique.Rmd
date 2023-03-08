@@ -1,18 +1,19 @@
----
-title: "xx_rmarkdown_decortique"
-output:
-  html_document:
-    md_extensions: +fenced_divs+ascii_identifiers
-    toc: yes
-    toc_float: yes
-    toc_depth: 5
-  pdf_document:
-    toc: yes
-    toc_depth: '5'
-css: assets/css/style.css
-editor_options:
-  chunk_output_type: console
----
+
+<!-- --- -->
+<!-- title: "xx_rmarkdown_decortique" -->
+<!-- output: -->
+<!--   html_document: -->
+<!--     md_extensions: +fenced_divs+ascii_identifiers -->
+<!--     toc: yes -->
+<!--     toc_float: yes -->
+<!--     toc_depth: 5 -->
+<!--   pdf_document: -->
+<!--     toc: yes -->
+<!--     toc_depth: '5' -->
+<!-- css: assets/css/style.css -->
+<!-- editor_options: -->
+<!--   chunk_output_type: console -->
+<!-- --- -->
 
 
 <!-- 
@@ -120,15 +121,15 @@ R), et en même temps le document généré s'ouvre dans le viewer de R
 Studio (ou dans une pop-up).
 
 
-::::: {.trucsetastuces}:::::: 
+:::{.trucsetastuces}
   **Trucs & Astuces**
   
   On peut générer le document d'autres façons: 
 
     rmarkdown::render(nom_fichier.Rmd)
 
-  ou grâce au raccourci `Ctrl + Shift + K`
-:::::::::::::::::::::::::::::
+  ou grâce au raccourci <span class="kbd">Ctrl + Shift + K</span>
+:::
 
 
 Ce document contient l'ensemble des informations du fichier .Rmd, que
@@ -226,8 +227,8 @@ output:
 ```
 
 
-
-<a name="TD-1"/>TD.1  
+::: {.exo}
+**Exercice 1**
 
   - Ouvrir Rstudio
   - Créer un fichier markdown, format html
@@ -236,6 +237,7 @@ output:
   - Rajouter un theme spécifique
   - Cliquer sur *knit* pour compiler le document et identifier 
     les correspondances entre fichier .Rmd et fichier html
+:::
 
 ### Les éléments texte
 
@@ -368,13 +370,14 @@ rend
 Les notes de bas de page s'écrivent à l'intérieur de `^[]`. 
 `^[Ceci est une note de bas de page]` rend ^[Ceci est une note de bas de page].
 
-<a name="TD-2"/>TD.2
+::: {.exo}
+**Exercice 2**
 
  - Partir du fichier .Rmd de l'exercice précédent
  - Créer un texte avec un titre, un paragraphe, une liste d'item, 
    un encart et un lien
  - Appuyer sur `visual` pour avoir un aperçu du rendu final
-
+:::
 
 ### Les *chunks* 
 
@@ -578,7 +581,8 @@ knitr::include_graphics("assets/img/couleuvre.jpg")
 Cette dernière méthode, préconisée quand le format de sortie n'est pas
 du html, permet de mieux controller l'affichage de l'image.
 
-<a name="TD-3"/>TD.3
+::: {.exo}
+**Exercice 3**
 
 > ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
 > de données et le graphique attendu? oui!
@@ -593,8 +597,9 @@ du html, permet de mieux controller l'affichage de l'image.
   - Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
     le document final 
   - Ajouter une image
-  - Générer le document 
+  - Générer le document
 
+:::
 
 
 ### Autres 
@@ -643,14 +648,14 @@ documentation de la fonction associée (par exemple `?rmarkdown::html_document`)
 
 
 
-::::: {.trucsetastuces}::::::    
+::: {.trucsetastuces}
   **Trucs & Astuces**
   
  Attention : quand on inclut du code R dans un document, il faut s'assurer que 
  les packages R utilisés sont compatibles avec le(s) format(s) choisi(s).
  Les packages du tidyverse sont compatibles avec les formats HTML et PDF. 
  La compatibilité entre packages et formats doit être vérifiée au cas par cas.
-:::::::::::::::::::::::::::::
+:::
 
 
 
@@ -771,16 +776,18 @@ Voici les options utilisées fréquemment:
 :::::::::::::::::::::::::::::
 
 
-<a name="TD-4"/>TD.4
+::: {.exo}
+**Exercice 4**
 
-  - Partir du fichier .Rmd de l'exercice précédent
+En repartant du fichier .Rmd de l'exercice précédent :
+
   - Modifier les options pour avoir un sommaire flottant affichant un seul 
   niveau de titre
   - Changer le thème utilisé
   - Générer le document 
   - Repartir du fichier .Rmd pour générer un document PDF. Il est important 
-  de vérifier la compatibilité des éléemnts définits avec ce nouveau format.
-
+  de vérifier la compatibilité des éléments définits avec ce nouveau format.
+:::
 
 ### Ajouter des paramètres
 
