@@ -59,7 +59,7 @@ par le menu Aide/Help.
 Pour utiliser R Markdown, il faut que le package `rmarkdown`
 soit installé :
 
-```{r install, eval = FALSE, warning = FALSE, error = FALSE}
+```{r install2, eval = FALSE, warning = FALSE, error = FALSE}
 install.packages ("rmarkdown")
 library (rmarkdown)
 ```

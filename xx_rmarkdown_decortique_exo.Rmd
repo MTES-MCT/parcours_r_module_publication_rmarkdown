@@ -18,7 +18,7 @@ params:
 > info importante! je n'arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j'ai une erreur "Error in extract(pkg, exdir = path.expand(target)) :   cannot open file 'C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe': Permission denied". du coup je ne peux pas tester le format PDF.
 
 
-```{r setup, include=FALSE}
+```{r setup2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
 ```
 
