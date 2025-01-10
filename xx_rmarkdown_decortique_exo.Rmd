@@ -20,6 +20,7 @@ params:
 
 ```{r setup2, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+params <- list(annee =  "2022", code_reg = "04")
 ```
 
 # Rendu des exercices partie 2
