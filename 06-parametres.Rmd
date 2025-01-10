@@ -1,0 +1,68 @@
+
+# Ajouter des paramètres
+
+Un des nombreux avantages de R Markdown est la possibilité de reproduire des 
+analyses très facilement en actualisant une partie du travail ou en changeant 
+un des entrants du document.
+Utiliser des paramètres permet d'aller encore plus loin pour créer un document 
+qui peut être réutilisé pour plusieurs scenarios. On peut ainsi créer des 
+documents pour des territoires ou des années différents, faire tourner une 
+analyse en changeant une des hypothèses ou changer le comportement de `knitr` 
+selon les cas rencontrés.
+
+
+Les paramètres sont spécifiés dans l'en-tête avec l'option `params` dans 
+laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.
+
+
+Les paramètres peuvent etre de type `character`, `numeric`, `integer` et 
+`logical` mais aussi des expressions R tant qu'elles sont précédées de `!r `. 
+L'en-tête, et donc le code pouvant y être présent, est éxécuté avant le reste 
+du code donc il est nécéssaire d'expliciter les packages utilisés.
+
+Par exemple: 
+
+
+``` {.md}
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2022"
+output: html_document
+params:
+  annee: 2022
+  region: Bretagne
+  date: !r lubricate::today()
+```
+
+Une fois définis dans l'en-tête, ces parametres sont accessibles depuis le 
+fichier .RMD (texte ou code) mais aussi depuis la console. Ils sont stockés 
+dans une liste en lecture nommée *params*. 
+
+Le code suivant montre quelques exemples d'utilisation des paramètres :
+
+```{embed, file = "./hack_verbatim_chunks/insverba-g.Rmd"}
+```
+
+Il existe 3 façons de générer un document avec des paramètres:
+  - utiliser le bouton **knit**, ce qui prend les valeur par défaut des paramètres
+  
+  - utiliser l'interface RStudio selectionnant l'option **Knit with Parameters** du bouton **knit**. Cela ouvre une nouvelle fenêtre demandant de choisir les valeurs des paramètres indiqués dans l'en-tête.
+  
+  - utiliser la fonction `rmarkdown::render()`. Sans autre option cette fonction 
+  utilisera les paramètres par défaut définis dans l'en-tête. On peut aussi 
+  définir de nouvelles   valeurs en utilisant l'option `params=`. 
+  Cela donne par exemple :
+  
+```{embed, file = "./hack_verbatim_chunks/insverba-h.Rmd"}
+```
+
+Cette dernière façon de faire, via la fonction `rmarkdown::render()` permet 
+d'automatiser encore plus les choses en générant autant de documents que de 
+valeurs différentes d'un paramètre. En effet, dans un script .R, il est 
+possible de créer une fonction ayant en entrée les paramètres que l'on veut 
+modifier plusieurs fois mais aussi le nom du document généré.
+
+En reprenant l'exemple précédant, on peut faire:
+  
+```{embed, file = "./hack_verbatim_chunks/insverba-i.R"}
+```

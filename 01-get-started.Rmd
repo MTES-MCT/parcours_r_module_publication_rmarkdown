@@ -1,0 +1,51 @@
+# Bien commencer {#get-started}
+
+## Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.
+
+```{r collecte prez projet rstudio, warning=FALSE, echo=FALSE, results='asis'}
+# Utilisation du chapitre de présentation des projets RStudio présent dans https://github.com/MTES-MCT/parcours-r
+cat(text = stringi::stri_read_lines("https://raw.githubusercontent.com/MTES-MCT/parcours-r/master/parties_communes/bien_commencer.Rmd", encoding = "UTF-8"), sep = '\n')
+```
+
+## Utilisation du package `{savoirfR}`
+
+```{r collecte prez savoirfR, warning=FALSE, echo=FALSE, results='asis'}
+# Utilisation du chapitre de présentation de savoirfR présent dans https://github.com/MTES-MCT/parcours-r
+a <-  knitr::knit_child(text = stringi::stri_read_lines("https://raw.githubusercontent.com/MTES-MCT/parcours-r/master/parties_communes/savoir_faire.Rmd", encoding = "UTF-8"), quiet = TRUE)
+cat(a, sep = '\n')
+```
+
+## Créer votre arborescence de projet
+
+-   Créer un répertoire `/src` où vous mettrez vos scripts R.
+
+-   Créer un répertoire `/figures` où vous mettrez vos illustrations issues de R.
+
+## Activer les packages nécessaires
+
+Commencez par rajouter un script dans le répertoire `/src` à votre projet qui commencera par :
+
+-   activez l'ensemble des packages nécessaires,
+
+-   chargez les données dont vous aurez besoin.
+
+<!--# Mettre à jour la liste des packages après finalisation des exercices -->
+
+```{r all_packages}
+
+
+
+```
+
+## Bien structurer ses projets data
+
+Plusieurs documents peuvent vous inspirer sur la structuration de vos projets data par la suite.
+
+En voici quelques uns :
+
+-   <https://github.com/pavopax/new-project-template>
+-   <https://nicercode.github.io/blog/2013-04-05-projects/>
+-   <https://www.inwt-statistics.com/read-blog/a-meaningful-file-structure-for-r-projects.html>
+-   <http://projecttemplate.net/architecture.html>
+
+A partir du moment où quelques grands principes sont respectés (un répertoire pour les données brutes en lecture seule par exemple), le reste est surtout une question d'attirance plus forte pour l'une ou l'autre solution. L'important est de vous tenir ensuite à garder toujours la même structure dans vos projets afin de vous y retrouver plus simplement.

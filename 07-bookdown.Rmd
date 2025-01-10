@@ -1,16 +1,4 @@
-
-<!-- --- -->
-<!-- title: "Composer des livres, le package Bookdown" -->
-<!-- author: "Laurent Beltran" -->
-<!-- date: "14/12/2022" -->
-<!-- output:  -->
-<!--   pdf_document:  -->
-<!--     toc: yes -->
-<!--     includes: -->
-<!--       in_header: assets/latex/preamble.tex -->
-<!-- --- -->
-
-# Composer des livres, le package bookdown
+# De la page au livre, le package bookdown
 
 Le paquet bookdown est construit sur les fondations données par R
 Markdown <http://rmarkdown.rstudio.com>. Il s'appuie ainsi sur la

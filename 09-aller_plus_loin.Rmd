@@ -1,0 +1,70 @@
+# Pour aller plus loin
+
+## Les documents Quarto
+
+## Affichages sur plusieurs colonnes
+
+cela se fait très bien en format PDF, c'est plus compliqué en HTML.
+Vous pourrez avoir besoin de définir un document
+en plusieurs colonnes, avec par exemple une illustration sur une
+moitiée de la page, un texte sur l'autre.
+
+Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
+
+Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
+
+Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
+vous devrez utiliser la propriété css `display: flex;` dans une `div`
+englobante.
+
+
+> ASK: est ce que vous pouvez me donner un exemple à ajouter ?
+https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+> --- CCn
+
+
+## Autres formats de sortie
+
+Il existe des packages permettant d'obtenir des formats de sortie spécifiques. 
+A chaque fois il convient de vérifier que ces formats des sorties et votre 
+code sont compatibles.
+  
+pagedown pour faire du PDF sans Latex?
+gouvdown? où on trouve la doc?
+distill? 
+les présentations
+xaringan ?
+officer et officedown?
+
+## odt_document  --> TODO
+
+les tableaux faits en kableExtra et knitr::kable ne sortent pas correctement. 
+les graphiques ne sont pas complets (titres coupés par ex)
+ce format pourrait etre utile uniquement pour le texte. 
+les graphiques seraient à faire séparement?
+
+
+## reference .R files 
+
+## Le cache 
+
+Si le temps d'éxecution du code est trop long, il est possible
+d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
+performances d'éxécution du code.
+
+> ASK: Est ce qu'on parle de cela ou non? 
+> --- CCn
+
+## Bibliographie 
+
+Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown 
+mais aussi tous les packages et logiciels en lien avec ce sujet:
+
+  - [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
+  - [Le guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) 
+  - [La syntaxe Markdown sur laquelle s'appuie `rmarkdown`]`(https://daringfireball.net/projects/markdown/syntax#philosophy)
+  - [Pour en savoir plus sur PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
+  - [Pour en savoir plus sur TinyTeX](https://yihui.org/tinytex/)
+  - [Une vidéo en anglais pour aller plus loin dasn l'utilisation de R Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
+  - et évidemment les documentations de tous les packages cités!
+
