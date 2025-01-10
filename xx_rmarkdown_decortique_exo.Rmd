@@ -45,7 +45,7 @@ Pour cela il faut suivre plusieurs étapes:
 Tout d'abord on charge les librairies utiles.
 
 
-```{r, echo = TRUE}
+```{r librairies, echo = TRUE}
 library(tidyverse)
 library(ggplot2)
 library(readr)
@@ -72,19 +72,19 @@ ind_FR_an <- selection_ind_rpls_fr_reg %>%
 
 Au 1er janvier `r annee`, il y a `r ind_FR_an$nb_logt_total` logements sociaux en France.
 
-```{r}
+```{r exo ls, eval = FALSE}
 nb_ls_reg_an <- selection_ind_rpls_fr_reg %>% 
   filter(CodeZone!="DROM", millesime == annee) %>% 
   select(CodeZone, nb_logt_total, nb_ls_qpv, densite_ls_rp) %>% 
   arrange(CodeZone)
 
 tab_nb_ls_reg_an <- kbl(nb_ls_reg_an, format="html" , digits = 1,      
-                  col.names = c("Régions", "Nombre de logements sociaux", "Nombre de logements sociaux dans les QPV", "Densité des ls dnas les résidences principales"),
-                  caption=glue("**Nombre de logements sociaux au 01/01/{annee} par régions**"),
-                  format.args = c(big.mark=" ", decimal.mark=',') ) %>% 
+                        col.names = c("Régions", "Nombre de logements sociaux", "Nombre de logements sociaux dans les QPV", "Densité des ls dnas les résidences principales"),
+                        caption=glue("**Nombre de logements sociaux au 01/01/{annee} par régions**"),
+                        format.args = c(big.mark=" ", decimal.mark=',') ) %>% 
   kable_styling(bootstrap_options =(c("hover", "condensed", "bordered"))) %>% 
   column_spec(1, bold=TRUE) %>% 
-  row_spec(19, bold=TRUE, background = "#5770BE", color = "white") %>% 
+  row_spec(nrow(nb_ls_reg_an), bold=TRUE, background = "#5770BE", color = "white") %>% 
   footnote(general=glue("SDES, RPLS au 01/01/{annee}"), general_title="Source: ", 
            footnote_as_chunk=TRUE)
 
@@ -97,7 +97,7 @@ tab_nb_ls_reg_an
 
 Voici l'évolution du nombre de logements sociaux en France:
 
-```{r }
+```{r exo graph}
 
 nb_ls_FR <- selection_ind_rpls_fr_reg %>% 
   filter(CodeZone=="FRMETRODROM") %>% 
@@ -109,7 +109,7 @@ plot(nb_ls_FR)
 > On peut faire des traitements R aussi compliqués que de besoin dans les chunks
 
 
-```{r}
+```{r exo vac}
 evo_vacance <- selection_ind_rpls_fr_reg %>% 
   filter(CodeZone %in% c("FRMETRODROM", params$code_reg)) %>% 
   mutate(taux_vacance_tot = round(taux_vacance_tot,1)) %>% 
