@@ -4,7 +4,7 @@
 
 Le schéma classique pour produire un rapport ou une publication ressemble à ça :
 
-![](images/schema_publi.png)
+![](assets/img/schema_publi.png)
 
 Les données mobilisées proviennent de bases de données, de tables ou de SIG, et rien que pour les lire, il y a besoin de plusieurs logiciels selon les formats.
 
@@ -44,7 +44,7 @@ Travail est organisé en mode projet avec des fichiers localisés dans une arbor
 ## Origine du format *R markdown*
 
 ```{r, echo = F, out.width='25%', fig.align='center', fig.cap=''}
-knitr::include_graphics('images/rmarkdown.png')
+knitr::include_graphics('assets/img/rmarkdown.png')
 ```
 
 Ce format de document a été introduit en 2012 à la sortie du package `knitr`.
@@ -66,7 +66,7 @@ R Markdown est en quelque sorte un cadre pour travailler en data science. Un mê
 
 ## Du .Rmd au format de sortie
 
-![](images/render.png)
+![](assets/img/render.png)
 
 On distingue deux étapes :
 

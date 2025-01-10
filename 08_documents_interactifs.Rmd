@@ -1,4 +1,6 @@
-# Interactive Documents - an R Markdown file that contains Shiny components and can be an app or used within a report
+# Interactive Documents 
+
+An example of an R Markdown file that contains Shiny components and can be an app or used within a report
 
 Source : https://beta.rstudioconnect.com/content/2671/Combining-Shiny-R-Markdown.html
 
