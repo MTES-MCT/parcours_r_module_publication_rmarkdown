@@ -34,7 +34,6 @@ Imports:
     xaringan,
     xaringanExtra,
     xaringanthemer
-  
 Remotes:
     hadley/emo, 
     MaelTheuliere/COGiter,
