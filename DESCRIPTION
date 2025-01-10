@@ -34,7 +34,7 @@ Imports:
     xaringanExtra,
     xaringanthemer
   
-  Remotes:
+Remotes:
     hadley/emo, 
     MTES-MCT/savoirfR,
     spyrales/gouvdown,
