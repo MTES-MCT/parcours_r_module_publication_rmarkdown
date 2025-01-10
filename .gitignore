@@ -9,3 +9,4 @@ renv/
 _book/
 _bookdown_files/
 *.html
+support-documents-reproductibles.Rmd

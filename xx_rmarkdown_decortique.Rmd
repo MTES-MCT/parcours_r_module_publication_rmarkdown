@@ -15,7 +15,9 @@
 <!--   chunk_output_type: console -->
 <!-- --- -->
 
-
+remplace "chap 1", "chap 5" et "chap 051" chap 6 et chap 061
+chapitre 04 à peaufiner avec chap 7 et 9
+rediviser ce rmd en chapitre
 <!-- 
 
 Codification utilisée dans le cadre de l'élaboration du document
