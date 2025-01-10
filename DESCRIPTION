@@ -36,7 +36,7 @@ Imports:
   
 Remotes:
     hadley/emo, 
-    MaelTheuliere/COGiter,,
+    MaelTheuliere/COGiter,
     MTES-MCT/savoirfR,
     spyrales/gouvdown,
     spyrales/gouvdown.fonts
