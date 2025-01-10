@@ -1,0 +1,31 @@
+name: Image docker parcours_r_module6_publications_reproductibles
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - dev
+      - 36-CI
+    paths:
+      - .github/workflows/rstudio-image-build.yml
+      - Dockerfile
+      - DESCRIPTION
+      
+  pull_request:
+    types:
+      - created
+    branches:
+      - main
+      - master
+      - dev
+    paths:
+      - .github/workflows/rstudio-image-build.yml
+      - Dockerfile
+      - DESCRIPTION
+      
+  workflow_dispatch:     
+
+jobs:
+  build-rstudio-image:
+    uses: MTES-MCT/parcours-r/.github/workflows/rstudio-image-build.yml@master

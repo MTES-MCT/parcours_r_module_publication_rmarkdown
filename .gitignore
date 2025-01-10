@@ -6,3 +6,4 @@ _book
 _bookdown_files
 *.html
 support-documents-reproductibles.Rmd
+archives_docs_compiles/

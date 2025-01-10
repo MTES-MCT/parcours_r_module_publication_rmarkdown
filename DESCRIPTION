@@ -1,0 +1,41 @@
+Type: Book
+Package: Parcours-R-M6
+Title: Parcours R M6 Publications Reproductibles avec RMarkdown
+Version: 0.1.0
+Description: Valise pédagogique pour le module 6 du parcours R : Publications Reproductibles avec RMarkdown
+License: MIT
+URL: https://github.com/MTES-MCT/parcours_r_module_publication_rmarkdown
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Imports: 
+    COVID19,
+    dplyr,
+    emo,
+    ggplot2,
+    gouvdown,
+    gouvdown.fonts,
+    glue,
+    htmltools,
+    kableExtra,
+    knitr,
+    lubridate,
+    metathis,
+    pagedown,
+    readr,
+    rmarkdown,
+    savoirfR,
+    scales,
+    showtext,
+    stringi,
+    tidyr,
+    tidyverse,
+    tinytex,
+    xaringan,
+    xaringanExtra,
+    xaringanthemer
+  
+  Remotes:
+    hadley/emo, 
+    MTES-MCT/savoirfR,
+    spyrales/gouvdown,
+    spyrales/gouvdown.fonts
