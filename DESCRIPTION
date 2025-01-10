@@ -10,6 +10,7 @@ RoxygenNote: 7.2.3
 Imports: 
     COVID19,
     dplyr,
+    COGiter,
     emo,
     ggplot2,
     gouvdown,
