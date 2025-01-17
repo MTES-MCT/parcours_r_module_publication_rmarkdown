@@ -32,7 +32,7 @@ Il existe une solution qui permet cela tout en restant dans le cadre d'une exéc
 
 Le fonctionnement de base est très simple, on transforme notre objet (la dataframe qui contient les données affichées) en un objet partagé (shared object en anglais) :
 
-```{r}
+```{r eval = FALSE}
 
 library(crosstalk)
 
@@ -46,7 +46,7 @@ On peut spécifier un argument qui indique le nom d'une colonne de valeurs toute
 On peut voir ça comme une clé primaire en gestion de base de données.
 Par défaut Crosstalk utilise le numéro de ligne.
 
-```{r}
+```{r eval = FALSE}
 
 dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
 
@@ -54,7 +54,7 @@ dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
 
 À partir de là, on peut utiliser cet objet partagé à la fois dans un widget de filtre, dans un tableau et dans une carte dynamique pour que l'utilisateur puisse filtrer ses objets à afficher.
 
-```{r}
+```{r eval = FALSE}
 library(crosstalk)
 library(leaflet)
 library(DT)
