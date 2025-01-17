@@ -459,7 +459,7 @@ knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/u
 
 
 
-```{yaml}
+```
 subtitle: "Au 1er juin 2021"
 author: "Guillaume RRRRRozier"
 date: "11 juin 2021"
