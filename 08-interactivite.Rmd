@@ -1,5 +1,79 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
 # Du Rmarkdown interactif
 
-Rappels intéractivité graphes et cartes M5
-Exemple intégration Shiny
-Exemple intégration Crosstalk
+Quand notre produit de sortie est un pdf, on va vouloir générer des graphiques et cartes qui ont le comportement d'une image simple.
+C'est ce que nous avons fait depuis le début de ce cours.
+Mais de plus en plus de nos projets sont destinés à une publication web et un certain niveau d'interactivité est souhaité.
+La considération principale à prendre en compte est l'environnement de déploiement.
+Si mon document est hebergé sur un serveur R, j'ai la possibilité de lui faire exécuter du code R "en direct" en fonction des actions de l'utilisateur.
+Dans le cas contraire, il faudra utiliser de l'interactivité en javascript.
+Ce langage est interprété et exécuté directement par le navigateur du client (celui qui consulte la page).
+Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javascript est caché derrière.
+
+## Interactivité simple, les visuels s'animent
+
+Lorsqu'on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
+
+Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des graphiques plotly et bien d'autres qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
+Ces widgets en nécessitent pas de déploiement sur un serveur R pour fonctionner.
+Ils sont exécutés par le navigateur client.
+
+On parle ici d'interactivité simple car il s'agit uniquement d'effets visuels dans le comportement des widgets mais il n'y a aucune modification des données dépendante de l'utilisateur.
+
+## Interactivité avancée, les inputs utilisateur
+
+Dans certains cas, on souhaite que l'utilisateur puisse directement influencer les visuels, en filtrant une sous-partie du jeu de données par exemple.
+Il existe une solution qui permet cela tout en restant dans le cadre d'une exécution par le navigateur client : [le package Crosstalk](https://rstudio.github.io/crosstalk/index.html).
+
+Le fonctionnement de base est très simple, on transforme notre objet (la dataframe qui contient les données affichées) en un objet partagé (shared object en anglais) :
+
+```{r}
+
+library(crosstalk)
+
+dataframe_partagee -> SharedData$new(dataframe)
+
+```
+
+Regardez comme cela est noté dans l'environnement de travail.
+
+On peut spécifier un argument qui indique le nom d'une colonne de valeurs toutes différentes permettant d'identifier les lignes de manière unique.
+On peut voir ça comme une clé primaire en gestion de base de données.
+Par défaut Crosstalk utilise le numéro de ligne.
+
+```{r}
+
+dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+
+```
+
+À partir de là, on peut utiliser cet objet partagé à la fois dans un widget de filtre, dans un tableau et dans une carte dynamique pour que l'utilisateur puisse filtrer ses objets à afficher.
+
+```{r}
+library(crosstalk)
+library(leaflet)
+library(DT)
+
+dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+
+filter_select(id = "mon_filtre", label = "Choisissez un identifiant", sharedData = dataframe_partagee, group = ~identifiant)
+
+datatable(dataframe_partagee, ...)
+
+leaflet(dataframe_partagee) %>% 
+  addPolygons(...)
+
+```
+
+## Exercice X
+
+A FAIRE - repartir de l'exemple de book LS par région et remplacer par une page seule avec filtre par région avec Crosstalk.
+
+## Interactivité complète, l'application Shiny embarquée
+
+Rappels intéractivité graphes et cartes M5 Exemple intégration Shiny Exemple intégration Crosstalk
