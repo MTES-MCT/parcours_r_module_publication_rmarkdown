@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 3 Le fichier R Markdown | exo partie 2</title>
+  <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 3 Le fichier R Markdown | exo partie 2" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 3 Le fichier R Markdown | exo partie 2" />
+  
+  <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  
+
+<meta name="author" content="Caroline COUDRIN" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="la-publication-reproductible.html"/>
+<link rel="next" href="intégrer-du-code-dans-les-rmd---les-chunks.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p style="text-align:center;"><img src="https://mtes-mct.github.io/parcours-r/assets/images/logo_marianne_fond_blanc.png" style="width:100px;"/></p></li>
+<li><a href="./index.html">Les productions reproductibles avec Rmarkdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#le-parcours-de-formation"><i class="fa fa-check"></i><b>0.1</b> Le parcours de formation</a></li>
+<li class="chapter" data-level="0.2" data-path="03-le_fichier_rmarkdown.html"><a href="#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i><b>0.2</b> Le groupe de référents R du pôle ministériel</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objectifs-de-ce-module"><i class="fa fa-check"></i>Objectifs de ce module</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i><b>0.3</b> Exemples de productions avec R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="03-le_fichier_rmarkdown.html"><a href="#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
+<li class="chapter" data-level="1.3" data-path="03-le_fichier_rmarkdown.html"><a href="#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
+<li class="chapter" data-level="1.4" data-path="03-le_fichier_rmarkdown.html"><a href="#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
+<li class="chapter" data-level="1.5" data-path="get-started.html"><a href="get-started.html#bien-structurer-ses-projets-data"><i class="fa fa-check"></i><b>1.5</b> Bien structurer ses projets data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html"><i class="fa fa-check"></i><b>2</b> La publication reproductible</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="03-le_fichier_rmarkdown.html"><a href="#d%C3%A9finition"><i class="fa fa-check"></i><b>2.1</b> Définition</a></li>
+<li class="chapter" data-level="2.2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#bonnes-pratiques"><i class="fa fa-check"></i><b>2.2</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="2.3" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#origine-du-format-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Origine du format <em>R markdown</em></a></li>
+<li class="chapter" data-level="2.4" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#du-.rmd-au-format-de-sortie"><i class="fa fa-check"></i><b>2.4</b> Du .Rmd au format de sortie</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Le fichier <em>R Markdown</em></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio"><i class="fa fa-check"></i><b>3.1</b> R markdown dans RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="03-le_fichier_rmarkdown.html"><a href="#cr%C3%A9er-un-fichier-.rmd"><i class="fa fa-check"></i><b>3.1.1</b> Créer un fichier .Rmd</a></li>
+<li class="chapter" data-level="3.1.2" data-path="03-le_fichier_rmarkdown.html"><a href="#lancer-la-g%C3%A9n%C3%A9ration-du-document"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="03-le_fichier_rmarkdown.html"><a href="#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd"><i class="fa fa-check"></i><b>3.2</b> Les éléments d’un fichier .Rmd</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="03-le_fichier_rmarkdown.html"><a href="#len-t%C3%AAte"><i class="fa fa-check"></i><b>3.2.1</b> L’en-tête</a></li>
+<li class="chapter" data-level="3.2.2" data-path="03-le_fichier_rmarkdown.html"><a href="#les-%C3%A9l%C3%A9ments-texte"><i class="fa fa-check"></i><b>3.2.2</b> Les éléments texte</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="03-le_fichier_rmarkdown.html"><a href="#ins%C3%A9rer-des-images"><i class="fa fa-check"></i><b>3.3</b> Insérer des images</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-le_fichier_rmarkdown.html"><a href="#int%C3%A9grer-du-code-dans-les-rmd---les-chunks"><i class="fa fa-check"></i><b>4</b> Intégrer du code dans les RMD - Les <em>chunks</em></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html"><i class="fa fa-check"></i><b>4.1</b> Les options des <em>chunks</em></a></li>
+<li class="chapter" data-level="4.2" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-options-globales-des-chunks"><i class="fa fa-check"></i><b>4.2</b> Les options globales des chunks</a></li>
+<li class="chapter" data-level="4.3" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#utiliser-des-outputs"><i class="fa fa-check"></i><b>4.3</b> Utiliser des outputs</a></li>
+<li class="chapter" data-level="4.4" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-insertions-de-code-en-ligne"><i class="fa fa-check"></i><b>4.4</b> Les insertions de code en ligne</a></li>
+<li class="chapter" data-level="4.5" data-path="03-le_fichier_rmarkdown.html"><a href="#ex%C3%A9cuter-le-code-des-chunks"><i class="fa fa-check"></i><b>4.5</b> Exécuter le code des chunks</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html"><i class="fa fa-check"></i><b>5</b> Convertir le fichier Rmarkdown pour utilisation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#les-formats-de-sortie"><i class="fa fa-check"></i><b>5.1</b> Les formats de sortie</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#html"><i class="fa fa-check"></i><b>5.1.1</b> HTML</a></li>
+<li class="chapter" data-level="5.1.2" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#pdf"><i class="fa fa-check"></i><b>5.1.2</b> PDF</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="03-le_fichier_rmarkdown.html"><a href="#ajouter-des-param%C3%A8tres"><i class="fa fa-check"></i><b>6</b> Ajouter des paramètres</a></li>
+<li class="chapter" data-level="7" data-path="a-ne-pas-oublier.html"><a href="a-ne-pas-oublier.html"><i class="fa fa-check"></i><b>7</b> A ne pas oublier</a></li>
+<li class="chapter" data-level="8" data-path="rappels-du-jour-1.html"><a href="rappels-du-jour-1.html"><i class="fa fa-check"></i><b>8</b> Rappels du jour 1</a></li>
+<li class="chapter" data-level="9" data-path="exercice.html"><a href="exercice.html"><i class="fa fa-check"></i><b>9</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="exercice.html"><a href="exercice.html#cadrage"><i class="fa fa-check"></i><b>9.1</b> Cadrage</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="03-le_fichier_rmarkdown.html"><a href="#probl%C3%A9matique"><i class="fa fa-check"></i><b>9.1.1</b> Problématique</a></li>
+<li class="chapter" data-level="9.1.2" data-path="exercice.html"><a href="exercice.html#rendu"><i class="fa fa-check"></i><b>9.1.2</b> Rendu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html"><i class="fa fa-check"></i><b>10</b> De la page au livre, le package bookdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="03-le_fichier_rmarkdown.html"><a href="#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche"><i class="fa fa-check"></i><b>10.1</b> Démarrer un projet de livre de la page blanche</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#installer-le-package-bookdown"><i class="fa fa-check"></i><b>10.1.1</b> Installer le package bookdown</a></li>
+<li class="chapter" data-level="10.1.2" data-path="03-le_fichier_rmarkdown.html"><a href="#initialiser-un-mod%C3%A8le-de-livre"><i class="fa fa-check"></i><b>10.1.2</b> Initialiser un modèle de livre</a></li>
+<li class="chapter" data-level="10.1.3" data-path="03-le_fichier_rmarkdown.html"><a href="#g%C3%A9n%C3%A9rer-le-livre-et-le-relire"><i class="fa fa-check"></i><b>10.1.3</b> Générer le livre et le (re)lire</a></li>
+<li class="chapter" data-level="10.1.4" data-path="03-le_fichier_rmarkdown.html"><a href="#se-lancer-dans-l%C3%A9criture"><i class="fa fa-check"></i><b>10.1.4</b> Se lancer dans l’écriture</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="03-le_fichier_rmarkdown.html"><a href="#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible"><i class="fa fa-check"></i><b>10.2</b> Composer son livre quand la matière est déjà disponible</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#illustration-pratique-dune-composition"><i class="fa fa-check"></i><b>10.2.1</b> Illustration pratique d’une composition</a></li>
+<li class="chapter" data-level="10.2.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#organisation-des-sources-dun-bookdown"><i class="fa fa-check"></i><b>10.2.2</b> Organisation des sources d’un bookdown</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="03-le_fichier_rmarkdown.html"><a href="#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs"><i class="fa fa-check"></i><b>10.3</b> Au-delà du fond s’attaquer aux goûts et couleurs</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="03-le_fichier_rmarkdown.html"><a href="#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles"><i class="fa fa-check"></i><b>10.3.1</b> Les types de sorties, ou les différents rendus possibles</a></li>
+<li class="chapter" data-level="10.3.2" data-path="03-le_fichier_rmarkdown.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9"><i class="fa fa-check"></i><b>10.3.2</b> Un choix esthétique cadré</a></li>
+<li class="chapter" data-level="10.3.3" data-path="03-le_fichier_rmarkdown.html"><a href="#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style"><i class="fa fa-check"></i><b>10.3.3</b> Polices de caractères et couleurs, imposez votre style</a></li>
+<li class="chapter" data-level="10.3.4" data-path="03-le_fichier_rmarkdown.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9-1"><i class="fa fa-check"></i><b>10.3.4</b> Un choix esthétique cadré</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="03-le_fichier_rmarkdown.html"><a href="#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires"><i class="fa fa-check"></i><b>10.4</b> Quelques options et détails techniques complémentaires</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="03-le_fichier_rmarkdown.html"><a href="#options-tri%C3%A9es-sur-le-volet"><i class="fa fa-check"></i><b>10.4.1</b> Options triées sur le volet</a></li>
+<li class="chapter" data-level="10.4.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#retour-sur-le-fonctionnement-global"><i class="fa fa-check"></i><b>10.4.2</b> Retour sur le fonctionnement global</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#etude-dun-exemple-bookdown-propre.rpls"><i class="fa fa-check"></i><b>10.5</b> Etude d’un exemple bookdown : propre.rpls</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#exemple-dappropriation-dune-publication-rpls"><i class="fa fa-check"></i><b>10.5.1</b> Exemple d’appropriation d’une publication Rpls</a></li>
+<li class="chapter" data-level="10.5.2" data-path="03-le_fichier_rmarkdown.html"><a href="#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl"><i class="fa fa-check"></i><b>10.5.2</b> Compréhension globale de l’architecture du paquet propre.rpl</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime"><i class="fa fa-check"></i><b>10.6</b> Focus sur l’envoi au photocopieur du livre ou comment imprime</a></li>
+<li class="chapter" data-level="10.7" data-path="03-le_fichier_rmarkdown.html"><a href="#bookdown-maintenant-et-au-del%C3%A0"><i class="fa fa-check"></i><b>10.7</b> Bookdown, maintenant et au-delà</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html"><i class="fa fa-check"></i><b>11</b> Du Rmarkdown interactif</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="03-le_fichier_rmarkdown.html"><a href="#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>11.1</b> Interactivité simple, les visuels s’animent</a></li>
+<li class="chapter" data-level="11.2" data-path="03-le_fichier_rmarkdown.html"><a href="#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>11.2</b> Interactivité avancée, les inputs utilisateur</a></li>
+<li class="chapter" data-level="11.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>11.3</b> Exercice X</a></li>
+<li class="chapter" data-level="11.4" data-path="03-le_fichier_rmarkdown.html"><a href="#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>11.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="03-le_fichier_rmarkdown.html"><a href="#d%C3%A9roul%C3%A9"><i class="fa fa-check"></i><b>12</b> Déroulé</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="déroulé.html"><a href="déroulé.html"><i class="fa fa-check"></i><b>12.1</b> Bookdown</a></li>
+<li class="chapter" data-level="12.2" data-path="déroulé.html"><a href="déroulé.html#pagedown"><i class="fa fa-check"></i><b>12.2</b> Pagedown</a></li>
+<li class="chapter" data-level="12.3" data-path="déroulé.html"><a href="déroulé.html#officer"><i class="fa fa-check"></i><b>12.3</b> Officer</a></li>
+<li class="chapter" data-level="12.4" data-path="déroulé.html"><a href="déroulé.html#la-structure-du-projet---_bookdown.yml"><i class="fa fa-check"></i><b>12.4</b> La structure du projet - _bookdown.yml</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="pagedown-1.html"><a href="pagedown-1.html"><i class="fa fa-check"></i><b>13</b> Pagedown</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="pagedown-1.html"><a href="pagedown-1.html#pagedown-2"><i class="fa fa-check"></i><b>13.1</b> Pagedown</a></li>
+<li class="chapter" data-level="13.2" data-path="pagedown-1.html"><a href="pagedown-1.html#paged.js"><i class="fa fa-check"></i><b>13.2</b> Paged.js</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="configurer-votre-yaml.html"><a href="configurer-votre-yaml.html"><i class="fa fa-check"></i><b>14</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="15" data-path="configurer-votre-yaml-1.html"><a href="configurer-votre-yaml-1.html"><i class="fa fa-check"></i><b>15</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="16" data-path="modifier-le-css.html"><a href="modifier-le-css.html"><i class="fa fa-check"></i><b>16</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="17" data-path="modifier-le-css-1.html"><a href="modifier-le-css-1.html"><i class="fa fa-check"></i><b>17</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="18" data-path="modifier-le-css-2.html"><a href="modifier-le-css-2.html"><i class="fa fa-check"></i><b>18</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="19" data-path="modifier-le-css-3.html"><a href="modifier-le-css-3.html"><i class="fa fa-check"></i><b>19</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="20" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>20</b> Pour aller plus loin</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#les-documents-quarto"><i class="fa fa-check"></i><b>20.1</b> Les documents Quarto</a></li>
+<li class="chapter" data-level="20.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#affichages-sur-plusieurs-colonnes"><i class="fa fa-check"></i><b>20.2</b> Affichages sur plusieurs colonnes</a></li>
+<li class="chapter" data-level="20.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#autres-formats-de-sortie"><i class="fa fa-check"></i><b>20.3</b> Autres formats de sortie</a></li>
+<li class="chapter" data-level="20.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document-todo"><i class="fa fa-check"></i><b>20.4</b> odt_document –&gt; TODO</a></li>
+<li class="chapter" data-level="20.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#reference-.r-files"><i class="fa fa-check"></i><b>20.5</b> reference .R files</a></li>
+<li class="chapter" data-level="20.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#le-cache"><i class="fa fa-check"></i><b>20.6</b> Le cache</a></li>
+<li class="chapter" data-level="20.7" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>20.7</b> Bibliographie</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>21</b> Rendu des exercices partie 2</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="03-le_fichier_rmarkdown.html"><a href="#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>21.1</b> Traitement des données</a></li>
+<li class="chapter" data-level="21.2" data-path="03-le_fichier_rmarkdown.html"><a href="#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>21.2</b> Nombre de LS par région</a></li>
+<li class="chapter" data-level="21.3" data-path="03-le_fichier_rmarkdown.html"><a href="#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>21.3</b> Graphiques d’évolution</a></li>
+<li class="chapter" data-level="21.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>21.4</b> Pour rappel</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">exo partie 2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="le-fichier-r-markdown" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapitre 3</span> Le fichier <em>R Markdown</em><a href="le-fichier-r-markdown.html#le-fichier-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Ce chapitre n’a pas l’ambition de se substituer au <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Le guide définitif de Rmarkdown</a> (un des auteurs, Yihui Xie, est le créateur du package <code>rmarkdown</code>) ou au <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">guide de référence</a> mais peut faciliter à un certain nombre de lecteurs francophones l’approche et la compréhension du système de production de documents <strong>R Markdown</strong> car à notre connaissance ces guides n’ont pas encore été traduits.</p>
+<p><img src="assets/img/rmarkdown_definitive_guide_cover.png" class="centered" style="width:30.0%" /></p>
+<p>Au-delà de ces manuels de référence, certes complets mais imposants, il existe une <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf">anti-sèche (cheatsheet) rmarkdown</a> qui réussit en deux pages à synthétiser l’essentiel de ce qu’il faut savoir pour exploiter le système de production proposé au travers de RStudio. La formation proposée et le présent chapitre ont d’ailleurs pour principal objectif de permettre à tout un chacun de pouvoir complètement en tirer profit.</p>
+<p>Le guide officiel (R Markdown Reference Guide) ainsi que l’antisèche (R Markdown Cheat Sheet) sont accessibles facilement depuis RStudio en passant par le menu Aide/Help.</p>
+<p><img src="assets/img/cheat_sheet.png" /></p>
+<div id="r-markdown-dans-rstudio" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> R markdown dans RStudio<a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pour utiliser R Markdown, il faut que le package <code>rmarkdown</code> soit installé :</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="le-fichier-r-markdown.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span> (<span class="st">&quot;rmarkdown&quot;</span>)</span>
+<span id="cb2-2"><a href="le-fichier-r-markdown.html#cb2-2" tabindex="-1"></a><span class="fu">library</span> (rmarkdown)</span></code></pre></div>
+<p>Dans l’environnement de développement intégré RStudio de votre bureau, le développeur dispose d’outils qui simplifient la production d’un fichier R Markdown.</p>
+<p><img src="assets/img/rmd_dans_rstudio1.png" /></p>
+<p>Le travail comprend généralement les étapes suivantes, toutefois les étapes 2 à 4 peuvent se faire dans n’importe quel ordre :</p>
+<ol style="list-style-type: decimal">
+<li>Ouvrir un nouveau fichier .Rmd (prérempli avec des exemples)</li>
+<li>Écrire des instructions de traitement des données</li>
+<li>Compléter le document en ajoutant du texte</li>
+<li>Adapter l’en-tête</li>
+<li>Lancer la génération du document</li>
+<li>Publier le document (cas particulier, facultatif)</li>
+</ol>
+<div id="créer-un-fichier-.rmd" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Créer un fichier .Rmd<a href="#cr%C3%A9er-un-fichier-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>ASK: Début d’un TD (travail dirigé) ? — LBn ANS: le mettre avant et inclure la modif de l’entete dans le TD 2 — CCn ok!!!!!</p>
+</blockquote>
+<p>On crée un nouveau fichier de type Rmarkdown en allant dans le menu File <span class="math inline">\(\Rightarrow\)</span> New file <span class="math inline">\(\Rightarrow\)</span> R Markdown</p>
+<p><img src="assets/img/new_rmarkdown.jpg" /></p>
+<p>Une pop-up s’ouvre alors pour donner quelques informations afin d’initialiser le fichier qui va être créé en remplissant quelques champs imposés ou fortement recommandés par le processus global.</p>
+<p><img src="assets/img/new_rmarkdown2.jpg" /></p>
+<p>Pour commencer simplement, on choisit un format de sortie HTML. C’est le format de sortie par défaut, très utilisé (nous verrons les autres formats de sortie par la suite). RStudio crée un fichier contenant des exemples des éléments structurant un fichier R markdown. L’extension de ce type de fichier est <code>.Rmd</code>.</p>
+</div>
+<div id="lancer-la-génération-du-document" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Lancer la génération du document<a href="#lancer-la-g%C3%A9n%C3%A9ration-du-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l’icône <img src="assets/img/icone_table_matiere.png" />. Vous pouvez aussi prévisualiser le document en sortie en cliquant sur l’icône <strong>compas</strong> qui donne accès au “visual editor”.</p>
+<p>Pour générer un document à partir du fichier .Rmd, il suffit de cliquer sur le bouton <strong>knit</strong>. Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le repertoire de travail (là où vous avez créé votre projet R), et en même temps le document généré s’ouvre dans le viewer de R Studio (ou dans une pop-up).</p>
+<div class="trucsetastuces">
+<p><strong>Trucs &amp; Astuces</strong></p>
+<p>On peut générer le document d’autres façons:</p>
+<pre><code>rmarkdown::render(nom_fichier.Rmd)</code></pre>
+<p>ou grâce au raccourci <kbd>Ctrl + Shift + K</kbd></p>
+</div>
+<p>Ce document contient l’ensemble des informations du fichier .Rmd, que cela soit le texte (mis en forme), la visualisation du code intégré (si celle-ci est demandée) et ce qui est produit par ce code.</p>
+<blockquote>
+<p>ASK: Est ce qu’on met une image des icones? Est ce qu’on met une image du document généré par le fichier de base? cela permettrait que les stagiaires visualisent directement de quoi on parle OK — CCn</p>
+</blockquote>
+</div>
+</div>
+<div id="les-éléments-dun-fichier-.rmd" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Les éléments d’un fichier .Rmd<a href="#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un fichier R Markdown est constitué de 3 éléments principaux.</p>
+<p><img src="assets/img/script.png" /></p>
+<p>L’<strong>en-tête</strong> contient les métadonnées pour guider la génération du document. Il est suivi du corps du futur document, constitué de <strong>morceaux de code</strong> (les <em>chunks</em>) à éxécuter et de partie de <strong>textes</strong> à afficher avec des élements de mise en forme.</p>
+<p>Dans les sections suivantes ces composants seront détaillés un par un.</p>
+<div id="len-tête" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> L’en-tête<a href="#len-t%C3%AAte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>L’en-tête s’écrit au format YAML c’est un <a href="https://fr.wikipedia.org/wiki/YAML">format</a> ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.</p>
+<p>L’en-tête est parfois appelé le Header ou le YAML. Il sert à définir les paramètres de votre document comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.). Il est délimité par deux séries de <code>---</code>.</p>
+<div class="trucsetastuces">
+<p><strong>Trucs &amp; Astuces</strong></p>
+<p>Pour modifier l’en-tête, attention à bien respecter l’alignement des indentations. Ce sont elles qui indiquent la hiérarchie entre les éléments texte.</p>
+</div>
+<p>C’est dans le YAML que vous allez définir notamment :</p>
+<ul>
+<li>le titre (initialisé lors de la création du fichier)</li>
+<li>les auteurs</li>
+<li>la date de votre document</li>
+<li>le format de sortie (initialisé lors de la création du fichier)</li>
+<li>des options</li>
+<li>des paramètres.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb4-1"><a href="le-fichier-r-markdown.html#cb4-1" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;mon_premier_document&quot;</span></span>
+<span id="cb4-2"><a href="le-fichier-r-markdown.html#cb4-2" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Moi&quot;</span></span>
+<span id="cb4-3"><a href="le-fichier-r-markdown.html#cb4-3" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;31/10/2022&quot;</span></span>
+<span id="cb4-4"><a href="le-fichier-r-markdown.html#cb4-4" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span></code></pre></div>
+<p>On peut rajouter plusieurs auteurs :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb5-1"><a href="le-fichier-r-markdown.html#cb5-1" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;mon_premier_document&quot;</span></span>
+<span id="cb5-2"><a href="le-fichier-r-markdown.html#cb5-2" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb5-3"><a href="le-fichier-r-markdown.html#cb5-3" tabindex="-1"></a><span class="ss">  - </span>&quot;Moi&quot;</span>
+<span id="cb5-4"><a href="le-fichier-r-markdown.html#cb5-4" tabindex="-1"></a><span class="ss">  - </span>&quot;Toi&quot;</span>
+<span id="cb5-5"><a href="le-fichier-r-markdown.html#cb5-5" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
+<span id="cb5-6"><a href="le-fichier-r-markdown.html#cb5-6" tabindex="-1"></a>output: html_document</span></code></pre></div>
+<p>On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe 1.3.1.</p>
+<p>Il est possible de rajouter plusieurs outputs :</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="le-fichier-r-markdown.html#cb6-1" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;mon_premier_document&quot;</span></span>
+<span id="cb6-2"><a href="le-fichier-r-markdown.html#cb6-2" tabindex="-1"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb6-3"><a href="le-fichier-r-markdown.html#cb6-3" tabindex="-1"></a><span class="ss">  - </span>&quot;Moi&quot;</span>
+<span id="cb6-4"><a href="le-fichier-r-markdown.html#cb6-4" tabindex="-1"></a><span class="ss">  - </span>&quot;Toi&quot;</span>
+<span id="cb6-5"><a href="le-fichier-r-markdown.html#cb6-5" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
+<span id="cb6-6"><a href="le-fichier-r-markdown.html#cb6-6" tabindex="-1"></a>output: </span>
+<span id="cb6-7"><a href="le-fichier-r-markdown.html#cb6-7" tabindex="-1"></a>  pdf_document: default</span>
+<span id="cb6-8"><a href="le-fichier-r-markdown.html#cb6-8" tabindex="-1"></a>  html_document:</span>
+<span id="cb6-9"><a href="le-fichier-r-markdown.html#cb6-9" tabindex="-1"></a>    toc: true</span>
+<span id="cb6-10"><a href="le-fichier-r-markdown.html#cb6-10" tabindex="-1"></a>    theme: flatly</span></code></pre></div>
+<div class="exo">
+<p><strong>Exercice 1</strong></p>
+<ul>
+<li>Ouvrir Rstudio</li>
+<li>Créer un fichier markdown, format html</li>
+<li>prévisualiser le document avant toutes modifications</li>
+<li>Mettez-vous en auteur du document</li>
+<li>Rajouter un theme spécifique</li>
+<li>Cliquer sur <em>knit</em> pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html</li>
+</ul>
+</div>
+</div>
+<div id="les-éléments-texte" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Les éléments texte<a href="#les-%C3%A9l%C3%A9ments-texte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le texte s’écrit en syntaxe Markdown, qui est en fait du PANDOC pour Markdown. Vous trouverez la documentation complète sur le PANDOC pour Markdown <a href="https://pandoc.org/MANUAL.html#pandocs-markdown">ici</a>.</p>
+<div class="trucsetastuces">
+<p><strong>Trucs &amp; Astuces</strong></p>
+<p>De manière générale, il est préférable de laisser au moins une ligne blanche entre différentes éléments (par exemple entre un titre et le paragraphe).<br />
+Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interpretent pas exactement la même chose pour une même synthaxe).</p>
+</div>
+<div id="le-texte-simple" class="section level4 hasAnchor" number="3.2.2.1">
+<h4><span class="header-section-number">3.2.2.1</span> Le texte simple<a href="le-fichier-r-markdown.html#le-texte-simple" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Le texte simple est directement interprété sans besoin de balisage.</p>
+</div>
+<div id="la-mise-en-forme-à-la-volée" class="section level4 hasAnchor" number="3.2.2.2">
+<h4><span class="header-section-number">3.2.2.2</span> La mise en forme à la volée<a href="#la-mise-en-forme-%C3%A0-la-vol%C3%A9e" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Pour les <em>caractères en italique</em>, entourer de deux <code>*</code> ou deux <code>_</code> : <code>*caractères italiques*</code>.<br />
+</p>
+<p>Pour les <strong>caractères gras</strong>, entourer de deux <code>**</code> ou deux <code>__</code> : <code>**caractères gras**</code>.<br />
+</p>
+<p>Pour les <sub>indices</sub> et les <sup>exposants</sup>, entourer des caractères <code>~indices~</code>ou <code>^exposants^</code> respectivement.<br />
+</p>
+<p>Pour les <del>barrés</del>, entourer des caractères <code>~~barrés~~</code>.<br />
+</p>
+<p>Pour un style <code>code</code>, entourer des caractères <code>`code`</code>.<br />
+</p>
+<p>Pour un bloc de code, entourer des caractères <code>```</code> ou on commence chaque ligne par au moins 4 espaces.</p>
+<p>Pour forcer le retour à la ligne, terminer par un double espace ou un <code>\</code> ou sauter une ligne.</p>
+<div id="les-titres" class="section level5 hasAnchor" number="3.2.2.2.1">
+<h5><span class="header-section-number">3.2.2.2.1</span> Les titres<a href="le-fichier-r-markdown.html#les-titres" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Contrairement à la pratique en R, le <code>#</code> indique les titres. Par défaut, dans Rmarkdown, ils ne sont pas numérotés.</p>
+<ul>
+<li><code>#</code> pour le Titre1</li>
+<li><code>##</code> pour le Titre2</li>
+<li><code>###</code> pour le Titre3</li>
+<li><code>####</code> pour le Titre4</li>
+<li><code>#####</code> pour le Titre5</li>
+<li><code>######</code> pour le Titre6</li>
+</ul>
+<p>Rend:<br />
+<img src="assets/img/titres.png" /></p>
+<p>Pour une numérotation automatique des titres, tableaux, figures, cartes, équations, etc. il faut passer au package <code>bookdown</code> (voir partie suivante).</p>
+</div>
+<div id="les-listes" class="section level5 hasAnchor" number="3.2.2.2.2">
+<h5><span class="header-section-number">3.2.2.2.2</span> Les listes<a href="le-fichier-r-markdown.html#les-listes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p><strong>Liste à puces</strong></p>
+<p>Les listes à puces, sans ordre, commencent par <code>-</code> ou <code>*</code> ou <code>+</code>, en précédant la liste par une ligne vide. On peut créer des listes imbriquées en indentant la sous-liste.</p>
+<pre><code>- Premier élément  
+- Deuxième élément     
+      - Sous-élément 1  
+          - ezgtz  
+          - aergtg  
+      - Sous-élément 2  </code></pre>
+<p>Rend :</p>
+<ul>
+<li>Premier élément<br />
+</li>
+<li>Deuxième élément<br />
+
+<ul>
+<li>Sous-élément 1<br />
+
+<ul>
+<li>aaaa<br />
+</li>
+<li>bbbb<br />
+</li>
+</ul></li>
+<li>Sous-élément 2</li>
+</ul></li>
+</ul>
+<p><strong>Liste numérotée</strong></p>
+<pre><code>1. Premier élément  
+2. Deuxième élément     
+      1) Sous-élément 1  
+          a- aaaa  
+          b- bbbb  
+      ii) Sous-élément 2  </code></pre>
+<p>Rend :</p>
+<ol style="list-style-type: decimal">
+<li><p>Premier élément<br />
+</p></li>
+<li><p>Deuxième élément</p>
+<ol style="list-style-type: decimal">
+<li>Sous-élément 1<br />
+a- aaaa<br />
+b- bbbb </li>
+</ol>
+<!-- -->
+<ol start="2" style="list-style-type: lower-roman">
+<li>Sous-élément 2</li>
+</ol></li>
+</ol>
+</div>
+<div id="les-mentions" class="section level5 hasAnchor" number="3.2.2.2.3">
+<h5><span class="header-section-number">3.2.2.2.3</span> Les mentions<a href="le-fichier-r-markdown.html#les-mentions" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Les “mentions” sont pratiques pour mettre en valeur les éléments “à retenir”.</p>
+<pre><code>&gt; Texte à mettre en mention</code></pre>
+<p>Rend :</p>
+<blockquote>
+<p>Texte à mettre en mention</p>
+</blockquote>
+</div>
+<div id="liens-et-note-de-bas-de-page" class="section level5 hasAnchor" number="3.2.2.2.4">
+<h5><span class="header-section-number">3.2.2.2.4</span> Liens et note de bas de page<a href="le-fichier-r-markdown.html#liens-et-note-de-bas-de-page" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>Pour faire un lien vers un site internet, on met le texte affiché entre <code>[]</code> et l’adresse http entre <code>()</code></p>
+<p><code>[Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)</code></p>
+<p>rend</p>
+<p><a href="https://mtes-mct.github.io/parcours-r/">Cliquer sur le lien</a></p>
+<p>Les notes de bas de page s’écrivent à l’intérieur de <code>^[]</code>. <code>^[Ceci est une note de bas de page]</code> rend <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+</div>
+</div>
+<div id="commentaires" class="section level4 hasAnchor" number="3.2.2.3">
+<h4><span class="header-section-number">3.2.2.3</span> Commentaires<a href="le-fichier-r-markdown.html#commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Pour mettre une partie du fichier en commentaires, non traitée, il
+faut encadrer la partie par <code>&lt;!-- commentaires --&gt;</code>.</p>
+<p>Pour cela on peut utiliser le raccourci clavier <code>Ctrl + Shift + C</code> ou
+la commande dans le menu “Code”.</p>
+</div>
+</div>
+</div>
+<div id="insérer-des-images" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Insérer des images<a href="#ins%C3%A9rer-des-images" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La syntaxe la plus simple pour insérer une image est la suivante :</p>
+<p><code>![Légende de la figure.](chemin/vers/image.png)</code></p>
+<p>On peut adapter les dimensions de l’image :</p>
+<p><code>![Légende de la figure.](chemin/vers/image.png){ width=50% }</code></p>
+<div class="trucsetastuces">
+<p><strong>Trucs &amp; Astuces</strong></p>
+<p>NB : les caractères ‘espace’ ne sont pas autorisés autour du signe
+égal <code>=</code>,
+ni entre la parenthèse fermante et l’accolade ouvrante.
+On a <code>){</code>.</p>
+</div>
+<p>On peut aussi utiliser la fonction <code>knitr::include_graphics</code> :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="le-fichier-r-markdown.html#cb10-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;assets/img/couleuvre.jpg&quot;</span>)</span></code></pre></div>
+<p><img src="assets/img/couleuvre.jpg" /><!-- --></p>
+<p>Cette dernière méthode, préconisée quand le format de sortie n’est pas
+du html, permet de mieux controller l’affichage de l’image.
+Mais cela se fait à l’intérieur d’un chunck et ça, on le verra au chapitre suivant.</p>
+<div class="exo">
+<p><strong>Exercice 2</strong></p>
+<ul>
+<li>Partir du fichier .Rmd de l’exercice précédent</li>
+<li>Créer un texte avec un titre, un paragraphe, une liste d’item, un encart et un lien</li>
+<li>Appuyer sur <code>visual</code> pour avoir un aperçu du rendu final</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Ceci est une note de bas de page<a href="le-fichier-r-markdown.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="la-publication-reproductible.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intégrer-du-code-dans-les-rmd---les-chunks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"pandoc_args": ["-M", "toc-title=Table des matières"]
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 10 De la page au livre, le package bookdown | exo partie 2</title>
+  <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 10 De la page au livre, le package bookdown | exo partie 2" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 10 De la page au livre, le package bookdown | exo partie 2" />
+  
+  <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
+  
+
+<meta name="author" content="Caroline COUDRIN" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exercice.html"/>
+<link rel="next" href="du-rmarkdown-interactif.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><p style="text-align:center;"><img src="https://mtes-mct.github.io/parcours-r/assets/images/logo_marianne_fond_blanc.png" style="width:100px;"/></p></li>
+<li><a href="./index.html">Les productions reproductibles avec Rmarkdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#le-parcours-de-formation"><i class="fa fa-check"></i><b>0.1</b> Le parcours de formation</a></li>
+<li class="chapter" data-level="0.2" data-path="07-bookdown.html"><a href="#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i><b>0.2</b> Le groupe de référents R du pôle ministériel</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objectifs-de-ce-module"><i class="fa fa-check"></i>Objectifs de ce module</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i><b>0.3</b> Exemples de productions avec R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="07-bookdown.html"><a href="#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
+<li class="chapter" data-level="1.3" data-path="07-bookdown.html"><a href="#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
+<li class="chapter" data-level="1.4" data-path="07-bookdown.html"><a href="#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
+<li class="chapter" data-level="1.5" data-path="get-started.html"><a href="get-started.html#bien-structurer-ses-projets-data"><i class="fa fa-check"></i><b>1.5</b> Bien structurer ses projets data</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html"><i class="fa fa-check"></i><b>2</b> La publication reproductible</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="07-bookdown.html"><a href="#d%C3%A9finition"><i class="fa fa-check"></i><b>2.1</b> Définition</a></li>
+<li class="chapter" data-level="2.2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#bonnes-pratiques"><i class="fa fa-check"></i><b>2.2</b> Bonnes pratiques</a></li>
+<li class="chapter" data-level="2.3" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#origine-du-format-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Origine du format <em>R markdown</em></a></li>
+<li class="chapter" data-level="2.4" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#du-.rmd-au-format-de-sortie"><i class="fa fa-check"></i><b>2.4</b> Du .Rmd au format de sortie</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Le fichier <em>R Markdown</em></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio"><i class="fa fa-check"></i><b>3.1</b> R markdown dans RStudio</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="07-bookdown.html"><a href="#cr%C3%A9er-un-fichier-.rmd"><i class="fa fa-check"></i><b>3.1.1</b> Créer un fichier .Rmd</a></li>
+<li class="chapter" data-level="3.1.2" data-path="07-bookdown.html"><a href="#lancer-la-g%C3%A9n%C3%A9ration-du-document"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="07-bookdown.html"><a href="#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd"><i class="fa fa-check"></i><b>3.2</b> Les éléments d’un fichier .Rmd</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="07-bookdown.html"><a href="#len-t%C3%AAte"><i class="fa fa-check"></i><b>3.2.1</b> L’en-tête</a></li>
+<li class="chapter" data-level="3.2.2" data-path="07-bookdown.html"><a href="#les-%C3%A9l%C3%A9ments-texte"><i class="fa fa-check"></i><b>3.2.2</b> Les éléments texte</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="07-bookdown.html"><a href="#ins%C3%A9rer-des-images"><i class="fa fa-check"></i><b>3.3</b> Insérer des images</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="07-bookdown.html"><a href="#int%C3%A9grer-du-code-dans-les-rmd---les-chunks"><i class="fa fa-check"></i><b>4</b> Intégrer du code dans les RMD - Les <em>chunks</em></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html"><i class="fa fa-check"></i><b>4.1</b> Les options des <em>chunks</em></a></li>
+<li class="chapter" data-level="4.2" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-options-globales-des-chunks"><i class="fa fa-check"></i><b>4.2</b> Les options globales des chunks</a></li>
+<li class="chapter" data-level="4.3" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#utiliser-des-outputs"><i class="fa fa-check"></i><b>4.3</b> Utiliser des outputs</a></li>
+<li class="chapter" data-level="4.4" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-insertions-de-code-en-ligne"><i class="fa fa-check"></i><b>4.4</b> Les insertions de code en ligne</a></li>
+<li class="chapter" data-level="4.5" data-path="07-bookdown.html"><a href="#ex%C3%A9cuter-le-code-des-chunks"><i class="fa fa-check"></i><b>4.5</b> Exécuter le code des chunks</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html"><i class="fa fa-check"></i><b>5</b> Convertir le fichier Rmarkdown pour utilisation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#les-formats-de-sortie"><i class="fa fa-check"></i><b>5.1</b> Les formats de sortie</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#html"><i class="fa fa-check"></i><b>5.1.1</b> HTML</a></li>
+<li class="chapter" data-level="5.1.2" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#pdf"><i class="fa fa-check"></i><b>5.1.2</b> PDF</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="07-bookdown.html"><a href="#ajouter-des-param%C3%A8tres"><i class="fa fa-check"></i><b>6</b> Ajouter des paramètres</a></li>
+<li class="chapter" data-level="7" data-path="a-ne-pas-oublier.html"><a href="a-ne-pas-oublier.html"><i class="fa fa-check"></i><b>7</b> A ne pas oublier</a></li>
+<li class="chapter" data-level="8" data-path="rappels-du-jour-1.html"><a href="rappels-du-jour-1.html"><i class="fa fa-check"></i><b>8</b> Rappels du jour 1</a></li>
+<li class="chapter" data-level="9" data-path="exercice.html"><a href="exercice.html"><i class="fa fa-check"></i><b>9</b> Exercice</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="exercice.html"><a href="exercice.html#cadrage"><i class="fa fa-check"></i><b>9.1</b> Cadrage</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="07-bookdown.html"><a href="#probl%C3%A9matique"><i class="fa fa-check"></i><b>9.1.1</b> Problématique</a></li>
+<li class="chapter" data-level="9.1.2" data-path="exercice.html"><a href="exercice.html#rendu"><i class="fa fa-check"></i><b>9.1.2</b> Rendu</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html"><i class="fa fa-check"></i><b>10</b> De la page au livre, le package bookdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="07-bookdown.html"><a href="#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche"><i class="fa fa-check"></i><b>10.1</b> Démarrer un projet de livre de la page blanche</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#installer-le-package-bookdown"><i class="fa fa-check"></i><b>10.1.1</b> Installer le package bookdown</a></li>
+<li class="chapter" data-level="10.1.2" data-path="07-bookdown.html"><a href="#initialiser-un-mod%C3%A8le-de-livre"><i class="fa fa-check"></i><b>10.1.2</b> Initialiser un modèle de livre</a></li>
+<li class="chapter" data-level="10.1.3" data-path="07-bookdown.html"><a href="#g%C3%A9n%C3%A9rer-le-livre-et-le-relire"><i class="fa fa-check"></i><b>10.1.3</b> Générer le livre et le (re)lire</a></li>
+<li class="chapter" data-level="10.1.4" data-path="07-bookdown.html"><a href="#se-lancer-dans-l%C3%A9criture"><i class="fa fa-check"></i><b>10.1.4</b> Se lancer dans l’écriture</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="07-bookdown.html"><a href="#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible"><i class="fa fa-check"></i><b>10.2</b> Composer son livre quand la matière est déjà disponible</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#illustration-pratique-dune-composition"><i class="fa fa-check"></i><b>10.2.1</b> Illustration pratique d’une composition</a></li>
+<li class="chapter" data-level="10.2.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#organisation-des-sources-dun-bookdown"><i class="fa fa-check"></i><b>10.2.2</b> Organisation des sources d’un bookdown</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="07-bookdown.html"><a href="#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs"><i class="fa fa-check"></i><b>10.3</b> Au-delà du fond s’attaquer aux goûts et couleurs</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="07-bookdown.html"><a href="#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles"><i class="fa fa-check"></i><b>10.3.1</b> Les types de sorties, ou les différents rendus possibles</a></li>
+<li class="chapter" data-level="10.3.2" data-path="07-bookdown.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9"><i class="fa fa-check"></i><b>10.3.2</b> Un choix esthétique cadré</a></li>
+<li class="chapter" data-level="10.3.3" data-path="07-bookdown.html"><a href="#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style"><i class="fa fa-check"></i><b>10.3.3</b> Polices de caractères et couleurs, imposez votre style</a></li>
+<li class="chapter" data-level="10.3.4" data-path="07-bookdown.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9-1"><i class="fa fa-check"></i><b>10.3.4</b> Un choix esthétique cadré</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="07-bookdown.html"><a href="#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires"><i class="fa fa-check"></i><b>10.4</b> Quelques options et détails techniques complémentaires</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="07-bookdown.html"><a href="#options-tri%C3%A9es-sur-le-volet"><i class="fa fa-check"></i><b>10.4.1</b> Options triées sur le volet</a></li>
+<li class="chapter" data-level="10.4.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#retour-sur-le-fonctionnement-global"><i class="fa fa-check"></i><b>10.4.2</b> Retour sur le fonctionnement global</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#etude-dun-exemple-bookdown-propre.rpls"><i class="fa fa-check"></i><b>10.5</b> Etude d’un exemple bookdown : propre.rpls</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#exemple-dappropriation-dune-publication-rpls"><i class="fa fa-check"></i><b>10.5.1</b> Exemple d’appropriation d’une publication Rpls</a></li>
+<li class="chapter" data-level="10.5.2" data-path="07-bookdown.html"><a href="#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl"><i class="fa fa-check"></i><b>10.5.2</b> Compréhension globale de l’architecture du paquet propre.rpl</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime"><i class="fa fa-check"></i><b>10.6</b> Focus sur l’envoi au photocopieur du livre ou comment imprime</a></li>
+<li class="chapter" data-level="10.7" data-path="07-bookdown.html"><a href="#bookdown-maintenant-et-au-del%C3%A0"><i class="fa fa-check"></i><b>10.7</b> Bookdown, maintenant et au-delà</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html"><i class="fa fa-check"></i><b>11</b> Du Rmarkdown interactif</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="07-bookdown.html"><a href="#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>11.1</b> Interactivité simple, les visuels s’animent</a></li>
+<li class="chapter" data-level="11.2" data-path="07-bookdown.html"><a href="#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>11.2</b> Interactivité avancée, les inputs utilisateur</a></li>
+<li class="chapter" data-level="11.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>11.3</b> Exercice X</a></li>
+<li class="chapter" data-level="11.4" data-path="07-bookdown.html"><a href="#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>11.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="07-bookdown.html"><a href="#d%C3%A9roul%C3%A9"><i class="fa fa-check"></i><b>12</b> Déroulé</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="déroulé.html"><a href="déroulé.html"><i class="fa fa-check"></i><b>12.1</b> Bookdown</a></li>
+<li class="chapter" data-level="12.2" data-path="déroulé.html"><a href="déroulé.html#pagedown"><i class="fa fa-check"></i><b>12.2</b> Pagedown</a></li>
+<li class="chapter" data-level="12.3" data-path="déroulé.html"><a href="déroulé.html#officer"><i class="fa fa-check"></i><b>12.3</b> Officer</a></li>
+<li class="chapter" data-level="12.4" data-path="déroulé.html"><a href="déroulé.html#la-structure-du-projet---_bookdown.yml"><i class="fa fa-check"></i><b>12.4</b> La structure du projet - _bookdown.yml</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="pagedown-1.html"><a href="pagedown-1.html"><i class="fa fa-check"></i><b>13</b> Pagedown</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="pagedown-1.html"><a href="pagedown-1.html#pagedown-2"><i class="fa fa-check"></i><b>13.1</b> Pagedown</a></li>
+<li class="chapter" data-level="13.2" data-path="pagedown-1.html"><a href="pagedown-1.html#paged.js"><i class="fa fa-check"></i><b>13.2</b> Paged.js</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="configurer-votre-yaml.html"><a href="configurer-votre-yaml.html"><i class="fa fa-check"></i><b>14</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="15" data-path="configurer-votre-yaml-1.html"><a href="configurer-votre-yaml-1.html"><i class="fa fa-check"></i><b>15</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="16" data-path="modifier-le-css.html"><a href="modifier-le-css.html"><i class="fa fa-check"></i><b>16</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="17" data-path="modifier-le-css-1.html"><a href="modifier-le-css-1.html"><i class="fa fa-check"></i><b>17</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="18" data-path="modifier-le-css-2.html"><a href="modifier-le-css-2.html"><i class="fa fa-check"></i><b>18</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="19" data-path="modifier-le-css-3.html"><a href="modifier-le-css-3.html"><i class="fa fa-check"></i><b>19</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="20" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>20</b> Pour aller plus loin</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#les-documents-quarto"><i class="fa fa-check"></i><b>20.1</b> Les documents Quarto</a></li>
+<li class="chapter" data-level="20.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#affichages-sur-plusieurs-colonnes"><i class="fa fa-check"></i><b>20.2</b> Affichages sur plusieurs colonnes</a></li>
+<li class="chapter" data-level="20.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#autres-formats-de-sortie"><i class="fa fa-check"></i><b>20.3</b> Autres formats de sortie</a></li>
+<li class="chapter" data-level="20.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document-todo"><i class="fa fa-check"></i><b>20.4</b> odt_document –&gt; TODO</a></li>
+<li class="chapter" data-level="20.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#reference-.r-files"><i class="fa fa-check"></i><b>20.5</b> reference .R files</a></li>
+<li class="chapter" data-level="20.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#le-cache"><i class="fa fa-check"></i><b>20.6</b> Le cache</a></li>
+<li class="chapter" data-level="20.7" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>20.7</b> Bibliographie</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>21</b> Rendu des exercices partie 2</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="07-bookdown.html"><a href="#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>21.1</b> Traitement des données</a></li>
+<li class="chapter" data-level="21.2" data-path="07-bookdown.html"><a href="#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>21.2</b> Nombre de LS par région</a></li>
+<li class="chapter" data-level="21.3" data-path="07-bookdown.html"><a href="#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>21.3</b> Graphiques d’évolution</a></li>
+<li class="chapter" data-level="21.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>21.4</b> Pour rappel</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">exo partie 2</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="de-la-page-au-livre-le-package-bookdown" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapitre 10</span> De la page au livre, le package bookdown<a href="de-la-page-au-livre-le-package-bookdown.html#de-la-page-au-livre-le-package-bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Le paquet bookdown est construit sur les fondations données par R
+Markdown <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. Il s’appuie ainsi sur la
+simplicité de la syntaxe Markdown aussi bien que sur l’éventail des
+multiples formats de rendus possibles.
+Il apporte, quant à lui, un certain nombre de fonctionnalités complémentaires :</p>
+<ul>
+<li>générer un ensemble HTML multipages,</li>
+<li>établir des liens internes de renvoi vers des illustrations,
+des tableaux, des sections spécifiques du document ou encore des équations,</li>
+<li>faciliter la gestion d’annexes.</li>
+</ul>
+<p>Pour ne citer que les fonctionnalités par lesquelles l’extension bookdown
+enrichit significativement l’écosystème R Markdown.</p>
+<p>En dépit du nommage du paquet qui contient explicitement le terme
+‘book’ (‘livre’ en anglais), le paquet bookdown ne trouve pas sa seule
+utilité dans la production de livres. Ou plutôt, le “livre” qu’il
+produit peut-être vu comme l’agrégation d’un
+ensemble de documents R Markdown destinés à être lus de manière
+linéaire, tels qu’une compilation de cours, un rapport d’étude, un
+manuel d’utilisation, une thèse ou même un journal.</p>
+<p>Il faut cependant signaler l’esprit qui a conduit l’auteur Yihui Xie à
+élaborer ce paquet : faciliter la
+génération d’un livre sous de multiples formats, tout en restant
+sobre, c’est-à-dire en essayant de ne couvrir que les fonctionnalités
+communes à tous ces formats et en préservant la même syntaxe à travers
+la sélection de formats retenus dans son projet : html, pdf, epub.</p>
+<div id="démarrer-un-projet-de-livre-de-la-page-blanche" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Démarrer un projet de livre de la page blanche<a href="#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Après cette présentation rapide du paquet bookdown, il est temps
+d’aborder les aspects pratiques de son utilisation en essayant de
+répondre à une première question : comment puis-je créer mon
+premier livre avec bookdown ?</p>
+<div id="installer-le-package-bookdown" class="section level3 hasAnchor" number="10.1.1">
+<h3><span class="header-section-number">10.1.1</span> Installer le package bookdown<a href="de-la-page-au-livre-le-package-bookdown.html#installer-le-package-bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="de-la-page-au-livre-le-package-bookdown.html#cb24-1" tabindex="-1"></a><span class="fu">install.packages</span> (<span class="st">&quot;bookdown&quot;</span>)</span>
+<span id="cb24-2"><a href="de-la-page-au-livre-le-package-bookdown.html#cb24-2" tabindex="-1"></a><span class="fu">library</span> (bookdown)</span></code></pre></div>
+<div class="blackbox">
+<div class="center">
+<p><strong>Remarque</strong></p>
+</div>
+<p>Il faudrait se mettre d’accord sur la manière de renvoyer vers
+les différentes méthodes d’installation.</p>
+</div>
+<blockquote>
+<p>ANS: Je suis d’accord. l’installation “de base” pourrait etre faite dans la
+1ere partie de la formation.
+Dans la 2eme partie nous allons installer TinyTex pour générer du PDF. On
+pourrait compléter cette partie et faire un renvoi.
+— CCn</p>
+</blockquote>
+<p>Pour un environnement avec un éventail de fonctionnalités aussi
+complète que possible tel présenté et discuté dans les lignes qui
+suivent il vous faudra installer aussi un distribution $ $.</p>
+<p>Très grossièrement l’environnement $ $ est un des rares
+produits libres à pouvoir générer du pdf. C’est un environnement qui
+repose sur des concepts très soucieux du respect de conventions
+typographiques. Ainsi, des commandes insérées dans le texte permettent
+d’en dicter avec une précision extrême la répresentation finale, la
+mise en forme pour impression.</p>
+<p>Si vous ne souhaitez pas vous cassez la tête et si vous n’avez pas les
+droits d’administration sur votre poste, procédez à l’installation de
+la distribution <code>TinyTex</code> tout spécialement préparée pour cela par
+l’auteur même du package <code>bookdown</code> Xie Yihui, d’autant qu’il l’a
+rendue c’est extrêmement simple cette opération pour quiconque
+pratique un peu de R} puisque tout se
+passe justement dans sa console :</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="de-la-page-au-livre-le-package-bookdown.html#cb25-1" tabindex="-1"></a>  <span class="co"># Note : il faut avoir un windows au moins de version 10</span></span>
+<span id="cb25-2"><a href="de-la-page-au-livre-le-package-bookdown.html#cb25-2" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span>
+<span id="cb25-3"><a href="de-la-page-au-livre-le-package-bookdown.html#cb25-3" tabindex="-1"></a>  prop_inst_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="st">&#39;LOCALAPPDATA&#39;</span>), <span class="st">&#39;TinyTex&#39;</span>, <span class="at">fsep=</span><span class="st">&#39;</span><span class="sc">\\</span><span class="st">&#39;</span>)</span>
+<span id="cb25-4"><a href="de-la-page-au-livre-le-package-bookdown.html#cb25-4" tabindex="-1"></a>  <span class="fu">create.dir</span>(prop_inst_path)</span>
+<span id="cb25-5"><a href="de-la-page-au-livre-le-package-bookdown.html#cb25-5" tabindex="-1"></a>  tinytex<span class="sc">::</span><span class="fu">install_tintex</span>(<span class="at">dir=</span>prop_inst_path)</span></code></pre></div>
+</div>
+<div id="initialiser-un-modèle-de-livre" class="section level3 hasAnchor" number="10.1.2">
+<h3><span class="header-section-number">10.1.2</span> Initialiser un modèle de livre<a href="#initialiser-un-mod%C3%A8le-de-livre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Il s’agit non pas de chercher l’entrée de menu correspondante dans
+l’entrée <code>Fichier&gt;Nouveau fichier</code> mais bien sous le chemin
+<code>Fichier&gt;Nouveau projet...</code>. En effet, à la différence des
+manipulations qui ont été abordées précédemment dans ce guide, le
+système bookdown est tout entier tourné vers la conversion d’un
+ensemble de fichiers pour les assembler en une série logique
+monolithique.</p>
+<p>Il est donc intéressant de s’en rendre compte en utilisant les modèles
+de démonstration mis à notre disposition par RStudio. En effet,
+lorsque nous recourrons au menu de création d’un nouveau <code>bookdown</code>
+ce n’est pas une structure vierge qui va être initialisée mais bien un
+document modèle complètement fonctionnel. Il va être établi dans le
+répertoire que nous aurons préalablement désigné.</p>
+</div>
+<div id="générer-le-livre-et-le-relire" class="section level3 hasAnchor" number="10.1.3">
+<h3><span class="header-section-number">10.1.3</span> Générer le livre et le (re)lire<a href="#g%C3%A9n%C3%A9rer-le-livre-et-le-relire" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour créer un nouveau livre, il faut aller dans <code>Fichier&gt;Nouveau projet...</code>.</p>
+<p><img src="assets/img/creation_new_bookdown1.png" /></p>
+<p>Une pop-up apparait nous demandant à partir de quoi créer ce nouveau projet.
+Comme nous souhaitons créer un livre à partir de rien alors on choisit
+<code>Nouveau Dossier</code>.</p>
+<p><img src="assets/img/creation_new_bookdown2.png" />
+Apparait alors une selection de type de projet possible. Cette liste dépend
+des packages installés dans votre RStudio. Il faut selectionner
+<code>Book project using bookdown</code>.</p>
+<p><img src="assets/img/creation_new_bookdown3.png" /></p>
+<p>Enfin, il faut spécifier une localisation dans
+notre espace de fichier et éventuellement de préciser un format (soit gitbook,
+soit bs4_book.</p>
+<p><img src="assets/img/creation_new_bookdown4.png" /></p>
+<p>Nous avons alors à disposition un exemple de source
+complètement fonctionnel. Mais ce ne sont que des sources, comme nos
+fichiers <code>Rmarkdown</code> précédents, pour véritablement se rendre compte
+du résultat final, il faut procéder à l’étape de rendu.</p>
+<p>Ce qui nous amène à explorer plus avant les principes d’organisation
+de RStudio en tant qu’interface. Si l’organisation initiale n’a pas
+été trop bouleversée, le cadran haut-droit regroupe un certain nombre
+d’onglets qui ont tous plus ou moins trait à l’environnement du projet
+et à son pilotage. Il y réside notamment un onglet Build (Construire)
+qui dans son menu propose un bouton avec une icône représentant un
+marteau qui va nous permettre de lancer le rendu (la construction) de
+l’ensemble de fichiers Rmarkdown.</p>
+<p><img src="assets/img/build_book.png" /></p>
+<p>Par défaut le rendu sera sous une forme de “site
+web” très en usage en ce qui concerne les manuels logiciels sur
+Internet.</p>
+<p>La construction de manière effective s’éxécute en appuyant sur le
+bouton et, après le défilé d’un certain volume d’informations rendant
+compte des différent traitements effectués, si tout se passe bien, une
+fenêtre (navigateur web interne de RStudio) s’ouvre au
+premier plan. Elle présente le rendu final et un bouton qui
+permet d’ouvrir et d’explorer le rendu dans le navigateur web
+configuré pour le système hôte.</p>
+<p>Le document résultant de la phase de construction est pour le coup une
+véritable vitrine qui présente et montre à l’oeuvre les principales
+fonctionnalité de <code>bookdown</code>.</p>
+<p><strong>3 pour le prix d’1 !</strong> Si vous avez la curiosité d’explorer le
+sous-répertoire <code>_book</code> du dossier projet, vous y trouverez aussi le
+rendu sous forme d’un “livre” en pdf (format reconnu princpalement pour
+sa portabilité en matière d’impression) et encore en epub (format
+adapté pour la lecture notament sur liseuse mais plus généralement
+pour tout écran portafif).</p>
+</div>
+<div id="se-lancer-dans-lécriture" class="section level3 hasAnchor" number="10.1.4">
+<h3><span class="header-section-number">10.1.4</span> Se lancer dans l’écriture<a href="#se-lancer-dans-l%C3%A9criture" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>À ce stade rien de plus simple, ni rien de bien différent de ce qui
+a été vu précédemment: il s’agit d’éditer des fichiers R Markdown,
+(extensions <code>.Rmd</code>).</p>
+<p>Relancer la construction (compilation?) pour se rendre compte de
+l’évolution du contenu.</p>
+<p>Des chapitres en trop, ou des chapitres à rajouter ? Il suffit de
+supprimer ou de créer les fichiers <code>Rmarkdown</code> correspondant.
+Ils seront ordonnés automatiquement selon leur ordre
+alphabétique, c’est pour cela que bien souvent vous trouverez des
+fichiers numérotés <code>01-...</code>, <code>02-...</code> ce qui est une manière très
+explicite de maîtriser l’ordre de composition du document général.</p>
+</div>
+</div>
+<div id="composer-son-livre-quand-la-matière-est-déjà-disponible" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Composer son livre quand la matière est déjà disponible<a href="#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Un rapport bookdown contient de manière caractéristique plusieurs
+chapitres et chacun de ces chapitres est un fichier R Markdown,
+portant l’extension <code>.Rmd</code>. Ces fichiers R Markdown doivent débuter
+<strong>immédiatement après l’en-tête</strong> par le titre du chapitre en utilisant le marquage
+propre à un titre de premier niveau, par exemple : <code># Titre du chapitre</code>. Pour le bon fonctionnement général, tous les fichiers R
+Markdown doivent être encodés en UTF-8, notamment pour les langages
+présentant des caractères accentués (comme le français).</p>
+<div class="blackbox">
+<div class="center">
+<p><strong>Trucs &amp; Astuces</strong></p>
+</div>
+<p>Sans être très féru de tout ce qui concerne l’encodage, vous
+trouverez un certain nombre de facilités dans RStudio:</p>
+<ul>
+<li>pour ouvrir un fichier avec l’encodage qui vous convient</li>
+</ul>
+<p>Fichier <span class="math inline">\(\Rightarrow\)</span> Réouvrir avec encodage…</p>
+<p><img src="assets/img/ouvrir_encodage.png" /></p>
+<ul>
+<li>pour enregistrer un fichier au bon encodage</li>
+</ul>
+<p>Fichier <span class="math inline">\(\Rightarrow\)</span> Sauvegarder avec l’encodage…</p>
+<p><img src="assets/img/enregistrer_encodage.png" /></p>
+<p>Concernant la première fonctionnalité “Réouvrir avec encodage…”,
+dans la fenêtre de dialogue n’hésitez surtout pas à sélectionner
+UTF-8 et cocher l’option : “Définir comme encodage par défaut pour
+les fichiers sources”, vous n’aurez ainsi quasiment plus de question
+à vous poser par la suite.</p>
+</div>
+<div id="illustration-pratique-dune-composition" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> Illustration pratique d’une composition<a href="de-la-page-au-livre-le-package-bookdown.html#illustration-pratique-dune-composition" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="faire-dun-ensemble-une-unité" class="section level4 hasAnchor" number="10.2.1.1">
+<h4><span class="header-section-number">10.2.1.1</span> Faire d’un ensemble une unité<a href="#faire-dun-ensemble-une-unit%C3%A9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Allons maintenant au-delà de l’interface RStudio et du système
+relativement mécanique de ce que nous appelons le
+clique-bouton. Non que le clique-bouton n’ait pas sa raison d’être,
+mais parce que les contingeances auxquelles il est soumis nous brident,
+pour l’instant encore, dans notre capacité d’exploration et d’analyse.</p>
+<p>Pour se faire déconnetez votre souris de l’ordinateur, ou
+désactivez-en le clavier tactile … … vous n’êtes évidemment pas
+obligés d’en arriver jusqu’à cette extrémité, mais vous avez compris
+l’idée. Il s’agit maintenant de communiquer en language
+R.</p>
+<p>Rappellons-nous que pour rendre (transformer) un fichier source R
+Markdown en un format de consultation plus généraliste (odt, pdf,
+docx, html …), le package <code>rmarkdown</code> nous fournit la fonction
+<code>rmarkdown::render()</code>. <code>bookdown</code> en offre une du même niveau :
+<code>bookdown::render_book()</code>.</p>
+<p>La première prend logiquement comme paramètre d’entrée obligatoire un
+fichier R Markdown (ou markdown tout simple, voire même simplement du
+R), quand la seconde n’exige même pas d’information car par défaut elle
+prendra le répertoire en cours pour tenter d’exploiter tous les
+fichiers <code>.Rmd</code> disponibles afin d’en constituer un <strong>livre</strong>. Le
+paramètre <code>input</code> permet toutefois un peu de souplesse en indiquant
+plus spécifiquement quel répertoire <code>rendre</code> sans être forcément
+obligé par avance de le définir comme répertoire de travail courant
+(current working directory : <code>getwd</code>/<code>setwd</code>).</p>
+<p>Travail dirigé :</p>
+<p>Objectif</p>
+<p>Utiliser les 3 .Rmd vu précédemment pour expérimenter la composition
+d’un book.</p>
+<p>Prérequis</p>
+<p>Etapes</p>
+</div>
+<div id="styled-outputs" class="section level4 hasAnchor" number="10.2.1.2">
+<h4><span class="header-section-number">10.2.1.2</span> Vous aviez promis des rendus stylés !<a href="de-la-page-au-livre-le-package-bookdown.html#styled-outputs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Nous espérons que l’expérimentation précédente vous aura
+permis de vous rendre compte concrètement de ce qui fait une
+distinction visible entre les packages <code>rmarkdown</code> et <code>bookdown</code>.</p>
+<p>À ce stade, nous nous rendons manifestement compte que <code>bookdown</code>
+satisfait un de ses premiers engagements c’est-à-dire : permettre de
+constituer une unité offrant une lecture séquentielle (à
+partir de plusieurs fichiers dans les coulisses).</p>
+<p>Mais somme toute <code>bookdown</code> ne serait-il qu’un énième générateur de
+site web statique ?</p>
+<p>Car enfin ce premier résultat ne détonne finalement
+pas de ce que nous avons l’habitude de rencontrer maintenant sur le
+net pour nous aider à comprendre le fonctionnement de tel ou tel
+programme. D’ailleurs hors les couleurs retenues, fonctionnellement
+cela ressemble assez aux usuels bouquets de présentation accompagnant
+les packages alliés au tidyverse
+<a href="https://dplyr.tidyverse.org/">dplyr</a>,
+<a href="https://readr.tidyverse.org/">readr</a>,
+toutefois nous pourrons – en y regardant bien – voir au bas de la
+page, généralement à droite, que ceux-ci ont été réalisés avec
+<code>pkgdown</code>. La formule a tellement séduit que d’autres groupes
+l’utilisent aussi comme rOpenSci avec son ensemble des paquets dont
+entre autres
+<a href="https://docs.ropensci.org/dataspice/">dataspice</a>.</p>
+<p>Mais, dans l’histoire des recettes pour mettre en lumière de la
+documentation le site <a href="https://readthedocs.org/" class="uri">https://readthedocs.org/</a> a lui aussi ses
+adeptes et nous y trouverons des vestiges d’initiatives fort
+intéressantes comme
+<a href="https://r-snippets.readthedocs.io/en/latest/">r-snippets</a> même si
+elle ne semble plus maintenue.
+Pourquoi parler de <a href="https://readthedocs.org/" class="uri">https://readthedocs.org/</a> ?
+Parce que justement la lecture linéaire est ce qui construit la force
+du système de présentation d’un nouvel outil en structurant
+l’information dans une construction progressive. C’est le propre du
+mode d’emploi et le système
+<a href="https://www.sphinx-doc.org/en/master/">sphinx</a>
+(en <a href="https://www.python.org/">python</a>)
+duquel il readthedoc a tiré son inspiration semble avoir devancé un
+peu l’avènement d’une compagnie qui a eu un certain succès pour la
+mise en forme de documentations utilisateur <a href="https://www.gitbook.com/" class="uri">https://www.gitbook.com/</a>.
+D’où le fameux nom <code>gitbook</code> rendant honeur à l’esthétique
+particulière que fit émerger l’entreprise. D’ailleurs dans
+l’extraordinaire base d’archive que constitue github avec laquelle
+gitbook faisait la passerelle (mais qui ne sont pas structurellement
+liées en tant qu’entreprises à notre connaissance) nous retrouvons une
+<a href="https://github.com/jbryer/Rgitbook">initiative</a>
+pour exploiter directement les service gitbook depuis les sources d’un
+package tout autant qu’il existe un
+<a href="https://github.com/ropenscilabs/r2readthedocs/">package</a>
+pour produire de la documentation sur le modèle <code>readthedoc</code>.</p>
+<p>Après cette petite digression, pour faire un tout petit zoom sur l’une
+des nombreuses rivières qui alimentent la quête perpétuelle visant à
+trouver le système de documentation parfait (S’il n’y en avait pas
+?!), retrounons à la distinction que nous faisions entre <code>pkgdown</code> et
+<code>bookdown</code>. En effet, nous appelions l’ensemble de pages web formées
+par <code>pkgdown</code> un bouquet car les pages regroupées font sens ensemble
+et la barre des menus vient même structurer cet ensemble par une
+certaine codification, convention. Mais dans <code>bookdown</code>, il y a
+vraiment un ordre, une progression, une linéarité.</p>
+<p>Et mécaniquement cette linéarité peut s’apposer successivement sur un
+ensemble de pages et forme naturellement un livre et c’est aussi cet
+engagement que porte <code>bookdown</code>.</p>
+<p>Dans la pratique, comment devons-nous poursuivre nos manipulations
+pour obtenir un fichier pdf ?</p>
+<p>Réponse : simplement en passant une option spécifiant que c’est le
+format attendu.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="de-la-page-au-livre-le-package-bookdown.html#cb26-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>(<span class="at">output_format =</span> <span class="st">&#39;bookdown::pdf_book&#39;</span>)</span></code></pre></div>
+<p>à l’issue du traitement vous aurez un retour d’information vous
+signalant que votre pdf est servi !</p>
+<pre><code>Output created: _book/_main.pdf</code></pre>
+<p>La valeur de retour de la fonction elle-même est d’ailleurs le chemin
+complet vers le fichier créé.</p>
+<p>Et si nous voulions générer plusieurs mode de document simultanément ?</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="de-la-page-au-livre-le-package-bookdown.html#cb28-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>(<span class="at">output_format =</span> <span class="fu">c</span>(<span class="st">&#39;bookdown::pdf_book&#39;</span>,<span class="st">&#39;bookdown::gitbook&#39;</span>))</span></code></pre></div>
+<p>Laissez libre court à vos envies et explorez parmi les multiples
+<a href="https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats">modèles de sortie proposés</a>
+soyez conscient de leur limite et des contraintes qu’ils imposeront
+mais aussi posez-vous la question de ce que vous voulez vraiment
+faire :</p>
+<ul>
+<li>les formats dits : <em>Book output format</em> qui justifient notre
+intérêt jusqu’ici parce qu’ils travaillent sur un ensemble de
+fichiers :
+<ul>
+<li>gitbook</li>
+<li>pdf_book</li>
+<li>epub_book</li>
+<li>bs4_book</li>
+<li>bs4_book_theme</li>
+<li>html_chapters</li>
+<li>html_book</li>
+<li>tufte_html_book</li>
+</ul></li>
+<li>les formats dit : “Single document output formats” qui ne
+travaillent que sur un seul fichier .Rmd mais qui rétro-portent à
+<code>rmarkdown</code> certaines fonctionnalités comme les renvois internes :
+<ul>
+<li>html_document2</li>
+<li>html_fragment2</li>
+<li>html_notebook2</li>
+<li>html_vignette2</li>
+<li>ioslides_presentation2</li>
+<li>slidy_presentation2</li>
+<li>tufte_html2</li>
+<li>pdf_document2</li>
+<li>beamer_presentation2</li>
+<li>tufte_handout2</li>
+<li>tufte_book2</li>
+<li>markdown_document2</li>
+<li>context_document2</li>
+<li>github_document2</li>
+<li>odt_document2</li>
+<li>powerpoint_presentation2</li>
+<li>rtf_document2</li>
+<li>word_document2</li>
+</ul></li>
+</ul>
+</div>
+<div id="maîtrise-des-méta-données" class="section level4 hasAnchor" number="10.2.1.3">
+<h4><span class="header-section-number">10.2.1.3</span> Maîtrise des méta-données<a href="#ma%C3%AEtrise-des-m%C3%A9ta-donn%C3%A9es" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Si jusqu’ici vous vous êtes prétés au jeux des manipulations que nous
+vous proposons, il n’aura pas échappé à votre oeil aguerri que la
+gestion des métadonnées (titre, auteur, date) n’est pas si intuitive
+que cela.</p>
+<p>Confirmons-le par une petite manipulation.</p>
+<p>TD</p>
+<p>Dans les faits le dernier header yaml écrase les précédents.</p>
+<p>Aussi, l’usage veux que le premier chapitre débute dans le fichier
+index.Rmd, convention qui nous vient du monde du web, des serveurs et
+de l’html, et que seul ce fichier comporte un header yaml.</p>
+</div>
+</div>
+<div id="organisation-des-sources-dun-bookdown" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Organisation des sources d’un bookdown<a href="de-la-page-au-livre-le-package-bookdown.html#organisation-des-sources-dun-bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Après avoir mis les mains dans le cambouis et constitué notre <em>book</em>,
+notre livre ou notre rapport à la main, appelez-le comme il vous
+convient, revenons à l’exemple standard pour démystifier les nombreux
+fichiers nécessaires de prime abord et en comprendre l’utilité.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="de-la-page-au-livre-le-package-bookdown.html#cb29-1" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">create_bs4_book</span>(<span class="st">&#39;../mybs4book&#39;</span>)</span>
+<span id="cb29-2"><a href="de-la-page-au-livre-le-package-bookdown.html#cb29-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&#39;../mybs4book&#39;</span>)</span>
+<span id="cb29-3"><a href="de-la-page-au-livre-le-package-bookdown.html#cb29-3" tabindex="-1"></a><span class="fu">list.files</span>()</span>
+<span id="cb29-4"><a href="de-la-page-au-livre-le-package-bookdown.html#cb29-4" tabindex="-1"></a>bookdown<span class="sc">::</span><span class="fu">render_book</span>(<span class="at">output_format =</span> <span class="st">&#39;bookdown::bs4_book&#39;</span>)</span></code></pre></div>
+<ul>
+<li><DIR>
+_bookdown_files</li>
+<li><DIR>
+_book</li>
+<li>mybs4book.Rproj</li>
+<li>README.md</li>
+<li>index.Rmd</li>
+<li>01-intro.Rmd</li>
+<li>02-cross-refs.Rmd</li>
+<li>03-parts.Rmd</li>
+<li>04-citations.Rmd</li>
+<li>05-blocks.Rmd</li>
+<li>06-share.Rmd</li>
+<li>07-references.Rmd</li>
+<li>_bookdown.yml</li>
+<li>_common.R</li>
+<li>_output.yml</li>
+<li>preamble.tex</li>
+<li>style.css</li>
+<li>book.bib</li>
+<li>packages.bib</li>
+<li>chicago-fullnote-bibliography.csl</li>
+<li>mybs4book.rds</li>
+</ul>
+<p><img src="assets/img/bookdown-chap/bs4_book_default_files.png" /></p>
+</div>
+</div>
+<div id="au-delà-du-fond-sattaquer-aux-goûts-et-couleurs" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Au-delà du fond s’attaquer aux goûts et couleurs<a href="#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si vous nous avez lu jusqu’ici dans notre découverte pratico-pratique
+du package <code>bookdown</code>, de sa place dans l’écosystème des publications
+reproductibles qui reviennent sur le devant de la scène et prennent un
+nouveau jour, alors : félicitations !</p>
+<p>De notre côté, il nous semble que les éléments fournis jusqu’ici dans
+un accompagnement par la manipulation doivent vous permettre desormais
+de produire vos livres sans problème.<br />
+Il nous resterait encore à aborder deux autres fonctionnallités de <code>bookdown</code>
+pour être totalement complet, ce sont :</p>
+<ul>
+<li>les liens de renvoi internes,</li>
+<li>l’utilisation de référence bibliographique,</li>
+</ul>
+<p>ces facettes seront couvertes dans une édition ultérieure de ce
+document (pour l’instant des liens seront données en fin de chapitre à
+l’attention de ceux pour qui ces fonctionnalités sont indispensables).
+Mais, excepté ces deux fonctionnalités spécifiques d’ailleurs peu
+fréquentes d’utilisation dans nos métiers, considérons pour l’heure
+que vous êtes désormais un utilisateur éclairé de <code>bookdown</code>. La
+partie à laquelle nous nous attaquons ici a pour but de vous faire
+atteindre le niveau <code>maîtrise</code>.</p>
+<p>Partons du postulat que sitôt vous aurez modelé votre matière de fond
+en un livre, sitôt vous vous direz que cette production ressemble à
+toutes les autres, or, vous voudrez plutôt quelle vous ressemble !
+Nous allons tenter de voir en suivant quelles sont vos options pour
+cela et à l’occasion ce balayage nous emmenera à investiguer un peu
+plus profodémment quelques aspects techniques du package <code>bookdown</code>.</p>
+<div id="les-types-de-sorties-ou-les-différents-rendus-possibles" class="section level3 hasAnchor" number="10.3.1">
+<h3><span class="header-section-number">10.3.1</span> Les types de sorties, ou les différents rendus possibles<a href="#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dans la section @ref(#styled-outputs) nous avons vu qu’à partir d’un
+même projet source <code>bookdown</code> nous pouvions choisir entre différents
+types de sorties, nous devons maintenant être plus précis que
+cela. Dans la pratique, il y a plusieurs étages à la fusée, en effet
+tout part du format terminal d’enregistrement sur le disque dur
+autrement dit : en quel type de fichier va être converti
+notre projet <code>bookdown</code> in fine.</p>
+<p>Concentrons nous sur les transformations mères (<em>Book output format</em>),
+celles-là mêmes qui au départ ont motivées la création de <code>bookdown</code>
+au-delà de l’apparente multiplicité des types de sorties possibles,
+pas moins de 8 (gitbook, pdf_book, epub_book, bs4_book,
+bs4_book_theme, html_chapters, html_book, tufte_html_book), il n’est
+en fait question que de trois types de fichiers : <code>pdf</code>, <code>epub</code> et <code>html</code>.</p>
+<p>Notons tout de suite l’exception du format de fichier <code>html</code>, c’est le
+seul format où la transformation <code>bookdown</code> et plus généralement
+<code>rmarkdown</code> se traduit *matériellement” par plusieurs fichiers, c’est
+sa nature même. En clair, la résultante d’une transformation source
+<code>bookdown</code> en l’un des types de sorties (git_book,, bs4_book,
+bs4_book_theme, html_chapters, html_book, tufte_html_book) va résulter
+en la création d’un répertoire nommé par défaut <code>_book</code> dans le
+répertoire projet. Ce répertoire <code>_book</code> va contenir quantité de
+fichiers constituant un mini-site statique (ensemble de pages web
+cohérent) qui s’appuie sur une grande variété de type de fichiers :
+<code>html</code> bien évidemment, <code>css</code>, <code>javascript</code>, des resources liées
+(images, icônes, fichiers de police de charactère et autres), bref
+tout un écosystème.</p>
+<p>La magie du <em>web</em> repose sur quelques conventions, par exemple une fois
+ce répertoire <code>_book</code> mis sur un serveur internet (appelons le
+<a href="https://mon-site.com" class="uri">https://mon-site.com</a>), s’il contient un fichier nommé <code>index.html</code>
+alors l’appel du répertoire
+<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+<a href="http:://mon-site.com/_book/" class="uri">http:://mon-site.com/_book/</a> par un
+navigateur quelconque (Chrome, Firefox, Edge …) ouvrira
+naturellement cette page <code>index.html</code> évitant à devoir invoquer
+explicitement la page d’entrée par son nommage exact. C’est pourquoi
+la convention de débuter par un fichier <code>index.Rmd</code> fait sens.</p>
+<p>Nous le voyons rien que cette précision sur les types de sorties
+reposant sur le format <code>html</code> peut appeler à de longues digressions si
+l’on vise l’exhaustivité didactique. C’est hors de portée pour nous
+dans le cadre de ce modeste support de formation. La difficulté
+d’expliquer s’étend aussi au format <code>pdf</code> et <code>epub</code> qui ne sont pas
+plus simples, alors notre pirouette sera de vous renvoyer vers les
+documents fondateurs de ces formats, ce qu’on appelle les
+spécifications, mais même en faisant cela vous ne serez pas encore
+arrivés pour certaines raisons que nous commentons :</p>
+<ul>
+<li><p><a href="https://www.w3.org/publishing/epub3/epub-spec.html">spécifications epub</a>
+le lien donné ici renvoi vers le format en version 3.2, oui
+notons au passage que les formats évoluent et s’améliorent avec le
+temps, le standard epub est pris en premier exemple, car le
+curieux ou le téméraire pourrait se dire : il suffit que je
+connaisse ça. L’organisme de publication W3C est complètement
+transparent, tout est publié est accessible gratuitement.</p></li>
+<li><p><a href="https://html.spec.whatwg.org/multipage/">spécification html</a>,
+les choses se compliquent l’histoire et en marche, le W3C publié
+originellement des spécifications versionnées, mais le <code>html</code> est
+tellement stratégique et central aujourd’hui que non seulement une
+nouvelle <em>institution</em> est née, mais en plus les spécifications
+s’affirment elles-mêmes comme vivantes.</p></li>
+<li><p><a href="https://www.pdfa.org/resource/pdf-specification-index/">spécifications pdf</a>
+l’histoire du format pdf possède aussi des détours, et là les
+choses se corsent encore plus pour accèder à la connaissance
+totale puisque l’organisme qui à normaliser ces spécifications est
+l’ISO et qu’il faut s’acquitter monaitairement de certains droits
+pour pouvoir accèder au document valant norme.</p></li>
+</ul>
+<p>L’équipe d’auteurs de ce document a-t’elle lu ces spécifications ? Pas
+du tout ! Heureusement d’ailleurs, car cela aurait peut-être été une
+perte de temps collosale par rapport à nos besoins directs, et même
+parfois inutile.</p>
+<p>Dans le cadre du <code>pdf</code> cela aurait été du pur temps perdu et inutile
+puisque en fait <code>bookdown</code> lui-même ne produit pas directement du
+<code>pdf</code> mais un format intermédiaire dans un langage appelé
+<a href="https://www.latex-project.org/"><span class="math inline">\(\LaTeX\)</span></a>.</p>
+</div>
+<div id="un-choix-esthétique-cadré" class="section level3 hasAnchor" number="10.3.2">
+<h3><span class="header-section-number">10.3.2</span> Un choix esthétique cadré<a href="#un-choix-esth%C3%A9tique-cadr%C3%A9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Parfois vous pouvez vouloir changer le thème global de sortie, et de
+manière générale ce peut-être réalisé grâce à l’option <code>in_hearder</code>,
+ou l’option <code>css</code> plus particulièrement adaptée pour les sorties
+<code>HTML</code>. Certains formats de sortie ont leur propre thème, tel que
+<code>gitbook</code>, <code>tuft_html_book</code>, et <code>tufte_book2</code>, d’ailleurs cela vous ne
+devriez pas souhaitez les modifier de trop, d’abord parce qu’ils
+tendent vers des objectifs très précis ensuite par que techniquement
+le effort pour les modifier seront importants puisqu’ils reposent sur
+des mécaniques complexes. Par comparaison les formats de sortie
+<code>html_book()</code> et <code>pdf_book()</code> ne sont pas attachés à des thèmes
+spécifiques en conséquence ils peuvent être facilement modifiables et
+adaptables.</p>
+<p>Ainsi, le thème de défaut, ou style, pour <code>html_book()</code> est le style
+nommé <code>Bootstrap</code>. Le style <code>Bootstrap</code> possède lui-même en réalité
+plusieurs choix de thème auxquels vous pouvez reccourir, votre choix
+s’étend parmis les valeurs : default, bootstrap, cerulean,
+cosmo, darkly, flatly, journal, lumen, paper, readable, sandstone,
+simplex, spacelab, united, and yeti. Vous pouvez indiquez lequel de
+ces thèmes vous voulez appliquer en paramétrant l’option <code>theme</code> comme
+suit :</p>
+<pre><code>---
+output:
+  bookdown::html_book:
+    theme: united
+---</code></pre>
+<p>Si éventuellement il advenait que vous n’apréciiez aucun des thèmes
+proposé par <code>Bootstrap</code>, il vous reste le recours de fixer l’option
+<code>theme</code> à <code>null</code> et d’appliquer votre propre feuille de style css,
+grâce aux options (<code>css</code> ou <code>in_header</code>).</p>
+<p>Pour le format de sortie <code>pdf_book()</code>, en plus de l’option <code>in_header</code>
+déjà évoquée, une autre solution est de changer la classe
+(<code>documentclass</code>) de document. Il existe de très nombreuses classes
+possibles pour les mise en forme de type livres, telles que <code>memoir</code>
+(<a href="https://www.ctan.org/pkg/memoir" class="uri">https://www.ctan.org/pkg/memoir</a>), <code>amsbook</code>
+(<a href="https://www.ctan.org/pkg/amsbook" class="uri">https://www.ctan.org/pkg/amsbook</a>), <code>KOMA-Script</code>
+(<a href="https://www.ctan.org/pkg/koma-script" class="uri">https://www.ctan.org/pkg/koma-script</a>) et bien d’autre. Voici un bref
+example de l’entête de données YAML pouvant permettre de déclarer le
+thème de sortie <code>scrbook</code> proposé au travers de l’extension <span class="math inline">\(LaTeX\)</span>
+<code>KOMA-Script</code> :</p>
+<pre><code>---
+documentclass: scrbook
+output:
+  bookdown::pdf_book:
+    template: null
+---</code></pre>
+<p>A titre d’information, quelques maisons d’édition spécialisées (telles
+que Springer et Chapman &amp; Hall/CRC) disposent de leur propre style
+<span class="math inline">\(LaTeX\)</span>, de leur propre fichiers de classe (<code>.sty</code>). Dans ce cas là
+vous pourriez essayer de changer l’option <code>documentclass</code>
+afin de spécifier en lieu et place celle de leur style, mais vous
+constaterez que bien souvent ce n’est pas aussi simple que cela. Votre
+recours le plus efficace sera soit d’utiliser l’option <code>in_header</code>
+soit plus surement encore d’aller modifier le modèle de document de
+sortie <span class="math inline">\(LaTex\)</span> utilisé par <code>Pandoc</code> pour l’adapter à ces feuilles de
+style particulière.</p>
+<p>Notez bien par ailleurs que lorsque vous changez le paramètre
+<code>documentclass</code>, vous êtes suscceptibles de spécifier un paramètre <code>Pandoc</code>
+aditionnel <code>--top-level-division=chapter</code> afin que <code>Pandoc</code> sache
+bien quel premier niveau de titres il doit traiter comme chapitre en
+lieu et place des sections (c’est en effet le fonctionnement par
+défaut quand la <code>documentclass</code> est <code>book</code>, autrement dit pour une
+structuration du rendu en mode ‘livre’), les options s’exprimeraient
+par exemple ainsi :</p>
+<pre><code>documentclass: krantz
+output:
+  bookdown::pdf_book:
+    pandoc_args: --top-level-division=chapter</code></pre>
+</div>
+<div id="polices-de-caractères-et-couleurs-imposez-votre-style" class="section level3 hasAnchor" number="10.3.3">
+<h3><span class="header-section-number">10.3.3</span> Polices de caractères et couleurs, imposez votre style<a href="#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Revenons sur l’option <code>output/includes/in_header</code>.</p>
+<p>Cette option prend en paramètre un nom de fichier et va permettre
+d’insérer simplement aux environs des premières lignes du fichier
+<code>html</code> qui sera généré en sortie (exactement dans son entête<code>&lt;head&gt;</code>)
+le contenu dudit fichier pour influer sur la mise en forme des
+différents composants et de leur rendu final. Cette adaptation
+présuppose évidement une certaine maîtrise du <code>html</code> et du sous
+langage de domaine spécifique qui lui est associé pour stylisation :
+le <code>css</code>. Le <code>html</code> (et le <code>css</code>) sortent du cadre de notre guide et
+nous devons vous renvoyer vers des ressources extérieures, cela étant,
+il s’agit de standards ouverts et vous ne devriez avoir aucun mal à
+trouver sur l’Inter de quoi rasasier envie d’apprendre, le tutoriel du
+W3C <a href="https://www.w3.org/Style/Examples/011/firstcss.fr.html">“Débuter avec HTML + CSS”</a> nous
+semble un bon point d’attaque.</p>
+</div>
+<div id="un-choix-esthétique-cadré-1" class="section level3 hasAnchor" number="10.3.4">
+<h3><span class="header-section-number">10.3.4</span> Un choix esthétique cadré<a href="#un-choix-esth%C3%A9tique-cadr%C3%A9-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="quelques-options-et-détails-techniques-complémentaires" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Quelques options et détails techniques complémentaires<a href="#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="options-triées-sur-le-volet" class="section level3 hasAnchor" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Options triées sur le volet<a href="#options-tri%C3%A9es-sur-le-volet" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="retour-sur-le-fonctionnement-global" class="section level3 hasAnchor" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Retour sur le fonctionnement global<a href="de-la-page-au-livre-le-package-bookdown.html#retour-sur-le-fonctionnement-global" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="etude-dun-exemple-bookdown-propre.rpls" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Etude d’un exemple bookdown : propre.rpls<a href="de-la-page-au-livre-le-package-bookdown.html#etude-dun-exemple-bookdown-propre.rpls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exemple-dappropriation-dune-publication-rpls" class="section level3 hasAnchor" number="10.5.1">
+<h3><span class="header-section-number">10.5.1</span> Exemple d’appropriation d’une publication Rpls<a href="de-la-page-au-livre-le-package-bookdown.html#exemple-dappropriation-dune-publication-rpls" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="compréhension-globale-de-larchitecture-du-paquet-propre.rpl" class="section level3 hasAnchor" number="10.5.2">
+<h3><span class="header-section-number">10.5.2</span> Compréhension globale de l’architecture du paquet propre.rpl<a href="#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+</div>
+<div id="focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Focus sur l’envoi au photocopieur du livre ou comment imprime<a href="de-la-page-au-livre-le-package-bookdown.html#focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="bookdown-maintenant-et-au-delà" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Bookdown, maintenant et au-delà<a href="#bookdown-maintenant-et-au-del%C3%A0" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>quarto</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>dans la pratique le chemin sur un serveur s’appelle une <code>URL</code><a href="de-la-page-au-livre-le-package-bookdown.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exercice.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="du-rmarkdown-interactif.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"pandoc_args": ["-M", "toc-title=Table des matières"]
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
