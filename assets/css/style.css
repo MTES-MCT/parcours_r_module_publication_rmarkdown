@@ -1,0 +1,44 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+
+.warning {
+  padding: 1em;
+  background: #FAB57F;
+  color: black;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+.center {
+  text-align: center;
+}
+
+
+.trucsetastuces{
+  background-color: #00E5FF;
+  padding: 20px 20px 20px 20px;
+  margin: 30px 30px 30px 30px;
+  border-radius: 10px;
+}
+
+img.centered{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+blockquote{
+  color: #00C853;
+}

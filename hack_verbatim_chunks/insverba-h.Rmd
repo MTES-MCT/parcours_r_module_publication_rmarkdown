@@ -1,0 +1,8 @@
+
+
+```{r, echo=FALSE}
+rmarkdown::render("mon_premier_document.Rmd", params = list(
+  espece ="versicolor",
+  printcode =FALSE
+))
+```

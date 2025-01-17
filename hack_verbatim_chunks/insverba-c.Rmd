@@ -1,0 +1,4 @@
+
+```{r, echo=FALSE}
+knitr::kable(iris[1:5, ], caption = 'A caption')
+```

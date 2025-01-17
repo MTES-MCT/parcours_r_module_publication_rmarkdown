@@ -1,0 +1,193 @@
+# Intégrer du code dans les RMD - Les *chunks* 
+
+Les parties de code R sont contenues dans des blocs, appelés
+*chunks*. 
+
+Ces chunks commencent et finissent par les balises ```` ``` ````. 
+
+C'est dans les chunks que vous pouvoir insérer le code R que vous
+voulez voir exécuter.
+
+![](assets/img/chunk_cars.png)
+
+On peut créer un nouveau chunk en cliquant sur le bouton 
+
+![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier `Ctrl + Alt + I`.
+
+Ces chunks peuvent être nommés (avec des caractères alphanumériques
+minuscules et majuscules et des tirets `-`). Dans l’exemple précédent,
+le nom du chunk est cars.
+
+## Les options des *chunks*
+
+Au début de chaque chunk se trouve une accolade contenant la lettre
+r. C’est dans cette accolade, après la lettre r (qu'il ne faut pas
+enlever) que les options vont pouvoir être passées. Elles permettent
+de controller finement ce qui est produit par le chunk, pour choisir
+de faire apparaître, ou non, le code dans le rapport dynamique, ainsi
+que les résultats, ou encore pour définir la taille des plots.
+
+Chaque chunk peut recevoir des options. Voici quelques exemples utilisés 
+fréquemment :
+
+- `eval = TRUE` : Le chunk est exécuté.
+
+- `include = FALSE` : Le code contenu dans le chunk est éxecuté
+sans que soient affichés ni le chunk ni son résultat.  Ses
+résultats sont utilisables par d'autres chunks.
+
+- `echo = FALSE` : permet de ne pas afficher les codes dans le rendu.
+Par contre le résultat est affiché.
+
+- `message = FALSE` : empêche l'affichage des messages d'information générés par les codes.
+
+- `warning = FALSE` : empêche l'affichage des messages d'alerte générés par les codes.
+
+- `error = FALSE` : empêche l'affichage des messages d'erreur générés par les codes.
+
+- `fig.cap = "..."` : ajoute une légende aux graphiques.
+
+- `fig.align = "..."` : aligne les graphiques (choix : `left`, `right` ou `center`).
+
+- `fig.height = 6, fig.width = 8` : permet de modifier les dimensions 
+de la figure (en pouces).
+
+- `fig.pos = "..."` : permet de définir la position des graphiques 
+(choix : ????).
+
+> ASK: comment on utilise l'option fig.pos? 
+> --- CCn
+
+Les chunks sont gérés dans `{Rmarkdown}` par le package `{knitr}`.
+
+Il y a plus de 50 options possibles pour un chunk, vous pouvez trouver
+l'ensemble de la documentation
+[ici](https://yihui.org/knitr/options/).
+
+
+## Les options globales des chunks
+
+Il est possible de définir des options globales qui seront appliquées à
+chacun des chunks qui sont contenus dans le fichier, sauf
+spécifications contraires dans les options d'un chunk.
+
+
+```{embed, file = "./hack_verbatim_chunks/insverba-e.Rmd"}
+```
+
+
+Ce chunk *setup* se trouve en dessous de l’en-tête, il permet de
+régler les options par défaut de tous les chunks grâce à la fonction 
+`knitr::opts_chunk$set()`. Par exemple, on va
+pouvoir indiquer que l’on ne veut pas faire apparaitre les messages et
+les warnings qui pourraient être générés lors de l’exécution des
+chunks. Au lieu de le faire pour tous les chunks, on peut le faire une
+seule fois ici.
+
+
+## Utiliser des outputs 
+
+A l'intérieur du chunk, de nombreuses choses peuvent être faites,
+comme traiter des données, produire une table, des graphiques ou du
+texte.
+
+Pour cela, on utilise différentes fonctions R comme
+`plot` ou `kable` dans un chunk.
+
+
+On peut par exemple inclure un **graphique**:
+
+```{embed, file = "./hack_verbatim_chunks/insverba-a.Rmd"}
+```
+
+ce qui affiche le graphique dans le document, directement après le chunk:
+
+```{r, echo=FALSE}
+plot(pressure)
+```
+
+Ou des **données** non mises en forme
+
+```{embed, file = "./hack_verbatim_chunks/insverba-b.Rmd"}
+```
+
+
+```{r, echo=FALSE}
+summary(cars)
+```
+
+Ou des **tableaux**
+
+
+```{embed, file = "./hack_verbatim_chunks/insverba-c.Rmd"}
+```
+
+
+qui rend 
+
+```{r, echo=FALSE}
+knitr::kable(iris[1:5, ], caption = 'A caption')
+```
+
+
+
+
+## Les insertions de code en ligne
+
+Enfin, il est possible d'**insérer la valeur d'objets R** (variable,
+liste, résultat de calcul simple...) dans du texte. Pour cela il faut
+inclure l'objet R entre `` `r knitr::inline_expr("...code...")` ``.
+
+```{r echo=FALSE,include=FALSE}
+numero <- 6
+```
+
+Par exemple le code suivant:
+
+```{embed, file = "./hack_verbatim_chunks/insverba-d.Rmd"}
+```
+permet d'afficher dans le document:
+
+Je suis actuellement en train de me former au module  `r numero`.
+
+
+
+## Exécuter le code des chunks
+
+Les codes contenus dans les chunks d’un document.Rmd peuvent être
+exécutés comme les codes contenus dans un script R en .R. Vous pouvez
+exécuter l’ensemble en faisant CTRL + A pour tout sélectionner et
+CRTL + ENTER pour exécuter.  Vous pouvez aussi exécuter le code chunk
+par chunk en placer votre souris au début d’un chunk puis en utilisant
+CTRL + ENTER ou en cliquant sur le bouton **play vert** en haut du
+chunk. D’autres options sont disponibles dans le menu déroulant du
+bouton run en haut à droite.
+
+
+Lorsque le code est excécuté, par défaut les résultats (sorties) et
+les plots sont affichés dans le document .Rmd. Pour afficher les
+sorties dans la console et les plots dans la fenêtre graphique, il
+faut choisir l’option “Chunk Output in Console“.
+
+
+::: {.exo}
+**Exercice 3**
+
+> ASK: dans ce exercice est ce qu'on doit expliciter les traitements 
+> de données et le graphique attendu? oui!
+> il faut prévoir un temps pour expliciter les données utilisées (RPLS) 
+> --- CCn
+
+
+- Partir du fichier .Rmd de l'exercice précédent
+- Définir des options générales
+- Ajouter un chunk créant une table, qui sera traitée mais non
+affichée dans le document final
+- Ajouter un chunk créant un graphique, qui sera traité et affiché dans 
+le document final 
+- Ajouter une image
+- Générer le document
+
+:::
+
+

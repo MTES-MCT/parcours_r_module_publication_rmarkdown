@@ -1,0 +1,8 @@
+
+```{r, include=FALSE}
+install.packages('tinytex')
+
+install_path <- file.path(Sys.getenv('LOCALAPPDATA'), 'TinyTex', fsep='\\')
+
+tinytex::install_tinytex(dir=install_path)
+```

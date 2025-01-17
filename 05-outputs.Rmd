@@ -1,0 +1,175 @@
+
+# Convertir le fichier Rmarkdown pour utilisation
+
+## Les formats de sortie
+
+Lors de la création du fichier .Rmd, vous avez dû choisir le format
+par défaut du document qui sera généré. Ce choix se retrouve dans
+l'option `output`de l'en-tête.
+
+Il est possible de modifier le format du document généré, soit en
+modifiant l'option de l'en-tête ou celle de la fonction knit (via sur la flèche
+vers le bas du bouton knit ou via les options de la ligne de code).
+
+Il existe deux types de format dans le package `rmarkdown`: documents
+et présentations. Tous les formats possibles sont listés ci-dessous:
+
+  - beamer_presentation
+  - context_document
+  - github_document
+  - html_document
+  - ioslides_presentation
+  - latex_document
+  - md_document
+  - odt_document
+  - pdf_document
+  - powerpoint_presentation
+  - rtf_document
+  - slidy_presentation
+  - word_document
+
+Chaque format a son propre lot d'options, qui sont documentées dans la 
+documentation de la fonction associée (par exemple `?rmarkdown::html_document`).
+
+
+
+::: {.trucsetastuces}
+  **Trucs & Astuces**
+  
+ Attention : quand on inclut du code R dans un document, il faut s'assurer que 
+ les packages R utilisés sont compatibles avec le(s) format(s) choisi(s).
+ Les packages du tidyverse sont compatibles avec les formats HTML et PDF. 
+ La compatibilité entre packages et formats doit être vérifiée au cas par cas.
+:::
+
+
+
+Nous allons vous présenter les formats les plus utiles.
+
+### HTML
+
+A l'origine, Markdown a été conçu pour générer du HTML; c'est ce
+format qui a le plus de possibilités parmi tous les formats. C'est aussi celui 
+qui est le plus compatible avec les différents packages R de production
+d'output.
+
+Pour obtenir un document HTML, il faut mettre l'option `output:
+html_document` dans l'en-tête.
+
+Voici les options utilisées fréquemment:
+
+  - `toc: true` permet d'ajouter une table des matières 
+    (table of contents en anglais) à notre document.
+  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
+    dans la table des matières (par défaut 3). 
+  - `toc_float : true` permet de rendre la table des matières flottante. 
+     Elle sera systématiquement visible, meme si on défile le document. 
+     Ce paramètre accepte des options.
+  - `number_sections : true` permet de numéroter les titres.
+  - `theme: flatly` permet de changer le thème du document 
+    (tiré de la librairie [Bootswatch](https://bootswatch.com/3/).
+  - `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut 
+    la largeur et la hauteur des figures.
+  - `fig_caption : true` permettent de définir les figures contiennent 
+    une légende.
+
+
+``` {.md}
+title: "mon_premier_document"
+author: 
+  - "Moi"
+  - "Toi"
+date: "31/10/2022"
+output: 
+  html_document:
+    toc: true
+    theme: flatly
+```
+
+
+L'ensemble des options est listé page 5 du 
+[document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+
+
+### PDF
+
+Pour générer des documents PDF, il est nécessaire d'avoir installé LaTeX. 
+Pour ceux qui ne l'ont pas déjà installé, nous conseillons 
+[TinyTeX](https://yihui.name/tinytex/) qui est une distribution LaTeX légère, 
+portable et facile à maintenir. Le package `tinytex` installe automatiquement 
+les packages LaTeX manquants lors que la compilation de documents R Markdown 
+en PDF.
+
+Le code suivant permet d'installer `tinytex` :
+
+```{embed, file = "./hack_verbatim_chunks/insverba-f.Rmd"}
+```
+
+LaTeX est un logiciel externe qui vient en complément de R pour produire des 
+PDF. Pour pouvoir l'utiliser il faut l'installer (via TinyTeX) mais aussi 
+prévenir R du lieu de ces nouveaux éxécutables. Pour cela, il faut modifier 
+le fichier caché .Renviron présent dans notre Home. 
+Il faut ajouter les lignes de code suivantes:
+
+
+``` {.md}
+TINYTEX_HOME="${LOCALAPPDATA}\TinyTex\bin\win32"
+PATH="${TINYTEX_HOME};${PATH}"
+```
+
+> ASK: est ce que cela est correct et clair?
+> install_tinytex ne fonctionne toujours pas chez moi! multirow.sty non trouvé
+> --- CCn
+
+Il est important de noter qu'en LaTeX, les figures sont flottantes par défaut.
+Même si on crée un graphique dans un bout de code présent sur la 1ere page, 
+celui-ci peut finalement apparaitre sur la page suivante. LaTeX a tendance à 
+faire apparaitre les figures au début ou à la fin des pages. Nous vous 
+conseillons de ne traiter le posionnement des figures à la fin, une fois la 
+totalité du contenu écrite. Pour cela il faudra utiliser les options de 
+positionnement dans les chunks (par exemple fig_pos = "h")
+
+
+Pour obtenir un document PDF, il faut mettre l'option `output:
+pdf_document` dans l'en-tête.
+
+Voici les options utilisées fréquemment:
+
+  - `toc: true` permet d'ajouter une table des matières 
+    (table of contents en anglais) à notre document.
+  - `toc_depth: 2` permet de définir le niveau de titre le plus bas à mettre 
+    dans la table des matières (par défaut 2). 
+  - `number_sections : true` permet de numéroter les titres.
+  - `fig_width : 7` et  `fig_height : 5` permettent de définir par défaut 
+    la largeur et la hauteur des figures (par défaut 6.5x4.5).
+  - `fig_caption : true` permettent de définir les figures contiennent 
+    une légende (par défaut `true`).
+  
+  
+  
+
+::::: {.trucsetastuces}::::::    
+  **Trucs & Astuces**
+  
+ Si vous souhaitez accéder à plus d'options de mise en forme de tableau, le 
+ package `kableExtra` contient des fonctions compatibles avec les formats 
+ HMTL et PDF. 
+ Cependant cela reste compliqué de mettre en forme des tableaux complexes, 
+ en particulier si vous souhaitez plusieurs formats en sortie. Nous vous 
+ conseillons d'adapter la mise en forme pour chaque format ou de trouver 
+ une nouvelle façon de représenter la donnée.
+:::::::::::::::::::::::::::::
+
+
+::: {.exo}
+**Exercice 4**
+
+En repartant du fichier .Rmd de l'exercice précédent :
+
+  - Modifier les options pour avoir un sommaire flottant affichant un seul 
+  niveau de titre
+  - Changer le thème utilisé
+  - Générer le document 
+  - Repartir du fichier .Rmd pour générer un document PDF. Il est important 
+  de vérifier la compatibilité des éléments définits avec ce nouveau format.
+:::

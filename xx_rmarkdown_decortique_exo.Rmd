@@ -1,0 +1,135 @@
+---
+title: "exo partie 2"
+author: "Caroline COUDRIN"
+date: "22/11/2022"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float : true
+    number_sections : true
+    theme: journal
+  pdf_document: default
+params:
+  annee: "2022"
+  code_reg: "04"
+---
+
+> info importante! je n'arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j'ai une erreur "Error in extract(pkg, exdir = path.expand(target)) :   cannot open file 'C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe': Permission denied". du coup je ne peux pas tester le format PDF.
+
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, error = FALSE)
+params <- list(annee =  "2022", code_reg = "04")
+```
+
+# Rendu des exercices partie 2
+
+Voici le type de document que vous pourrez générer à la fin de la 1ere journée de formation *RMarkdown*.
+
+Pour cet exercice nous proposons de travailler avec les données RPLS sur le logement social. 
+
+Pour cela il faut suivre plusieurs étapes:
+
+1. Créer un fichier .Rmd
+2. Traiter les données  
+2.1. Importer les données
+2.2. Travailler les données 
+3.3. Créer des graphiques
+3. Ecrire du texte
+4. Définir les formats de sortie
+5. Générer le document
+
+
+## Traitement des données
+
+Tout d'abord on charge les librairies utiles.
+
+
+```{r librairies, echo = TRUE}
+library(tidyverse)
+library(ggplot2)
+library(readr)
+library(glue)
+library(kableExtra)
+```
+
+
+> Le fichier des données sur lequel je propose de travailler est une selection des variables RPLS pour la France et les régions, sur plusieurs millésimes. Je l'ai créé à partir du package propre.rpls. Est ce que cela vous convient?
+
+```{r cars, include=FALSE}
+#On importe le fichier de données
+selection_ind_rpls_fr_reg <- readr::read_csv2("selection_ind_rpls_fr_reg.csv", col_names=TRUE, na = c("", "NA")) %>% 
+  mutate(across(-c(TypeZone, CodeZone), as.numeric))
+
+annee <- as.numeric(params$annee)
+
+ind_FR_an <- selection_ind_rpls_fr_reg %>% 
+  filter(CodeZone=="FRMETRODROM", millesime == annee)
+
+```
+
+## Nombre de LS par région
+
+Au 1er janvier `r annee`, il y a `r ind_FR_an$nb_logt_total` logements sociaux en France.
+
+```{r exo ls, eval = FALSE}
+nb_ls_reg_an <- selection_ind_rpls_fr_reg %>% 
+  filter(CodeZone!="DROM", millesime == annee) %>% 
+  select(CodeZone, nb_logt_total, nb_ls_qpv, densite_ls_rp) %>% 
+  arrange(CodeZone)
+
+tab_nb_ls_reg_an <- kbl(nb_ls_reg_an, format="html" , digits = 1,      
+                        col.names = c("Régions", "Nombre de logements sociaux", "Nombre de logements sociaux dans les QPV", "Densité des ls dnas les résidences principales"),
+                        caption=glue("**Nombre de logements sociaux au 01/01/{annee} par régions**"),
+                        format.args = c(big.mark=" ", decimal.mark=',') ) %>% 
+  kable_styling(bootstrap_options =(c("hover", "condensed", "bordered"))) %>% 
+  column_spec(1, bold=TRUE) %>% 
+  row_spec(nrow(nb_ls_reg_an), bold=TRUE, background = "#5770BE", color = "white") %>% 
+  footnote(general=glue("SDES, RPLS au 01/01/{annee}"), general_title="Source: ", 
+           footnote_as_chunk=TRUE)
+
+tab_nb_ls_reg_an
+```
+
+
+
+## Graphiques d'évolution 
+
+Voici l'évolution du nombre de logements sociaux en France:
+
+```{r exo graph}
+
+nb_ls_FR <- selection_ind_rpls_fr_reg %>% 
+  filter(CodeZone=="FRMETRODROM") %>% 
+  select(millesime, nb_logt_total)
+
+plot(nb_ls_FR)
+```
+
+> On peut faire des traitements R aussi compliqués que de besoin dans les chunks
+
+
+```{r exo vac}
+evo_vacance <- selection_ind_rpls_fr_reg %>% 
+  filter(CodeZone %in% c("FRMETRODROM", params$code_reg)) %>% 
+  mutate(taux_vacance_tot = round(taux_vacance_tot,1)) %>% 
+  select(millesime, CodeZone, taux_vacance_tot)
+
+graphe_evo_vacance <- ggplot(data = evo_vacance) + 
+  geom_line(aes(x = millesime,  y = taux_vacance_tot,  color = CodeZone)) +
+  theme(legend.title = ggplot2::element_blank(), 
+        legend.position = "bottom") + 
+  labs(title = "évolution du taux de vacance", 
+       subtitle = "Unit\u00e9 : %", 
+       x = "", 
+       y = "", 
+       caption = "RPLS")
+
+
+graphe_evo_vacance
+```
+
+
+## Pour rappel 
+Les bases du langage sont très bien expliquées dans [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)

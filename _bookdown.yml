@@ -1,5 +1,6 @@
-book_filename: "support-documents-reproductibles"
-delete_merged_file: TRUE
+book_filename: "support_m6"
+delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapitre "
+

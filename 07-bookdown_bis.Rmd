@@ -1,0 +1,62 @@
+# A ne pas oublier
+
+
+Utilisation backticks
+Latex pour l'écriture mathématique
+## Bookdown
+
+La principale différence entre la complilation en HTML d'un document bookdown et celle d'un document RMarkdown est que le premier comprend plusieurs pages HTML par défault - typiquement une par chapitre. La séparation d'un document en plusieurs pages a pour avantages d'autoriser l'envoi de liens vers des chacun des chapitres et de réduire le temps d'affichage car chaque page est moins lourde prise séparément.
+
+Les "plus" de bookdown (numérotation et référencement des équations, théorèmes, titres particuliers, bibliographie) ; cf bouquin bookdown pp 15-23 :
+
+
+Balises
+Table des matières
+css
+liens
+images
+versioning
+mise en page
+Flexdashboard
+nommer les chunks
+code hors chunks
+Les thèmes ggplot pour assurer la présentation homogène des graphiques + les fonctions custom
+Table des matières
+Homogénéiser la présentation : fonctions graphiques
+
+# Rappels du jour 1
+
+# Exercice
+
+## Cadrage
+
+J'ai mis ici le code d'une appli shiny que j'ai commencé à coder. L'objectif de l'appli est d'avoir une interface de géolocalisation pour les adresses RPLS dans un premier temps mais on peut élargir ça à toutes les tables qui contiennent le type d'informations requises (Type de voie, numéro de voie, nom de voie, code postal et code insee) par l'API d'Etalab. Le géocodage se fait a raison de 1000 lignes toutes les 2 minutes environ. J'ai jamais réussi à utiliser le géocodage csv fourni par Etalab (https://adresse.data.gouv.fr/csv#preview) c'est pourquoi je me suis lancé dans une appli qui requête leur API avec curl .
+
+Ca peut être utile pour l'exo car : 
+1 - on télécharge les données RPLS 2018 (eh oui, c'est celles que je connais bien)
+2 - On récupère et nettoie un peu les adresses 
+3 - On les géolocalise grâce à l'API d'Etalab
+4 - On affiche la carte sur leaflet
+5 - C'est pas encore fini du tout 
+---
+ # TODO : Les codes fonctionnent en .R si on lance tous les chunks dans un scrip. Mais je n'ai pas réussi à faire tourner les chunks dans un markdown
+---
+
+### Problématique
+### Rendu
+Pour ce rendu, quelles données ? Quels packages ?
+  ### Données dispo
+  
+  ## Mise en page
+  ### Quel type ? Barre de navigation ou onglets ?
+  ### Un petit CSS
+  ### Logo
+  ### Métadoonnées
+  ### Dashboard
+  
+
+Pour ce rendu, quelles données ? Quels packages ?
+  
+  ## Importation des données
+
+
