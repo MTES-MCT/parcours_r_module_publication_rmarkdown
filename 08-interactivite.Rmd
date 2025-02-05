@@ -76,4 +76,113 @@ A FAIRE - repartir de l'exemple de book LS par région et remplacer par une page
 
 ## Interactivité complète, l'application Shiny embarquée
 
-Rappels intéractivité graphes et cartes M5 Exemple intégration Shiny Exemple intégration Crosstalk
+À condition de disposer d'un serveur R pour déployer son document, il est possible d'intégrer des objets interactifs Shiny (inputs et outputs) voire une application Shiny complète dans un Rmarkdown.
+
+Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
+
+``` md
+title: "mon_premier_document"
+author: "Moi" date: "31/10/2022"
+runtime: shiny
+output: html_document
+params:
+  annee: 2022
+  region: Bretagne
+  date: !r
+  lubricate::today()
+```
+
+Vous pouvez voir que Rstudio vous propose désormais "Run document" au lieu de "Knit".
+Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la visualisation du document.
+
+À partir de là, vous pouvez inclure directement des inputs et outputs Shiny dans votre document mais il y a un twist : contrairement à une application Shiny avec une logique UI / serveur où vous devez prévoir des placeholders dans l'UI pour vos sorties de serveur, dans la version Rmarkdown vous pouvez directement appeler les fonctions de la famille `renderXXX()`.
+
+Application Shiny classique :
+
+```{r}
+
+library(shiny)
+
+ui <- bootstrapPage(
+  
+  selectInput("input_utilisateur", ...),
+  
+  plotOutput("mon_graph", ...)
+
+)
+
+server <- function(input, output) {
+  
+  output$mon_graph <- renderPlot({
+    ggplot(...)
+  })
+  
+}
+
+shinyApp(ui = ui, server = server)
+
+
+```
+
+La même chose en Rmarkdown :
+
+``` md
+---
+runtime: shiny
+output: html_document
+---
+```
+
+```{r echo = FALSE}
+
+selectInput("input_utilisateur")
+
+```
+
+```{r echo = FALSE}
+renderPlot({
+  
+  ggplot()
+  
+})
+```
+
+La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui permet de gérer le placement des différents éléments dans l'interface.
+
+Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
+
+``` md
+---
+runtime: shiny
+output: html_document
+---
+```
+
+```{r echo = FALSE}
+
+library(shiny)
+
+ui <- bootstrapPage(
+  
+  selectInput("input_utilisateur", ...),
+  
+  plotOutput("mon_graph", ...)
+
+)
+
+server <- function(input, output) {
+  
+  output$mon_graph <- renderPlot({
+    ggplot(...)
+  })
+  
+}
+
+shinyApp(ui = ui, server = server, options = list(height = 500))
+
+```
+
+L'argument "height" en option permet d'indiquer la place (ici par défaut en pixel) que doit occuper l'application dans le document.
+
+La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
+Il est donc possible d'inclure dans une app Shiny un markdown qui lui même contient une application Shiny...🤯
