@@ -19,7 +19,7 @@ Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javas
 
 Lorsqu'on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
 
-Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des graphiques plotly et bien d'autres qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
+Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des graphiques plotly, des datatables et bien d'autres qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
 Ces widgets en nécessitent pas de déploiement sur un serveur R pour fonctionner.
 Ils sont exécutés par le navigateur client.
 
@@ -59,9 +59,9 @@ library(crosstalk)
 library(leaflet)
 library(DT)
 
-dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+dataframe_partagee -> SharedData$new(dataframe, ~modalites)
 
-filter_select(id = "mon_filtre", label = "Choisissez un identifiant", sharedData = dataframe_partagee, group = ~identifiant)
+filter_select(id = "mon_filtre", label = "Choisissez une modalité", sharedData = dataframe_partagee, group = ~modalites)
 
 datatable(dataframe_partagee, ...)
 
@@ -72,7 +72,30 @@ leaflet(dataframe_partagee) %>%
 
 ## Exercice X
 
-A FAIRE - repartir de l'exemple de book LS par région et remplacer par une page seule avec filtre par région avec Crosstalk.
+En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
+
+À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher les données que pour une région et un slider permettant de n'afficher que certaines années.
+
+```{r, include=FALSE, echo=FALSE}
+
+library(tidyverse)
+library(glue)
+library(kableExtra)
+library(crosstalk)
+library(DT)
+
+selection_ind_rpls_fr_reg <- readr::read_csv2("selection_ind_rpls_fr_reg.csv", col_names=TRUE, na = c("", "NA")) %>% 
+  mutate(across(-c(TypeZone, CodeZone), as.numeric)) %>% 
+  filter(TypeZone == "Regions") %>% 
+  select(millesime, CodeZone, nb_logt_total, taux_vacance_tot, loyer_m2) 
+
+df_rpls_partagee <- SharedData$new(selection_ind_rpls_fr_reg)
+
+filter_select(id = "filtre_reg", label = "Choisissez une région", sharedData = df_rpls_partagee, group = ~CodeZone)
+filter_slider(id = "filtre_annee", label = "Années", sharedData = df_rpls_partagee, column = ~millesime)
+
+datatable(df_rpls_partagee)
+```
 
 ## Interactivité complète, l'application Shiny embarquée
 
@@ -186,3 +209,22 @@ L'argument "height" en option permet d'indiquer la place (ici par défaut en pix
 
 La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
 Il est donc possible d'inclure dans une app Shiny un markdown qui lui même contient une application Shiny...🤯
+
+## L'interactivité dans d'autres langages
+
+Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
+Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage
+
+```{js echo = T}
+```
+
+```{python echo = T}
+```
+
+Et bien d'autres, la liste est diponible sur [le site de bookdown](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
+
+Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d'autres langages, l'inverse n'est pas vrai.
+Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.
+
+Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre suivant.
