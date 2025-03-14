@@ -613,7 +613,7 @@ simplex, spacelab, united, and yeti. Vous pouvez indiquez lequel de
 ces thèmes vous voulez appliquer en paramétrant l'option `theme` comme
 suit :
 
-```{yaml}
+```
 ---
 output:
   bookdown::html_book:
@@ -637,7 +637,7 @@ example de l'entête de données YAML pouvant permettre de déclarer le
 thème de sortie `scrbook` proposé au travers de l'extension $LaTeX$
 `KOMA-Script` :
 
-```{yaml}
+```
 ---
 documentclass: scrbook
 output:
@@ -667,7 +667,7 @@ défaut quand la `documentclass` est `book`, autrement dit pour une
 structuration du rendu en mode 'livre'), les options s'exprimeraient
 par exemple ainsi :
 
-```{yaml}
+```
 documentclass: krantz
 output:
   bookdown::pdf_book:
