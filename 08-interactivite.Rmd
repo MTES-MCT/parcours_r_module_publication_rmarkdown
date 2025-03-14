@@ -103,7 +103,7 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-``` md
+```yml
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -122,7 +122,7 @@ Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la vis
 
 Application Shiny classique :
 
-```{r}
+```{r, eval = FALSE}
 
 library(shiny)
 
@@ -149,20 +149,20 @@ shinyApp(ui = ui, server = server)
 
 La même chose en Rmarkdown :
 
-``` md
+````{verbatim}
 ---
 runtime: shiny
 output: html_document
 ---
-```
+````
 
-```{r echo = FALSE}
+```{r eval = FALSE}
 
 selectInput("input_utilisateur")
 
 ```
 
-```{r echo = FALSE}
+```{r eval = FALSE}
 renderPlot({
   
   ggplot()
@@ -174,14 +174,14 @@ La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui
 
 Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
 
-``` md
+``` yml
 ---
 runtime: shiny
 output: html_document
 ---
 ```
 
-```{r echo = FALSE}
+```{r eval = FALSE}
 
 library(shiny)
 
@@ -213,13 +213,18 @@ Il est donc possible d'inclure dans une app Shiny un markdown qui lui même cont
 ## L'interactivité dans d'autres langages
 
 Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
-Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage
+Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage : 
 
+````{verbatim}
 ```{js echo = T}
 ```
+````
 
+````{verbatim}
 ```{python echo = T}
 ```
+````
+
 
 Et bien d'autres, la liste est diponible sur [le site de bookdown](https://bookdown.org/yihui/rmarkdown/language-engines.html).
 Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.

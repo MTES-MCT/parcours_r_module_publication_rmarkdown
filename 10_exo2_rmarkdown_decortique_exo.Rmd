@@ -1,20 +1,3 @@
----
-title: "exo partie 2"
-author: "Caroline COUDRIN"
-date: "22/11/2022"
-output: 
-  html_document:
-    toc: true
-    toc_depth: 4
-    toc_float : true
-    number_sections : true
-    theme: journal
-  pdf_document: default
-params:
-  annee: "2022"
-  code_reg: "04"
----
-
 > info importante! je n'arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j'ai une erreur "Error in extract(pkg, exdir = path.expand(target)) :   cannot open file 'C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe': Permission denied". du coup je ne peux pas tester le format PDF.
 
 
