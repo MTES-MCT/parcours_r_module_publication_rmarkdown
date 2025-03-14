@@ -31,7 +31,7 @@ output: html_document
 params:
   annee: 2022
   region: Bretagne
-  date: !r lubricate::today()
+  date: !r lubridate::today()
 ```
 
 Une fois définis dans l'en-tête, ces parametres sont accessibles depuis le 

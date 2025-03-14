@@ -19,11 +19,11 @@ Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javas
 
 Lorsqu'on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
 
-Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des graphiques plotly, des datatables et bien d'autres qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
-Ces widgets en nécessitent pas de déploiement sur un serveur R pour fonctionner.
+Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des datatables et bien d'autres widgets qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
+Ces widgets ne nécessitent pas de déploiement sur un serveur R pour fonctionner.
 Ils sont exécutés par le navigateur client.
 
-On parle ici d'interactivité simple car il s'agit uniquement d'effets visuels dans le comportement des widgets mais il n'y a aucune modification des données dépendante de l'utilisateur.
+On parle ici d'interactivité simple car il s'agit uniquement d'effets visuels dans le comportement des widgets mais il n'y a aucune modification des données dépendante de l'utilisateur ni aucune opération côté serveur.
 
 ## Interactivité avancée, les inputs utilisateur
 
@@ -36,7 +36,7 @@ Le fonctionnement de base est très simple, on transforme notre objet (la datafr
 
 library(crosstalk)
 
-dataframe_partagee -> SharedData$new(dataframe)
+dataframe_partagee <- SharedData$new(dataframe)
 
 ```
 
@@ -48,7 +48,7 @@ Par défaut Crosstalk utilise le numéro de ligne.
 
 ```{r}
 
-dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+dataframe_partagee <- SharedData$new(dataframe, ~identifiant)
 
 ```
 
@@ -59,7 +59,7 @@ library(crosstalk)
 library(leaflet)
 library(DT)
 
-dataframe_partagee -> SharedData$new(dataframe, ~modalites)
+dataframe_partagee <- SharedData$new(dataframe, ~modalites)
 
 filter_select(id = "mon_filtre", label = "Choisissez une modalité", sharedData = dataframe_partagee, group = ~modalites)
 
@@ -105,14 +105,14 @@ Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exe
 
 ``` md
 title: "mon_premier_document"
-author: "Moi" date: "31/10/2022"
+author: "Moi"
+date: "31/10/2022"
 runtime: shiny
 output: html_document
 params:
   annee: 2022
   region: Bretagne
-  date: !r
-  lubricate::today()
+  date: !r lubridate::today()
 ```
 
 Vous pouvez voir que Rstudio vous propose désormais "Run document" au lieu de "Knit".
