@@ -94,7 +94,7 @@ C'est dans le YAML que vous allez définir notamment :
 
 -   le titre (initialisé lors de la création du fichier)
 -   les auteurs
--   la date de votre document
+-   la date de votre document (qui peut être fixée en texte ou appelée en R depuis l'horloge système)
 -   le format de sortie (initialisé lors de la création du fichier)
 -   des options
 -   des paramètres.
@@ -102,7 +102,7 @@ C'est dans le YAML que vous allez définir notamment :
 ``` md
 title: "mon_premier_document"
 author: "Moi"
-date: "31/10/2022"
+date: "`r Sys.Date(), eval = F`"
 output: html_document
 ```
 
@@ -113,7 +113,7 @@ title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "31/10/2022"
+date: "`r Sys.Date()`"
 output: html_document
 ```
 
@@ -126,7 +126,7 @@ title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "31/10/2022"
+date: "`r Sys.Date()`"
 output: 
   pdf_document: default
   html_document:
