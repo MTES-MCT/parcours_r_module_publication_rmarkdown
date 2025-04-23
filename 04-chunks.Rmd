@@ -170,6 +170,44 @@ sorties dans la console et les plots dans la fenêtre graphique, il
 faut choisir l’option “Chunk Output in Console“.
 
 
+## Pourquoi se limiter à R ?
+
+En réalité, les chunks d'un document Quarto peuvent être dans d'autres langages grâce au package knitr.
+Pour avoir la liste complète : 
+```
+names(knitr::knit_engines$get())
+
+```
+
+Pour utiliser un autre langage, il suffit de changer l'appel entre accolades en haut du chunk, par exemple :
+
+```{python}
+
+```
+
+Pour du SQL il faut impérativement ajouter un paramètre de connexion à l'aide d'une variable préalablement fixée dans un chunk R (qu'on mettra en "include = FALSE" pour un cas réel) :
+
+```{r, eval = F}
+library(RPostgres)
+library(DBI)
+
+conn <- dbConnect(drv = Postgres(),
+                  dbname = "ma_base", 
+                  host = "host", 
+                  port = "port", 
+                  user = "utilisateur", 
+                  password = "mdp")
+
+```
+
+
+```{sql connection=conn, eval = F}
+
+SELECT * FROM mon_schema.matable
+
+```
+
+
 ::: {.exo}
 **Exercice 3**
 
