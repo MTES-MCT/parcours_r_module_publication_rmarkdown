@@ -90,6 +90,41 @@ output:
 L'ensemble des options est listé page 5 du 
 [document de référence Rmarkdown](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 
+L'un des avantages du format HTML est la possibilité d'appliquer un style personnalisé à l'aide d'un fichier CSS.
+Ces documents qui servent à mettre en forme tous les éléments d'une page HTML utilisent une syntaxe spécifique mais extrêmement simple : 
+- il faut cibler un élément de la page à partir de sa classe (pour styliser tous les éléments de ce type) ou de son identifiant (pour styliser uniquement cet élément là), on peut assigner une classe spécifique à un élément ;
+- il faut spécifier le(s) paramètre(s) qu'on veut styliser (la police, la couleur, l'alignement, l'espacement, etc.) ;
+- il faut fixer une valeur pour ce(s) paramètre(s) ;
+- les paramètres sont rassemblés entre accolades, séparés de leurs valeurs par un double point, séparés entre eux par un point virgule.
+Par exemple, si on veut que tous les titres de niveau H1 soient en gras rouge on écrira :
+
+```{css, eval = F}
+
+h1 {
+  font_weight: bold;
+  color: red;
+}
+
+```
+
+Il est possible d'intégrer directement cette portion de css dans un chunk du document mais la bonne pratique est plutôt de créer un document à part (extension .css ou .scss, c'est une option proposée par Rstudio dans File > New File) et de le référencer dans le yaml, en reprenant l'exemple précédent : 
+
+``` {.md}
+title: "mon_premier_document"
+author: 
+  - "Moi"
+  - "Toi"
+date: "31/10/2022"
+output: 
+  html_document:
+    toc: true
+    theme: flatly
+    css: "mon_style.css"
+```
+
+À noter : le style fixé par un chunk au sein du document l'emportera sur le style d'un fichier css à part qui l'emportera sur le style fixé par un thème qui l'emportera sur le style de base de l'objet. La dernière information de style lue prévaudra sur les précédentes.
+
+De nombreuses ressources en ligne sont disponibles pour apprendre les bases du css, tous les paramètres qui peuvent être fixés et leurs modalités.
 
 ### PDF
 
