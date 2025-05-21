@@ -66,9 +66,12 @@ filter_select(id = "mon_filtre", label = "Choisissez une modalité", sharedData 
 datatable(dataframe_partagee, ...)
 
 leaflet(dataframe_partagee) %>% 
-  addPolygons(...)
+  addCircleMarkers(...)
 
 ```
+
+Attention, pour le moment, leaflet ne permet l'utilisation d'une dataframe partagée que pour une représentation ponctuelle.
+Il n'est pas possible de filtrer des objets polygonaux de cette manière.
 
 ## Exercice X
 
@@ -103,7 +106,7 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-```yml
+``` yml
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -149,12 +152,12 @@ shinyApp(ui = ui, server = server)
 
 La même chose en Rmarkdown :
 
-````{verbatim}
+```{verbatim}
 ---
 runtime: shiny
 output: html_document
 ---
-````
+```
 
 ```{r eval = FALSE}
 
@@ -213,7 +216,7 @@ Il est donc possible d'inclure dans une app Shiny un markdown qui lui même cont
 ## L'interactivité dans d'autres langages
 
 Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
-Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage : 
+Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
 
 ````{verbatim}
 ```{js echo = T}
@@ -224,7 +227,6 @@ Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
 ```{python echo = T}
 ```
 ````
-
 
 Et bien d'autres, la liste est diponible sur [le site de bookdown](https://bookdown.org/yihui/rmarkdown/language-engines.html).
 Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
