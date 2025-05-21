@@ -19,11 +19,11 @@ Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javas
 
 Lorsqu'on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
 
-Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des graphiques plotly et bien d'autres qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
-Ces widgets en nécessitent pas de déploiement sur un serveur R pour fonctionner.
+Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des datatables et bien d'autres widgets qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
+Ces widgets ne nécessitent pas de déploiement sur un serveur R pour fonctionner.
 Ils sont exécutés par le navigateur client.
 
-On parle ici d'interactivité simple car il s'agit uniquement d'effets visuels dans le comportement des widgets mais il n'y a aucune modification des données dépendante de l'utilisateur.
+On parle ici d'interactivité simple car il s'agit uniquement d'effets visuels dans le comportement des widgets mais il n'y a aucune modification des données dépendante de l'utilisateur ni aucune opération côté serveur.
 
 ## Interactivité avancée, les inputs utilisateur
 
@@ -36,7 +36,7 @@ Le fonctionnement de base est très simple, on transforme notre objet (la datafr
 
 library(crosstalk)
 
-dataframe_partagee -> SharedData$new(dataframe)
+dataframe_partagee <- SharedData$new(dataframe)
 
 ```
 
@@ -48,7 +48,7 @@ Par défaut Crosstalk utilise le numéro de ligne.
 
 ```{r eval = FALSE}
 
-dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+dataframe_partagee <- SharedData$new(dataframe, ~identifiant)
 
 ```
 
@@ -59,21 +59,179 @@ library(crosstalk)
 library(leaflet)
 library(DT)
 
-dataframe_partagee -> SharedData$new(dataframe, ~identifiant)
+dataframe_partagee <- SharedData$new(dataframe, ~modalites)
 
-filter_select(id = "mon_filtre", label = "Choisissez un identifiant", sharedData = dataframe_partagee, group = ~identifiant)
+filter_select(id = "mon_filtre", label = "Choisissez une modalité", sharedData = dataframe_partagee, group = ~modalites)
 
 datatable(dataframe_partagee, ...)
 
 leaflet(dataframe_partagee) %>% 
-  addPolygons(...)
+  addCircleMarkers(...)
 
 ```
 
+Attention, pour le moment, leaflet ne permet l'utilisation d'une dataframe partagée que pour une représentation ponctuelle.
+Il n'est pas possible de filtrer des objets polygonaux de cette manière.
+
 ## Exercice X
 
-A FAIRE - repartir de l'exemple de book LS par région et remplacer par une page seule avec filtre par région avec Crosstalk.
+En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
+
+À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher les données que pour une région et un slider permettant de n'afficher que certaines années.
+
+```{r, include=FALSE, echo=FALSE}
+
+library(tidyverse)
+library(glue)
+library(kableExtra)
+library(crosstalk)
+library(DT)
+
+selection_ind_rpls_fr_reg <- readr::read_csv2("selection_ind_rpls_fr_reg.csv", col_names=TRUE, na = c("", "NA")) %>% 
+  mutate(across(-c(TypeZone, CodeZone), as.numeric)) %>% 
+  filter(TypeZone == "Regions") %>% 
+  select(millesime, CodeZone, nb_logt_total, taux_vacance_tot, loyer_m2) 
+
+df_rpls_partagee <- SharedData$new(selection_ind_rpls_fr_reg)
+
+filter_select(id = "filtre_reg", label = "Choisissez une région", sharedData = df_rpls_partagee, group = ~CodeZone)
+filter_slider(id = "filtre_annee", label = "Années", sharedData = df_rpls_partagee, column = ~millesime)
+
+datatable(df_rpls_partagee)
+```
 
 ## Interactivité complète, l'application Shiny embarquée
 
-Rappels intéractivité graphes et cartes M5 Exemple intégration Shiny Exemple intégration Crosstalk
+À condition de disposer d'un serveur R pour déployer son document, il est possible d'intégrer des objets interactifs Shiny (inputs et outputs) voire une application Shiny complète dans un Rmarkdown.
+
+Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
+
+``` yml
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2022"
+runtime: shiny
+output: html_document
+params:
+  annee: 2022
+  region: Bretagne
+  date: !r lubridate::today()
+```
+
+Vous pouvez voir que Rstudio vous propose désormais "Run document" au lieu de "Knit".
+Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la visualisation du document.
+
+À partir de là, vous pouvez inclure directement des inputs et outputs Shiny dans votre document mais il y a un twist : contrairement à une application Shiny avec une logique UI / serveur où vous devez prévoir des placeholders dans l'UI pour vos sorties de serveur, dans la version Rmarkdown vous pouvez directement appeler les fonctions de la famille `renderXXX()`.
+
+Application Shiny classique :
+
+```{r, eval = FALSE}
+
+library(shiny)
+
+ui <- bootstrapPage(
+  
+  selectInput("input_utilisateur", ...),
+  
+  plotOutput("mon_graph", ...)
+
+)
+
+server <- function(input, output) {
+  
+  output$mon_graph <- renderPlot({
+    ggplot(...)
+  })
+  
+}
+
+shinyApp(ui = ui, server = server)
+
+
+```
+
+La même chose en Rmarkdown :
+
+```{verbatim}
+---
+runtime: shiny
+output: html_document
+---
+```
+
+```{r eval = FALSE}
+
+selectInput("input_utilisateur")
+
+```
+
+```{r eval = FALSE}
+renderPlot({
+  
+  ggplot()
+  
+})
+```
+
+La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui permet de gérer le placement des différents éléments dans l'interface.
+
+Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
+
+``` yml
+---
+runtime: shiny
+output: html_document
+---
+```
+
+```{r eval = FALSE}
+
+library(shiny)
+
+ui <- bootstrapPage(
+  
+  selectInput("input_utilisateur", ...),
+  
+  plotOutput("mon_graph", ...)
+
+)
+
+server <- function(input, output) {
+  
+  output$mon_graph <- renderPlot({
+    ggplot(...)
+  })
+  
+}
+
+shinyApp(ui = ui, server = server, options = list(height = 500))
+
+```
+
+L'argument "height" en option permet d'indiquer la place (ici par défaut en pixel) que doit occuper l'application dans le document.
+
+La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
+Il est donc possible d'inclure dans une app Shiny un markdown qui lui même contient une application Shiny...🤯
+
+## L'interactivité dans d'autres langages
+
+Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
+Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
+
+````{verbatim}
+```{js echo = T}
+```
+````
+
+````{verbatim}
+```{python echo = T}
+```
+````
+
+Et bien d'autres, la liste est diponible sur [le site de bookdown](https://bookdown.org/yihui/rmarkdown/language-engines.html).
+Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
+
+Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d'autres langages, l'inverse n'est pas vrai.
+Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.
+
+Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre suivant.

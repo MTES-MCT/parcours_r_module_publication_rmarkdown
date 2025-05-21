@@ -99,7 +99,7 @@ C'est dans le YAML que vous allez définir notamment :
 -   des options
 -   des paramètres.
 
-``` md
+``` yml
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -108,7 +108,7 @@ output: html_document
 
 On peut rajouter plusieurs auteurs :
 
-``` md
+``` yml
 title: "mon_premier_document"
 author: 
   - "Moi"
@@ -121,7 +121,7 @@ On peut rajouter des options pour un output, ce qui sera vu en détail dans le p
 
 Il est possible de rajouter plusieurs outputs :
 
-``` md
+``` yml
 title: "mon_premier_document"
 author: 
   - "Moi"
