@@ -6,6 +6,7 @@ site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
 description: "Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT"
+css: assets/css/style.css
 ---
 
 # Introduction {.unnumbered}
