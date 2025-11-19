@@ -29,10 +29,10 @@ Comme souvent avec R, il existe de nombreuses extensions qui complètent les pos
 Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et pour les plus connuées d'entre elles présentées dans le [guide Rmarkdown au niveaux des chapitres 5 à 10](https://bookdown.org/yihui/rmarkdown/dashboards.html). 
 
 
-Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yml, au niveau de `output:`.
+Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yaml, au niveau de `output:`.
 Par exemple, pour utiliser le format 'material' du package `{rmdformats}`, voici ce qu'il faut indiquer :
 
-```{yml}
+```{yaml}
 ---
 output: rmdformats::material
 ---
@@ -71,7 +71,7 @@ Voici les options utilisées fréquemment:
   - `fig_caption : true` permettent de définir les figures contiennent une légende.
 
 
-``` {yml}
+``` {yaml}
 ---
 title: "mon_premier_document"
 author: 

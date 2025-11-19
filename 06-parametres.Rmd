@@ -16,7 +16,7 @@ L'en-tête, et donc le code pouvant y être présent, est exécuté avant le res
 Par exemple: 
 
 
-``` {yml}
+```{yaml}
 ---
 title: "mon_premier_document"
 author: "Moi"

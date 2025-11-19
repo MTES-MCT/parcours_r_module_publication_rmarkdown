@@ -112,20 +112,17 @@ C'est dans le YAML que vous allez définir notamment :
 -   des paramètres.
 
 ````{verbatim}
-```yaml
 ---
 title: "mon_premier_document"
 author: "Moi"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
-```
 ````
 
 On peut rajouter plusieurs auteurs :
 
 ````{verbatim}
-```yml
 ---
 title: "mon_premier_document"
 author: 
@@ -134,7 +131,6 @@ author:
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
-```
 ````
 
 On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe \@ref(outputs).
@@ -142,7 +138,6 @@ On peut rajouter des options pour un output, ce qui sera vu en détail dans le p
 Il est possible de rajouter plusieurs types d'outputs :
 
 ````{verbatim}
-```yml
 ---
 title: "mon_premier_document"
 author: 
@@ -155,7 +150,6 @@ output:
     toc: true
     theme: flatly
 ---
-```
 ````
 
 ::: exo
@@ -262,6 +256,8 @@ Rend :
         b- bbbb  
 
     1) Sous-élément 2
+    
+Notez qu'une erreur de numérotation sera automatiquement corrigée tant que l'indentation et le style de numérotation sont corrects. 
 
 ##### Les mentions
 
