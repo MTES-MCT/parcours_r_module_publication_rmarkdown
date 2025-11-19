@@ -1,4 +1,4 @@
-# Le fichier *R Markdown*
+# Le fichier R Markdown
 
 La logique et les principaux points à retenir sur Rmarkdown sont rassemblés dans la ["cheatsheet" Rmarkdown](https://rstudio.github.io/cheatsheets/rmarkdown.pdf).
 
@@ -39,7 +39,7 @@ Le travail est généralement itératif et les étapes 2 à 4 peuvent être effe
 
 ### Créer un fichier .Rmd
 
-On crée un nouveau fichier de type Rmarkdown en allant dans le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown
+On crée un nouveau fichier de type Rmarkdown en allant dans le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown...
 
 ![](assets/img/new_rmarkdown.jpg)
 
