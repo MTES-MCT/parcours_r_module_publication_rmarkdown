@@ -1,6 +1,11 @@
-# Intégrer du code dans les Rmd - Les *chunks* {#chunks}
+# Intégrer du code à exécuter dans les Rmd {#chunks}
 
-Les parties de code R sont contenues dans des blocs, appelés *chunks*. 
+## Les *chunks*
+
+### La base
+
+Les parties de code R sont contenues dans des blocs, appelés *chunks*.  
+Lors de la compilation du Rmd, knitr va exécuter le code contenu dans ces blocs et 'tricoter' leurs résultats avec le texte saisi en dehors.
 
 Ces chunks commencent et finissent par les balises ```` ``` ````. 
 
@@ -25,7 +30,7 @@ On peut contrôler le résultat du code en l'exécutant :
 RStudio contient d'autres boutons pour exécuter le code d'un fichier Rmd : ils sont placés dans le menu déroulant 'Run' en haut à droite. Ils sont rappelés dans le menu "Code" tout en haut, au niveau de l'entrée 'Run Region". 
 
 
-## Le nom des chunks
+### Le nom des chunks
 
 Les chunks peuvent être nommés (avec des caractères alphanumériques minuscules et majuscules et des tirets `-`).  
 Dans l'exemple précédent, le nom du chunk est 'cars'.  
@@ -35,10 +40,11 @@ Un chunk nommé "setup" a des propriétés spéciales.
 Il sera systématiquement exécuté avant les autres chunk du document, ça en fait le lieu tout indiqué pour placer les commandes de chargement des packages (`library(dplyr)`...) ou de lecture des données qui seront exploitées par la suite.
 Il est généralement placé en début de document, en dessous de l’en-tête. 
 
-## Les options des *chunks*
+### Les options des *chunks*
 
-Au début de chaque chunk se trouve une accolade contenant la lettre r^[C'est pour indiquer à knitr que le code à exécuter est en langage R, cf https://bookdown.org/yihui/rmarkdown/language-engines.html pour connaître la liste des langages possibles]. 
-C'est dans cette accolade, après la lettre r (qu'il ne faut pas enlever) que les options vont pouvoir être passées. 
+Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf \@(autres-langages).
+
+C'est dans cette accolade, après la lettre r que les options vont pouvoir être passées. 
 
 Elles permettent de contrôler finement ce qui est produit par le chunk, pour choisir de faire apparaître, ou non, le code dans le rapport dynamique, ainsi que les résultats, ou encore pour définir la taille des plots.
 
@@ -86,7 +92,7 @@ knitr::opts_chunk$set(
 Dans cet exemple, on demande à ne pas faire apparaître les messages ou les warnings parfois générés lors de l'exécution de code, et qui viendrait polluer le rapport mis en forme.
 
 
-## Utiliser des sorties R 
+### Intégrer des visualisations R 
 
 A l'intérieur du chunk, de nombreuses choses peuvent être faites, comme traiter des données, produire une table, des graphiques ou du texte.
 
@@ -120,13 +126,11 @@ summary(cars)
 
 Ou des **tableaux** :
 
-
 ````{verbatim}
 ```{r, echo=FALSE}
 knitr::kable(iris[1:5, ], caption = 'Le titre du tableau')
 ```
 ````
-
 
 qui rend 
 
@@ -136,10 +140,10 @@ knitr::kable(iris[1:5, ], caption = 'Le titre du tableau')
 
 
 
+## Les insertions de code dans le texte : le code inline
 
-## Les insertions de code en ligne
-
-Enfin, il est possible d'**insérer la valeur d'objets R** (variable, liste, résultat de calcul simple...) dans du texte. Pour cela il faut inclure l'objet R entre `` `r knitr::inline_expr("...code...")` ``. 
+Enfin, il est possible d'**insérer la valeur d'objets R** (variable, liste, résultat de calcul simple...) dans du texte. 
+Pour cela il faut inclure l'objet R entre `` `r knitr::inline_expr("...code...")` ``. 
 C'est très utile pour commenter des résultats sans saisir en "dur" des valeurs issues d'un calcul qui dépend de données d'entrée, susceptibles d'être modifiées. 
 
 Par exemple le code suivant:
@@ -161,16 +165,67 @@ Je suis actuellement en train de me former au module  `r numero`.
 
 
 
-::: {.exo}
-**Exercice 3**
+### Autres langages {autres-langages}
 
+Les portions de code d'un document .Rmd peuvent être formulées dans d'autres langages grâce au package knitr.
+
+Le [guide Rmarkdown liste les langages possibles](https://bookdown.org/yihui/rmarkdown/language-engines.html) et présente comment les mobiliser. 
+
+Pour retrouver cette liste : 
+```r
+names(knitr::knit_engines$get())
+```
+
+Pour utiliser un autre langage, on change l'appel entre accolades en haut du chunk, par exemple :
+````{verbatim}
+```{python}
+x = 'hello, python world!'
+print(x.split(' '))
+```
+````
+
+Pour utiliser du SQL, il faut impérativement ajouter un paramètre de connexion à l'aide d'une variable préalablement fixée dans un chunk R :
+
+````{verbatim}
+```{r, include = FALSE}
+library(RPostgres)
+library(DBI)
+
+conn <- dbConnect(drv = Postgres(),
+                  dbname = "ma_base", 
+                  host = "adresse_serveur", 
+                  port = "port", 
+                  user = "utilisateur", 
+                  password = "mdp")
+```
+````
+
+
+````{verbatim}
+```{sql connection=conn}
+SELECT * FROM mon_schema.matable
+```
+````
+
+Cette instruction renvoie le résultat de la requête SQL (les données sélectionnées).
+
+Pour pouvoir stocker ce résultat afin de le mobiliser ultérieurement, il faut ajouter le nom de l'objet entre "" dans les options du chunk au niveau `output.var=` : 
+````{verbatim}
+```{sql, connection=conn, output.var="resultat"}
+SELECT * FROM mon_schema.matable
+```
+````
+
+Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
+
+## Exercice 3
+::: {.exo}
 - Partir du fichier .Rmd de l'exercice précédent
 - Définir des options générales
 - Ajouter un chunk créant une table, qui sera traitée mais non affichée dans le document final
 - Ajouter un chunk créant un graphique, qui sera traité et affiché dans le document final 
 - Ajouter une image
 - Générer le document
-
 :::
 
 
