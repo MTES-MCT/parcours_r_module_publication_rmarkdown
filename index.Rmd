@@ -6,6 +6,7 @@ site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes
 description: "Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT"
+css: assets/css/style.css
 ---
 
 # Introduction {.unnumbered}
@@ -56,13 +57,13 @@ R markdown permet de produire des sorties dans un grand nombre de formats. Quelq
 [Exemple](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-highcharter/htmlwidgets-highcharter.html#sales-by-category)
 + Des pages web statiques comme des [supports de formation](https://rawgit.com/MTES-MCT/parcours-r/master/Supports_formations/m2_preparation_donnees/_book/index.html)
 + Des publications paramétrables faciles à mettre à jour  
-    - [Publications RPLS 2020 régionales]("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/")  
+    - [Publications RPLS 2024 régionales]("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2024/")  
     - [Conjoncture logement neuf en Pays-de-Loire](http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html)  
     - [Dans les Hauts-de-France](https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance)
    
 + Et même des livres : 
 
-![R for data science](assets/img/r4ds.png)
+![R for data science](assets/img/r4ds.png){.centered width="30%"}
 
 + divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
 

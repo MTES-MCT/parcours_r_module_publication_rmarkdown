@@ -31,11 +31,14 @@ Travailler ainsi a pour avantages majeurs une plus grande facilité quand il s'a
 
 La transparence dans le traitement de l'information est importante en termes de crédibilité pour les institutions. [Selon Wikipedia](https://fr.wikipedia.org/wiki/Crise_de_la_reproductibilit%C3%A9),  qui parle de "crise de la reproductibilité", une part très importante des études publiées dans des revues prestigieuses ne sont pas réplicables.
 
-Un MOOC intitulé "Recherche reproductible : principes méthodologiques pour une science transparente" est périodiquement proposé sur la [plateforme France Université Numérique](https://www.fun-mooc.fr/). Contrairement à ce que suggère son titre, des non-chercheurs peuvent tout à fait le suivre car ses principes sont pleinement applicables aux métiers qui font appel à la donnée en général. Tous les exercices peuvent être faits avec R et RStudio.
+Un MOOC intitulé "Recherche reproductible : principes méthodologiques pour une science transparente" est périodiquement proposé sur la [plateforme France Université Numérique](https://www.fun-mooc.fr/). 
+Contrairement à ce que suggère son titre, des non-chercheurs peuvent tout à fait le suivre car ses principes sont pleinement applicables aux métiers qui font appel à la donnée en général. 
+Tous les exercices peuvent être faits avec R et RStudio.
 
 ## Bonnes pratiques
 
-On vise à assurer la continuité et la traçabilité coomplète de la chaîne de traitement depuis la donnée brute (fichiers sources fournis par les producteurs, millésimés) jusqu'au document final. Par exemple on ne supprime pas "à la main" des données qui sembleraient aberrantes.
+On vise à assurer la continuité et la traçabilité complète de la chaîne de traitement depuis la donnée brute (fichiers sources fournis par les producteurs, millésimés) jusqu'au document final. 
+Par exemple on ne supprime pas "à la main" des données qui sembleraient aberrantes.
 
 Les choix méthodologiques sont documentés.
 
@@ -49,7 +52,9 @@ knitr::include_graphics('assets/img/rmarkdown.png')
 
 Ce format de document a été introduit en 2012 à la sortie du package `knitr`.
 
-Auparavant, il existait Markdown, un "langage de balisage léger", sorte d'intermédiaire entre du texte brut et du traitement de texte. La syntaxe de Markdown est très simplifiée. On peut le saisir avec un éditeur de texte comme *Notepad* et il est lisible même non formaté.
+Auparavant, il existait Markdown, un "langage de balisage léger", sorte d'intermédiaire entre du texte brut et du traitement de texte. 
+La syntaxe de Markdown est très simplifiée. 
+On peut le saisir avec un éditeur de texte comme *Notepad* et il est lisible même non formaté.
 
 Pourquoi utiliser un langage de balisage léger ? Des avantages majeurs :
 
@@ -58,9 +63,11 @@ Pourquoi utiliser un langage de balisage léger ? Des avantages majeurs :
 
 Par contre, la simplicité signifie peu de fonctionnalités donc des sorties assez pauvres.
 
-L'idée, avec R Markdown, était garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation de code R, intégré aux documents sous formes de `chunks`. En fait, les versions actuelles du package `knitr` permettent d'interpréter d'autres langages comme du $\LaTeX$ ou du code Python.
+L'idée, avec R Markdown, était garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation de code R, intégré aux documents sous formes de `chunks`. 
+En fait, les versions actuelles du package `knitr` permettent d'interpréter d'autres langages comme du $\LaTeX$, du SQL ou du code Python.
 
-R Markdown est en quelque sorte un cadre pour travailler en data science. Un même document permet de sauvegarder et exécuter du code ainsi que de produire des rapports mis en forme pouvant contenir une grande diversité d'objets statiques ou dynamiques.
+R Markdown est en quelque sorte un cadre pour travailler en data science. 
+Un même document permet de sauvegarder et exécuter du code ainsi que de produire des rapports mis en forme pouvant contenir une grande diversité d'objets statiques ou dynamiques.
 
 
 
@@ -70,10 +77,10 @@ R Markdown est en quelque sorte un cadre pour travailler en data science. Un mê
 
 On distingue deux étapes :
 
-- La première, réalisée par le package knitr, interprète le document R Markdown et exécute les morceaux de code. Elle produit un fichier Markdown contenant le texte, le code et le résultat de l'exécution du code.
+- La première, réalisée par le package knitr, interprète le code R présent dans le document R Markdown. Elle aboutit à un fichier Markdown contenant le texte, le code et le résultat de l'exécution du code.
 - Puis, le convertisseur de formats Pandoc se charge de produire le document de sortie au format choisi.
 
-Ca peut paraître compliqué mais en pratique, chacune des fonctions `render` de `knitr` exécute la chaîne du début à la fin.
+Cela peut paraître compliqué mais en pratique, chacune des fonctions `render` de `knitr` exécute la chaîne du début à la fin.
 
 
 
