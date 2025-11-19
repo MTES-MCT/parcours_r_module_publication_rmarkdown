@@ -106,7 +106,7 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-``` yml
+```{yaml}
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -177,7 +177,7 @@ La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui
 
 Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
 
-``` yml
+```{yaml}
 ---
 runtime: shiny
 output: html_document
@@ -219,12 +219,12 @@ Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres 
 Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
 
 ````{verbatim}
-```{js echo = T}
+```{js echo = TRUE}
 ```
 ````
 
 ````{verbatim}
-```{python echo = T}
+```{python echo = TRUE}
 ```
 ````
 

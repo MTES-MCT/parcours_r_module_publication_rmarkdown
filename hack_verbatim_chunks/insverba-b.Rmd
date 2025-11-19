@@ -1,5 +1,0 @@
-
-```{r, echo=FALSE}
-summary(cars)
-```
-
