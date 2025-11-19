@@ -12,6 +12,7 @@ Tous les formats possibles sont listés ci-dessous:
   - context_document
   - github_document
   - html_document
+  - html_vignette
   - ioslides_presentation
   - latex_document
   - md_document
@@ -24,24 +25,36 @@ Tous les formats possibles sont listés ci-dessous:
 
 Chaque format a son propre lot d'options, qui sont documentées au niveau de la fonction associée (par exemple `?rmarkdown::html_document`).
 
+Comme souvent avec R, il existe de nombreuses extensions qui complètent les possibilités offertes par `{Rmarkdown}`. 
+Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et pour les plus connuées d'entre elles présentées dans le [guide Rmarkdown au niveaux des chapitres 5 à 10](https://bookdown.org/yihui/rmarkdown/dashboards.html). 
+
+
+Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yml, au niveau de `output:`.
+Par exemple, pour utiliser le format 'material' du package `{rmdformats}`, voici ce qu'il faut indiquer :
+
+```{yml}
+---
+output: rmdformats::material
+---
+```
 
 
 ::: {.trucsetastuces}
   **Trucs & Astuces**
   
-Attention : quand on inclut du code R dans un document, il faut s'assurer que  les packages R utilisés sont compatibles avec le(s) format(s) choisi(s). 
-Les packages du tidyverse sont compatibles avec les formats HTML et PDF. 
-La compatibilité entre packages et formats doit être vérifiée au cas par cas.  
+Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites le(s) format(s) de document(s) choisi(s). 
+Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire 
+La compatibilité entre types de visualisation et formats de documents doit être vérifiée au cas par cas.  
 :::
 
 
 
 Nous allons vous présenter les formats les plus utiles.
 
-## HTML
+## html_document
 
 A l'origine, Markdown a été conçu pour générer du HTML, c'est ce format qui a le plus de possibilités parmi tous les formats. 
-C'est aussi celui qui est le plus compatible avec les différents packages R de production d'output.
+C'est aussi le plus compatible avec les différents packages R de production de visualisation.
 
 Pour obtenir un document HTML, il faut mettre l'option `output:html_document` dans l'en-tête.
 

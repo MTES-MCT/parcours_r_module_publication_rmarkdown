@@ -1,19 +1,11 @@
 
 
-
-
- Formation publications reproductibles avec RMarkdown
-
- 2 - Les principaux templates pour créer des publications
-
-
-
- Maël THEULIERE - Marouane ZELLOU
+# Aller plus loin bis
 
 
 Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, ...) ou de type de rendu (diaporama, rapport, livre, note, cv, ...).
 
-# Déroulé
+
 
 
 ## Bookdown

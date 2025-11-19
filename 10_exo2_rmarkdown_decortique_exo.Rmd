@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:03_rmarkdown_decortique_exo.Rmd
 <!-----
 title: "exo partie 2"
 author: "Caroline COUDRIN"
@@ -15,6 +16,8 @@ params:
   code_reg: "04"
 --- -->
 
+========
+>>>>>>>> dev:10_exo2_rmarkdown_decortique_exo.Rmd
 > info importante! je n'arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j'ai une erreur "Error in extract(pkg, exdir = path.expand(target)) :   cannot open file 'C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe': Permission denied". du coup je ne peux pas tester le format PDF.
 
 

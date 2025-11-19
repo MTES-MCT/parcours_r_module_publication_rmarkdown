@@ -111,45 +111,44 @@ C'est dans le YAML que vous allez définir notamment :
 -   des options
 -   des paramètres.
 
-```{r include=FALSE}
-date_yml = "`r format(Sys.Date(), '%d %B %Y')`"  # an ugly hack; but I havn't created it
-```
-
+````{verbatim}
 ```yaml
 ---
 title: "mon_premier_document"
 author: "Moi"
-date: "`r date_yml`"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
 ```
-
+````
 
 On peut rajouter plusieurs auteurs :
 
-
-```yaml
+````{verbatim}
+```yml
 ---
 title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "`r date_yml`"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
 ```
+````
 
-On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe 1.3.1.
+On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe \@ref(outputs).
 
 Il est possible de rajouter plusieurs types d'outputs :
 
-```yaml
+````{verbatim}
+```yml
 ---
 title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "`r date_yml`"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: 
   pdf_document: default
   html_document:
@@ -157,6 +156,7 @@ output:
     theme: flatly
 ---
 ```
+````
 
 ::: exo
 **Exercice 1**
