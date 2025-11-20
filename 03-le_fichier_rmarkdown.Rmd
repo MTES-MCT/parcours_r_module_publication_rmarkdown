@@ -1,14 +1,17 @@
-# Le fichier *R Markdown*
+# Le fichier R Markdown
 
-Ce chapitre n'a pas l'ambition de se substituer au [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) (un des auteurs, Yihui Xie, est le créateur du package `rmarkdown`) ou au [guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) mais peut faciliter à un certain nombre de lecteurs francophones l'approche et la compréhension du système de production de documents **R Markdown** car à notre connaissance ces guides n'ont pas encore été traduits.
-
-![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="30%"}
-
-Au-delà de ces manuels de référence, certes complets mais imposants, il existe une [anti-sèche (cheatsheet) rmarkdown](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf) qui réussit en deux pages à synthétiser l'essentiel de ce qu'il faut savoir pour exploiter le système de production proposé au travers de RStudio. La formation proposée et le présent chapitre ont d'ailleurs pour principal objectif de permettre à tout un chacun de pouvoir complètement en tirer profit.
-
-Le guide officiel (R Markdown Reference Guide) ainsi que l'antisèche (R Markdown Cheat Sheet) sont accessibles facilement depuis RStudio en passant par le menu Aide/Help.
+La logique et les principaux points à retenir sur Rmarkdown sont rassemblés dans la ["cheatsheet" Rmarkdown](https://rstudio.github.io/cheatsheets/rmarkdown.pdf).
 
 ![](assets/img/cheat_sheet.png)
+
+[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet  pour qui veut se lancer ou se perfectionner dans R markdown.
+
+![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="30%"}   
+
+Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. 
+C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
+
+![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
 
 ## R markdown dans RStudio
 
@@ -23,20 +26,20 @@ Dans l'environnement de développement intégré RStudio de votre bureau, le dé
 
 ![](assets/img/rmd_dans_rstudio1.png)
 
-Le travail comprend généralement les étapes suivantes, toutefois les étapes 2 à 4 peuvent se faire dans n'importe quel ordre :
+Le travail comprend généralement les étapes suivantes :
 
-1.  Ouvrir un nouveau fichier .Rmd (prérempli avec des exemples)
+1.  Ouvrir un nouveau fichier .Rmd (pré-rempli avec des exemples ou vierge)
 2.  Écrire des instructions de traitement des données
 3.  Compléter le document en ajoutant du texte
 4.  Adapter l'en-tête
 5.  Lancer la génération du document
-6.  Publier le document (cas particulier, facultatif)
+6.  Publier le document si besoin est
+
+Le travail est généralement itératif et les étapes 2 à 4 peuvent être effectuées dans n'importe quel ordre.
 
 ### Créer un fichier .Rmd
 
-> ASK: Début d'un TD (travail dirigé) ? --- LBn ANS: le mettre avant et inclure la modif de l'entete dans le TD 2 --- CCn ok!!!!!
-
-On crée un nouveau fichier de type Rmarkdown en allant dans le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown
+On crée un nouveau fichier de type Rmarkdown en allant dans le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown...
 
 ![](assets/img/new_rmarkdown.jpg)
 
@@ -44,18 +47,24 @@ Une pop-up s'ouvre alors pour donner quelques informations afin d'initialiser le
 
 ![](assets/img/new_rmarkdown2.jpg)
 
-Pour commencer simplement, on choisit un format de sortie HTML. C'est le format de sortie par défaut, très utilisé (nous verrons les autres formats de sortie par la suite). RStudio crée un fichier contenant des exemples des éléments structurant un fichier R markdown. L'extension de ce type de fichier est `.Rmd`.
+Pour commencer simplement, on choisit un format de sortie HTML. 
+C'est le format de sortie par défaut, très utilisé. 
+D'autres types de sorties existent, elles seront détaillées pat la suite. 
+RStudio crée un fichier contenant des exemples d'éléments structurant un fichier Rmarkdown. 
+L'extension de ce type de fichier est `.Rmd`.
 
 ### Lancer la génération du document
 
-Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png). Vous pouvez aussi prévisualiser le document en sortie en cliquant sur l'icône **compas** qui donne accès au "visual editor".
+Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. 
+Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier.  
 
-Pour générer un document à partir du fichier .Rmd, il suffit de cliquer sur le bouton **knit**. Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le repertoire de travail (là où vous avez créé votre projet R), et en même temps le document généré s'ouvre dans le viewer de R Studio (ou dans une pop-up).
+Pour générer un document à partir du fichier .Rmd, on clique sur le bouton **knit**.  
+Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le répertoire de travail (là où vous avez créé votre projet R), et le document généré s'ouvre dans le viewer de R Studio (ou dans une pop-up).
 
 ::: trucsetastuces
 **Trucs & Astuces**
 
-On peut générer le document d'autres façons:
+On peut générer le document en ligne de commande :
 
 ```         
 rmarkdown::render(nom_fichier.Rmd)
@@ -64,9 +73,10 @@ rmarkdown::render(nom_fichier.Rmd)
 ou grâce au raccourci [Ctrl + Shift + K]{.kbd}
 :::
 
-Ce document contient l'ensemble des informations du fichier .Rmd, que cela soit le texte (mis en forme), la visualisation du code intégré (si celle-ci est demandée) et ce qui est produit par ce code.
 
-> ASK: Est ce qu'on met une image des icones? Est ce qu'on met une image du document généré par le fichier de base? cela permettrait que les stagiaires visualisent directement de quoi on parle OK --- CCn
+Le document produit contient l'ensemble des informations du fichier .Rmd, que cela soit le texte (mis en forme), la visualisation du code intégré (si celle-ci est demandée) et ce qui est produit par ce code.
+
+
 
 ## Les éléments d'un fichier .Rmd
 
@@ -74,7 +84,7 @@ Un fichier R Markdown est constitué de 3 éléments principaux.
 
 ![](assets/img/script.png)
 
-L'**en-tête** contient les métadonnées pour guider la génération du document. Il est suivi du corps du futur document, constitué de **morceaux de code** (les *chunks*) à éxécuter et de partie de **textes** à afficher avec des élements de mise en forme.
+L'**en-tête** contient les métadonnées pour guider la génération du document. Il est suivi du corps du futur document, constitué de **morceaux de code** (les *chunks*) à éxécuter et de partie de **textes** à afficher avec des éléments de mise en forme.
 
 Dans les sections suivantes ces composants seront détaillés un par un.
 
@@ -82,7 +92,9 @@ Dans les sections suivantes ces composants seront détaillés un par un.
 
 L'en-tête s'écrit au format YAML c'est un [format](https://fr.wikipedia.org/wiki/YAML) ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
 
-L'en-tête est parfois appelé le Header ou le YAML. Il sert à définir les paramètres de votre document comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.). Il est délimité par deux séries de `---`.
+L'en-tête est parfois appelé le Header ou le YAML. 
+Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).  
+Il est délimité par deux séries de `---`.
 
 ::: trucsetastuces
 **Trucs & Astuces**
@@ -94,51 +106,57 @@ C'est dans le YAML que vous allez définir notamment :
 
 -   le titre (initialisé lors de la création du fichier)
 -   les auteurs
--   la date de votre document
+-   la date de votre document (qui peut être fixe en texte ou appelée en R depuis l'horloge système)
 -   le format de sortie (initialisé lors de la création du fichier)
 -   des options
 -   des paramètres.
 
-``` md
+````{verbatim}
+---
 title: "mon_premier_document"
 author: "Moi"
-date: "31/10/2022"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
-```
+---
+````
 
 On peut rajouter plusieurs auteurs :
 
-``` md
+````{verbatim}
+---
 title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "31/10/2022"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
-```
+---
+````
 
-On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe 1.3.1.
+On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe \@ref(outputs).
 
-Il est possible de rajouter plusieurs outputs :
+Il est possible de rajouter plusieurs types d'outputs :
 
-``` md
+````{verbatim}
+---
 title: "mon_premier_document"
 author: 
   - "Moi"
   - "Toi"
-date: "31/10/2022"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: 
   pdf_document: default
   html_document:
     toc: true
     theme: flatly
-```
+---
+````
 
 ::: exo
 **Exercice 1**
 
 -   Ouvrir Rstudio
--   Créer un fichier markdown, format html
+-   Créer un fichier Rmarkdown, format html
 -   prévisualiser le document avant toutes modifications
 -   Mettez-vous en auteur du document
 -   Rajouter un theme spécifique
@@ -153,7 +171,7 @@ Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour Markdown. 
 **Trucs & Astuces**
 
 De manière générale, il est préférable de laisser au moins une ligne blanche entre différentes éléments (par exemple entre un titre et le paragraphe).\
-Cela évite toute confusion lors de la génération du document (tous les processus de génération n'interpretent pas exactement la même chose pour une même synthaxe).
+Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interprètent pas exactement la même chose pour une même synthaxe).
 :::
 
 #### Le texte simple
@@ -224,7 +242,7 @@ Rend :
       1) Sous-élément 1  
           a- aaaa  
           b- bbbb  
-      ii) Sous-élément 2  
+      1) Sous-élément 2  
 ```
 
 Rend :
@@ -234,16 +252,16 @@ Rend :
 2.  Deuxième élément
 
     1)  Sous-élément 1\
-        a- aaaa\
-        b- bbbb 
+        a- aaaa  
+        b- bbbb  
 
-    <!-- -->
-
-    ii) Sous-élément 2
+    1) Sous-élément 2
+    
+Notez qu'une erreur de numérotation sera automatiquement corrigée tant que l'indentation et le style de numérotation sont corrects. 
 
 ##### Les mentions
 
-Les "mentions" sont pratiques pour mettre en valeur les éléments "à retenir".
+Les "mentions" ou citations sont pratiques pour mettre en valeur les éléments "à retenir".
 
 ```         
 > Texte à mettre en mention
@@ -253,9 +271,9 @@ Rend :
 
 > Texte à mettre en mention
 
-##### Liens et note de bas de page
+##### Liens et notes de bas de page
 
-Pour faire un lien vers un site internet, on met le texte affiché entre `[]` et l'adresse http entre `()`
+Pour faire un **lien** vers un site internet, on met le texte affiché entre `[]` et l'adresse http entre `()`
 
 `[Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)`
 
@@ -263,9 +281,28 @@ rend
 
 [Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
 
-Les notes de bas de page s'écrivent à l'intérieur de `^[]`. `^[Ceci est une note de bas de page]` rend [^03_le_fichier_rmarkdown-1].
 
-[^03_le_fichier_rmarkdown-1]: Ceci est une note de bas de page
+Pour faire des **liens internes**, on peut utiliser la même syntaxe : 
+
+| texte saisi                                         | résultat après knit |
+| --------------------------------------------------- | ------------------- |
+| `[Aller au § 'Commentaires'](#commentaires)` | [Aller au § 'Commentaires'](#commentaires) |
+
+La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Commentaires', mais renvoie son numéro. 
+
+| texte saisi | résultat après knit |
+| ----------- | ------------------- |
+| ` \@ref(commentaires) ` | \@ref(commentaires) | 
+
+Les titres contiennent tous une ancre html mobilisable avec `#`. Pour récupérer son nom exact on peut compiler le document et l'y récupérer.  
+
+On peut par ailleurs forcer la création d'ancre sur une ligne de texte en apposant `{#nom_ancre}` à cette dernière.
+
+
+Les **notes de bas de page** s'écrivent à l'intérieur de `^[]`. 
+
+`...pour approfondir^[on ajoute une note de bas de page]` rend '...pour approfondir^[on ajoute une note de bas de page]'.
+
 
 
 #### Commentaires 
@@ -273,7 +310,7 @@ Les notes de bas de page s'écrivent à l'intérieur de `^[]`. `^[Ceci est une n
 Pour mettre une partie du fichier en commentaires, non traitée, il
 faut encadrer la partie par `<!-- commentaires -->`.
 
-Pour cela on peut utiliser le raccourci clavier `Ctrl + Shift + C` ou
+Pour cela on peut utiliser le raccourci clavier [Ctrl + Shift + C]{.kbd} ou
 la commande dans le menu "Code".
 
 ## Insérer des images
@@ -290,7 +327,7 @@ On peut adapter les dimensions de l'image :
 ::::: {.trucsetastuces}::::::    
 **Trucs & Astuces**
 
-NB : les caractères 'espace' ne sont pas autorisés autour du signe
+NB : Pour définir les dimensions de l'image, les caractères 'espace' ne sont pas autorisés autour du signe
 égal `=`, 
 ni entre la parenthèse fermante et l'accolade ouvrante.
 On a `){`.
@@ -304,13 +341,14 @@ knitr::include_graphics("assets/img/couleuvre.jpg")
 ```
 
 Cette dernière méthode, préconisée quand le format de sortie n'est pas
-du html, permet de mieux controller l'affichage de l'image.
-Mais cela se fait à l'intérieur d'un chunck et ça, on le verra au chapitre suivant.
+du html, permet de mieux contrôler l'affichage de l'image.
+
+Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
 
 ::: exo
 **Exercice 2**
 
 -   Partir du fichier .Rmd de l'exercice précédent
--   Créer un texte avec un titre, un paragraphe, une liste d'item, un encart et un lien
+-   Saisir un titre, un paragraphe, une liste d'item, un encart et un lien
 -   Appuyer sur `visual` pour avoir un aperçu du rendu final
 :::

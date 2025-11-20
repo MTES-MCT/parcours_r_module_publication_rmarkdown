@@ -1,4 +1,5 @@
----
+<<<<<<<< HEAD:03_rmarkdown_decortique_exo.Rmd
+<!-----
 title: "exo partie 2"
 author: "Caroline COUDRIN"
 date: "22/11/2022"
@@ -13,8 +14,10 @@ output:
 params:
   annee: "2022"
   code_reg: "04"
----
+--- -->
 
+========
+>>>>>>>> dev:10_exo2_rmarkdown_decortique_exo.Rmd
 > info importante! je n'arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j'ai une erreur "Error in extract(pkg, exdir = path.expand(target)) :   cannot open file 'C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe': Permission denied". du coup je ne peux pas tester le format PDF.
 
 
@@ -25,7 +28,7 @@ params <- list(annee =  "2022", code_reg = "04")
 
 # Rendu des exercices partie 2
 
-Voici le type de document que vous pourrez générer à la fin de la 1ere journée de formation *RMarkdown*.
+ Voici le type de document que vous pourrez générer à la fin de la 1ere journée de formation *RMarkdown*.
 
 Pour cet exercice nous proposons de travailler avec les données RPLS sur le logement social. 
 
