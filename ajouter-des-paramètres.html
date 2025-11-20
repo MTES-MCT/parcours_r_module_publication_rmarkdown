@@ -4,32 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 6 Ajouter des paramètres | exo partie 2</title>
+  <title>Chapitre 6 Ajouter des paramètres | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 6 Ajouter des paramètres | exo partie 2" />
+  <meta property="og:title" content="Chapitre 6 Ajouter des paramètres | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 6 Ajouter des paramètres | exo partie 2" />
+  <meta name="twitter:title" content="Chapitre 6 Ajouter des paramètres | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
-<meta name="author" content="Caroline COUDRIN" />
+<meta name="author" content="Groupe des référents R" />
 
 
+<meta name="date" content="2025-11-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="convertir-le-fichier-rmarkdown-pour-utilisation.html"/>
+<link rel="prev" href="outputs.html"/>
 <link rel="next" href="a-ne-pas-oublier.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -51,6 +52,20 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.4/js/selectize.min.js"></script>
+<link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<script src="libs/ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
+<script src="libs/strftime-0.9.2/strftime-min.js"></script>
+<link href="libs/ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.34.0/datatables.js"></script>
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
 
 
 <style type="text/css">
@@ -123,6 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
 
+<link rel="stylesheet" href="assets/css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -142,118 +158,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#le-parcours-de-formation"><i class="fa fa-check"></i><b>0.1</b> Le parcours de formation</a></li>
-<li class="chapter" data-level="0.2" data-path="06-parametres.html"><a href="#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i><b>0.2</b> Le groupe de référents R du pôle ministériel</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i><b>0.2</b> Le groupe de référents R du pôle ministériel</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#objectifs-de-ce-module"><i class="fa fa-check"></i>Objectifs de ce module</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i><b>0.3</b> Exemples de productions avec R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="06-parametres.html"><a href="#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
-<li class="chapter" data-level="1.3" data-path="06-parametres.html"><a href="#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
-<li class="chapter" data-level="1.4" data-path="06-parametres.html"><a href="#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
+<li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
+<li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
 <li class="chapter" data-level="1.5" data-path="get-started.html"><a href="get-started.html#bien-structurer-ses-projets-data"><i class="fa fa-check"></i><b>1.5</b> Bien structurer ses projets data</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html"><i class="fa fa-check"></i><b>2</b> La publication reproductible</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="06-parametres.html"><a href="#d%C3%A9finition"><i class="fa fa-check"></i><b>2.1</b> Définition</a></li>
+<li class="chapter" data-level="2.1" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#d%C3%A9finition"><i class="fa fa-check"></i><b>2.1</b> Définition</a></li>
 <li class="chapter" data-level="2.2" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#bonnes-pratiques"><i class="fa fa-check"></i><b>2.2</b> Bonnes pratiques</a></li>
 <li class="chapter" data-level="2.3" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#origine-du-format-r-markdown"><i class="fa fa-check"></i><b>2.3</b> Origine du format <em>R markdown</em></a></li>
 <li class="chapter" data-level="2.4" data-path="la-publication-reproductible.html"><a href="la-publication-reproductible.html#du-.rmd-au-format-de-sortie"><i class="fa fa-check"></i><b>2.4</b> Du .Rmd au format de sortie</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Le fichier <em>R Markdown</em></a>
+<li class="chapter" data-level="3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Le fichier R Markdown</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio"><i class="fa fa-check"></i><b>3.1</b> R markdown dans RStudio</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="06-parametres.html"><a href="#cr%C3%A9er-un-fichier-.rmd"><i class="fa fa-check"></i><b>3.1.1</b> Créer un fichier .Rmd</a></li>
-<li class="chapter" data-level="3.1.2" data-path="06-parametres.html"><a href="#lancer-la-g%C3%A9n%C3%A9ration-du-document"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document</a></li>
+<li class="chapter" data-level="3.1.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#cr%C3%A9er-un-fichier-.rmd"><i class="fa fa-check"></i><b>3.1.1</b> Créer un fichier .Rmd</a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#lancer-la-g%C3%A9n%C3%A9ration-du-document"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="06-parametres.html"><a href="#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd"><i class="fa fa-check"></i><b>3.2</b> Les éléments d’un fichier .Rmd</a>
+<li class="chapter" data-level="3.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd"><i class="fa fa-check"></i><b>3.2</b> Les éléments d’un fichier .Rmd</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="06-parametres.html"><a href="#len-t%C3%AAte"><i class="fa fa-check"></i><b>3.2.1</b> L’en-tête</a></li>
-<li class="chapter" data-level="3.2.2" data-path="06-parametres.html"><a href="#les-%C3%A9l%C3%A9ments-texte"><i class="fa fa-check"></i><b>3.2.2</b> Les éléments texte</a></li>
+<li class="chapter" data-level="3.2.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#len-t%C3%AAte"><i class="fa fa-check"></i><b>3.2.1</b> L’en-tête</a></li>
+<li class="chapter" data-level="3.2.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#les-%C3%A9l%C3%A9ments-texte"><i class="fa fa-check"></i><b>3.2.2</b> Les éléments texte</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="06-parametres.html"><a href="#ins%C3%A9rer-des-images"><i class="fa fa-check"></i><b>3.3</b> Insérer des images</a></li>
+<li class="chapter" data-level="3.3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#ins%C3%A9rer-des-images"><i class="fa fa-check"></i><b>3.3</b> Insérer des images</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="06-parametres.html"><a href="#int%C3%A9grer-du-code-dans-les-rmd---les-chunks"><i class="fa fa-check"></i><b>4</b> Intégrer du code dans les RMD - Les <em>chunks</em></a>
+<li class="chapter" data-level="4" data-path="chunks.html"><a href="chunks.html"><i class="fa fa-check"></i><b>4</b> Intégrer du code à exécuter dans les Rmd</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html"><i class="fa fa-check"></i><b>4.1</b> Les options des <em>chunks</em></a></li>
-<li class="chapter" data-level="4.2" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-options-globales-des-chunks"><i class="fa fa-check"></i><b>4.2</b> Les options globales des chunks</a></li>
-<li class="chapter" data-level="4.3" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#utiliser-des-outputs"><i class="fa fa-check"></i><b>4.3</b> Utiliser des outputs</a></li>
-<li class="chapter" data-level="4.4" data-path="intégrer-du-code-dans-les-rmd---les-chunks.html"><a href="intégrer-du-code-dans-les-rmd---les-chunks.html#les-insertions-de-code-en-ligne"><i class="fa fa-check"></i><b>4.4</b> Les insertions de code en ligne</a></li>
-<li class="chapter" data-level="4.5" data-path="06-parametres.html"><a href="#ex%C3%A9cuter-le-code-des-chunks"><i class="fa fa-check"></i><b>4.5</b> Exécuter le code des chunks</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html"><i class="fa fa-check"></i><b>5</b> Convertir le fichier Rmarkdown pour utilisation</a>
+<li class="chapter" data-level="4.1" data-path="chunks.html"><a href="chunks.html#les-chunks"><i class="fa fa-check"></i><b>4.1</b> Les <em>chunks</em></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#les-formats-de-sortie"><i class="fa fa-check"></i><b>5.1</b> Les formats de sortie</a>
+<li class="chapter" data-level="4.1.1" data-path="chunks.html"><a href="chunks.html#la-base"><i class="fa fa-check"></i><b>4.1.1</b> La base</a></li>
+<li class="chapter" data-level="4.1.2" data-path="chunks.html"><a href="chunks.html#le-nom-des-chunks"><i class="fa fa-check"></i><b>4.1.2</b> Le nom des chunks</a></li>
+<li class="chapter" data-level="4.1.3" data-path="chunks.html"><a href="chunks.html#les-options-des-chunks"><i class="fa fa-check"></i><b>4.1.3</b> Les options des <em>chunks</em></a></li>
+<li class="chapter" data-level="4.1.4" data-path="chunks.html"><a href="chunks.html#int%C3%A9grer-des-visualisations-r"><i class="fa fa-check"></i><b>4.1.4</b> Intégrer des visualisations R</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="chunks.html"><a href="chunks.html#les-insertions-de-code-dans-le-texte-le-code-inline"><i class="fa fa-check"></i><b>4.2</b> Les insertions de code dans le texte : le code inline</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#html"><i class="fa fa-check"></i><b>5.1.1</b> HTML</a></li>
-<li class="chapter" data-level="5.1.2" data-path="convertir-le-fichier-rmarkdown-pour-utilisation.html"><a href="convertir-le-fichier-rmarkdown-pour-utilisation.html#pdf"><i class="fa fa-check"></i><b>5.1.2</b> PDF</a></li>
+<li class="chapter" data-level="4.2.1" data-path="chunks.html"><a href="chunks.html#autres-langages-autres-langages"><i class="fa fa-check"></i><b>4.2.1</b> Autres langages {autres-langages}</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chunks.html"><a href="chunks.html#exercice-3"><i class="fa fa-check"></i><b>4.3</b> Exercice 3</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>5</b> Les formats de sortie</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="outputs.html"><a href="outputs.html#html-avec-html_document"><i class="fa fa-check"></i><b>5.1</b> HTML avec html_document</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="outputs.html"><a href="outputs.html#personnaliser-le-css"><i class="fa fa-check"></i><b>5.1.1</b> Personnaliser le css</a></li>
+<li class="chapter" data-level="5.1.2" data-path="outputs.html"><a href="outputs.html#option-self_contained"><i class="fa fa-check"></i><b>5.1.2</b> Option self_contained</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="outputs.html"><a href="outputs.html#sorties-pdf"><i class="fa fa-check"></i><b>5.2</b> Sorties PDF</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="outputs.html"><a href="outputs.html#configuration-pr%C3%A9alable-pour-lusage-de-pdf_document"><i class="fa fa-check"></i><b>5.2.1</b> Configuration préalable pour l’usage de pdf_document</a></li>
+<li class="chapter" data-level="5.2.2" data-path="outputs.html"><a href="outputs.html#sp%C3%A9cificit%C3%A9s-du-format-pdf_document"><i class="fa fa-check"></i><b>5.2.2</b> Spécificités du format pdf_document</a></li>
+<li class="chapter" data-level="5.2.3" data-path="outputs.html"><a href="outputs.html#pagedown"><i class="fa fa-check"></i><b>5.2.3</b> {Pagedown}</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="06-parametres.html"><a href="#ajouter-des-param%C3%A8tres"><i class="fa fa-check"></i><b>6</b> Ajouter des paramètres</a></li>
+<li class="chapter" data-level="6" data-path="ajouter-des-paramètres.html"><a href="ajouter-des-paramètres.html"><i class="fa fa-check"></i><b>6</b> Ajouter des paramètres</a></li>
 <li class="chapter" data-level="7" data-path="a-ne-pas-oublier.html"><a href="a-ne-pas-oublier.html"><i class="fa fa-check"></i><b>7</b> A ne pas oublier</a></li>
 <li class="chapter" data-level="8" data-path="rappels-du-jour-1.html"><a href="rappels-du-jour-1.html"><i class="fa fa-check"></i><b>8</b> Rappels du jour 1</a></li>
 <li class="chapter" data-level="9" data-path="exercice.html"><a href="exercice.html"><i class="fa fa-check"></i><b>9</b> Exercice</a>
 <ul>
 <li class="chapter" data-level="9.1" data-path="exercice.html"><a href="exercice.html#cadrage"><i class="fa fa-check"></i><b>9.1</b> Cadrage</a>
 <ul>
-<li class="chapter" data-level="9.1.1" data-path="06-parametres.html"><a href="#probl%C3%A9matique"><i class="fa fa-check"></i><b>9.1.1</b> Problématique</a></li>
+<li class="chapter" data-level="9.1.1" data-path="exercice.html"><a href="exercice.html#probl%C3%A9matique"><i class="fa fa-check"></i><b>9.1.1</b> Problématique</a></li>
 <li class="chapter" data-level="9.1.2" data-path="exercice.html"><a href="exercice.html#rendu"><i class="fa fa-check"></i><b>9.1.2</b> Rendu</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html"><i class="fa fa-check"></i><b>10</b> De la page au livre, le package bookdown</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="06-parametres.html"><a href="#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche"><i class="fa fa-check"></i><b>10.1</b> Démarrer un projet de livre de la page blanche</a>
+<li class="chapter" data-level="10.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche"><i class="fa fa-check"></i><b>10.1</b> Démarrer un projet de livre de la page blanche</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#installer-le-package-bookdown"><i class="fa fa-check"></i><b>10.1.1</b> Installer le package bookdown</a></li>
-<li class="chapter" data-level="10.1.2" data-path="06-parametres.html"><a href="#initialiser-un-mod%C3%A8le-de-livre"><i class="fa fa-check"></i><b>10.1.2</b> Initialiser un modèle de livre</a></li>
-<li class="chapter" data-level="10.1.3" data-path="06-parametres.html"><a href="#g%C3%A9n%C3%A9rer-le-livre-et-le-relire"><i class="fa fa-check"></i><b>10.1.3</b> Générer le livre et le (re)lire</a></li>
-<li class="chapter" data-level="10.1.4" data-path="06-parametres.html"><a href="#se-lancer-dans-l%C3%A9criture"><i class="fa fa-check"></i><b>10.1.4</b> Se lancer dans l’écriture</a></li>
+<li class="chapter" data-level="10.1.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#initialiser-un-mod%C3%A8le-de-livre"><i class="fa fa-check"></i><b>10.1.2</b> Initialiser un modèle de livre</a></li>
+<li class="chapter" data-level="10.1.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#g%C3%A9n%C3%A9rer-le-livre-et-le-relire"><i class="fa fa-check"></i><b>10.1.3</b> Générer le livre et le (re)lire</a></li>
+<li class="chapter" data-level="10.1.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#se-lancer-dans-l%C3%A9criture"><i class="fa fa-check"></i><b>10.1.4</b> Se lancer dans l’écriture</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="06-parametres.html"><a href="#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible"><i class="fa fa-check"></i><b>10.2</b> Composer son livre quand la matière est déjà disponible</a>
+<li class="chapter" data-level="10.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible"><i class="fa fa-check"></i><b>10.2</b> Composer son livre quand la matière est déjà disponible</a>
 <ul>
 <li class="chapter" data-level="10.2.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#illustration-pratique-dune-composition"><i class="fa fa-check"></i><b>10.2.1</b> Illustration pratique d’une composition</a></li>
 <li class="chapter" data-level="10.2.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#organisation-des-sources-dun-bookdown"><i class="fa fa-check"></i><b>10.2.2</b> Organisation des sources d’un bookdown</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="06-parametres.html"><a href="#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs"><i class="fa fa-check"></i><b>10.3</b> Au-delà du fond s’attaquer aux goûts et couleurs</a>
+<li class="chapter" data-level="10.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs"><i class="fa fa-check"></i><b>10.3</b> Au-delà du fond s’attaquer aux goûts et couleurs</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="06-parametres.html"><a href="#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles"><i class="fa fa-check"></i><b>10.3.1</b> Les types de sorties, ou les différents rendus possibles</a></li>
-<li class="chapter" data-level="10.3.2" data-path="06-parametres.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9"><i class="fa fa-check"></i><b>10.3.2</b> Un choix esthétique cadré</a></li>
-<li class="chapter" data-level="10.3.3" data-path="06-parametres.html"><a href="#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style"><i class="fa fa-check"></i><b>10.3.3</b> Polices de caractères et couleurs, imposez votre style</a></li>
-<li class="chapter" data-level="10.3.4" data-path="06-parametres.html"><a href="#un-choix-esth%C3%A9tique-cadr%C3%A9-1"><i class="fa fa-check"></i><b>10.3.4</b> Un choix esthétique cadré</a></li>
+<li class="chapter" data-level="10.3.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles"><i class="fa fa-check"></i><b>10.3.1</b> Les types de sorties, ou les différents rendus possibles</a></li>
+<li class="chapter" data-level="10.3.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#un-choix-esth%C3%A9tique-cadr%C3%A9"><i class="fa fa-check"></i><b>10.3.2</b> Un choix esthétique cadré</a></li>
+<li class="chapter" data-level="10.3.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style"><i class="fa fa-check"></i><b>10.3.3</b> Polices de caractères et couleurs, imposez votre style</a></li>
+<li class="chapter" data-level="10.3.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#un-choix-esth%C3%A9tique-cadr%C3%A9-1"><i class="fa fa-check"></i><b>10.3.4</b> Un choix esthétique cadré</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="06-parametres.html"><a href="#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires"><i class="fa fa-check"></i><b>10.4</b> Quelques options et détails techniques complémentaires</a>
+<li class="chapter" data-level="10.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires"><i class="fa fa-check"></i><b>10.4</b> Quelques options et détails techniques complémentaires</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="06-parametres.html"><a href="#options-tri%C3%A9es-sur-le-volet"><i class="fa fa-check"></i><b>10.4.1</b> Options triées sur le volet</a></li>
+<li class="chapter" data-level="10.4.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#options-tri%C3%A9es-sur-le-volet"><i class="fa fa-check"></i><b>10.4.1</b> Options triées sur le volet</a></li>
 <li class="chapter" data-level="10.4.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#retour-sur-le-fonctionnement-global"><i class="fa fa-check"></i><b>10.4.2</b> Retour sur le fonctionnement global</a></li>
 </ul></li>
 <li class="chapter" data-level="10.5" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#etude-dun-exemple-bookdown-propre.rpls"><i class="fa fa-check"></i><b>10.5</b> Etude d’un exemple bookdown : propre.rpls</a>
 <ul>
 <li class="chapter" data-level="10.5.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#exemple-dappropriation-dune-publication-rpls"><i class="fa fa-check"></i><b>10.5.1</b> Exemple d’appropriation d’une publication Rpls</a></li>
-<li class="chapter" data-level="10.5.2" data-path="06-parametres.html"><a href="#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl"><i class="fa fa-check"></i><b>10.5.2</b> Compréhension globale de l’architecture du paquet propre.rpl</a></li>
+<li class="chapter" data-level="10.5.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl"><i class="fa fa-check"></i><b>10.5.2</b> Compréhension globale de l’architecture du paquet propre.rpl</a></li>
 </ul></li>
 <li class="chapter" data-level="10.6" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime"><i class="fa fa-check"></i><b>10.6</b> Focus sur l’envoi au photocopieur du livre ou comment imprime</a></li>
-<li class="chapter" data-level="10.7" data-path="06-parametres.html"><a href="#bookdown-maintenant-et-au-del%C3%A0"><i class="fa fa-check"></i><b>10.7</b> Bookdown, maintenant et au-delà</a></li>
+<li class="chapter" data-level="10.7" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#bookdown-maintenant-et-au-del%C3%A0"><i class="fa fa-check"></i><b>10.7</b> Bookdown, maintenant et au-delà</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html"><i class="fa fa-check"></i><b>11</b> Du Rmarkdown interactif</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="06-parametres.html"><a href="#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>11.1</b> Interactivité simple, les visuels s’animent</a></li>
-<li class="chapter" data-level="11.2" data-path="06-parametres.html"><a href="#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>11.2</b> Interactivité avancée, les inputs utilisateur</a></li>
+<li class="chapter" data-level="11.1" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>11.1</b> Interactivité simple, les visuels s’animent</a></li>
+<li class="chapter" data-level="11.2" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>11.2</b> Interactivité avancée, les inputs utilisateur</a></li>
 <li class="chapter" data-level="11.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>11.3</b> Exercice X</a></li>
-<li class="chapter" data-level="11.4" data-path="06-parametres.html"><a href="#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>11.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
+<li class="chapter" data-level="11.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>11.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
+<li class="chapter" data-level="11.5" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#linteractivit%C3%A9-dans-dautres-langages"><i class="fa fa-check"></i><b>11.5</b> L’interactivité dans d’autres langages</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="06-parametres.html"><a href="#d%C3%A9roul%C3%A9"><i class="fa fa-check"></i><b>12</b> Déroulé</a>
+<li class="chapter" data-level="12" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html"><i class="fa fa-check"></i><b>12</b> Aller plus loin bis</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="déroulé.html"><a href="déroulé.html"><i class="fa fa-check"></i><b>12.1</b> Bookdown</a></li>
-<li class="chapter" data-level="12.2" data-path="déroulé.html"><a href="déroulé.html#pagedown"><i class="fa fa-check"></i><b>12.2</b> Pagedown</a></li>
-<li class="chapter" data-level="12.3" data-path="déroulé.html"><a href="déroulé.html#officer"><i class="fa fa-check"></i><b>12.3</b> Officer</a></li>
-<li class="chapter" data-level="12.4" data-path="déroulé.html"><a href="déroulé.html#la-structure-du-projet---_bookdown.yml"><i class="fa fa-check"></i><b>12.4</b> La structure du projet - _bookdown.yml</a></li>
+<li class="chapter" data-level="12.1" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#bookdown"><i class="fa fa-check"></i><b>12.1</b> Bookdown</a></li>
+<li class="chapter" data-level="12.2" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#pagedown-1"><i class="fa fa-check"></i><b>12.2</b> Pagedown</a></li>
+<li class="chapter" data-level="12.3" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#officer"><i class="fa fa-check"></i><b>12.3</b> Officer</a></li>
+<li class="chapter" data-level="12.4" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#la-structure-du-projet---_bookdown.yml"><i class="fa fa-check"></i><b>12.4</b> La structure du projet - _bookdown.yml</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="pagedown-1.html"><a href="pagedown-1.html"><i class="fa fa-check"></i><b>13</b> Pagedown</a>
+<li class="chapter" data-level="13" data-path="pagedown-2.html"><a href="pagedown-2.html"><i class="fa fa-check"></i><b>13</b> Pagedown</a>
 <ul>
-<li class="chapter" data-level="13.1" data-path="pagedown-1.html"><a href="pagedown-1.html#pagedown-2"><i class="fa fa-check"></i><b>13.1</b> Pagedown</a></li>
-<li class="chapter" data-level="13.2" data-path="pagedown-1.html"><a href="pagedown-1.html#paged.js"><i class="fa fa-check"></i><b>13.2</b> Paged.js</a></li>
+<li class="chapter" data-level="13.1" data-path="pagedown-2.html"><a href="pagedown-2.html#pagedown-3"><i class="fa fa-check"></i><b>13.1</b> Pagedown</a></li>
+<li class="chapter" data-level="13.2" data-path="pagedown-2.html"><a href="pagedown-2.html#paged.js"><i class="fa fa-check"></i><b>13.2</b> Paged.js</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="configurer-votre-yaml.html"><a href="configurer-votre-yaml.html"><i class="fa fa-check"></i><b>14</b> Configurer votre yaml</a></li>
 <li class="chapter" data-level="15" data-path="configurer-votre-yaml-1.html"><a href="configurer-votre-yaml-1.html"><i class="fa fa-check"></i><b>15</b> Configurer votre yaml</a></li>
@@ -273,9 +303,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="21" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>21</b> Rendu des exercices partie 2</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="06-parametres.html"><a href="#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>21.1</b> Traitement des données</a></li>
-<li class="chapter" data-level="21.2" data-path="06-parametres.html"><a href="#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>21.2</b> Nombre de LS par région</a></li>
-<li class="chapter" data-level="21.3" data-path="06-parametres.html"><a href="#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>21.3</b> Graphiques d’évolution</a></li>
+<li class="chapter" data-level="21.1" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>21.1</b> Traitement des données</a></li>
+<li class="chapter" data-level="21.2" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>21.2</b> Nombre de LS par région</a></li>
+<li class="chapter" data-level="21.3" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>21.3</b> Graphiques d’évolution</a></li>
 <li class="chapter" data-level="21.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>21.4</b> Pour rappel</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -291,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">exo partie 2</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Module 6 - Publications reproductibles avec RMarkdown</a>
           </h1>
         </div>
 
@@ -300,100 +330,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="ajouter-des-paramètres" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Chapitre 6</span> Ajouter des paramètres<a href="#ajouter-des-param%C3%A8tres" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Un des nombreux avantages de R Markdown est la possibilité de reproduire des
-analyses très facilement en actualisant une partie du travail ou en changeant
-un des entrants du document.
-Utiliser des paramètres permet d’aller encore plus loin pour créer un document
-qui peut être réutilisé pour plusieurs scenarios. On peut ainsi créer des
-documents pour des territoires ou des années différents, faire tourner une
-analyse en changeant une des hypothèses ou changer le comportement de <code>knitr</code>
-selon les cas rencontrés.</p>
-<p>Les paramètres sont spécifiés dans l’en-tête avec l’option <code>params</code> dans
-laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.</p>
-<p>Les paramètres peuvent etre de type <code>character</code>, <code>numeric</code>, <code>integer</code> et
-<code>logical</code> mais aussi des expressions R tant qu’elles sont précédées de <code>!r</code>.
-L’en-tête, et donc le code pouvant y être présent, est éxécuté avant le reste
-du code donc il est nécéssaire d’expliciter les packages utilisés.</p>
+<h1><span class="header-section-number">Chapitre 6</span> Ajouter des paramètres<a href="ajouter-des-paramètres.html#ajouter-des-param%C3%A8tres" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Un des nombreux avantages de R Markdown est la possibilité de reproduire des analyses très facilement en actualisant une partie du travail ou en changeant un des entrants du document.
+Utiliser des paramètres permet d’aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scenarios.
+On peut ainsi créer des documents pour des territoires ou des années différents, faire tourner une
+analyse en changeant une des hypothèses ou changer le comportement de <code>knitr</code> selon les cas rencontrés.</p>
+<p>Les paramètres sont spécifiés dans l’en-tête avec l’option <code>params</code> dans laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.</p>
+<p>Les paramètres peuvent être de type <code>character</code>, <code>numeric</code>, <code>integer</code> et <code>logical</code> mais aussi des expressions R tant qu’elles sont précédées de <code>!r</code>.
+L’en-tête, et donc le code pouvant y être présent, est exécuté avant le reste du code donc il est nécessaire d’expliciter les packages utilisés.</p>
 <p>Par exemple:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb20-1"><a href="ajouter-des-paramètres.html#cb20-1" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;mon_premier_document&quot;</span></span>
-<span id="cb20-2"><a href="ajouter-des-paramètres.html#cb20-2" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Moi&quot;</span></span>
-<span id="cb20-3"><a href="ajouter-des-paramètres.html#cb20-3" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;31/10/2022&quot;</span></span>
-<span id="cb20-4"><a href="ajouter-des-paramètres.html#cb20-4" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
-<span id="cb20-5"><a href="ajouter-des-paramètres.html#cb20-5" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb20-6"><a href="ajouter-des-paramètres.html#cb20-6" tabindex="-1"></a>  annee: 2022</span>
-<span id="cb20-7"><a href="ajouter-des-paramètres.html#cb20-7" tabindex="-1"></a>  region: Bretagne</span>
-<span id="cb20-8"><a href="ajouter-des-paramètres.html#cb20-8" tabindex="-1"></a>  date: !r lubricate::today()</span></code></pre></div>
-<p>Une fois définis dans l’en-tête, ces parametres sont accessibles depuis le
-fichier .RMD (texte ou code) mais aussi depuis la console. Ils sont stockés
-dans une liste en lecture nommée <em>params</em>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb31-1"><a href="ajouter-des-paramètres.html#cb31-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb31-2"><a href="ajouter-des-paramètres.html#cb31-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb31-3"><a href="ajouter-des-paramètres.html#cb31-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb31-4"><a href="ajouter-des-paramètres.html#cb31-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2022&quot;</span></span>
+<span id="cb31-5"><a href="ajouter-des-paramètres.html#cb31-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb31-6"><a href="ajouter-des-paramètres.html#cb31-6" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb31-7"><a href="ajouter-des-paramètres.html#cb31-7" tabindex="-1"></a><span class="at">  </span><span class="fu">annee</span><span class="kw">:</span><span class="at"> </span><span class="dv">2022</span></span>
+<span id="cb31-8"><a href="ajouter-des-paramètres.html#cb31-8" tabindex="-1"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> Bretagne</span></span>
+<span id="cb31-9"><a href="ajouter-des-paramètres.html#cb31-9" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> !r lubricate::today()</span></span>
+<span id="cb31-10"><a href="ajouter-des-paramètres.html#cb31-10" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Une fois définis dans l’en-tête, ces paramètres sont accessibles depuis le fichier .Rmd (texte ou code) mais aussi depuis la console.
+Ils sont stockés dans une liste en lecture nommée <em><code>params</code></em>.</p>
 <p>Le code suivant montre quelques exemples d’utilisation des paramètres :</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb21-1"><a href="ajouter-des-paramètres.html#cb21-1" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb21-2"><a href="ajouter-des-paramètres.html#cb21-2" tabindex="-1"></a><span class="an">title:</span><span class="co"> &quot;mon_premier_document&quot;</span></span>
-<span id="cb21-3"><a href="ajouter-des-paramètres.html#cb21-3" tabindex="-1"></a><span class="an">author:</span><span class="co"> &quot;Moi&quot;</span></span>
-<span id="cb21-4"><a href="ajouter-des-paramètres.html#cb21-4" tabindex="-1"></a><span class="an">date:</span><span class="co"> &quot;31/10/2022&quot;</span></span>
-<span id="cb21-5"><a href="ajouter-des-paramètres.html#cb21-5" tabindex="-1"></a><span class="an">output:</span><span class="co"> html_document</span></span>
-<span id="cb21-6"><a href="ajouter-des-paramètres.html#cb21-6" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb21-7"><a href="ajouter-des-paramètres.html#cb21-7" tabindex="-1"></a><span class="co">  espece: setosa</span></span>
-<span id="cb21-8"><a href="ajouter-des-paramètres.html#cb21-8" tabindex="-1"></a><span class="co">  printcode: TRUE</span></span>
-<span id="cb21-9"><a href="ajouter-des-paramètres.html#cb21-9" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb21-10"><a href="ajouter-des-paramètres.html#cb21-10" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="ajouter-des-paramètres.html#cb21-11" tabindex="-1"></a><span class="in">```{r, setup, include=FALSE}</span></span>
-<span id="cb21-12"><a href="ajouter-des-paramètres.html#cb21-12" tabindex="-1"></a><span class="in">knitr::opts_chunk$set(</span></span>
-<span id="cb21-13"><a href="ajouter-des-paramètres.html#cb21-13" tabindex="-1"></a><span class="in">  message = FALSE, </span></span>
-<span id="cb21-14"><a href="ajouter-des-paramètres.html#cb21-14" tabindex="-1"></a><span class="in">  warning = FALSE,</span></span>
-<span id="cb21-15"><a href="ajouter-des-paramètres.html#cb21-15" tabindex="-1"></a><span class="in">  echo = params$printcode</span></span>
-<span id="cb21-16"><a href="ajouter-des-paramètres.html#cb21-16" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb21-17"><a href="ajouter-des-paramètres.html#cb21-17" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-18"><a href="ajouter-des-paramètres.html#cb21-18" tabindex="-1"></a></span>
-<span id="cb21-19"><a href="ajouter-des-paramètres.html#cb21-19" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="ajouter-des-paramètres.html#cb21-20" tabindex="-1"></a>Les résultats affichés ci-dessus concernent l&#39;espece <span class="in">`r params$espece`</span>.</span>
-<span id="cb21-21"><a href="ajouter-des-paramètres.html#cb21-21" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="ajouter-des-paramètres.html#cb21-22" tabindex="-1"></a><span class="in">```{r, include=FALSE}</span></span>
-<span id="cb21-23"><a href="ajouter-des-paramètres.html#cb21-23" tabindex="-1"></a></span>
-<span id="cb21-24"><a href="ajouter-des-paramètres.html#cb21-24" tabindex="-1"></a><span class="in">print(params)</span></span>
-<span id="cb21-25"><a href="ajouter-des-paramètres.html#cb21-25" tabindex="-1"></a></span>
-<span id="cb21-26"><a href="ajouter-des-paramètres.html#cb21-26" tabindex="-1"></a><span class="in">summary(iris)</span></span>
-<span id="cb21-27"><a href="ajouter-des-paramètres.html#cb21-27" tabindex="-1"></a></span>
-<span id="cb21-28"><a href="ajouter-des-paramètres.html#cb21-28" tabindex="-1"></a><span class="in">extrait &lt;- iris %&gt;%</span></span>
-<span id="cb21-29"><a href="ajouter-des-paramètres.html#cb21-29" tabindex="-1"></a><span class="in">  filter(Species==params$espece)</span></span>
-<span id="cb21-30"><a href="ajouter-des-paramètres.html#cb21-30" tabindex="-1"></a></span>
-<span id="cb21-31"><a href="ajouter-des-paramètres.html#cb21-31" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>Il existe 3 façons de générer un document avec des paramètres:
-- utiliser le bouton <strong>knit</strong>, ce qui prend les valeur par défaut des paramètres</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb32-1"><a href="ajouter-des-paramètres.html#cb32-1" tabindex="-1"></a>---</span>
+<span id="cb32-2"><a href="ajouter-des-paramètres.html#cb32-2" tabindex="-1"></a>title: &quot;mon_premier_document&quot;</span>
+<span id="cb32-3"><a href="ajouter-des-paramètres.html#cb32-3" tabindex="-1"></a>author: &quot;Moi&quot;</span>
+<span id="cb32-4"><a href="ajouter-des-paramètres.html#cb32-4" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
+<span id="cb32-5"><a href="ajouter-des-paramètres.html#cb32-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb32-6"><a href="ajouter-des-paramètres.html#cb32-6" tabindex="-1"></a>params:</span>
+<span id="cb32-7"><a href="ajouter-des-paramètres.html#cb32-7" tabindex="-1"></a>  espece: setosa</span>
+<span id="cb32-8"><a href="ajouter-des-paramètres.html#cb32-8" tabindex="-1"></a>  printcode: TRUE</span>
+<span id="cb32-9"><a href="ajouter-des-paramètres.html#cb32-9" tabindex="-1"></a>---</span>
+<span id="cb32-10"><a href="ajouter-des-paramètres.html#cb32-10" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="ajouter-des-paramètres.html#cb32-11" tabindex="-1"></a>```{r, setup, include=FALSE}</span>
+<span id="cb32-12"><a href="ajouter-des-paramètres.html#cb32-12" tabindex="-1"></a>knitr::opts_chunk$set(</span>
+<span id="cb32-13"><a href="ajouter-des-paramètres.html#cb32-13" tabindex="-1"></a>  message = FALSE, </span>
+<span id="cb32-14"><a href="ajouter-des-paramètres.html#cb32-14" tabindex="-1"></a>  warning = FALSE,</span>
+<span id="cb32-15"><a href="ajouter-des-paramètres.html#cb32-15" tabindex="-1"></a>  echo = params$printcode</span>
+<span id="cb32-16"><a href="ajouter-des-paramètres.html#cb32-16" tabindex="-1"></a>)</span>
+<span id="cb32-17"><a href="ajouter-des-paramètres.html#cb32-17" tabindex="-1"></a>```</span>
+<span id="cb32-18"><a href="ajouter-des-paramètres.html#cb32-18" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="ajouter-des-paramètres.html#cb32-19" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="ajouter-des-paramètres.html#cb32-20" tabindex="-1"></a>Les résultats affichés ci-dessus concernent l&#39;espece `r params$espece`.</span>
+<span id="cb32-21"><a href="ajouter-des-paramètres.html#cb32-21" tabindex="-1"></a></span>
+<span id="cb32-22"><a href="ajouter-des-paramètres.html#cb32-22" tabindex="-1"></a>```{r, include=FALSE}</span>
+<span id="cb32-23"><a href="ajouter-des-paramètres.html#cb32-23" tabindex="-1"></a></span>
+<span id="cb32-24"><a href="ajouter-des-paramètres.html#cb32-24" tabindex="-1"></a>print(params)</span>
+<span id="cb32-25"><a href="ajouter-des-paramètres.html#cb32-25" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="ajouter-des-paramètres.html#cb32-26" tabindex="-1"></a>summary(iris)</span>
+<span id="cb32-27"><a href="ajouter-des-paramètres.html#cb32-27" tabindex="-1"></a></span>
+<span id="cb32-28"><a href="ajouter-des-paramètres.html#cb32-28" tabindex="-1"></a>extrait &lt;- iris %&gt;%</span>
+<span id="cb32-29"><a href="ajouter-des-paramètres.html#cb32-29" tabindex="-1"></a>  filter(Species==params$espece)</span>
+<span id="cb32-30"><a href="ajouter-des-paramètres.html#cb32-30" tabindex="-1"></a></span>
+<span id="cb32-31"><a href="ajouter-des-paramètres.html#cb32-31" tabindex="-1"></a>```</span></code></pre></div>
+<p>Il existe 3 façons de générer un document avec des paramètres :</p>
 <ul>
-<li><p>utiliser l’interface RStudio selectionnant l’option <strong>Knit with Parameters</strong> du bouton <strong>knit</strong>. Cela ouvre une nouvelle fenêtre demandant de choisir les valeurs des paramètres indiqués dans l’en-tête.</p></li>
-<li><p>utiliser la fonction <code>rmarkdown::render()</code>. Sans autre option cette fonction
-utilisera les paramètres par défaut définis dans l’en-tête. On peut aussi
-définir de nouvelles valeurs en utilisant l’option <code>params=</code>.
+<li><p>utiliser le bouton <strong>knit</strong>, ce qui prend les valeur par défaut des paramètres</p></li>
+<li><p>utiliser l’interface RStudio en sélectionnant l’option <strong>Knit with Parameters</strong> du bouton <strong>knit</strong>. Cela ouvre une nouvelle fenêtre demandant de choisir les valeurs des paramètres indiqués dans l’en-tête.</p></li>
+<li><p>utiliser la fonction <code>rmarkdown::render()</code>. Sans autre précision cette fonction utilisera les paramètres par défaut définis dans l’en-tête. On peut aussi définir de nouvelles valeurs en utilisant l’option <code>params =</code>.
 Cela donne par exemple :</p></li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb22-1"><a href="ajouter-des-paramètres.html#cb22-1" tabindex="-1"></a></span>
-<span id="cb22-2"><a href="ajouter-des-paramètres.html#cb22-2" tabindex="-1"></a><span class="in">```{r, echo=FALSE}</span></span>
-<span id="cb22-3"><a href="ajouter-des-paramètres.html#cb22-3" tabindex="-1"></a><span class="in">rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, params = list(</span></span>
-<span id="cb22-4"><a href="ajouter-des-paramètres.html#cb22-4" tabindex="-1"></a><span class="in">  espece =&quot;versicolor&quot;,</span></span>
-<span id="cb22-5"><a href="ajouter-des-paramètres.html#cb22-5" tabindex="-1"></a><span class="in">  printcode =FALSE</span></span>
-<span id="cb22-6"><a href="ajouter-des-paramètres.html#cb22-6" tabindex="-1"></a><span class="in">))</span></span>
-<span id="cb22-7"><a href="ajouter-des-paramètres.html#cb22-7" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<p>Cette dernière façon de faire, via la fonction <code>rmarkdown::render()</code> permet
-d’automatiser encore plus les choses en générant autant de documents que de
-valeurs différentes d’un paramètre. En effet, dans un script .R, il est
-possible de créer une fonction ayant en entrée les paramètres que l’on veut
+<div class="sourceCode" id="cb33"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb33-1"><a href="ajouter-des-paramètres.html#cb33-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb33-2"><a href="ajouter-des-paramètres.html#cb33-2" tabindex="-1"></a>rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb33-3"><a href="ajouter-des-paramètres.html#cb33-3" tabindex="-1"></a>                  params = list(espece = &quot;versicolor&quot;, printcode = FALSE))</span>
+<span id="cb33-4"><a href="ajouter-des-paramètres.html#cb33-4" tabindex="-1"></a>```</span></code></pre></div>
+<p>Cette dernière façon de faire, via la fonction <code>rmarkdown::render()</code> permet d’automatiser encore plus les choses en générant autant de documents que de valeurs différentes d’un paramètre.
+En effet, dans un script .R, il est possible de créer une fonction ayant en entrée les paramètres que l’on veut
 modifier plusieurs fois mais aussi le nom du document généré.</p>
-<p>En reprenant l’exemple précédant, on peut faire:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="ajouter-des-paramètres.html#cb23-1" tabindex="-1"></a></span>
-<span id="cb23-2"><a href="ajouter-des-paramètres.html#cb23-2" tabindex="-1"></a>gene_doc <span class="ot">&lt;-</span> <span class="cf">function</span>(nom_espece, impression)</span>
-<span id="cb23-3"><a href="ajouter-des-paramètres.html#cb23-3" tabindex="-1"></a>{</span>
-<span id="cb23-4"><a href="ajouter-des-paramètres.html#cb23-4" tabindex="-1"></a>  outfile <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;doc-&quot;</span>,nom_espece,<span class="st">&quot;.Rmd&quot;</span>)</span>
-<span id="cb23-5"><a href="ajouter-des-paramètres.html#cb23-5" tabindex="-1"></a>  </span>
-<span id="cb23-6"><a href="ajouter-des-paramètres.html#cb23-6" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;mon_premier_document.Rmd&quot;</span>, </span>
-<span id="cb23-7"><a href="ajouter-des-paramètres.html#cb23-7" tabindex="-1"></a>                    <span class="at">params =</span> <span class="fu">list</span>(</span>
-<span id="cb23-8"><a href="ajouter-des-paramètres.html#cb23-8" tabindex="-1"></a>                      <span class="at">espece =</span> nom_espece,</span>
-<span id="cb23-9"><a href="ajouter-des-paramètres.html#cb23-9" tabindex="-1"></a>                      <span class="at">printcode =</span> impression),</span>
-<span id="cb23-10"><a href="ajouter-des-paramètres.html#cb23-10" tabindex="-1"></a>                    <span class="at">output_file =</span> outfile</span>
-<span id="cb23-11"><a href="ajouter-des-paramètres.html#cb23-11" tabindex="-1"></a>                    )</span>
-<span id="cb23-12"><a href="ajouter-des-paramètres.html#cb23-12" tabindex="-1"></a>  </span>
-<span id="cb23-13"><a href="ajouter-des-paramètres.html#cb23-13" tabindex="-1"></a>}</span></code></pre></div>
+<p>En reprenant l’exemple précédent, on peut produire la sortie d’un rapport pour toutes les espèces :</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb34-1"><a href="ajouter-des-paramètres.html#cb34-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb34-2"><a href="ajouter-des-paramètres.html#cb34-2" tabindex="-1"></a>## Listes des especes contenu dans le datatset iris</span>
+<span id="cb34-3"><a href="ajouter-des-paramètres.html#cb34-3" tabindex="-1"></a>liste_especes &lt;- iris %&gt;% </span>
+<span id="cb34-4"><a href="ajouter-des-paramètres.html#cb34-4" tabindex="-1"></a>  pull(Species) %&gt;%  </span>
+<span id="cb34-5"><a href="ajouter-des-paramètres.html#cb34-5" tabindex="-1"></a>  unique() %&gt;% </span>
+<span id="cb34-6"><a href="ajouter-des-paramètres.html#cb34-6" tabindex="-1"></a>  as.character()</span>
+<span id="cb34-7"><a href="ajouter-des-paramètres.html#cb34-7" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="ajouter-des-paramètres.html#cb34-8" tabindex="-1"></a>## une fonction qui génère le rapport en fonction de l&#39;espèce</span>
+<span id="cb34-9"><a href="ajouter-des-paramètres.html#cb34-9" tabindex="-1"></a>generer_rapport_par_espece &lt;- function(nom_espece) {</span>
+<span id="cb34-10"><a href="ajouter-des-paramètres.html#cb34-10" tabindex="-1"></a>  rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb34-11"><a href="ajouter-des-paramètres.html#cb34-11" tabindex="-1"></a>                    params = list(espece = nom_espece, printcode = FALSE),</span>
+<span id="cb34-12"><a href="ajouter-des-paramètres.html#cb34-12" tabindex="-1"></a>                    output_file = paste0(&quot;doc-&quot;, nom_espece, &quot;.Rmd&quot;))</span>
+<span id="cb34-13"><a href="ajouter-des-paramètres.html#cb34-13" tabindex="-1"></a>}</span>
+<span id="cb34-14"><a href="ajouter-des-paramètres.html#cb34-14" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="ajouter-des-paramètres.html#cb34-15" tabindex="-1"></a>## Application de la fonction à toutes les espèces grâce à lapply</span>
+<span id="cb34-16"><a href="ajouter-des-paramètres.html#cb34-16" tabindex="-1"></a>lapply(X = liste_especes, FUN = generer_rapport_par_espece)</span>
+<span id="cb34-17"><a href="ajouter-des-paramètres.html#cb34-17" tabindex="-1"></a>``` </span></code></pre></div>
 
 </div>
             </section>
@@ -401,7 +422,7 @@ modifier plusieurs fois mais aussi le nom du document généré.</p>
           </div>
         </div>
       </div>
-<a href="convertir-le-fichier-rmarkdown-pour-utilisation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="outputs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="a-ne-pas-oublier.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -416,43 +437,43 @@ modifier plusieurs fois mais aussi le nom du document généré.</p>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-},
-"pandoc_args": ["-M", "toc-title=Table des matières"]
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "pandoc_args": ["-M", "toc-title=Table des matières"]
 });
 });
 </script>

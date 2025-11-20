@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown</title>
+  <title>Chapitre 13 Pagedown | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:title" content="Chapitre 13 Pagedown | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="twitter:title" content="Chapitre 13 Pagedown | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pagedown-2.html"/>
-<link rel="next" href="configurer-votre-yaml-1.html"/>
+<link rel="prev" href="aller-plus-loin-bis.html"/>
+<link rel="next" href="configurer-votre-yaml.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,26 +329,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="configurer-votre-yaml" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapitre 14</span> Configurer votre yaml<a href="configurer-votre-yaml.html#configurer-votre-yaml" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Voici quelques options du yaml intéressantes à connaître :</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb63-1"><a href="configurer-votre-yaml.html#cb63-1" tabindex="-1"></a><span class="an">toc-title:</span><span class="co"> sommaire</span></span></code></pre></div>
-<p>Pour modifier le nom du sommaire du document.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb64-1"><a href="configurer-votre-yaml.html#cb64-1" tabindex="-1"></a><span class="an">lot:</span><span class="co"> true</span></span>
-<span id="cb64-2"><a href="configurer-votre-yaml.html#cb64-2" tabindex="-1"></a><span class="an">lot-title:</span><span class="co"> &quot;Tableaux&quot;</span></span>
-<span id="cb64-3"><a href="configurer-votre-yaml.html#cb64-3" tabindex="-1"></a><span class="an">lof:</span><span class="co"> true</span></span>
-<span id="cb64-4"><a href="configurer-votre-yaml.html#cb64-4" tabindex="-1"></a><span class="an">lof-title:</span><span class="co"> &quot;Graphiques&quot;</span></span></code></pre></div>
-<p>Pour ajouter et configurer une liste de tableau et de graphique dans le sommaire. Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser <code>lot-unlisted: true</code>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb65-1"><a href="configurer-votre-yaml.html#cb65-1" tabindex="-1"></a><span class="an">chapter_name:</span><span class="co"> &quot;Chapitre\\ &quot;</span></span></code></pre></div>
-<p>Pour modifier le préfixe du titre du chapitre. Vous pouvez ensuite insérer un chapitre en utilisant <code># Ceci est un titre de chapitre {.chapter}</code></p>
+<div id="pagedown-2" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapitre 13</span> Pagedown<a href="pagedown-2.html#pagedown-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="pagedown-3" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Pagedown<a href="pagedown-2.html#pagedown-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Pagedown est une implémentation pour Rmarkdown de <a href="https://www.pagedjs.org/">paged.js</a>, qui permet de réaliser des documents html paginés.</p>
+<p><img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" /><!-- --></p>
+</div>
+<div id="paged.js" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Paged.js<a href="pagedown-2.html#paged.js" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="https://www.pagedjs.org/">paged.js</a> est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés(<a href="https://www.w3.org/TR/css-page-3/" class="uri">https://www.w3.org/TR/css-page-3/</a>) du W3C.</p>
+<p>Ces spécifications visent à pouvoir réaliser des documents prêt pour l’impression avec les technologies du web (html, css, js).</p>
+<p>Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraimente reconnues par les principaux navigateurs. D’où le besoin de cette bibliothèque javascrit pour pouvoir les mettre en oeuvre.
+]</p>
+<p><img src="https://www.pagedmedia.org/wp-content/uploads/2018/12/pagedjs-logo.png" /><!-- --></p>
+<p>Pour installer pagedown depuis le CRAN :</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="pagedown-2.html#cb61-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rstudio/pagedown&#39;</span>)</span></code></pre></div>
+<p>Depuis Rstudio, cela vous apporte un nouveau type de document rmarkdown, accessible depuis <code>File -&gt; New File -&gt; Rmarkdown... -&gt; From template -&gt; Paged HTML document</code>.</p>
+<p>Une fois celui ci créé, vous pouvez cliquer sur knit de l’interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.</p>
+<p><img src="assets/img/templatespublications/pagedown.gif" /><!-- --></p>
+<p>La structure du yaml est relativement proche d’un document Rmarkdown classique.</p>
+<p>A noter toutefois une option utile à retenir, la balise <code>knit: pagedown::chrome_print</code> qui vous permet de compiler directement votre document en pdf grâce à la fonction <code>pagedown::chrome_print()</code> livrée dans le package.</p>
+<p>Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout document html en pdf ou en format image. Elle utilise la technologie d’impression de google chrome.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb62-1"><a href="pagedown-2.html#cb62-1" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A Multi-page HTML Document&quot;</span></span>
+<span id="cb62-2"><a href="pagedown-2.html#cb62-2" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Yihui Xie and Romain Lesur&quot;</span></span>
+<span id="cb62-3"><a href="pagedown-2.html#cb62-3" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2025-11-20&quot;</span></span>
+<span id="cb62-4"><a href="pagedown-2.html#cb62-4" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb62-5"><a href="pagedown-2.html#cb62-5" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
+<span id="cb62-6"><a href="pagedown-2.html#cb62-6" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb62-7"><a href="pagedown-2.html#cb62-7" tabindex="-1"></a><span class="at">    \</span><span class="co"># change to true for a self-contained document, but it&#39;ll be a litte slower for Pandoc to render</span></span>
+<span id="cb62-8"><a href="pagedown-2.html#cb62-8" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb62-9"><a href="pagedown-2.html#cb62-9" tabindex="-1"></a><span class="at">\</span><span class="co"># uncomment this line to produce HTML and PDF in RStudio:</span></span>
+<span id="cb62-10"><a href="pagedown-2.html#cb62-10" tabindex="-1"></a><span class="at">\</span><span class="co">#knit: pagedown::chrome_print</span></span></code></pre></div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pagedown-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="configurer-votre-yaml-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="aller-plus-loin-bis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="configurer-votre-yaml.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

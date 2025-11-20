@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown</title>
+  <title>Chapitre 12 Aller plus loin bis | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:title" content="Chapitre 12 Aller plus loin bis | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 14 Configurer votre yaml | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="twitter:title" content="Chapitre 12 Aller plus loin bis | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pagedown-2.html"/>
-<link rel="next" href="configurer-votre-yaml-1.html"/>
+<link rel="prev" href="du-rmarkdown-interactif.html"/>
+<link rel="next" href="pagedown-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -329,26 +329,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="configurer-votre-yaml" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapitre 14</span> Configurer votre yaml<a href="configurer-votre-yaml.html#configurer-votre-yaml" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Voici quelques options du yaml intéressantes à connaître :</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb63-1"><a href="configurer-votre-yaml.html#cb63-1" tabindex="-1"></a><span class="an">toc-title:</span><span class="co"> sommaire</span></span></code></pre></div>
-<p>Pour modifier le nom du sommaire du document.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb64-1"><a href="configurer-votre-yaml.html#cb64-1" tabindex="-1"></a><span class="an">lot:</span><span class="co"> true</span></span>
-<span id="cb64-2"><a href="configurer-votre-yaml.html#cb64-2" tabindex="-1"></a><span class="an">lot-title:</span><span class="co"> &quot;Tableaux&quot;</span></span>
-<span id="cb64-3"><a href="configurer-votre-yaml.html#cb64-3" tabindex="-1"></a><span class="an">lof:</span><span class="co"> true</span></span>
-<span id="cb64-4"><a href="configurer-votre-yaml.html#cb64-4" tabindex="-1"></a><span class="an">lof-title:</span><span class="co"> &quot;Graphiques&quot;</span></span></code></pre></div>
-<p>Pour ajouter et configurer une liste de tableau et de graphique dans le sommaire. Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser <code>lot-unlisted: true</code>.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb65-1"><a href="configurer-votre-yaml.html#cb65-1" tabindex="-1"></a><span class="an">chapter_name:</span><span class="co"> &quot;Chapitre\\ &quot;</span></span></code></pre></div>
-<p>Pour modifier le préfixe du titre du chapitre. Vous pouvez ensuite insérer un chapitre en utilisant <code># Ceci est un titre de chapitre {.chapter}</code></p>
+<div id="aller-plus-loin-bis" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapitre 12</span> Aller plus loin bis<a href="aller-plus-loin-bis.html#aller-plus-loin-bis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Derrière Rmarkdown aujourd’hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, …) ou de type de rendu (diaporama, rapport, livre, note, cv, …).</p>
+<div id="bookdown" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Bookdown<a href="aller-plus-loin-bis.html#bookdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://bookdown.org/yihui/bookdown/images/logo.png" width="50%" /></p>
+</div>
+<div id="pagedown-1" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Pagedown<a href="aller-plus-loin-bis.html#pagedown-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" width="50%" /></p>
+</div>
+<div id="officer" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Officer<a href="aller-plus-loin-bis.html#officer" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg" width="50%" /></p>
+<p>Le format Bookdown permet de gérer des projets Rmarkdown plus large qu’un simple document de quelques pages.</p>
+<p>Par ailleurs, le format bookdown apporte plusieurs améliorations :</p>
+<ul>
+<li><p>Les livres et les rapports peuvent être créés à partir de plusieurs fichiers R Markdown.</p></li>
+<li><p>Des fonctionnalités de mise en forme supplémentaires sont ajoutées, telles que les références croisées et la numérotation des figures, des équations et des tableaux.</p></li>
+<li><p>Les documents peuvent être facilement exportés dans une gamme de formats adaptés à la publication (PDF, epub, HTML).</p></li>
+</ul>
+<p><img src="https://bookdown.org/yihui/bookdown/images/logo.png" width="50%" /></p>
+<p>Installer bookdown depuis le CRAN</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="aller-plus-loin-bis.html#cb56-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;bookdown&#39;</span>)</span></code></pre></div>
+<ul>
+<li><p>Depuis Rstudio, cela vous apporte un nouveau type de projet, accessible depuis <code>File -&gt; New Project -&gt; New Directory -&gt; Book Project using bookdown</code>.</p></li>
+<li><p>Une fois celui ci créé, vous pouvez cliquer sur <code>Build book</code> dans l’onglet <code>Build</code> de Rstudio. Cela vous compilera le document en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.</p></li>
+</ul>
+<p><img src="assets/img/templatespublications/bookdown.gif" /><!-- --></p>
+<p>Quand vous créé un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants :</p>
+<ul>
+<li><p><code>index.Rmd</code>, le seul fichier Rmarkdown qui contient comme usuellement un yaml en entête. C’est le premier chapitre de votre livre.</p></li>
+<li><p><code>01-intro.Rmd</code> à <code>06-references.Rmd</code> des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d’un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier comment par le titre du chapitre.</p></li>
+<li><p><code>_bookdown.yml</code> Un fichier de configuration de votre document bookdown.</p></li>
+<li><p><code>_output.yml</code> Un fichier de configuration des formats de sortie de votre document (pdf, html…).</p></li>
+<li><p><code>book.bib</code> un fichier de bibliographie au format <a href="https://fr.wikipedia.org/wiki/BibTeX">BibTeX</a>.</p></li>
+<li><p><code>preamble.tex</code> et <code>style.css</code> des fichiers de configuration de l’apparence de votre document pour sa version pdf (réalisé en LaTeX) et sa version html (réalisé en css).</p></li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb57-1"><a href="aller-plus-loin-bis.html#cb57-1" tabindex="-1"></a>directory/</span>
+<span id="cb57-2"><a href="aller-plus-loin-bis.html#cb57-2" tabindex="-1"></a>├──  index.Rmd</span>
+<span id="cb57-3"><a href="aller-plus-loin-bis.html#cb57-3" tabindex="-1"></a>├── 01-intro.Rmd</span>
+<span id="cb57-4"><a href="aller-plus-loin-bis.html#cb57-4" tabindex="-1"></a>├── 02-literature.Rmd</span>
+<span id="cb57-5"><a href="aller-plus-loin-bis.html#cb57-5" tabindex="-1"></a>├── 03-method.Rmd</span>
+<span id="cb57-6"><a href="aller-plus-loin-bis.html#cb57-6" tabindex="-1"></a>├── 04-application.Rmd</span>
+<span id="cb57-7"><a href="aller-plus-loin-bis.html#cb57-7" tabindex="-1"></a>├── 05-summary.Rmd</span>
+<span id="cb57-8"><a href="aller-plus-loin-bis.html#cb57-8" tabindex="-1"></a>├── 06-references.Rmd</span>
+<span id="cb57-9"><a href="aller-plus-loin-bis.html#cb57-9" tabindex="-1"></a>├── _bookdown.yml</span>
+<span id="cb57-10"><a href="aller-plus-loin-bis.html#cb57-10" tabindex="-1"></a>├── _output.yml</span>
+<span id="cb57-11"><a href="aller-plus-loin-bis.html#cb57-11" tabindex="-1"></a>├──  book.bib</span>
+<span id="cb57-12"><a href="aller-plus-loin-bis.html#cb57-12" tabindex="-1"></a>├──  preamble.tex</span>
+<span id="cb57-13"><a href="aller-plus-loin-bis.html#cb57-13" tabindex="-1"></a>├──  README.md</span>
+<span id="cb57-14"><a href="aller-plus-loin-bis.html#cb57-14" tabindex="-1"></a>└──  style.css</span></code></pre></div>
+<p>La balise yaml du fichier <code>index.Rmd</code> contient des options spécifiques au format bookdown sur la gestion de la bibliographie.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb58-1"><a href="aller-plus-loin-bis.html#cb58-1" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A Minimal Book Example&quot;</span></span>
+<span id="cb58-2"><a href="aller-plus-loin-bis.html#cb58-2" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Yihui Xie&quot;</span></span>
+<span id="cb58-3"><a href="aller-plus-loin-bis.html#cb58-3" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2025-11-20&quot;</span></span>
+<span id="cb58-4"><a href="aller-plus-loin-bis.html#cb58-4" tabindex="-1"></a><span class="fu">site</span><span class="kw">:</span><span class="at"> bookdown::bookdown_site</span></span>
+<span id="cb58-5"><a href="aller-plus-loin-bis.html#cb58-5" tabindex="-1"></a><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb58-6"><a href="aller-plus-loin-bis.html#cb58-6" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">book.bib</span><span class="kw">,</span><span class="at"> packages.bib</span><span class="kw">]</span></span>
+<span id="cb58-7"><a href="aller-plus-loin-bis.html#cb58-7" tabindex="-1"></a><span class="fu">biblio-style</span><span class="kw">:</span><span class="at"> apalike</span></span>
+<span id="cb58-8"><a href="aller-plus-loin-bis.html#cb58-8" tabindex="-1"></a><span class="fu">link-citations</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb58-9"><a href="aller-plus-loin-bis.html#cb58-9" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook.&quot;</span></span></code></pre></div>
+</div>
+<div id="la-structure-du-projet---_bookdown.yml" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> La structure du projet - _bookdown.yml<a href="aller-plus-loin-bis.html#la-structure-du-projet---_bookdown.yml" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le fichier <code>_bookdown.yml</code> permet de spécifier des options de configuration supplémentaires pour construire le livre.</p>
+<p>Par exemple :</p>
+<ul>
+<li>changer le nom du fichier (<code>book_filename</code>)</li>
+<li>franciser le préfixe devant le numéro du chapitre (<code>chapter_name</code>) ou le préfixe des tableau et des graphiques (<code>fig</code> et <code>tab</code>)</li>
+<li>changer l’ordre de fusion des fichiers (<code>rmd_files</code>)</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb59-1"><a href="aller-plus-loin-bis.html#cb59-1" tabindex="-1"></a><span class="fu">book_filename</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_bookdown&quot;</span></span>
+<span id="cb59-2"><a href="aller-plus-loin-bis.html#cb59-2" tabindex="-1"></a><span class="fu">delete_merged_file</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb59-3"><a href="aller-plus-loin-bis.html#cb59-3" tabindex="-1"></a><span class="fu">language</span><span class="kw">:</span></span>
+<span id="cb59-4"><a href="aller-plus-loin-bis.html#cb59-4" tabindex="-1"></a><span class="at">  </span><span class="fu">ui</span><span class="kw">:</span></span>
+<span id="cb59-5"><a href="aller-plus-loin-bis.html#cb59-5" tabindex="-1"></a><span class="at">    </span><span class="fu">chapter_name</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Chaptitre &quot;</span></span>
+<span id="cb59-6"><a href="aller-plus-loin-bis.html#cb59-6" tabindex="-1"></a><span class="at">  </span><span class="fu">label</span><span class="kw">:</span></span>
+<span id="cb59-7"><a href="aller-plus-loin-bis.html#cb59-7" tabindex="-1"></a><span class="at">    </span><span class="fu">fig</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Graphique &quot;</span></span>
+<span id="cb59-8"><a href="aller-plus-loin-bis.html#cb59-8" tabindex="-1"></a><span class="at">    </span><span class="fu">tab</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Tableau &quot;</span></span>
+<span id="cb59-9"><a href="aller-plus-loin-bis.html#cb59-9" tabindex="-1"></a><span class="fu">rmd_files</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;index.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;01-intro.Rmd&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;05-summary.Rmd&quot;</span><span class="kw">]</span></span></code></pre></div>
+<p>Le fichier <code>_output.yml</code> est utilisé pour spécifier les type de format de sortie (pdf, html…) et les options relatives à ces formats.</p>
+<p>Pour le format html, c’est là par exemple que vous pouvez spécifier entre autre :</p>
+<ul>
+<li>la feuille de style css à utiliser</li>
+<li>les textes inscrit en haut et en bas du menu de navigation</li>
+<li>les options de partage sur les réseaux sociaux que vous voulez (si vous en voulez, vous pouvez aussi tous les désactiver avec l’option <code>sharing</code> ci contre)</li>
+</ul>
+<div class="sourceCode" id="cb60"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb60-1"><a href="aller-plus-loin-bis.html#cb60-1" tabindex="-1"></a><span class="at">bookdown:</span><span class="fu">:gitbook</span><span class="kw">:</span></span>
+<span id="cb60-2"><a href="aller-plus-loin-bis.html#cb60-2" tabindex="-1"></a><span class="at">  </span><span class="fu">css</span><span class="kw">:</span><span class="at"> style.css</span></span>
+<span id="cb60-3"><a href="aller-plus-loin-bis.html#cb60-3" tabindex="-1"></a><span class="at">  </span><span class="fu">config</span><span class="kw">:</span></span>
+<span id="cb60-4"><a href="aller-plus-loin-bis.html#cb60-4" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span></span>
+<span id="cb60-5"><a href="aller-plus-loin-bis.html#cb60-5" tabindex="-1"></a><span class="fu">      before</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb60-6"><a href="aller-plus-loin-bis.html#cb60-6" tabindex="-1"></a>        &lt;li&gt;&lt;a href=&quot;./&quot;&gt;Mon premier bookdown&lt;/a&gt;&lt;/li&gt;</span>
+<span id="cb60-7"><a href="aller-plus-loin-bis.html#cb60-7" tabindex="-1"></a><span class="fu">      after</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb60-8"><a href="aller-plus-loin-bis.html#cb60-8" tabindex="-1"></a>        &lt;li&gt;Mon premier bookdown&lt;/li&gt;</span>
+<span id="cb60-9"><a href="aller-plus-loin-bis.html#cb60-9" tabindex="-1"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;pdf&quot;</span><span class="kw">,</span><span class="at"> </span><span class="st">&quot;epub&quot;</span><span class="kw">]</span></span>
+<span id="cb60-10"><a href="aller-plus-loin-bis.html#cb60-10" tabindex="-1"></a><span class="at">    </span><span class="fu">sharing</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb60-11"><a href="aller-plus-loin-bis.html#cb60-11" tabindex="-1"></a><span class="at">    </span><span class="fu">info</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span></code></pre></div>
+<ul>
+<li><p>Vous pouvez exclure un chapitre de la numérotation, en rajoutant <code>{-}</code> devant son nom dans le fichier Rmd.</p></li>
+<li><p>Vous pouvez structurer vos chapitres en partie.
+Pour commencer une partie rajouter <code># ( PART) Nom de votre partie {-}</code> devant un chapitre.</p></li>
+</ul>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pagedown-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="configurer-votre-yaml-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="du-rmarkdown-interactif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pagedown-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
