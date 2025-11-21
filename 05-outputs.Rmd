@@ -155,6 +155,16 @@ output:
 
 Cela a par ailleurs l'avantage de placer les figures dans le dossier des dépendances du html et de pouvoir les mobiliser facilement dans d'autres contextes.
 
+### Affichages sur plusieurs colonnes
+
+cela se fait très bien en format PDF, c'est plus compliqué en HTML.
+Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec par exemple une illustration sur une moitié de la page, un texte sur l'autre.
+
+Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
+
+Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
+
+Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
 
 ## Sorties PDF
 
@@ -227,6 +237,12 @@ Une autre option consiste dans un 2e temps à imprimer le html généré avec un
 
 ### {Pagedown}
 
+
+```{r, echo=FALSE, out.width='25%'}
+knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
+```
+
+
 Le package [`{pagedown}`](https://pagedown.rbind.io/) avec sa fonction [`chrome_print()`](https://pagedown.rbind.io/#print-to-pdf) permet de produire un pdf à partir d'un Rmd conçu pour du html, sans besoin de LaTeX. 
 
 La fonction se repose sur le moteur d'impression du navigateur chrome :
@@ -245,6 +261,7 @@ output:
     number_sections: false
 ---
 ```
+
 
 ::: {.exo}
 **Exercice 4**

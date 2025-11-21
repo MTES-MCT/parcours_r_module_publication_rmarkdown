@@ -1,5 +1,184 @@
 # De la page au livre, le package bookdown
 
+
+
+## Bookdown - version atelier
+
+
+```{r, echo=FALSE, out.width='50%'}
+knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
+```
+
+La principale différence entre la complilation en HTML d'un document bookdown et celle d'un document RMarkdown est que le premier comprend plusieurs pages HTML par défault - typiquement une par chapitre. La séparation d'un document en plusieurs pages a pour avantages d'autoriser l'envoi de liens vers des chacun des chapitres et de réduire le temps d'affichage car chaque page est moins lourde prise séparément.
+
+Les "plus" de bookdown (numérotation et référencement des équations, théorèmes, titres particuliers, bibliographie) ; cf bouquin bookdown pp 15-23 :
+
+
+Balises
+Table des matières
+css
+liens
+images
+versioning
+mise en page
+Table des matières
+Homogénéiser la présentation : fonctions graphiques
+
+
+
+
+
+
+Le format Bookdown permet de gérer des projets Rmarkdown plus large qu'un simple document de quelques pages.
+
+Par ailleurs, le format bookdown apporte plusieurs améliorations : 
+
+- Les livres et les rapports peuvent être créés à partir de plusieurs fichiers R Markdown.
+
+- Des fonctionnalités de mise en forme supplémentaires sont ajoutées, telles que les références croisées et la numérotation des figures, des équations et des tableaux.
+
+- Les documents peuvent être facilement exportés dans une gamme de formats adaptés à la publication (PDF, epub, HTML).
+
+
+```{r, echo=FALSE, out.width='50%'}
+knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
+```
+
+
+
+Installer bookdown depuis le CRAN
+
+```{r, eval = FALSE}
+install.packages('bookdown')
+```
+
+- Depuis Rstudio, cela vous apporte un nouveau type de projet, accessible depuis `File -> New Project -> New Directory -> Book Project using bookdown`.
+
+- Une fois celui ci créé, vous pouvez cliquer sur `Build book` dans l'onglet `Build` de Rstudio. Cela vous compilera le document en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
+
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("assets/img/templatespublications/bookdown.gif")
+```
+
+
+Quand vous créé un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants : 
+
+
+- `index.Rmd`, le seul fichier Rmarkdown qui contient comme usuellement un yaml en entête. C'est le premier chapitre de votre livre.
+
+- `01-intro.Rmd` à `06-references.Rmd` des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier comment par le titre du chapitre.
+
+- `_bookdown.yml` Un fichier de configuration de votre document bookdown.
+
+- `_output.yml` Un fichier de configuration des formats de sortie de votre document (pdf, html...).
+
+- `book.bib` un fichier de bibliographie au format [BibTeX](https://fr.wikipedia.org/wiki/BibTeX).
+
+- `preamble.tex` et `style.css` des fichiers de configuration de l'apparence de votre document pour sa version pdf (réalisé en LaTeX) et sa version html (réalisé en css).
+
+
+
+```md
+directory/
+├──  index.Rmd
+├── 01-intro.Rmd
+├── 02-literature.Rmd
+├── 03-method.Rmd
+├── 04-application.Rmd
+├── 05-summary.Rmd
+├── 06-references.Rmd
+├── _bookdown.yml
+├── _output.yml
+├──  book.bib
+├──  preamble.tex
+├──  README.md
+└──  style.css
+```
+
+
+La balise yaml du fichier `index.Rmd` contient des options spécifiques au format bookdown sur la gestion de la bibliographie.
+
+```yaml
+title: "A Minimal Book Example"
+author: "Yihui Xie"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+```
+## La structure du projet - _bookdown.yml
+
+
+
+Le fichier `_bookdown.yml` permet de spécifier des options de configuration supplémentaires pour construire le livre.
+
+Par exemple : 
+
+- changer le nom du fichier (`book_filename`)
+- franciser le préfixe devant le numéro du chapitre (`chapter_name`) ou le préfixe des tableau et des graphiques (`fig` et `tab`)
+- changer l'ordre de fusion des fichiers (`rmd_files`)
+
+
+
+```yaml
+book_filename: "mon_premier_bookdown"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chaptitre "
+  label:
+    fig: "Graphique "
+    tab: "Tableau "
+rmd_files: ["index.Rmd", "01-intro.Rmd", "05-summary.Rmd"]
+```
+
+
+
+
+
+Le fichier `_output.yml` est utilisé pour spécifier les type de format de sortie (pdf, html...) et les options relatives à ces formats.
+
+
+Pour le format html, c'est là par exemple que vous pouvez spécifier entre autre : 
+
+- la feuille de style css à utiliser
+- les textes inscrit en haut et en bas du menu de navigation
+- les options de partage sur les réseaux sociaux que vous voulez (si vous en voulez, vous pouvez aussi tous les désactiver avec l'option `sharing` ci contre)
+
+
+
+```yaml
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Mon premier bookdown</a></li>
+      after: |
+        <li>Mon premier bookdown</li>
+    download: ["pdf", "epub"]
+    sharing: no
+    info: no
+```
+
+
+
+- Vous pouvez exclure un chapitre de la numérotation, en rajoutant `{-}` devant son nom dans le fichier Rmd.
+
+- Vous pouvez structurer vos chapitres en partie. 
+Pour commencer une partie rajouter `# ( PART) Nom de votre partie {-}` devant un chapitre.
+
+--------------------
+
+Version reprise DEALs
+
+
+
 Le paquet bookdown est construit sur les fondations données par R
 Markdown <http://rmarkdown.rstudio.com>. Il s'appuie ainsi sur la
 simplicité de la syntaxe Markdown aussi bien que sur l'éventail des

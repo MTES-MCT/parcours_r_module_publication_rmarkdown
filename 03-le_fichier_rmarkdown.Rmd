@@ -13,6 +13,18 @@ C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur
 
 ![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
 
+Un fichier R Markdown ressemble à ça : 
+
+```{r create-xaringan, include=FALSE}
+rmarkdown::render(input = "assets/slides/str_fic_rmd.Rmd", output_dir = "assets/slides/")
+```
+
+```{r embed-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "assets/slides/str_fic_rmd.html", ratio = "16:9")
+```
+
+
+
 ## R markdown dans RStudio
 
 Pour utiliser R Markdown, il faut que le package `rmarkdown` soit installé :
