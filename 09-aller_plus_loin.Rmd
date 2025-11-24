@@ -2,7 +2,7 @@
 
 Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, ...) ou de type de rendu (diaporama, rapport, livre, note, cv, ...).
 
-## Les documents Quarto
+## Les documents Quarto {#quarto}
 
 Un document Quarto est un format de document qui permet de combiner du
 texte, du code et des visualisations dans un seul fichier, comme un
@@ -43,15 +43,15 @@ Vous trouverez toute la documentation, des exemples mais surtout des
 guides très complets pour s'autoformer directement [sur le site de
 Quarto](https://quarto.org/).
 
-
-## odt_document  --> TODO
+## Autres formats de sortie
+### odt_document  --> TODO
 
 les tableaux faits en kableExtra et knitr::kable ne sortent pas correctement. 
 les graphiques ne sont pas complets (titres coupés par ex)
 ce format pourrait etre utile uniquement pour le texte. 
 les graphiques seraient à faire séparement?
 
-## Autres formats de sortie
+
 
 Il existe des packages permettant d'obtenir des formats de sortie spécifiques. 
 
@@ -59,292 +59,71 @@ Il existe des packages permettant d'obtenir des formats de sortie spécifiques.
 ```{r, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
 ```
+
 Pour les documents bureautiques de type .docx ou .pptx
 
 ### Xaringan 
 Pour des présentations de ninja
 
 
-### distill 
+### Distill 
 pour les publications scientifiques 
 
 
-## Pagedown
-
-Pagedown est une implémentation pour Rmarkdown de [paged.js](https://www.pagedjs.org/), qui permet de réaliser des documents html paginés.
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
-```
-
-
-### Paged.js
-
-
-
-[paged.js](https://www.pagedjs.org/) est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés(https://www.w3.org/TR/css-page-3/) du W3C.
-
-Ces spécifications visent à pouvoir réaliser des documents prêt pour l'impression avec les technologies du web (html, css, js).
-
-Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraimente reconnues par les principaux navigateurs. D'où le besoin de cette bibliothèque javascrit pour pouvoir les mettre en oeuvre.
-]
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("https://www.pagedmedia.org/wp-content/uploads/2018/12/pagedjs-logo.png")
-```
-
-
-Pour installer pagedown depuis le CRAN : 
-
-```{r, eval = FALSE}
-install.packages('rstudio/pagedown')
-```
-
-Depuis Rstudio, cela vous apporte un nouveau type de document rmarkdown, accessible depuis `File -> New File -> Rmarkdown... -> From template -> Paged HTML document`.
-
-Une fois celui ci créé, vous pouvez cliquer sur knit de l'interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("assets/img/templatespublications/pagedown.gif")
-```
-
-
-
-
-
-La structure du yaml est relativement proche d'un document Rmarkdown classique.
-
-A noter toutefois une option utile à retenir, la balise `knit: pagedown::chrome_print` qui vous permet de compiler directement votre document en pdf grâce à la fonction `pagedown::chrome_print()` livrée dans le package. 
-
-Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout document html en pdf ou en format image. Elle utilise la technologie d'impression de google chrome.
-
-
-
-
-
-```yaml
-title: "A Multi-page HTML Document"
-author: "Yihui Xie and Romain Lesur"
-date: "`r Sys.Date()`"
-output:
-  pagedown::html_paged:
-    toc: true
-    \# change to true for a self-contained document, but it'll be a litte slower for Pandoc to render
-    self_contained: false
-\# uncomment this line to produce HTML and PDF in RStudio:
-\#knit: pagedown::chrome_print
-```
-
-
-### Configurer votre yaml
-
-Voici quelques options du yaml intéressantes à connaître : 
-
-
-
-```md
-toc-title: sommaire
-```
-
-
-
-Pour modifier le nom du sommaire du document.
-
-
-
-
-```md
-lot: true
-lot-title: "Tableaux"
-lof: true
-lof-title: "Graphiques"
-```
-
-
-
-Pour ajouter et configurer une liste de tableau et de graphique dans le sommaire. Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser `lot-unlisted: true`.
-
-
-
-
-```md
-chapter_name: "Chapitre\\ "
-```
-
-
-Pour modifier le préfixe du titre du chapitre. Vous pouvez ensuite insérer un chapitre en utilisant `# Ceci est un titre de chapitre {.chapter}`
-
-
-Voici quelques options du yaml intéressantes à connaître.
-
-
-
-```md
-links-to-footnotes: true
-```
-
-
-
-Cette option transforme automatiquement un lien url dans votre document en note de bas de page. Ainsi `[CRAN](https://cran.r-project.org/)` sera traduit comme `[CRAN^(https://cran.r-project.org/)`.
-
-]
-
-
-
-```md
-  pagedown::html_paged:
-    front_cover: !expr system.file("help","figures","lter_penguins.png",package = "palmerpenguins")
-    back_cover: https://www.r-project.org/Rlogo.png
-
-
-Pour rajouter une image pour la première de couverture et la 4ème de couverture. On peut utiliser le prefix !expr pour insérer du code R créant en sortie une image.
-
-
-
-
-# Quelques balises importantes à connaître
-
-
-
-`.page-break-before` et `.page-break-after` vous permettent d'insérer un saut de page.
-
-
-````{verbatim}
-### Nouveau chapitre après un saut de page {.page-break-before}
-````
-
-
-
-`[Chapitre 1]` vous permet de rajouter un lien vers la section `Chapitre 1`.
-
-# Modifier le CSS
-
-Apprendre à customiser un document pagedown va vous demander d'investir sur l'apprentissage du CSS en général et de pagedjs en particulier pour construire un template ad hoc.
-
-C'est un investissement en soit, qui pourra vous être utile de la même façon que la gestion de la mise en page d'un document bureautique.
-
-Vous pouvez aussi centraliser cet investissement pour votre équipe sur une ou deux personnes, ou travailler avec votre service web sur vos projets.
-
-Quelques ressources pour apprendre le CSS : 
-
-- [Le site de la fondation Mozilla](https://developer.mozilla.org/fr/docs/Learn/Getting_started_with_the_web/CSS_basics)
-
-- [Le site du W3C](https://www.w3.org/Style/Examples/011/firstcss.fr.html)
-
-# Modifier le CSS
-
-Voici déjà quelques recettes de base pour commencer à modifier votre document.
-
-Première étape : importer les css par défaut de pagedown dans votre document.
-
-```{r, eval = FALSE}
-
-files <- c("default-fonts", "default-page", "default")
-from <- pagedown:::pkg_resource(paste0("css/", files, ".css"))
-to <- c("custom-fonts.css", "custom-page.css", "custom.css")
-file.copy(from = from, to = to)
-```
-
-Ajouter une référence à ces fichiers dans le yaml :
-
-```yaml
-output:
-  pagedown::html_paged:
-    css:
-    - custom-fonts.css
-    - custom-page.css
-    - custom.css
-    toc: true
-    self_contained: false
-```
-# Modifier le CSS
-
-- Lancer dans la console `xaringan::inf_mr()`, qui permet de compiler un document Rmarkdown en ayant un aperçu live du rendu.
-
-
-
-- Appuyer ensuite sur `Show in new window` pour consulter le document sur votre navigateur par défaut.
-
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("assets/img/templatespublications/show_new_window.png")
-```
-
-
-
-
-- Puis sur `Clear all viewer item`, pour que vos modifications puisse s'afficher en live.
-
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("assets/img/templatespublications/clear_all_viewer_item.png")
-```
-
-
-### Configurer votre CSS
-
-Vous pouvez commencer à modifier vos fichiers css et voir le résultats immédiatement.
-
-Les 3 fichiers correspondent aux éléments suivants :
-
-- `custom-fonts.css` correspond aux polices de caractères
-- `custom-page.css` correspond aux paramètres de la page (format de la page, orientation,...)
-- `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
-
-
-
-[`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css.
-
-Il n'est pas encore sur le cran, pour l'installer : 
-
-```{r, eval = FALSE}
-remotes::install_github("rfortherestofus/pagedreport)
-```
-
-
-
-```{r, echo = FALSE}
-knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif")
-```
-
-
-`{pagedreport}` vous simplifie l'utilisation de pagedown en proposant trois templates avancés paramétrables via de nouvelles options à intégrer dans le yaml :
-
-
-- `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
-- `paged_grid::logo` vous permet d'ajouter le logo de votre institution à votre rapport
-- `paged_grid::front_img` et `paged_grid::back_img` vous permettent de choisir deux images pour la première et la quatrième de couverture.
-- `main-color` et `secondary-color` vous permette de choisir les couleurs principales et secondaires de votre document.
-- `main-font` et `header-font` vous permettent de choisir une police de caractère pour le texte et vos titres. Si `google-font` est à TRUE, vous pouvez sélectionner toute police disponible sur google font.
-
-
-
-
-```
-subtitle: "Au 1er juin 2021"
-author: "Guillaume RRRRRozier"
-date: "11 juin 2021"
-output: 
-    pagedreport::paged_grid:
-      logo: "https://upload.wikimedia.org/wikipedia/fr/7/72/Logo_du_Gouvernement_de_la_R%C3%A9publique_fran%C3%A7aise_%282020%29.svg"
-knit: pagedown::chrome_print
-toc-title: "Sommaire"
-main-color: "#000091"
-secondary-color: "#000091"
-google-font: TRUE
-main-font: "Open Sans"
-header-font: "Open Sans"
-```
 
 ## Le cache 
 
 Si le temps d'éxecution du code est trop long, il est possible d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
 performances d'éxécution du code.
+
+## Rendre le paramétrage interactif 
+dernière slide de l'atelier 2
+
+## Transformer les sous-titres en onglets 
+
+Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections (https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html)
+
+**Code:**
+
+```markdown
+### Exemple d'onglets {.tabset}
+
+#### Onglet 1
+
+Contenu de l'onglet 1
+
+#### Onglet 2
+
+Contenu de l'onglet 2
+
+### {-}
+```
+
+- Il est aussi possible de spécifier 2 attributs supplémentaires pour les onglets: 
+
+1. `.tabset-fade`: les onglets vont disparaître et apparaître en se déplaçant de l'un à l'autre  
+2. `.tabset-pills` apparence des onglets en "pill" :  
+
+```markdown
+## Résultats {.tabset .tabset-fade .tabset-pills}
+```
+
+- Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {-}` pour continuer avec des paragraphes réguliers.   
+
+
+**Résultat:**
+
+### Exemple d'onglets {.tabset}
+
+#### Onglet 1
+
+Contenu de l'onglet 1
+
+#### Onglet 2
+
+Contenu de l'onglet 2
+
+### {-}
 
 
 ## Bibliographie
@@ -356,5 +135,5 @@ Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown ma
 -   [La syntaxe Markdown sur laquelle s'appuie`rmarkdown`](https://daringfireball.net/projects/markdown/syntax#philosophy)
 -   [Pour en savoir plus sur PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
 -   [Pour en savoir plus sur TinyTeX](https://yihui.org/tinytex/)
--   [Une vidéo en anglais pour aller plus loin dasn l'utilisation de R Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
--   et évidemment les documentations de tous les packages cités!
+-   [Une vidéo en anglais pour aller plus loin dans l'utilisation de R Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
+-   et évidemment les documentations de tous les packages cités !

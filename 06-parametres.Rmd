@@ -1,11 +1,12 @@
-
-# Ajouter des paramètres
+# Paramétrer un rapport
 
 Un des nombreux avantages de R Markdown est la possibilité de reproduire des analyses très facilement en actualisant une partie du travail ou en changeant un des entrants du document. 
 Utiliser des paramètres permet d'aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scenarios. 
 On peut ainsi créer des documents pour des territoires ou des années différents, faire tourner une 
 analyse en changeant une des hypothèses ou changer le comportement de `knitr` selon les cas rencontrés.
 
+
+## Ajouter une entrée `params` dans l'entête yaml
 
 Les paramètres sont spécifiés dans l'en-tête avec l'option `params` dans laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.
 
@@ -16,23 +17,25 @@ L'en-tête, et donc le code pouvant y être présent, est exécuté avant le res
 Par exemple: 
 
 
-```{yaml}
+```yml
 ---
 title: "mon_premier_document"
 author: "Moi"
-date: "31/10/2022"
+date: "31/10/2025"
 output: html_document
 params:
-  annee: 2022
+  annee: 2024
   region: Bretagne
   date: !r lubricate::today()
 ---
 ```
 
 Une fois définis dans l'en-tête, ces paramètres sont accessibles depuis le fichier .Rmd (texte ou code) mais aussi depuis la console. 
-Ils sont stockés dans une liste en lecture nommée *`params`*. 
+Ils sont stockés dans une liste nommée *`params`*. 
 
-Le code suivant montre quelques exemples d'utilisation des paramètres :
+## Exemple d'utilisation des paramètres
+
+Le code suivant montre quelques exemples d'utilisation des paramètres, dans les options de chunks, ou dans la production des visualisations :
 
 ````{verbatim}
 ---
@@ -55,9 +58,9 @@ knitr::opts_chunk$set(
 ```
 
 
-Les résultats affichés ci-dessus concernent l'espece `r params$espece`.
+Les résultats affichés ci-dessus concernent l'espèce `r params$espece`.
 
-```{r, include=FALSE}
+```{r}
 
 print(params)
 
@@ -90,6 +93,8 @@ Cette dernière façon de faire, via la fonction `rmarkdown::render()` permet d'
 En effet, dans un script .R, il est possible de créer une fonction ayant en entrée les paramètres que l'on veut 
 modifier plusieurs fois mais aussi le nom du document généré.
 
+## Comment compiler un rapport pour une liste de valeurs ?
+
 En reprenant l'exemple précédent, on peut produire la sortie d'un rapport pour toutes les espèces :
   
 ````{verbatim}
@@ -112,4 +117,25 @@ lapply(X = liste_especes, FUN = generer_rapport_par_espece)
 ``` 
 ````
   
+## Paramétrer le titre du rapport
+
+On peut utiliser du code R pour définir notre titre. 
+La seule contrainte est de déplacer notre balise de titre après la définition des paramètres.
+
+```{yaml, eval = FALSE}
+---
+author: "Moi"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: html_document
+params:
+  espece: setosa
+  printcode: TRUE
+title: "Rapport iris - Variété `r params$espece`"
+---
+```
+
+
+```{r, eval = TRUE, echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/img/parametres/param-title2.png")
+```
 

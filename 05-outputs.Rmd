@@ -168,7 +168,7 @@ Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous dev
 
 ## Sorties PDF
 
-### Configuration préalable pour l'usage de pdf_document
+### Configuration préalable pour l'usage de pdf_document {#latex}
 
 Pour générer des documents PDF avec `output: pdf_document`, il est nécessaire d'avoir installé LaTeX. 
 LaTeX est un logiciel externe qui vient en complément de R pour produire des PDF. 

@@ -184,6 +184,15 @@ print(x.split(' '))
 ```
 ````
 
+
+Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
+
+Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d'autres langages, l'inverse n'est pas vrai.
+Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.
+
+Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre \@ref(quarto).
+
+#### Cas particulier du SQL
 Pour utiliser du SQL, il faut impérativement ajouter un paramètre de connexion à l'aide d'une variable préalablement fixée dans un chunk R :
 
 ````{verbatim}
@@ -217,6 +226,24 @@ SELECT * FROM mon_schema.matable
 ````
 
 Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
+
+
+## L'interactivité dans d'autres langages
+
+Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
+Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
+
+````{verbatim}
+```{js echo = TRUE}
+```
+````
+
+````{verbatim}
+```{python echo = TRUE}
+```
+````
+
+
 
 ## Exercice 3
 ::: {.exo}
