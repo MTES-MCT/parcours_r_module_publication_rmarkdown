@@ -13,8 +13,8 @@ Rstudio).
 
 Les différences principales sont :
 
--   le support multi-langage (R, Python, Javascript, Julia) et
-    multi-moteur (Knitr, Jupyter, Observable) ;
+-   l'amélioration du support multi-langage (R, Python, Javascript, Julia) et
+    multi-moteur (knitr, Jupyter, Observable) ;
 
 -   un rendu amélioré : Quarto offre des options de rendu plus riches et
     plus flexibles, y compris des thèmes et des styles personnalisés
@@ -43,32 +43,110 @@ Vous trouverez toute la documentation, des exemples mais surtout des
 guides très complets pour s'autoformer directement [sur le site de
 Quarto](https://quarto.org/).
 
-## Autres formats de sortie
-### odt_document  --> TODO
+## Formats de sortie 
 
-les tableaux faits en kableExtra et knitr::kable ne sortent pas correctement. 
-les graphiques ne sont pas complets (titres coupés par ex)
-ce format pourrait etre utile uniquement pour le texte. 
-les graphiques seraient à faire séparement?
+Il existe de nombreux packages packages permettant d'obtenir des formats de sortie spécifiques. 
 
+Utiliser des formats de sorties de type bureautiques est très utile si :   
 
+- on souhaite tirer partie de documents bureautiques modèles, conformes à une charte graphique que l'on souhaite respecter, 
+- on souhaite faire éditer le document produit par des non-Ristes.
 
-Il existe des packages permettant d'obtenir des formats de sortie spécifiques. 
+Cela peut s'avérer nécessaire pour faire relire/valider le document avant sa publication, mais attention ! il faudra dans un second temps reporter dans Rmarkdown les modifications opérées en dehors, pour tirer pleinement partie de la reproductibilité offerte par Rmarkdown. 
+
+### odt_document  
+
+Parmi les types de sortie possibles, `{rmarkdown}` propose le format Libre Office Writer .odt 
+Il repose pour cela sur Pandoc qui traite la conversion de markdown (fichier .md) en document Libre Office Writer (fichier .odt).
+Depuis R, cette conversion offre un nombre limité de paramètres de personnalisation.
+
+:::: {style="display: flex; gap: 50px;"}
+
+::: {}
+Paramètres de la fonction `odt_document()` : 
+```r
+odt_document(
+  number_sections = FALSE,
+  fig_width = 5,
+  fig_height = 4,
+  fig_caption = TRUE,
+  template = "default",
+  reference_odt = "default",
+  includes = NULL,
+  keep_md = FALSE,
+  md_extensions = NULL,
+  pandoc_args = NULL
+)
+```
+:::
+
+::: {}
+
+Ce qui donne pour l'entête YML 
+
+```yml 
+--- 
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2025"
+output: 
+  odt_document:
+    number_sections: false  
+    fig_width: 5
+    fig_height: 4
+    fig_caption: true
+    reference_odt: "chemin/vers/le/modele.odt"
+--- 
+```  
+::: 
+:::: 
+
+- `number_sections` : TRUE/FALSE, sert à numéroter (ou pas) les titres.    
+- `fig_width` / `fig_height` sert à indiquer la largeur / hauteur par défaut (en pouces) pour les figures.      
+- `fig_caption` : TRUE/FALSE pour afficher des figures avec des légendes à partir des paramètres de chunks (`fig.cap = "légende de la figure"`).        
+- `template` : modèle Pandoc à utiliser pour le rendu, 3 possibilités : 1. laisser à "default" pour utiliser le modèle par défaut du package rmarkdown, 2. indiquer NULL pour revenir au modèle intégré de Pandoc ou 3. indiquer un chemin d'accès vers un modèle pandoc personnalisé. Consulter la [documentation de Pandoc](https://pandoc.org/MANUAL.html) pour plus de détails sur la création de modèles personnalisés.    
+- `reference_odt` : pour spécifier un fichier odt dont on souhaite réutiliser les styles. Pour un résultat optimal, le fichier odt de référence doit être une version modifiée d'un fichier odt généré avec pandoc.      
+- includes : liste nommée de contenu supplémentaire à inclure dans le document comme une entête ou un bas de page (A créer à l'aide de la [fonction `includes()`](https://pkgs.rstudio.com/rmarkdown/reference/includes.html)).     
+- `pandoc_args` : options de ligne de commande supplémentaires à transmettre à pandoc.    
+
+Une manière rapide de **styliser** le fichier compilé est de le générer une fois, de l'éditer avec libre office pour y [adapter les styles de titres, listes...](https://help.libreoffice.org/latest/fr/text/swriter/guide/spotlight_styles.html?&DbPAR=WRITER&System=WIN) au rendu souhaité.  
+
+On peut également coder les styles directement en xml cf. [ ce tuto en français](https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html) 
+
+La gestion des **tableaux** est parfois moins souple qu'en HTML/PDF, mais on peut obtenir quelque chose de propres.
+Les tableaux simples sont traités correctement avec `knitr::kable()` en spécifiant le format "pandoc".
+```r
+knitr::kable(head(iris), format = "pipe")
+```
+Il ne faut pas utiliser les fonctions spécifiques au format HTML (comme `kable_styling()`, `column_spec()`... ) car elles ne sont pas supportées.
+Mais `{kableExtra}` sait aussi générer des tableaux LaTeX et les fonctions compatibles avec le format PDF le seront généralement aussi pour ODT.  
+
+Les **graphiques** ne sont pas automatiquement redimensionnés comme dans un format de sortie HTML, il faut rester dans les limites de largeur du corps de la page (environ 6 pouces pour le modèle par défaut). 
+
 
 ### Officer et Officedown
+
 ```{r, echo=FALSE, out.width='50%'}
 knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
 ```
 
-Pour les documents bureautiques de type .docx ou .pptx
 
-### Xaringan 
+
+To do 
+Ajouter logo officedown
+Traduire et résumer https://ardata-fr.github.io/officeverse/index.html
+Pour les documents bureautiques de type .docx ou .pptx.
+
+
+Exemple 
+https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&plain=1
+
+### Présentations diaporama HTML
+
+Xaringan 
 Pour des présentations de ninja
 
-
-### Distill 
-pour les publications scientifiques 
-
+https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE
 
 
 ## Le cache 
@@ -82,6 +160,10 @@ dernière slide de l'atelier 2
 ## Transformer les sous-titres en onglets 
 
 Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections (https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html)
+
+:::: {style="display: flex; gap: 50px;"}
+
+::: {}
 
 **Code:**
 
@@ -98,32 +180,37 @@ Contenu de l'onglet 2
 
 ### {-}
 ```
+- Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {-}` pour continuer avec des paragraphes réguliers.   
+:::
+
+::: {}
+
+**Résultat :**  
+
+## Exemple d'onglets {.tabset} 
+
+### Onglet 1
+
+Contenu de l'onglet 1
+
+### Onglet 2
+
+Contenu de l'onglet 2
+
+## {-}  
+::: 
+:::: 
+
+
 
 - Il est aussi possible de spécifier 2 attributs supplémentaires pour les onglets: 
 
 1. `.tabset-fade`: les onglets vont disparaître et apparaître en se déplaçant de l'un à l'autre  
-2. `.tabset-pills` apparence des onglets en "pill" :  
+2. `.tabset-pills` apparence des onglets en "pill" 
 
 ```markdown
-## Résultats {.tabset .tabset-fade .tabset-pills}
+## Exemple d'onglets {.tabset .tabset-fade .tabset-pills}
 ```
-
-- Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {-}` pour continuer avec des paragraphes réguliers.   
-
-
-**Résultat:**
-
-### Exemple d'onglets {.tabset}
-
-#### Onglet 1
-
-Contenu de l'onglet 1
-
-#### Onglet 2
-
-Contenu de l'onglet 2
-
-### {-}
 
 
 ## Bibliographie
