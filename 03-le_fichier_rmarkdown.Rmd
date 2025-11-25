@@ -65,7 +65,7 @@ D'autres types de sorties existent, elles seront détaillées pat la suite.
 RStudio crée un fichier contenant des exemples d'éléments structurant un fichier Rmarkdown. 
 L'extension de ce type de fichier est `.Rmd`.
 
-### Lancer la génération du document
+### Lancer la génération du document par un 'knit'
 
 Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. 
 Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier.  

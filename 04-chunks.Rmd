@@ -19,16 +19,19 @@ summary(cars)
 
 On peut créer un nouveau chunk en cliquant sur le bouton :    
 
-![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier `Ctrl + Alt + I`. 
+![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier [Ctrl + Alt + I]{.kbd}. 
 
 
 On peut contrôler le résultat du code en l'exécutant : 
 
-- comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier Ctrl + Entrée,  
+- comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier [Ctrl + Entrée]{.kbd},  
 - ou en utilisant le bouton en triangle vert, situé en haut à droite de chaque chunk ![](assets/img/run_current_chunk.png)
 
 RStudio contient d'autres boutons pour exécuter le code d'un fichier Rmd : ils sont placés dans le menu déroulant 'Run' en haut à droite. Ils sont rappelés dans le menu "Code" tout en haut, au niveau de l'entrée 'Run Region". 
 
+Dans l'environnement de travail (cadran 'Global Environnement', situé en haut à droite généralement dans RStudio), on retrouve les objets créés par R lors des exécutions de chunks précédentes.  
+La commande 'Run All Chunks Above' que l'on peut déclencher en clic bouton ou avec le raccourci  [Alt + Ctrl + Maj + P]{.kbd} permet d'être certains de travailler sur les objets tels que créés précédemment par le programme. 
+Lors du knit, R utilise au démarrage un environnement R vierge. 
 
 ### Le nom des chunks
 
@@ -42,9 +45,9 @@ Il est généralement placé en début de document, en dessous de l’en-tête.
 
 ### Les options des *chunks*
 
-Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf \@(autres-langages).
+Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf \@ref(autres-langages).
 
-C'est dans cette accolade, après la lettre r que les options vont pouvoir être passées. 
+C'est dans cette accolade, après la lettre r, que les options vont pouvoir être passées. 
 
 Elles permettent de contrôler finement ce qui est produit par le chunk, pour choisir de faire apparaître, ou non, le code dans le rapport dynamique, ainsi que les résultats, ou encore pour définir la taille des plots.
 

@@ -48,16 +48,21 @@ Depuis Rstudio, cela vous apporte un nouveau type de projet, accessible depuis `
 Une fois celui-ci créé, vous pouvez cliquer sur `Build book` / `All format` dans l'onglet `Build` de Rstudio. 
 Cela vous compilera le document aux formats html, pdf et epub^[Le format epub est adapté pour la lecture sur écran portatif, notamment sur liseuse.] et ouvrira la version html.
 
-A l'instar du package `{rmarkdown}`, qui nous fournit la fonction `rmarkdown::render(input = "mon_fichier.Rmd")` pour compiler un document Rmd depuis une ligne de commande, `{bookdown}` propose la fonction `bookdown::render_book(input = "mon_dossier")` pour compiler l'ensemble des fichiers.
+A l'instar du package `{rmarkdown}`, qui fournit la fonction `rmarkdown::render(input = "mon_fichier.Rmd")`, `{bookdown}` propose la fonction `bookdown::render_book(input = "mon_dossier")` pour compiler l'ensemble des fichiers .Rmd d'un dossier.
 
 ```{r, echo=FALSE}
 knitr::include_graphics("assets/img/templatespublications/bookdown.gif")
 ```
 
+D'un point de vue informatique, la fonction `bookdown::render_book` commence par assembler le contenu de tous les documents Rmd dans un seul fichier .Rmd temporaire, puis compile ce fichier Rmd temporaire. 
+En conséquence, les objets R créés dans un chapitre peuvent être mobilisés au chapitre suivant, ou encore, les librairies (packages) n'ont pas besoin d'être appelées dans chacun des chapitres .Rmd avec `library()`. 
+Il est conseillé de les appeler toutes au niveau du fichier index.Rmd, dans le 1er chunk. 
+En cas d'exécution manuelle d'un chunk, il faudra en revanche exécuter manuellement ceux des pages précédentes dont il dépend.  
+
 Les fichiers créés sont enregistrés dans le dossier `_book`.
 On retrouve la publication compilée en ouvrant le fichier index.html dans le navigateur.
 
-Le document produit est une vitrine des principales fonctionnalités de `bookdown`.
+Le document par défaut produit présente les principales fonctionnalités de `bookdown`.
 
 
 ## Contenu du projet par défaut
@@ -98,7 +103,7 @@ directory/
 
 ## Chaque fichier Rmd correspond à un chapitre. 
 
-C'est une bonne pratique que de faire commencer chacun d'eux par un titre de niveau 1, pour s'y retrouver dans le projet. 
+Il est recommandé de faire commencer chacun d'eux par un titre de niveau 1, pour s'y retrouver dans le projet. 
 
 On peut si besoin regrouper les chapitres au sein de parties. 
 Pour commencer une partie, ajouter une première ligne `# (PART) Nom de votre partie {-}` devant la ligne de titre de niveau 1 contenant le nom du chapitre, exemple
@@ -121,11 +126,9 @@ Il faut relancer la construction (compilation) pour se rendre compte de l'évolu
 
 Des chapitres en trop, ou des chapitres à rajouter ? Il suffit de supprimer ou de créer les fichiers `Rmarkdown` correspondant. 
 
-Ils seront ordonnés automatiquement selon leur ordre alphabétique, c'est pour cela que bien souvent vous trouverez des
-fichiers numérotés `01-...`, `02-...` ce qui est une manière très explicite de maîtriser l'ordre de composition du document général.
+Ils seront agencés selon leur ordre alphabétique, donc pour contrôler l'assemblage des chapitres, une pratique courante est de numéroter les fichiers.
 
-
-L'entête yaml du fichier se trouve dans le fichier `index.Rmd`^[Attention, si le projet contient plusieurs fichiers Rmd présentant une entête yaml, la dernière écrase la ou les précédentes.].
+L'entête yaml du rapport se trouve dans le fichier `index.Rmd`^[Attention, si le projet contient plusieurs fichiers Rmd présentant une entête yaml, la dernière écrase la ou les précédentes.].
 Il contient des options spécifiques au format bookdown, notamment sur la gestion de la bibliographie.
 
 
