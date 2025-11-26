@@ -6,10 +6,10 @@ Pagedown est une implémentation pour Rmarkdown de [paged.js](https://www.pagedj
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
 ```
-C'est un outil puissant pour concilier les fonctionnalités HTML (donc mise en formes CSS) et la possibilité d'impression PDF, galerie : 
-- https://edouard-legoupil.github.io/unhcr_paged/#graphics-with-style  
-- https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf
-- https://github.com/rstudio/pagedown?tab=readme-ov-file#paged-html-documents-pagedownhtml_paged
+C'est un outil puissant pour concilier les fonctionnalités HTML (donc mise en formes CSS) et la possibilité d'impression PDF, galerie :      
+- https://edouard-legoupil.github.io/unhcr_paged/#graphics-with-style    
+- https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf  
+- https://github.com/rstudio/pagedown?tab=readme-ov-file#paged-html-documents-pagedownhtml_paged  
 
 ## Paged.js
 
@@ -190,17 +190,17 @@ Les 3 fichiers correspondent aux éléments suivants :
 - `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
 
 
-[`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css.
+<!-- [`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css. -->
 
-Il n'est pas sur le cran, pour l'installer : 
+<!-- Il n'est pas sur le cran, pour l'installer :  -->
 
-```{r, eval = FALSE}
-remotes::install_github("rfortherestofus/pagedreport)
-```
+<!-- ```{r, eval = FALSE} -->
+<!-- remotes::install_github("rfortherestofus/pagedreport) -->
+<!-- ``` -->
 
 
-```{r, echo = FALSE}
-knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif")
-```
+<!-- ```{r, echo = FALSE} -->
+<!-- knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif") -->
+<!-- ``` -->
 
 <!-- https://tvroylandt.github.io/user_2024_parametrized_reporting/slides.html#/create-a-template-with-css-tools -->
