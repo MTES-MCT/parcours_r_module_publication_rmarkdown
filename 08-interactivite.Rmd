@@ -106,7 +106,7 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-```{yaml}
+```yml
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -177,7 +177,7 @@ La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui
 
 Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
 
-```{yaml}
+```
 ---
 runtime: shiny
 output: html_document

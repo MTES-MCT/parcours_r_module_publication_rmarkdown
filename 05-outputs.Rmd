@@ -76,7 +76,7 @@ Voici les options utilisées fréquemment propres au format `html_document` :
 L'ensemble des options est accessible depuis l'aide de la fonction rmarkdown::html_document (`?rmarkdown::html_document`)
 
 
-``` {yaml}
+```yml
 ---
 title: "mon_premier_document"
 author: 
@@ -116,7 +116,9 @@ h1 {
 
 Il est possible d'intégrer directement cette portion de css dans un chunk du document mais la bonne pratique est plutôt de créer un document à part (extension .css ou .scss, c'est une option proposée par Rstudio dans File > New File) et de le référencer dans le yaml, en reprenant l'exemple précédent : 
 
-```md
+
+```yml
+--- 
 title: "mon_premier_document"
 author: 
   - "Moi"
@@ -127,6 +129,7 @@ output:
     toc: true
     theme: flatly
     css: "mon_style.css"
+---
 ```
 
 À noter : le style fixé par un chunk au sein du document l'emportera sur le style d'un fichier css à part qui l'emportera sur le style fixé par un thème qui l'emportera sur le style de base de l'objet. La dernière information de style lue prévaudra sur les précédentes.
@@ -145,7 +148,7 @@ Par exemple :
 
 ```yaml
 ---
-title: "Habits"
+title: "mon_premier_document"
 output:
   html_document:
     self_contained: false
@@ -183,7 +186,7 @@ On installe ensuite la distribution LaTeX sur le PC avec  la commande `install_t
 On peut spécifier le dossier d'installation souhaité (choisir un dossier sur lequel on a les droits d'écriture :-) ) : 
 
 ```r
-# Exemple de choix d'adresse pour l'installation sur le PC
+# Exemple de choix d'adresse pour l'installation sur un PC
 install_path <- file.path(Sys.getenv('LOCALAPPDATA'), 'tinytex')
 tinytex::install_tinytex(dir = install_path)
 ```
@@ -234,15 +237,13 @@ Une autre option consiste dans un 2e temps à imprimer le html généré avec un
 
 :::::::::::::::::::::::::::::
 
-### {Pagedown}
+
+### `{Pagedown}` 
+<img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" align="right" height="139" />
 
 
-```{r, echo=FALSE, out.width='25%'}
-knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
-```
+Le package [`{pagedown}`](https://pagedown.rbind.io/) avec sa fonction [`chrome_print()`](https://pagedown.rbind.io/#print-to-pdf) permet de produire un pdf à partir d'un Rmd conçu pour du html, sans besoin de LaTeX.
 
-
-Le package [`{pagedown}`](https://pagedown.rbind.io/) avec sa fonction [`chrome_print()`](https://pagedown.rbind.io/#print-to-pdf) permet de produire un pdf à partir d'un Rmd conçu pour du html, sans besoin de LaTeX. 
 
 La fonction se repose sur le moteur d'impression du navigateur chrome :
 
@@ -260,7 +261,7 @@ output:
     number_sections: false
 ---
 ```
-
+Son fonctionnement est détaillé au niveau du chapitre [Pour aller plus loin sur Pagedown].
 
 ::: {.exo}
 **Exercice 4**

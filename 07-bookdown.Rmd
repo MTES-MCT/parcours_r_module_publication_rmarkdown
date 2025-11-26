@@ -1,12 +1,10 @@
 # De la page au livre, le package `{bookdown}`
 
+<img src="https://bookdown.org/yihui/bookdown/images/logo.png" align="right" height="250" hspace="25" />
+
 Lorsqu'une publication comporte un volume important d'éléments, il est très utile d'en organiser le contenu en plusieurs parties.  
 
 Le package `{bookdown}` est là pour nous aider à structurer une publication en plusieurs fichiers Rmd.
-
-```{r, echo=FALSE, out.width='50%'}
-knitr::include_graphics("https://bookdown.org/yihui/bookdown/images/logo.png")
-```
 
 La publication devient un projet RStudio à part entière.
 
@@ -20,8 +18,8 @@ Les documents peuvent être exportés dans une gamme de formats adaptés à la p
   **Trucs & Astuces**  
 Comme pour les fichiers Rmd simples :  
 
-- l'export au format pdf nécessite une distribution LaTeX (cf chap \ref(latex)). 
-- et `{pagedown}` peut être mobilisé pour imprimer un ensemble de pages HTML au format pdf.
+- l'export au format pdf nécessite une distribution LaTeX (cf chap \@ref(latex)). 
+- et `{pagedown}` peut être mobilisé pour imprimer un ensemble de pages HTML au format pdf, l'assemblage pdf se fait avec` qpdf::pdf_combine()`. 
 
 :::::::::::::::::::::::::::::
 
@@ -210,9 +208,7 @@ Prérequis
 Etapes
 :::
 
-#### Vous aviez promis des rendus stylés ! {#styled-outputs}
-
-
+## Pour des rendus stylés  {#styled-outputs}
 
 Laissez libre court à vos envies et explorez parmi les multiples
 [modèles de sortie proposés](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats) 

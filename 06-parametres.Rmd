@@ -120,9 +120,9 @@ lapply(X = liste_especes, FUN = generer_rapport_par_espece)
 ## Paramétrer le titre du rapport
 
 On peut utiliser du code R pour définir notre titre. 
-La seule contrainte est de déplacer notre balise de titre après la définition des paramètres.
+La seule contrainte est de déplacer notre balise de titre après la définition des éléments dont il dépend.
 
-```{yaml, eval = FALSE}
+```yml, eval = FALSE
 ---
 author: "Moi"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
@@ -138,4 +138,14 @@ title: "Rapport iris - Variété `r params$espece`"
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
 knitr::include_graphics("assets/img/parametres/param-title2.png")
 ```
+
+On peut insérer le titre dans une balise yml ailleurs que dans l'entête placée en début de document si besoin de construire le titre avec des calculs R.
+
+
+```yml
+---
+title: "`r mon_objet_R_contenant_le_titre`"
+---
+```
+
 
