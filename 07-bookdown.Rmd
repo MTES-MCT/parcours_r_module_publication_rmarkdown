@@ -191,7 +191,24 @@ bookdown::gitbook:
     info: no
 ```
 
+## Pour des rendus stylés  {#styled-outputs}
 
+Le package bookdown propose de multiples [modèles de sortie](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats) : 
+
+ - gitbook  
+ - pdf_book  
+ - epub_book  
+ - bs4_book  
+ - bs4_book_theme  
+ - html_chapters   
+ - html_book   
+ - tufte_html_book  
+
+Comme toujours avec R, de nombreux packages étendent ces possibilités.  
+
+Notamment, le package gouvdown propose un template bookdown `gitbook_gouv`, dérivé du format gitbook, accessible depuis le menu des nouveaux projets R, pour des book conforme à la marque Etat. 
+
+Comme pour les formats de sortie Rmarkdown, il faut avoir en tête que les visualisations optimisées pour un rendu web (HTML), ne seront pas compatibles avec l'export pdf.
 
 ::: {.exo}
 **Exercice 4**
@@ -207,51 +224,4 @@ Prérequis
 
 Etapes
 :::
-
-## Pour des rendus stylés  {#styled-outputs}
-
-Laissez libre court à vos envies et explorez parmi les multiples
-[modèles de sortie proposés](https://pkgs.rstudio.com/bookdown/reference/index.html#book-output-formats) 
- soyez conscient de leur limite et des contraintes qu'ils imposeront 
- mais aussi posez-vous la question de ce que vous voulez vraiment
- faire :
-
-  - les formats dits : *Book output format* qui justifient notre
-    intérêt jusqu'ici parce qu'ils travaillent sur un ensemble de
-    fichiers :
-    - gitbook
-    - pdf_book
-    - epub_book
-    - bs4_book 
-    - bs4_book_theme
-    - html_chapters 
-    - html_book 
-    - tufte_html_book
-  - les formats dit : "Single document output formats" qui ne
-    travaillent que sur un seul fichier .Rmd mais qui rétro-portent à
-    `rmarkdown` certaines fonctionnalités comme les renvois internes :
-    - html_document2
-    - html_fragment2
-    - html_notebook2
-    - html_vignette2
-    - ioslides_presentation2
-    - slidy_presentation2
-    - tufte_html2
-    - pdf_document2
-    - beamer_presentation2
-    - tufte_handout2
-    - tufte_book2
-    - markdown_document2
-    - context_document2
-    - github_document2
-    - odt_document2
-    - powerpoint_presentation2
-    - rtf_document2
-    - word_document2
-
-
-
-
-TODO :gouvdown
-
 
