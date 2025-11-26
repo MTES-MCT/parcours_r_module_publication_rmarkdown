@@ -4,28 +4,27 @@ La logique et les principaux points à retenir sur Rmarkdown sont rassemblés da
 
 ![](assets/img/cheat_sheet.png)
 
-[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet  pour qui veut se lancer ou se perfectionner dans R markdown.
+:::: {style="display: flex; gap: 50px;"}
 
-![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="30%"}   
+::: {}
+[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet pour qui veut se lancer ou se perfectionner dans R markdown.
+
+![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="40%"}   
+
+:::
+    
+::: {}
 
 Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. 
 C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
 
 ![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
 
-Un fichier R Markdown ressemble à ça : 
-
-```{r create-xaringan, include=FALSE}
-rmarkdown::render(input = "assets/slides/str_fic_rmd.Rmd", output_dir = "assets/slides/")
-```
-
-```{r embed-xaringan, echo=FALSE}
-xaringanExtra::embed_xaringan(url = "assets/slides/str_fic_rmd.html", ratio = "16:9")
-```
+::: 
+:::: 
 
 
-
-## R markdown dans RStudio
+## R Markdown dans RStudio
 
 Pour utiliser R Markdown, il faut que le package `rmarkdown` soit installé :
 
