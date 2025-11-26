@@ -32,8 +32,7 @@ Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et, pour l
   **Trucs & Astuces**
   
 Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites le(s) format(s) de document(s) choisi(s). 
-Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire 
-La compatibilité entre types de visualisation et formats de documents doit être vérifiée au cas par cas.  
+Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire une sortie vers un autre type de format. 
 :::
 
 Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yaml, au niveau de `output:`.
