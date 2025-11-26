@@ -10,7 +10,7 @@ Quand notre produit de sortie est un pdf, on va vouloir générer des graphiques
 C'est ce que nous avons fait depuis le début de ce cours.
 Mais de plus en plus de nos projets sont destinés à une publication web et un certain niveau d'interactivité est souhaité.
 La considération principale à prendre en compte est l'environnement de déploiement.
-Si mon document est hebergé sur un serveur R, j'ai la possibilité de lui faire exécuter du code R "en direct" en fonction des actions de l'utilisateur.
+Si mon document est hébergé sur un serveur R, j'ai la possibilité de lui faire exécuter du code R "en direct" en fonction des actions de l'utilisateur.
 Dans le cas contraire, il faudra utiliser de l'interactivité en javascript.
 Ce langage est interprété et exécuté directement par le navigateur du client (celui qui consulte la page).
 Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javascript est caché derrière.
