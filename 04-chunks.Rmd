@@ -168,7 +168,7 @@ Je suis actuellement en train de me former au module  `r numero`.
 
 
 
-### Autres langages {autres-langages}
+### Autres langages {#autres-langages}
 
 Les portions de code d'un document .Rmd peuvent être formulées dans d'autres langages grâce au package knitr.
 
@@ -229,22 +229,6 @@ SELECT * FROM mon_schema.matable
 ````
 
 Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
-
-
-## L'interactivité dans d'autres langages
-
-Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
-Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
-
-````{verbatim}
-```{js echo = TRUE}
-```
-````
-
-````{verbatim}
-```{python echo = TRUE}
-```
-````
 
 
 
