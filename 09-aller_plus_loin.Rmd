@@ -159,13 +159,13 @@ dernière slide de l'atelier 2
 
 ## Transformer les sous-titres en onglets 
 
-Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections (https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html)
+Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections : 
 
 :::: {style="display: flex; gap: 50px;"}
 
 ::: {}
 
-**Code:**
+**Code :**
 
 ```markdown
 ### Exemple d'onglets {.tabset}
@@ -178,40 +178,21 @@ Contenu de l'onglet 1
 
 Contenu de l'onglet 2
 
-### {-}
+### {.unlisted .unnumbered}
 ```
-- Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {-}` pour continuer avec des paragraphes réguliers.   
 :::
 
 ::: {}
-
 **Résultat :**  
 
-## Exemple d'onglets {.tabset} 
+<iframe src="assets/html/onglet.html" width="320" height="320" scrolling="no" frameborder="0"></iframe>
 
-### Onglet 1
-
-Contenu de l'onglet 1
-
-### Onglet 2
-
-Contenu de l'onglet 2
-
-## {-}  
 ::: 
 :::: 
 
+Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {.unlisted .unnumbered}` pour continuer avec des paragraphes réguliers.   
 
-
-- Il est aussi possible de spécifier 2 attributs supplémentaires pour les onglets: 
-
-1. `.tabset-fade`: les onglets vont disparaître et apparaître en se déplaçant de l'un à l'autre  
-2. `.tabset-pills` apparence des onglets en "pill" 
-
-```markdown
-## Exemple d'onglets {.tabset .tabset-fade .tabset-pills}
-```
-
+Plus d'options d'onglets sont présentées dans le livre de recettes Rmarkdown :  <https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html/>
 
 ## Bibliographie
 
