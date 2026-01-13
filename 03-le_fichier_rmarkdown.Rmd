@@ -101,7 +101,7 @@ Dans les sections suivantes ces composants seront détaillés un par un.
 
 ### L'en-tête
 
-L'en-tête s'écrit au format YAML c'est un [format](https://fr.wikipedia.org/wiki/YAML) ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
+L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
 
 L'en-tête est parfois appelé le Header ou le YAML. 
 Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).  
@@ -169,7 +169,7 @@ output:
 -   Ouvrir Rstudio
 -   Créer un fichier Rmarkdown, format html
 -   prévisualiser le document avant toutes modifications
--   Mettez-vous en auteur du document
+-   Se mettre en auteur du document
 -   Rajouter un theme spécifique
 -   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
 :::
@@ -182,7 +182,7 @@ Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour Markdown. 
 **Trucs & Astuces**
 
 De manière générale, il est préférable de laisser au moins une ligne blanche entre différentes éléments (par exemple entre un titre et le paragraphe).\
-Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interprètent pas exactement la même chose pour une même synthaxe).
+Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interprètent pas exactement la même chose pour une même syntaxe).
 :::
 
 #### Le texte simple
@@ -201,7 +201,7 @@ Pour les ~~barrés~~, entourer des caractères `~~barrés~~`.\
 
 Pour un style `code`, entourer des caractères `` `code` ``.\
 
-Pour un bloc de code, entourer des caractères ```` ``` ```` ou on commence chaque ligne par au moins 4 espaces.
+Pour un bloc de code, entourer des caractères ```` ``` ```` où on commence chaque ligne par au moins 4 espaces.
 
 Pour forcer le retour à la ligne, terminer par un double espace ou un `\` ou sauter une ligne.
 
@@ -382,7 +382,7 @@ présentant des caractères accentués (comme le français).
     
 ![](assets/img/enregistrer_encodage.png)
 
-  Remarquez la case à cocher au niveau de la fenêtre de dialogue "Réouvrir avec encodage...",
+  Remarquer la case à cocher au niveau de la fenêtre de dialogue "Réouvrir avec encodage...",
   sélectionner UTF-8 et cocher l'option : "Définir comme encodage par défaut pour
   les fichiers sources", ce sera fait une fois pour toute.
 
