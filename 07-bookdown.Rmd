@@ -8,7 +8,7 @@ Le package `{bookdown}` est là pour nous aider à structurer une publication en
 
 La publication devient un projet RStudio à part entière.
 
-La séparation d'un document en plusieurs pages (plusieurs fichiers Rmd) a pour avantages d'autoriser l'envoi de liens vers des chacun des chapitres et de réduire le temps d'affichage car chaque page est moins lourde prise séparément.
+La séparation d'un document en plusieurs pages (plusieurs fichiers Rmd) a pour avantages d'autoriser l'envoi de liens vers chacun des chapitres et de réduire le temps d'affichage car chaque page est moins lourde prise séparément.
 
 Des fonctionnalités de mise en forme supplémentaires sont ajoutées, telles que les références croisées et la numérotation des figures, des équations et des tableaux.
 
@@ -68,13 +68,13 @@ Le document par défaut produit présente les principales fonctionnalités de `b
 Quand vous créez un projet bookdown, vous avez dans votre projet automatiquement les fichiers suivants : 
 
 
-- `index.Rmd`, le seul fichier Rmarkdown qui contient comme usuellement un yaml en entête. C'est le premier chapitre de votre livre et sa page d'accueil.
+- `index.Rmd`, le seul fichier Rmarkdown qui contient comme usuellement un yaml en en-tête. C'est le premier chapitre de votre livre et sa page d'accueil.
 
-- `01-intro.Rmd` à `06-references.Rmd` des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier comment par le titre du chapitre.
+- `01-intro.Rmd` à `06-references.Rmd` des fichiers rmarkdown correspondant aux chapitres de vos livres. La structure classique d'un rmarkdown est un document Rmd par chapitre, qui seront ensuite pour la version html votre premier niveau de navigation. Chaque fichier commence par le titre du chapitre.
 
-- `_bookdown.yml` Un fichier de configuration de votre document bookdown.
+- `_bookdown.yml` un fichier de configuration de votre document bookdown.
 
-- `_output.yml` Un fichier de configuration des formats de sortie de votre document (pdf, html...).
+- `_output.yml` un fichier de configuration des formats de sortie de votre document (pdf, html...).
 
 - `book.bib` un fichier de bibliographie au format [BibTeX](https://fr.wikipedia.org/wiki/BibTeX).
 
@@ -103,7 +103,7 @@ directory/
 
 Il est recommandé de faire commencer chacun d'eux par un titre de niveau 1, pour s'y retrouver dans le projet. 
 
-On peut si besoin regrouper les chapitres au sein de parties. 
+On peut, si besoin, regrouper les chapitres au sein de parties. 
 Pour commencer une partie, ajouter une première ligne `# (PART) Nom de votre partie {-}` devant la ligne de titre de niveau 1 contenant le nom du chapitre, exemple
 
 ````{verbatim}
@@ -126,7 +126,7 @@ Des chapitres en trop, ou des chapitres à rajouter ? Il suffit de supprimer ou 
 
 Ils seront agencés selon leur ordre alphabétique, donc pour contrôler l'assemblage des chapitres, une pratique courante est de numéroter les fichiers.
 
-L'entête yaml du rapport se trouve dans le fichier `index.Rmd`^[Attention, si le projet contient plusieurs fichiers Rmd présentant une entête yaml, la dernière écrase la ou les précédentes.].
+L'en-tête yaml du rapport se trouve dans le fichier `index.Rmd`^[Attention, si le projet contient plusieurs fichiers Rmd présentant un en-tête yaml, le dernier écrase les précédents.].
 Il contient des options spécifiques au format bookdown, notamment sur la gestion de la bibliographie.
 
 
@@ -206,7 +206,7 @@ Le package bookdown propose de multiples [modèles de sortie](https://pkgs.rstud
 
 Comme toujours avec R, de nombreux packages étendent ces possibilités.  
 
-Notamment, le package gouvdown propose un template bookdown `gitbook_gouv`, dérivé du format gitbook, accessible depuis le menu des nouveaux projets R, pour des book conforme à la marque Etat. 
+Notamment, le package gouvdown propose un template bookdown `gitbook_gouv`, dérivé du format gitbook, accessible depuis le menu des nouveaux projets R, pour des book conforment à la marque État. 
 
 Comme pour les formats de sortie Rmarkdown, il faut avoir en tête que les visualisations optimisées pour un rendu web (HTML), ne seront pas compatibles avec l'export pdf.
 
@@ -217,7 +217,7 @@ Travail dirigé :
 
 Objectif
 
-Utiliser les 3 .Rmd vu précédemment pour expérimenter la composition
+Utiliser les 3 .Rmd vus précédemment pour expérimenter la composition
 d'un book.
 
 Prérequis
