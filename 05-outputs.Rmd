@@ -2,7 +2,7 @@
 
 Lors de la création du fichier .Rmd, vous avez dû choisir le format de sortie par défaut du document qui sera généré. Ce choix se retrouve dans l'option `output`de l'en-tête.
 
-Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou celle de la fonction knit (via sur la flèche vers le bas du bouton knit ou via les options de la ligne de code).
+Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou celle de la fonction knit (via la flèche vers le bas du bouton knit ou via les options de la ligne de code).
 
 Il existe deux types de format dans le package `{rmarkdown}`: documents et présentations. 
 
@@ -31,7 +31,7 @@ Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et, pour l
 ::: {.trucsetastuces}
   **Trucs & Astuces**
   
-Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites le(s) format(s) de document(s) choisi(s). 
+Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites et le(s) format(s) de document(s) choisi(s). 
 Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire une sortie vers un autre type de format. 
 :::
 
@@ -48,7 +48,7 @@ output: gouvdown::html_gouv
 La plupart des packages proposant des modèles de documents Rmd les rendent également accessibles en clic bouton depuis le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown... 
 
 ![Accès aux modèles de fichier Rmd](assets/img/Rmd_from_template.png)  
-Ces menus apparaissent une fois le package qui les contient est installé.
+Ces menus apparaissent une fois le package qui les contient installé.
 
 Nous allons vous présenter les formats les plus utiles.  
 
@@ -140,7 +140,7 @@ De nombreuses ressources en ligne sont disponibles pour apprendre les bases du c
 
 Par défaut, R Markdown génère des fichiers HTML auto-portants, sans dépendances externes.
 Tout est intégré dans le fichier .html : feuilles de style, librairies js, des images, graphiques, polices, vidéos... 
-On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner un dossier "html_files" et on est certain de ce qui est restitué.  
+On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner d'un dossier "html_files" et on est certain de ce qui est restitué.  
 Mais cela peut alourdir le document et freiner son affichage web.
 
 Si on préfère conserver les dépendances dans des fichiers externes, pour faciliter l'affichage web, il faut spécifier `self_contained: false` dans les options de l'entête. 
@@ -159,7 +159,7 @@ Cela a par ailleurs l'avantage de placer les figures dans le dossier des dépend
 
 ### Affichages sur plusieurs colonnes
 
-cela se fait très bien en format PDF, c'est plus compliqué en HTML.
+Cela se fait très bien en format PDF, c'est plus compliqué en HTML.
 Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec par exemple une illustration sur une moitié de la page, un texte sur l'autre.
 
 Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
