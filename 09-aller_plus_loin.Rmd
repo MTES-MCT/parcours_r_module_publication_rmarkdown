@@ -49,10 +49,10 @@ Il existe de nombreux packages packages permettant d'obtenir des formats de sort
 
 Utiliser des formats de sorties de type bureautiques est très utile si :   
 
-- on souhaite tirer partie de documents bureautiques modèles, conformes à une charte graphique que l'on souhaite respecter, 
+- on souhaite tirer partie de modèles bureautiques, conformes à une charte graphique que l'on souhaite respecter, 
 - on souhaite faire éditer le document produit par des non-Ristes.
 
-Cela peut s'avérer nécessaire pour faire relire/valider le document avant sa publication, mais attention ! il faudra dans un second temps reporter dans Rmarkdown les modifications opérées en dehors, pour tirer pleinement partie de la reproductibilité offerte par Rmarkdown. 
+Cela peut s'avérer nécessaire pour faire relire et valider le document avant sa publication, mais attention ! Il faudra dans un second temps reporter dans Rmarkdown les modifications opérées en dehors, pour tirer pleinement partie de la reproductibilité offerte par Rmarkdown. 
 
 ### odt_document  
 
@@ -106,14 +106,14 @@ output:
 - `fig_caption` : TRUE/FALSE pour afficher des figures avec des légendes à partir des paramètres de chunks (`fig.cap = "légende de la figure"`).        
 - `template` : modèle Pandoc à utiliser pour le rendu, 3 possibilités : 1. laisser à "default" pour utiliser le modèle par défaut du package rmarkdown, 2. indiquer NULL pour revenir au modèle intégré de Pandoc ou 3. indiquer un chemin d'accès vers un modèle pandoc personnalisé. Consulter la [documentation de Pandoc](https://pandoc.org/MANUAL.html) pour plus de détails sur la création de modèles personnalisés.    
 - `reference_odt` : pour spécifier un fichier odt dont on souhaite réutiliser les styles. Pour un résultat optimal, le fichier odt de référence doit être une version modifiée d'un fichier odt généré avec pandoc.      
-- includes : liste nommée de contenu supplémentaire à inclure dans le document comme une entête ou un bas de page (A créer à l'aide de la [fonction `includes()`](https://pkgs.rstudio.com/rmarkdown/reference/includes.html)).     
+- includes : liste nommée de contenu supplémentaire à inclure dans le document comme un en-tête ou un bas de page (à créer à l'aide de la [fonction `includes()`](https://pkgs.rstudio.com/rmarkdown/reference/includes.html)).     
 - `pandoc_args` : options de ligne de commande supplémentaires à transmettre à pandoc.    
 
 Une manière rapide de **styliser** le fichier compilé est de le générer une fois, de l'éditer avec libre office pour y [adapter les styles de titres, listes...](https://help.libreoffice.org/latest/fr/text/swriter/guide/spotlight_styles.html?&DbPAR=WRITER&System=WIN) au rendu souhaité.  
 
-On peut également coder les styles directement en xml cf. [ ce tuto en français](https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html) 
+On peut également coder les styles directement en xml cf. [ce tuto en français](https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html) 
 
-La gestion des **tableaux** est parfois moins souple qu'en HTML/PDF, mais on peut obtenir quelque chose de propres.
+La gestion des **tableaux** est parfois moins souple qu'en HTML/PDF, mais on peut obtenir quelque chose de propre.
 Les tableaux simples sont traités correctement avec `knitr::kable()` en spécifiant le format "pandoc".
 ```r
 knitr::kable(head(iris), format = "pipe")
