@@ -77,7 +77,7 @@ Il n'est pas possible de filtrer des objets polygonaux de cette manière.
 
 En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
 
-À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher les données que pour une région et un slider permettant de n'afficher que certaines années.
+À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher que les données pour une région et un slider permettant de n'afficher que certaines années.
 
 ```{r, include=FALSE, echo=FALSE}
 
