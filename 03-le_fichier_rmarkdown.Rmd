@@ -4,16 +4,27 @@ La logique et les principaux points à retenir sur Rmarkdown sont rassemblés da
 
 ![](assets/img/cheat_sheet.png)
 
-[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet  pour qui veut se lancer ou se perfectionner dans R markdown.
+:::: {style="display: flex; gap: 50px;"}
 
-![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="30%"}   
+::: {}
+[Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet pour qui veut se lancer ou se perfectionner dans R markdown.
+
+![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="40%"}   
+
+:::
+    
+::: {}
 
 Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. 
 C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
 
 ![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
 
-## R markdown dans RStudio
+::: 
+:::: 
+
+
+## R Markdown dans RStudio
 
 Pour utiliser R Markdown, il faut que le package `rmarkdown` soit installé :
 
@@ -53,7 +64,7 @@ D'autres types de sorties existent, elles seront détaillées pat la suite.
 RStudio crée un fichier contenant des exemples d'éléments structurant un fichier Rmarkdown. 
 L'extension de ce type de fichier est `.Rmd`.
 
-### Lancer la génération du document
+### Lancer la génération du document par un 'knit'
 
 Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. 
 Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier.  
@@ -90,7 +101,7 @@ Dans les sections suivantes ces composants seront détaillés un par un.
 
 ### L'en-tête
 
-L'en-tête s'écrit au format YAML c'est un [format](https://fr.wikipedia.org/wiki/YAML) ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
+L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
 
 L'en-tête est parfois appelé le Header ou le YAML. 
 Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).  
@@ -158,7 +169,7 @@ output:
 -   Ouvrir Rstudio
 -   Créer un fichier Rmarkdown, format html
 -   prévisualiser le document avant toutes modifications
--   Mettez-vous en auteur du document
+-   Se mettre en auteur du document
 -   Rajouter un theme spécifique
 -   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
 :::
@@ -171,7 +182,7 @@ Le texte s'écrit en syntaxe Markdown, qui est en fait du PANDOC pour Markdown. 
 **Trucs & Astuces**
 
 De manière générale, il est préférable de laisser au moins une ligne blanche entre différentes éléments (par exemple entre un titre et le paragraphe).\
-Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interprètent pas exactement la même chose pour une même synthaxe).
+Cela évite toute confusion lors de la génération du document (tous les processus de génération n’interprètent pas exactement la même chose pour une même syntaxe).
 :::
 
 #### Le texte simple
@@ -190,7 +201,7 @@ Pour les ~~barrés~~, entourer des caractères `~~barrés~~`.\
 
 Pour un style `code`, entourer des caractères `` `code` ``.\
 
-Pour un bloc de code, entourer des caractères ```` ``` ```` ou on commence chaque ligne par au moins 4 espaces.
+Pour un bloc de code, entourer des caractères ```` ``` ```` où on commence chaque ligne par au moins 4 espaces.
 
 Pour forcer le retour à la ligne, terminer par un double espace ou un `\` ou sauter une ligne.
 
@@ -198,23 +209,22 @@ Pour forcer le retour à la ligne, terminer par un double espace ou un `\` ou sa
 
 Contrairement à la pratique en R, le `#` indique les titres. Par défaut, dans Rmarkdown, ils ne sont pas numérotés.
 
--   `#` pour le Titre1
--   `##` pour le Titre2
--   `###` pour le Titre3
--   `####` pour le Titre4
--   `#####` pour le Titre5
--   `######` pour le Titre6
+- `#` pour les titres de niveau 1     
+- `##` pour les titres de niveau 2  
+- `###` pour les titres de niveau 3  
 
-Rend:\
+Rend:
+
 ![](assets/img/titres.png)
 
-Pour une numérotation automatique des titres, tableaux, figures, cartes, équations, etc. il faut passer au package `bookdown` (voir partie suivante).
+Si l'on souhaite qu'une section ne soit pas numérotée, par exemple pour l'introduction ou les annexes, il faut faire suivre son titre de {-}. Exemple : # Annexe A {-}.
 
 ##### Les listes
 
 **Liste à puces**
 
-Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédant la liste par une ligne vide. On peut créer des listes imbriquées en indentant la sous-liste.
+Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédant la liste par une ligne vide. 
+On peut créer des listes imbriquées en indentant la sous-liste.
 
 ```         
 - Premier élément  
@@ -259,6 +269,7 @@ Rend :
     
 Notez qu'une erreur de numérotation sera automatiquement corrigée tant que l'indentation et le style de numérotation sont corrects. 
 
+
 ##### Les mentions
 
 Les "mentions" ou citations sont pratiques pour mettre en valeur les éléments "à retenir".
@@ -282,11 +293,16 @@ rend
 [Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
 
 
-Pour faire des **liens internes**, on peut utiliser la même syntaxe : 
+Pour faire des **liens internes**, on peut utiliser la même syntaxe, après avoir inséré une balise là où on souhaite rediriger le lecteur.
 
-| texte saisi                                         | résultat après knit |
-| --------------------------------------------------- | ------------------- |
-| `[Aller au § 'Commentaires'](#commentaires)` | [Aller au § 'Commentaires'](#commentaires) |
+Exemple de placement de la balise :
+
+`### Commentaires ? {#commentaires}`
+
+Puis pour faire un lien dessus :
+
+`[Aller au § Commentaires](#commentaires)`
+
 
 La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Commentaires', mais renvoie son numéro. 
 
@@ -294,15 +310,11 @@ La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Com
 | ----------- | ------------------- |
 | ` \@ref(commentaires) ` | \@ref(commentaires) | 
 
-Les titres contiennent tous une ancre html mobilisable avec `#`. Pour récupérer son nom exact on peut compiler le document et l'y récupérer.  
-
-On peut par ailleurs forcer la création d'ancre sur une ligne de texte en apposant `{#nom_ancre}` à cette dernière.
 
 
 Les **notes de bas de page** s'écrivent à l'intérieur de `^[]`. 
 
 `...pour approfondir^[on ajoute une note de bas de page]` rend '...pour approfondir^[on ajoute une note de bas de page]'.
-
 
 
 #### Commentaires 
@@ -336,7 +348,7 @@ On a `){`.
 
 On peut aussi utiliser la fonction `knitr::include_graphics` :
 
-```{r eval=TRUE}
+```{r}
 knitr::include_graphics("assets/img/couleuvre.jpg")
 ```
 
@@ -344,6 +356,37 @@ Cette dernière méthode, préconisée quand le format de sortie n'est pas
 du html, permet de mieux contrôler l'affichage de l'image.
 
 Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
+
+
+## Encodage 
+
+Pour le bon fonctionnement général, tous les fichiers R Markdown doivent être encodés en UTF-8, notamment pour les langages
+présentant des caractères accentués (comme le français).
+
+:::: {.blackbox data-latex=""}
+::: {.center data-latex=""}
+**Trucs & Astuces**
+:::
+
+  RStudio facilite la gestion de l'encodage des fichiers édités :
+  
+  - pour ouvrir un fichier avec l'encodage qui vous convient 
+  
+  Fichier $\Rightarrow$ Réouvrir avec encodage...
+  
+![](assets/img/ouvrir_encodage.png)
+  
+  - pour enregistrer un fichier au bon encodage 
+  
+  Fichier $\Rightarrow$ Sauvegarder avec l'encodage...
+    
+![](assets/img/enregistrer_encodage.png)
+
+  Remarquer la case à cocher au niveau de la fenêtre de dialogue "Réouvrir avec encodage...",
+  sélectionner UTF-8 et cocher l'option : "Définir comme encodage par défaut pour
+  les fichiers sources", ce sera fait une fois pour toute.
+
+::::
 
 ::: exo
 **Exercice 2**

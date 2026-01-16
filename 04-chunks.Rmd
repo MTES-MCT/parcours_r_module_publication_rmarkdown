@@ -19,16 +19,19 @@ summary(cars)
 
 On peut créer un nouveau chunk en cliquant sur le bouton :    
 
-![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier `Ctrl + Alt + I`. 
+![](assets/img/icone_ajout_chunk.png) ou grâce au raccourci clavier [Ctrl + Alt + I]{.kbd}. 
 
 
 On peut contrôler le résultat du code en l'exécutant : 
 
-- comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier Ctrl + Entrée,  
+- comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier [Ctrl + Entrée]{.kbd},  
 - ou en utilisant le bouton en triangle vert, situé en haut à droite de chaque chunk ![](assets/img/run_current_chunk.png)
 
 RStudio contient d'autres boutons pour exécuter le code d'un fichier Rmd : ils sont placés dans le menu déroulant 'Run' en haut à droite. Ils sont rappelés dans le menu "Code" tout en haut, au niveau de l'entrée 'Run Region". 
 
+Dans l'environnement de travail (cadran 'Global Environnement', situé en haut à droite généralement dans RStudio), on retrouve les objets créés par R lors des exécutions de chunks précédents.  
+La commande 'Run All Chunks Above' que l'on peut déclencher en clic bouton ou avec le raccourci  [Alt + Ctrl + Maj + P]{.kbd} permet d'être certains de travailler sur les objets tels que créés précédemment par le programme. 
+Lors du knit, R utilise au démarrage un environnement R vierge. 
 
 ### Le nom des chunks
 
@@ -42,9 +45,9 @@ Il est généralement placé en début de document, en dessous de l’en-tête.
 
 ### Les options des *chunks*
 
-Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf \@(autres-langages).
+Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf \@ref(autres-langages).
 
-C'est dans cette accolade, après la lettre r que les options vont pouvoir être passées. 
+C'est dans cette accolade, après la lettre r, que les options vont pouvoir être passées. 
 
 Elles permettent de contrôler finement ce qui est produit par le chunk, pour choisir de faire apparaître, ou non, le code dans le rapport dynamique, ainsi que les résultats, ou encore pour définir la taille des plots.
 
@@ -53,7 +56,7 @@ Chaque chunk peut recevoir une ou des options. Voici quelques exemples utilisés
 - `eval = TRUE` : Le chunk est exécuté.
 
 - `include = FALSE` : Le code contenu dans le chunk est executé sans que soient affichés ni le code ni son résultat.  
-Cela rend ses résultats sont utilisables par d'autres chunks.
+Cela rend ses résultats utilisables par d'autres chunks.
 
 - `echo = FALSE` : permet de ne pas afficher le code dans le rendu. En revanche, le résultat est affiché.
 
@@ -89,7 +92,7 @@ knitr::opts_chunk$set(
 ````
 
 
-Dans cet exemple, on demande à ne pas faire apparaître les messages ou les warnings parfois générés lors de l'exécution de code, et qui viendrait polluer le rapport mis en forme.
+Dans cet exemple, on demande à ne pas faire apparaître les messages ou les warnings parfois générés lors de l'exécution de code, et qui viendraient polluer le rapport mis en forme.
 
 
 ### Intégrer des visualisations R 
@@ -165,7 +168,7 @@ Je suis actuellement en train de me former au module  `r numero`.
 
 
 
-### Autres langages {autres-langages}
+### Autres langages {#autres-langages}
 
 Les portions de code d'un document .Rmd peuvent être formulées dans d'autres langages grâce au package knitr.
 
@@ -184,6 +187,15 @@ print(x.split(' '))
 ```
 ````
 
+
+Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
+
+Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d'autres langages, l'inverse n'est pas vrai.
+Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.
+
+Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre \@ref(quarto).
+
+#### Cas particulier du SQL
 Pour utiliser du SQL, il faut impérativement ajouter un paramètre de connexion à l'aide d'une variable préalablement fixée dans un chunk R :
 
 ````{verbatim}
@@ -217,6 +229,8 @@ SELECT * FROM mon_schema.matable
 ````
 
 Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
+
+
 
 ## Exercice 3
 ::: {.exo}

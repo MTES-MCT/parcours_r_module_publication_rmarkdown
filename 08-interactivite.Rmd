@@ -10,7 +10,7 @@ Quand notre produit de sortie est un pdf, on va vouloir générer des graphiques
 C'est ce que nous avons fait depuis le début de ce cours.
 Mais de plus en plus de nos projets sont destinés à une publication web et un certain niveau d'interactivité est souhaité.
 La considération principale à prendre en compte est l'environnement de déploiement.
-Si mon document est hebergé sur un serveur R, j'ai la possibilité de lui faire exécuter du code R "en direct" en fonction des actions de l'utilisateur.
+Si mon document est hébergé sur un serveur R, j'ai la possibilité de lui faire exécuter du code R "en direct" en fonction des actions de l'utilisateur.
 Dans le cas contraire, il faudra utiliser de l'interactivité en javascript.
 Ce langage est interprété et exécuté directement par le navigateur du client (celui qui consulte la page).
 Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javascript est caché derrière.
@@ -77,7 +77,7 @@ Il n'est pas possible de filtrer des objets polygonaux de cette manière.
 
 En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
 
-À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher les données que pour une région et un slider permettant de n'afficher que certaines années.
+À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher que les données pour une région et un slider permettant de n'afficher que certaines années.
 
 ```{r, include=FALSE, echo=FALSE}
 
@@ -106,7 +106,7 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-```{yaml}
+```yml
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -177,7 +177,7 @@ La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui
 
 Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
 
-```{yaml}
+```
 ---
 runtime: shiny
 output: html_document
@@ -213,25 +213,4 @@ L'argument "height" en option permet d'indiquer la place (ici par défaut en pix
 La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
 Il est donc possible d'inclure dans une app Shiny un markdown qui lui même contient une application Shiny...🤯
 
-## L'interactivité dans d'autres langages
 
-Vous pouvez inclure dans un document Rmarkdown des chunks de code dans d'autres langages.
-Il suffit de remplacer la balise ouvrante `{r}` par celle d'un autre langage :
-
-````{verbatim}
-```{js echo = TRUE}
-```
-````
-
-````{verbatim}
-```{python echo = TRUE}
-```
-````
-
-Et bien d'autres, la liste est diponible sur [le site de bookdown](https://bookdown.org/yihui/rmarkdown/language-engines.html).
-Cela permet d'employer des langages faits pour l'interactivité évaluée côté client comme le JavaScript et s'affranchir d'un déploiement sur serveur R.
-
-Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d'autres langages, l'inverse n'est pas vrai.
-Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.
-
-Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre suivant.

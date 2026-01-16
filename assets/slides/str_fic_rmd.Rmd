@@ -1,0 +1,47 @@
+---
+title: ""
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    self_contained: true
+    nature:
+      countIncrementalSlides: false
+      ratio: 16:9
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_rmd.png")
+```
+
+---
+.shadow-1[
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_rmd_code_R.png")
+```
+]
+---
+
+.shadow-1[
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_rmd_code_R_md.png")
+```
+]
+---
+
+.shadow-1[
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_rmd_code_R_md_yaml.png")
+```
+]
+---
+
+.shadow-1[
+```{r, echo=FALSE}
+knitr::include_graphics("www/comprendre_rmd_code_R_md_yaml_knit.png")
+```
+]

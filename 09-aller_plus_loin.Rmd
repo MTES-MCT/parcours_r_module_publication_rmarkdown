@@ -1,12 +1,8 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 # Pour aller plus loin
 
-## Les documents Quarto
+Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, ...) ou de type de rendu (diaporama, rapport, livre, note, cv, ...).
+
+## Les documents Quarto {#quarto}
 
 Un document Quarto est un format de document qui permet de combiner du
 texte, du code et des visualisations dans un seul fichier, comme un
@@ -17,8 +13,8 @@ Rstudio).
 
 Les différences principales sont :
 
--   le support multi-langage (R, Python, Javascript, Julia) et
-    multi-moteur (Knitr, Jupyter, Observable) ;
+-   l'amélioration du support multi-langage (R, Python, Javascript, Julia) et
+    multi-moteur (knitr, Jupyter, Observable) ;
 
 -   un rendu amélioré : Quarto offre des options de rendu plus riches et
     plus flexibles, y compris des thèmes et des styles personnalisés
@@ -47,66 +43,165 @@ Vous trouverez toute la documentation, des exemples mais surtout des
 guides très complets pour s'autoformer directement [sur le site de
 Quarto](https://quarto.org/).
 
-## Affichages sur plusieurs colonnes
+## Formats de sortie 
 
-cela se fait très bien en format PDF, c'est plus compliqué en HTML. Vous
-pourrez avoir besoin de définir un document en plusieurs colonnes, avec
-par exemple une illustration sur une moitiée de la page, un texte sur
-l'autre.
+Il existe de nombreux packages packages permettant d'obtenir des formats de sortie spécifiques. 
 
-Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
+Utiliser des formats de sorties de type bureautiques est très utile si :   
 
-Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
+- on souhaite tirer partie de modèles bureautiques, conformes à une charte graphique que l'on souhaite respecter, 
+- on souhaite faire éditer le document produit par des non-Ristes.
 
-Pour ensuite que le document aligne ces blocs l'un à coté de l'autre,
-vous devrez utiliser la propriété css `display: flex;` dans une `div`
-englobante.
+Cela peut s'avérer nécessaire pour faire relire et valider le document avant sa publication, mais attention ! Il faudra dans un second temps reporter dans Rmarkdown les modifications opérées en dehors, pour tirer pleinement partie de la reproductibilité offerte par Rmarkdown. 
 
-> ASK: est ce que vous pouvez me donner un exemple à ajouter ?
-> <https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html> ---
-> CCn
+### odt_document  
 
-## Autres formats de sortie
+Parmi les types de sortie possibles, `{rmarkdown}` propose le format Libre Office Writer .odt 
+Il repose pour cela sur Pandoc qui traite la conversion de markdown (fichier .md) en document Libre Office Writer (fichier .odt).
+Depuis R, cette conversion offre un nombre limité de paramètres de personnalisation.
 
-Il existe des packages permettant d'obtenir des formats de sortie
-spécifiques. A chaque fois il convient de vérifier que ces formats des
-sorties et votre code sont compatibles.
+:::: {style="display: flex; gap: 50px;"}
 
-pagedown pour faire du PDF sans Latex? gouvdown? où on trouve la doc?
-distill? les présentations xaringan ? officer et officedown?
+::: {}
+Paramètres de la fonction `odt_document()` : 
+```r
+odt_document(
+  number_sections = FALSE,
+  fig_width = 5,
+  fig_height = 4,
+  fig_caption = TRUE,
+  template = "default",
+  reference_odt = "default",
+  includes = NULL,
+  keep_md = FALSE,
+  md_extensions = NULL,
+  pandoc_args = NULL
+)
+```
+:::
 
-## odt_document --\> TODO
+::: {}
 
-les tableaux faits en kableExtra et knitr::kable ne sortent pas
-correctement. les graphiques ne sont pas complets (titres coupés par ex)
-ce format pourrait etre utile uniquement pour le texte. les graphiques
-seraient à faire séparement?
+Ce qui donne pour l'entête YML 
 
-## reference .R files
+```yml 
+--- 
+title: "mon_premier_document"
+author: "Moi"
+date: "31/10/2025"
+output: 
+  odt_document:
+    number_sections: false  
+    fig_width: 5
+    fig_height: 4
+    fig_caption: true
+    reference_odt: "chemin/vers/le/modele.odt"
+--- 
+```  
+::: 
+:::: 
 
-## Le cache
+- `number_sections` : TRUE/FALSE, sert à numéroter (ou pas) les titres.    
+- `fig_width` / `fig_height` sert à indiquer la largeur / hauteur par défaut (en pouces) pour les figures.      
+- `fig_caption` : TRUE/FALSE pour afficher des figures avec des légendes à partir des paramètres de chunks (`fig.cap = "légende de la figure"`).        
+- `template` : modèle Pandoc à utiliser pour le rendu, 3 possibilités : 1. laisser à "default" pour utiliser le modèle par défaut du package rmarkdown, 2. indiquer NULL pour revenir au modèle intégré de Pandoc ou 3. indiquer un chemin d'accès vers un modèle pandoc personnalisé. Consulter la [documentation de Pandoc](https://pandoc.org/MANUAL.html) pour plus de détails sur la création de modèles personnalisés.    
+- `reference_odt` : pour spécifier un fichier odt dont on souhaite réutiliser les styles. Pour un résultat optimal, le fichier odt de référence doit être une version modifiée d'un fichier odt généré avec pandoc.      
+- includes : liste nommée de contenu supplémentaire à inclure dans le document comme un en-tête ou un bas de page (à créer à l'aide de la [fonction `includes()`](https://pkgs.rstudio.com/rmarkdown/reference/includes.html)).     
+- `pandoc_args` : options de ligne de commande supplémentaires à transmettre à pandoc.    
 
-Si le temps d'éxecution du code est trop long, il est possible
-d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
+Une manière rapide de **styliser** le fichier compilé est de le générer une fois, de l'éditer avec libre office pour y [adapter les styles de titres, listes...](https://help.libreoffice.org/latest/fr/text/swriter/guide/spotlight_styles.html?&DbPAR=WRITER&System=WIN) au rendu souhaité.  
+
+On peut également coder les styles directement en xml cf. [ce tuto en français](https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html) 
+
+La gestion des **tableaux** est parfois moins souple qu'en HTML/PDF, mais on peut obtenir quelque chose de propre.
+Les tableaux simples sont traités correctement avec `knitr::kable()` en spécifiant le format "pandoc".
+```r
+knitr::kable(head(iris), format = "pipe")
+```
+Il ne faut pas utiliser les fonctions spécifiques au format HTML (comme `kable_styling()`, `column_spec()`... ) car elles ne sont pas supportées.
+Mais `{kableExtra}` sait aussi générer des tableaux LaTeX et les fonctions compatibles avec le format PDF le seront généralement aussi pour ODT.  
+
+Les **graphiques** ne sont pas automatiquement redimensionnés comme dans un format de sortie HTML, il faut rester dans les limites de largeur du corps de la page (environ 6 pouces pour le modèle par défaut). 
+
+
+### Officer et Officedown
+
+```{r, echo=FALSE, out.width='50%'}
+knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
+```
+
+
+
+To do 
+Ajouter logo officedown
+Traduire et résumer https://ardata-fr.github.io/officeverse/index.html
+Pour les documents bureautiques de type .docx ou .pptx.
+
+
+Exemple 
+https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&plain=1
+
+### Présentations diaporama HTML
+
+Xaringan 
+Pour des présentations de ninja
+
+https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE
+
+
+## Le cache 
+
+Si le temps d'éxecution du code est trop long, il est possible d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
 performances d'éxécution du code.
 
-> ASK: Est ce qu'on parle de cela ou non? --- CCn
+## Rendre le paramétrage interactif 
+dernière slide de l'atelier 2
+
+## Transformer les sous-titres en onglets 
+
+Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections : 
+
+:::: {style="display: flex; gap: 50px;"}
+
+::: {}
+
+**Code :**
+
+```markdown
+### Exemple d'onglets {.tabset}
+
+#### Onglet 1
+
+Contenu de l'onglet 1
+
+#### Onglet 2
+
+Contenu de l'onglet 2
+
+### {.unlisted .unnumbered}
+```
+:::
+
+::: {}
+**Résultat :**  
+
+<iframe src="assets/html/onglet.html" width="320" height="320" scrolling="no" frameborder="0"></iframe>
+
+::: 
+:::: 
+
+Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {.unlisted .unnumbered}` pour continuer avec des paragraphes réguliers.   
+
+Plus d'options d'onglets sont présentées dans le livre de recettes Rmarkdown :  <https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html/>
 
 ## Bibliographie
 
-Voici quelques éléments bibliographiques pour en savoir plus sur R
-Markdown mais aussi tous les packages et logiciels en lien avec ce
-sujet:
+Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown mais aussi tous les packages et logiciels en lien avec ce sujet :
 
--   [Le guide définitif de
-    Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
--   [Le guide de
-    référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
--   [La syntaxe Markdown sur laquelle s'appuie
-    `rmarkdown`]\`(<https://daringfireball.net/projects/markdown/syntax#philosophy>)
--   [Pour en savoir plus sur
-    PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
+-   [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
+-   [Le guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+-   [La syntaxe Markdown sur laquelle s'appuie`rmarkdown`](https://daringfireball.net/projects/markdown/syntax#philosophy)
+-   [Pour en savoir plus sur PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
 -   [Pour en savoir plus sur TinyTeX](https://yihui.org/tinytex/)
--   [Une vidéo en anglais pour aller plus loin dasn l'utilisation de R
-    Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
--   et évidemment les documentations de tous les packages cités!
+-   [Une vidéo en anglais pour aller plus loin dans l'utilisation de R Markdown](https://www.youtube.com/watch?v=WkF7nqEYF1E)
+-   et évidemment les documentations de tous les packages cités !

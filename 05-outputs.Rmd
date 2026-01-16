@@ -2,7 +2,7 @@
 
 Lors de la création du fichier .Rmd, vous avez dû choisir le format de sortie par défaut du document qui sera généré. Ce choix se retrouve dans l'option `output`de l'en-tête.
 
-Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou celle de la fonction knit (via sur la flèche vers le bas du bouton knit ou via les options de la ligne de code).
+Il est possible de modifier le format du document généré, soit en modifiant l'option de l'en-tête ou celle de la fonction knit (via la flèche vers le bas du bouton knit ou via les options de la ligne de code).
 
 Il existe deux types de format dans le package `{rmarkdown}`: documents et présentations. 
 
@@ -31,9 +31,8 @@ Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et, pour l
 ::: {.trucsetastuces}
   **Trucs & Astuces**
   
-Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites le(s) format(s) de document(s) choisi(s). 
-Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire 
-La compatibilité entre types de visualisation et formats de documents doit être vérifiée au cas par cas.  
+Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites et le(s) format(s) de document(s) choisi(s). 
+Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire une sortie vers un autre type de format. 
 :::
 
 Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yaml, au niveau de `output:`.
@@ -49,7 +48,7 @@ output: gouvdown::html_gouv
 La plupart des packages proposant des modèles de documents Rmd les rendent également accessibles en clic bouton depuis le menu File $\Rightarrow$ New file $\Rightarrow$ R Markdown... 
 
 ![Accès aux modèles de fichier Rmd](assets/img/Rmd_from_template.png)  
-Ces menus apparaissent une fois le package qui les contient est installé.
+Ces menus apparaissent une fois le package qui les contient installé.
 
 Nous allons vous présenter les formats les plus utiles.  
 
@@ -77,7 +76,7 @@ Voici les options utilisées fréquemment propres au format `html_document` :
 L'ensemble des options est accessible depuis l'aide de la fonction rmarkdown::html_document (`?rmarkdown::html_document`)
 
 
-``` {yaml}
+```yml
 ---
 title: "mon_premier_document"
 author: 
@@ -117,7 +116,9 @@ h1 {
 
 Il est possible d'intégrer directement cette portion de css dans un chunk du document mais la bonne pratique est plutôt de créer un document à part (extension .css ou .scss, c'est une option proposée par Rstudio dans File > New File) et de le référencer dans le yaml, en reprenant l'exemple précédent : 
 
-```md
+
+```yml
+--- 
 title: "mon_premier_document"
 author: 
   - "Moi"
@@ -128,6 +129,7 @@ output:
     toc: true
     theme: flatly
     css: "mon_style.css"
+---
 ```
 
 À noter : le style fixé par un chunk au sein du document l'emportera sur le style d'un fichier css à part qui l'emportera sur le style fixé par un thème qui l'emportera sur le style de base de l'objet. La dernière information de style lue prévaudra sur les précédentes.
@@ -138,7 +140,7 @@ De nombreuses ressources en ligne sont disponibles pour apprendre les bases du c
 
 Par défaut, R Markdown génère des fichiers HTML auto-portants, sans dépendances externes.
 Tout est intégré dans le fichier .html : feuilles de style, librairies js, des images, graphiques, polices, vidéos... 
-On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner un dossier "html_files" et on est certain de ce qui est restitué.  
+On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner d'un dossier "html_files" et on est certain de ce qui est restitué.  
 Mais cela peut alourdir le document et freiner son affichage web.
 
 Si on préfère conserver les dépendances dans des fichiers externes, pour faciliter l'affichage web, il faut spécifier `self_contained: false` dans les options de l'entête. 
@@ -146,7 +148,7 @@ Par exemple :
 
 ```yaml
 ---
-title: "Habits"
+title: "mon_premier_document"
 output:
   html_document:
     self_contained: false
@@ -155,10 +157,20 @@ output:
 
 Cela a par ailleurs l'avantage de placer les figures dans le dossier des dépendances du html et de pouvoir les mobiliser facilement dans d'autres contextes.
 
+### Affichages sur plusieurs colonnes
+
+Cela se fait très bien en format PDF, c'est plus compliqué en HTML.
+Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec par exemple une illustration sur une moitié de la page, un texte sur l'autre.
+
+Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
+
+Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
+
+Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
 
 ## Sorties PDF
 
-### Configuration préalable pour l'usage de pdf_document
+### Configuration préalable pour l'usage de pdf_document {#latex}
 
 Pour générer des documents PDF avec `output: pdf_document`, il est nécessaire d'avoir installé LaTeX. 
 LaTeX est un logiciel externe qui vient en complément de R pour produire des PDF. 
@@ -174,7 +186,7 @@ On installe ensuite la distribution LaTeX sur le PC avec  la commande `install_t
 On peut spécifier le dossier d'installation souhaité (choisir un dossier sur lequel on a les droits d'écriture :-) ) : 
 
 ```r
-# Exemple de choix d'adresse pour l'installation sur le PC
+# Exemple de choix d'adresse pour l'installation sur un PC
 install_path <- file.path(Sys.getenv('LOCALAPPDATA'), 'tinytex')
 tinytex::install_tinytex(dir = install_path)
 ```
@@ -225,9 +237,13 @@ Une autre option consiste dans un 2e temps à imprimer le html généré avec un
 
 :::::::::::::::::::::::::::::
 
-### {Pagedown}
 
-Le package [`{pagedown}`](https://pagedown.rbind.io/) avec sa fonction [`chrome_print()`](https://pagedown.rbind.io/#print-to-pdf) permet de produire un pdf à partir d'un Rmd conçu pour du html, sans besoin de LaTeX. 
+### `{Pagedown}` 
+<img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" align="right" height="139" />
+
+
+Le package [`{pagedown}`](https://pagedown.rbind.io/) avec sa fonction [`chrome_print()`](https://pagedown.rbind.io/#print-to-pdf) permet de produire un pdf à partir d'un Rmd conçu pour du html, sans besoin de LaTeX.
+
 
 La fonction se repose sur le moteur d'impression du navigateur chrome :
 
@@ -245,6 +261,7 @@ output:
     number_sections: false
 ---
 ```
+Son fonctionnement est détaillé au niveau du chapitre [Pour aller plus loin sur Pagedown].
 
 ::: {.exo}
 **Exercice 4**
