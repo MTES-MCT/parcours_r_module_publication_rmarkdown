@@ -6,7 +6,9 @@ Pagedown est une implémentation pour Rmarkdown de [paged.js](https://www.pagedj
 ```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png")
 ```
-C'est un outil puissant pour concilier les fonctionnalités HTML (donc mise en formes CSS) et la possibilité d'impression PDF, galerie :      
+C'est un outil puissant pour concilier les fonctionnalités HTML (donc mise en formes CSS) et la possibilité d'impression PDF, galerie :     
+
+- https://www.justice.gouv.fr/sites/default/files/2026-01/Infos_Rapides_Justice_n35.pdf
 - https://edouard-legoupil.github.io/unhcr_paged/#graphics-with-style    
 - https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf  
 - https://github.com/rstudio/pagedown?tab=readme-ov-file#paged-html-documents-pagedownhtml_paged  

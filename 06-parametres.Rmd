@@ -1,7 +1,7 @@
 # Paramétrer un rapport
 
 Un des nombreux avantages de R Markdown est la possibilité de reproduire des analyses très facilement en actualisant une partie du travail ou en changeant un des entrants du document. 
-Utiliser des paramètres permet d'aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scenarios. 
+Utiliser des paramètres permet d'aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scénarios. 
 On peut ainsi créer des documents pour des territoires ou des années différents, faire tourner une 
 analyse en changeant une des hypothèses ou changer le comportement de `knitr` selon les cas rencontrés.
 
@@ -122,7 +122,7 @@ lapply(X = liste_especes, FUN = generer_rapport_par_espece)
 On peut utiliser du code R pour définir notre titre. 
 La seule contrainte est de déplacer notre balise de titre après la définition des éléments dont il dépend.
 
-```yml, eval = FALSE
+````{verbatim}
 ---
 author: "Moi"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
@@ -132,7 +132,7 @@ params:
   printcode: TRUE
 title: "Rapport iris - Variété `r params$espece`"
 ---
-```
+````
 
 
 ```{r, eval = TRUE, echo=FALSE, out.width="80%"}
@@ -141,11 +141,9 @@ knitr::include_graphics("assets/img/parametres/param-title2.png")
 
 On peut insérer le titre dans une balise yml ailleurs que dans l'entête placée en début de document si besoin de construire le titre avec des calculs R.
 
-
-```yml
+````{verbatim}
 ---
 title: "`r mon_objet_R_contenant_le_titre`"
 ---
-```
-
+````
 
