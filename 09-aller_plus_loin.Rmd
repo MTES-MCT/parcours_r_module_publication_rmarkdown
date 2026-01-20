@@ -41,7 +41,7 @@ rapide, créez un nouveau document dans Rstudio en choisissant le format
 
 Vous trouverez toute la documentation, des exemples mais surtout des
 guides très complets pour s'autoformer directement [sur le site de
-Quarto](https://quarto.org/).
+Quarto](https://quarto.org/) et  également sur le [site de formation à R du ministère de l'Agriculture](https://ssm-agriculture.github.io/site-formations-R/).
 
 ## Formats de sortie 
 

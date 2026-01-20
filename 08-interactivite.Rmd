@@ -106,7 +106,8 @@ datatable(df_rpls_partagee)
 
 Dans votre yaml, il faut inclure la ligne `runtime: shiny`, pour reprendre l'exemple du chapitre 6, cela donne :
 
-```yml
+````{verbatim}
+---
 title: "mon_premier_document"
 author: "Moi"
 date: "31/10/2022"
@@ -116,7 +117,8 @@ params:
   annee: 2022
   region: Bretagne
   date: !r lubridate::today()
-```
+---
+````
 
 Vous pouvez voir que Rstudio vous propose désormais "Run document" au lieu de "Knit".
 Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la visualisation du document.
@@ -125,7 +127,7 @@ Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la vis
 
 Application Shiny classique :
 
-```{r, eval = FALSE}
+````{verbatim}
 
 library(shiny)
 
@@ -147,17 +149,17 @@ server <- function(input, output) {
 
 shinyApp(ui = ui, server = server)
 
+````
 
-```
 
 La même chose en Rmarkdown :
 
-```{verbatim}
+````{verbatim}
 ---
 runtime: shiny
 output: html_document
 ---
-```
+
 
 ```{r eval = FALSE}
 
@@ -172,17 +174,16 @@ renderPlot({
   
 })
 ```
-
+````
 La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui permet de gérer le placement des différents éléments dans l'interface.
 
 Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
 
-```
+````{verbatim}
 ---
 runtime: shiny
 output: html_document
 ---
-```
 
 ```{r eval = FALSE}
 
@@ -207,7 +208,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server, options = list(height = 500))
 
 ```
-
+````
 L'argument "height" en option permet d'indiquer la place (ici par défaut en pixel) que doit occuper l'application dans le document.
 
 La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
