@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 8 Du Rmarkdown interactif | Module 6 - Publications reproductibles avec RMarkdown</title>
+  <title>Chapitre 6 Paramétrer un rapport | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 8 Du Rmarkdown interactif | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:title" content="Chapitre 6 Paramétrer un rapport | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 8 Du Rmarkdown interactif | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="twitter:title" content="Chapitre 6 Paramétrer un rapport | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="de-la-page-au-livre-le-package-bookdown.html"/>
-<link rel="next" href="pour-aller-plus-loin.html"/>
+<link rel="prev" href="outputs.html"/>
+<link rel="next" href="de-la-page-au-livre-le-package-bookdown.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -296,149 +296,119 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="du-rmarkdown-interactif" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapitre 8</span> Du Rmarkdown interactif<a href="du-rmarkdown-interactif.html#du-rmarkdown-interactif" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Quand notre produit de sortie est un pdf, on va vouloir générer des graphiques et cartes qui ont le comportement d’une image simple.
-C’est ce que nous avons fait depuis le début de ce cours.
-Mais de plus en plus de nos projets sont destinés à une publication web et un certain niveau d’interactivité est souhaité.
-La considération principale à prendre en compte est l’environnement de déploiement.
-Si mon document est hébergé sur un serveur R, j’ai la possibilité de lui faire exécuter du code R “en direct” en fonction des actions de l’utilisateur.
-Dans le cas contraire, il faudra utiliser de l’interactivité en javascript.
-Ce langage est interprété et exécuté directement par le navigateur du client (celui qui consulte la page).
-Mais pas d’inquiétude, vous pouvez continuer à coder uniquement en R, le javascript est caché derrière.</p>
-<div id="interactivité-simple-les-visuels-saniment" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Interactivité simple, les visuels s’animent<a href="du-rmarkdown-interactif.html#interactivit%C3%A9-simple-les-visuels-saniment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Lorsqu’on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d’animation des cartes et graphes vus dans <a href="https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html">le module 5 - “Valoriser ses données avec R”.</a></p>
-<p>Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des datatables et bien d’autres widgets qui offrent des possibilités d’animations au survol, d’infobulles, de zoom etc.
-Ces widgets ne nécessitent pas de déploiement sur un serveur R pour fonctionner.
-Ils sont exécutés par le navigateur client.</p>
-<p>On parle ici d’interactivité simple car il s’agit uniquement d’effets visuels dans le comportement des widgets mais il n’y a aucune modification des données dépendante de l’utilisateur ni aucune opération côté serveur.</p>
+<div id="paramétrer-un-rapport" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapitre 6</span> Paramétrer un rapport<a href="paramétrer-un-rapport.html#param%C3%A9trer-un-rapport" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Un des nombreux avantages de R Markdown est la possibilité de reproduire des analyses très facilement en actualisant une partie du travail ou en changeant un des entrants du document.
+Utiliser des paramètres permet d’aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scénarios.
+On peut ainsi créer des documents pour des territoires ou des années différents, faire tourner une
+analyse en changeant une des hypothèses ou changer le comportement de <code>knitr</code> selon les cas rencontrés.</p>
+<div id="ajouter-une-entrée-params-dans-lentête-yaml" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Ajouter une entrée <code>params</code> dans l’entête yaml<a href="paramétrer-un-rapport.html#ajouter-une-entr%C3%A9e-params-dans-lent%C3%AAte-yaml" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Les paramètres sont spécifiés dans l’en-tête avec l’option <code>params</code> dans laquelle plusieurs paramètres, et leur valeur par défaut, sont listés, un par ligne.</p>
+<p>Les paramètres peuvent être de type <code>character</code>, <code>numeric</code>, <code>integer</code> et <code>logical</code> mais aussi des expressions R tant qu’elles sont précédées de <code>!r</code>.
+L’en-tête, et donc le code pouvant y être présent, est exécuté avant le reste du code donc il est nécessaire d’expliciter les packages utilisés.</p>
+<p>Par exemple:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb31-1"><a href="paramétrer-un-rapport.html#cb31-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb31-2"><a href="paramétrer-un-rapport.html#cb31-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb31-3"><a href="paramétrer-un-rapport.html#cb31-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb31-4"><a href="paramétrer-un-rapport.html#cb31-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb31-5"><a href="paramétrer-un-rapport.html#cb31-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb31-6"><a href="paramétrer-un-rapport.html#cb31-6" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb31-7"><a href="paramétrer-un-rapport.html#cb31-7" tabindex="-1"></a><span class="at">  </span><span class="fu">annee</span><span class="kw">:</span><span class="at"> </span><span class="dv">2024</span></span>
+<span id="cb31-8"><a href="paramétrer-un-rapport.html#cb31-8" tabindex="-1"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> Bretagne</span></span>
+<span id="cb31-9"><a href="paramétrer-un-rapport.html#cb31-9" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> !r lubricate::today()</span></span>
+<span id="cb31-10"><a href="paramétrer-un-rapport.html#cb31-10" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Une fois définis dans l’en-tête, ces paramètres sont accessibles depuis le fichier .Rmd (texte ou code) mais aussi depuis la console.
+Ils sont stockés dans une liste nommée <em><code>params</code></em>.</p>
 </div>
-<div id="interactivité-avancée-les-inputs-utilisateur" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Interactivité avancée, les inputs utilisateur<a href="du-rmarkdown-interactif.html#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dans certains cas, on souhaite que l’utilisateur puisse directement influencer les visuels, en filtrant une sous-partie du jeu de données par exemple.
-Il existe une solution qui permet cela tout en restant dans le cadre d’une exécution par le navigateur client : <a href="https://rstudio.github.io/crosstalk/index.html">le package Crosstalk</a>.</p>
-<p>Le fonctionnement de base est très simple, on transforme notre objet (la dataframe qui contient les données affichées) en un objet partagé (shared object en anglais) :</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="du-rmarkdown-interactif.html#cb43-1" tabindex="-1"></a><span class="fu">library</span>(crosstalk)</span>
-<span id="cb43-2"><a href="du-rmarkdown-interactif.html#cb43-2" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="du-rmarkdown-interactif.html#cb43-3" tabindex="-1"></a>dataframe_partagee <span class="ot">&lt;-</span> SharedData<span class="sc">$</span><span class="fu">new</span>(dataframe)</span></code></pre></div>
-<p>Regardez comme cela est noté dans l’environnement de travail.</p>
-<p>On peut spécifier un argument qui indique le nom d’une colonne de valeurs toutes différentes permettant d’identifier les lignes de manière unique.
-On peut voir ça comme une clé primaire en gestion de base de données.
-Par défaut Crosstalk utilise le numéro de ligne.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="du-rmarkdown-interactif.html#cb44-1" tabindex="-1"></a>dataframe_partagee <span class="ot">&lt;-</span> SharedData<span class="sc">$</span><span class="fu">new</span>(dataframe, <span class="sc">~</span>identifiant)</span></code></pre></div>
-<p>À partir de là, on peut utiliser cet objet partagé à la fois dans un widget de filtre, dans un tableau et dans une carte dynamique pour que l’utilisateur puisse filtrer ses objets à afficher.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="du-rmarkdown-interactif.html#cb45-1" tabindex="-1"></a><span class="fu">library</span>(crosstalk)</span>
-<span id="cb45-2"><a href="du-rmarkdown-interactif.html#cb45-2" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
-<span id="cb45-3"><a href="du-rmarkdown-interactif.html#cb45-3" tabindex="-1"></a><span class="fu">library</span>(DT)</span>
-<span id="cb45-4"><a href="du-rmarkdown-interactif.html#cb45-4" tabindex="-1"></a></span>
-<span id="cb45-5"><a href="du-rmarkdown-interactif.html#cb45-5" tabindex="-1"></a>dataframe_partagee <span class="ot">&lt;-</span> SharedData<span class="sc">$</span><span class="fu">new</span>(dataframe, <span class="sc">~</span>modalites)</span>
-<span id="cb45-6"><a href="du-rmarkdown-interactif.html#cb45-6" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="du-rmarkdown-interactif.html#cb45-7" tabindex="-1"></a><span class="fu">filter_select</span>(<span class="at">id =</span> <span class="st">&quot;mon_filtre&quot;</span>, <span class="at">label =</span> <span class="st">&quot;Choisissez une modalité&quot;</span>, <span class="at">sharedData =</span> dataframe_partagee, <span class="at">group =</span> <span class="sc">~</span>modalites)</span>
-<span id="cb45-8"><a href="du-rmarkdown-interactif.html#cb45-8" tabindex="-1"></a></span>
-<span id="cb45-9"><a href="du-rmarkdown-interactif.html#cb45-9" tabindex="-1"></a><span class="fu">datatable</span>(dataframe_partagee, ...)</span>
-<span id="cb45-10"><a href="du-rmarkdown-interactif.html#cb45-10" tabindex="-1"></a></span>
-<span id="cb45-11"><a href="du-rmarkdown-interactif.html#cb45-11" tabindex="-1"></a><span class="fu">leaflet</span>(dataframe_partagee) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-12"><a href="du-rmarkdown-interactif.html#cb45-12" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(...)</span></code></pre></div>
-<p>Attention, pour le moment, leaflet ne permet l’utilisation d’une dataframe partagée que pour une représentation ponctuelle.
-Il n’est pas possible de filtrer des objets polygonaux de cette manière.</p>
+<div id="exemple-dutilisation-des-paramètres" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Exemple d’utilisation des paramètres<a href="paramétrer-un-rapport.html#exemple-dutilisation-des-param%C3%A8tres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le code suivant montre quelques exemples d’utilisation des paramètres, dans les options de chunks, ou dans la production des visualisations :</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb32-1"><a href="paramétrer-un-rapport.html#cb32-1" tabindex="-1"></a>---</span>
+<span id="cb32-2"><a href="paramétrer-un-rapport.html#cb32-2" tabindex="-1"></a>title: &quot;mon_premier_document&quot;</span>
+<span id="cb32-3"><a href="paramétrer-un-rapport.html#cb32-3" tabindex="-1"></a>author: &quot;Moi&quot;</span>
+<span id="cb32-4"><a href="paramétrer-un-rapport.html#cb32-4" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
+<span id="cb32-5"><a href="paramétrer-un-rapport.html#cb32-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb32-6"><a href="paramétrer-un-rapport.html#cb32-6" tabindex="-1"></a>params:</span>
+<span id="cb32-7"><a href="paramétrer-un-rapport.html#cb32-7" tabindex="-1"></a>  espece: setosa</span>
+<span id="cb32-8"><a href="paramétrer-un-rapport.html#cb32-8" tabindex="-1"></a>  printcode: TRUE</span>
+<span id="cb32-9"><a href="paramétrer-un-rapport.html#cb32-9" tabindex="-1"></a>---</span>
+<span id="cb32-10"><a href="paramétrer-un-rapport.html#cb32-10" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="paramétrer-un-rapport.html#cb32-11" tabindex="-1"></a>```{r, setup, include=FALSE}</span>
+<span id="cb32-12"><a href="paramétrer-un-rapport.html#cb32-12" tabindex="-1"></a>knitr::opts_chunk$set(</span>
+<span id="cb32-13"><a href="paramétrer-un-rapport.html#cb32-13" tabindex="-1"></a>  message = FALSE, </span>
+<span id="cb32-14"><a href="paramétrer-un-rapport.html#cb32-14" tabindex="-1"></a>  warning = FALSE,</span>
+<span id="cb32-15"><a href="paramétrer-un-rapport.html#cb32-15" tabindex="-1"></a>  echo = params$printcode</span>
+<span id="cb32-16"><a href="paramétrer-un-rapport.html#cb32-16" tabindex="-1"></a>)</span>
+<span id="cb32-17"><a href="paramétrer-un-rapport.html#cb32-17" tabindex="-1"></a>```</span>
+<span id="cb32-18"><a href="paramétrer-un-rapport.html#cb32-18" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="paramétrer-un-rapport.html#cb32-19" tabindex="-1"></a></span>
+<span id="cb32-20"><a href="paramétrer-un-rapport.html#cb32-20" tabindex="-1"></a>Les résultats affichés ci-dessus concernent l&#39;espèce `r params$espece`.</span>
+<span id="cb32-21"><a href="paramétrer-un-rapport.html#cb32-21" tabindex="-1"></a></span>
+<span id="cb32-22"><a href="paramétrer-un-rapport.html#cb32-22" tabindex="-1"></a>```{r}</span>
+<span id="cb32-23"><a href="paramétrer-un-rapport.html#cb32-23" tabindex="-1"></a></span>
+<span id="cb32-24"><a href="paramétrer-un-rapport.html#cb32-24" tabindex="-1"></a>print(params)</span>
+<span id="cb32-25"><a href="paramétrer-un-rapport.html#cb32-25" tabindex="-1"></a></span>
+<span id="cb32-26"><a href="paramétrer-un-rapport.html#cb32-26" tabindex="-1"></a>summary(iris)</span>
+<span id="cb32-27"><a href="paramétrer-un-rapport.html#cb32-27" tabindex="-1"></a></span>
+<span id="cb32-28"><a href="paramétrer-un-rapport.html#cb32-28" tabindex="-1"></a>extrait &lt;- iris %&gt;%</span>
+<span id="cb32-29"><a href="paramétrer-un-rapport.html#cb32-29" tabindex="-1"></a>  filter(Species==params$espece)</span>
+<span id="cb32-30"><a href="paramétrer-un-rapport.html#cb32-30" tabindex="-1"></a></span>
+<span id="cb32-31"><a href="paramétrer-un-rapport.html#cb32-31" tabindex="-1"></a>```</span></code></pre></div>
+<p>Il existe 3 façons de générer un document avec des paramètres :</p>
+<ul>
+<li><p>utiliser le bouton <strong>knit</strong>, ce qui prend les valeur par défaut des paramètres ;</p></li>
+<li><p>utiliser l’interface RStudio en sélectionnant l’option <strong>Knit with Parameters</strong> du bouton <strong>knit</strong>. Cela ouvre une nouvelle fenêtre demandant de choisir les valeurs des paramètres indiqués dans l’en-tête ;</p></li>
+<li><p>utiliser la fonction <code>rmarkdown::render()</code>. Sans autre précision cette fonction utilisera les paramètres par défaut définis dans l’en-tête. On peut aussi définir de nouvelles valeurs en utilisant l’option <code>params =</code>.
+Cela donne par exemple :</p></li>
+</ul>
+<div class="sourceCode" id="cb33"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb33-1"><a href="paramétrer-un-rapport.html#cb33-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb33-2"><a href="paramétrer-un-rapport.html#cb33-2" tabindex="-1"></a>rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb33-3"><a href="paramétrer-un-rapport.html#cb33-3" tabindex="-1"></a>                  params = list(espece = &quot;versicolor&quot;, printcode = FALSE))</span>
+<span id="cb33-4"><a href="paramétrer-un-rapport.html#cb33-4" tabindex="-1"></a>```</span></code></pre></div>
+<p>Cette dernière façon de faire, via la fonction <code>rmarkdown::render()</code> permet d’automatiser encore plus les choses en générant autant de documents que de valeurs différentes d’un paramètre.
+En effet, dans un script .R, il est possible de créer une fonction ayant en entrée les paramètres que l’on veut
+modifier plusieurs fois mais aussi le nom du document généré.</p>
 </div>
-<div id="exercice-x" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Exercice X<a href="du-rmarkdown-interactif.html#exercice-x" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².</p>
-<p>À l’aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n’afficher que les données pour une région et un slider permettant de n’afficher que certaines années.</p>
+<div id="comment-compiler-un-rapport-pour-une-liste-de-valeurs" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Comment compiler un rapport pour une liste de valeurs ?<a href="paramétrer-un-rapport.html#comment-compiler-un-rapport-pour-une-liste-de-valeurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>En reprenant l’exemple précédent, on peut produire la sortie d’un rapport pour toutes les espèces :</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb34-1"><a href="paramétrer-un-rapport.html#cb34-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb34-2"><a href="paramétrer-un-rapport.html#cb34-2" tabindex="-1"></a>## Listes des especes contenu dans le datatset iris</span>
+<span id="cb34-3"><a href="paramétrer-un-rapport.html#cb34-3" tabindex="-1"></a>liste_especes &lt;- iris %&gt;% </span>
+<span id="cb34-4"><a href="paramétrer-un-rapport.html#cb34-4" tabindex="-1"></a>  pull(Species) %&gt;%  </span>
+<span id="cb34-5"><a href="paramétrer-un-rapport.html#cb34-5" tabindex="-1"></a>  unique() %&gt;% </span>
+<span id="cb34-6"><a href="paramétrer-un-rapport.html#cb34-6" tabindex="-1"></a>  as.character()</span>
+<span id="cb34-7"><a href="paramétrer-un-rapport.html#cb34-7" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="paramétrer-un-rapport.html#cb34-8" tabindex="-1"></a>## une fonction qui génère le rapport en fonction de l&#39;espèce</span>
+<span id="cb34-9"><a href="paramétrer-un-rapport.html#cb34-9" tabindex="-1"></a>generer_rapport_par_espece &lt;- function(nom_espece) {</span>
+<span id="cb34-10"><a href="paramétrer-un-rapport.html#cb34-10" tabindex="-1"></a>  rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb34-11"><a href="paramétrer-un-rapport.html#cb34-11" tabindex="-1"></a>                    params = list(espece = nom_espece, printcode = FALSE),</span>
+<span id="cb34-12"><a href="paramétrer-un-rapport.html#cb34-12" tabindex="-1"></a>                    output_file = paste0(&quot;doc-&quot;, nom_espece, &quot;.Rmd&quot;))</span>
+<span id="cb34-13"><a href="paramétrer-un-rapport.html#cb34-13" tabindex="-1"></a>}</span>
+<span id="cb34-14"><a href="paramétrer-un-rapport.html#cb34-14" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="paramétrer-un-rapport.html#cb34-15" tabindex="-1"></a>## Application de la fonction à toutes les espèces grâce à lapply</span>
+<span id="cb34-16"><a href="paramétrer-un-rapport.html#cb34-16" tabindex="-1"></a>lapply(X = liste_especes, FUN = generer_rapport_par_espece)</span>
+<span id="cb34-17"><a href="paramétrer-un-rapport.html#cb34-17" tabindex="-1"></a>``` </span></code></pre></div>
 </div>
-<div id="interactivité-complète-lapplication-shiny-embarquée" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Interactivité complète, l’application Shiny embarquée<a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>À condition de disposer d’un serveur R pour déployer son document, il est possible d’intégrer des objets interactifs Shiny (inputs et outputs) voire une application Shiny complète dans un Rmarkdown.</p>
-<p>Dans votre yaml, il faut inclure la ligne <code>runtime: shiny</code>, pour reprendre l’exemple du chapitre 6, cela donne :</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb46-1"><a href="du-rmarkdown-interactif.html#cb46-1" tabindex="-1"></a>---</span>
-<span id="cb46-2"><a href="du-rmarkdown-interactif.html#cb46-2" tabindex="-1"></a>title: &quot;mon_premier_document&quot;</span>
-<span id="cb46-3"><a href="du-rmarkdown-interactif.html#cb46-3" tabindex="-1"></a>author: &quot;Moi&quot;</span>
-<span id="cb46-4"><a href="du-rmarkdown-interactif.html#cb46-4" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
-<span id="cb46-5"><a href="du-rmarkdown-interactif.html#cb46-5" tabindex="-1"></a>runtime: shiny</span>
-<span id="cb46-6"><a href="du-rmarkdown-interactif.html#cb46-6" tabindex="-1"></a>output: html_document</span>
-<span id="cb46-7"><a href="du-rmarkdown-interactif.html#cb46-7" tabindex="-1"></a>params:</span>
-<span id="cb46-8"><a href="du-rmarkdown-interactif.html#cb46-8" tabindex="-1"></a>  annee: 2022</span>
-<span id="cb46-9"><a href="du-rmarkdown-interactif.html#cb46-9" tabindex="-1"></a>  region: Bretagne</span>
-<span id="cb46-10"><a href="du-rmarkdown-interactif.html#cb46-10" tabindex="-1"></a>  date: !r lubridate::today()</span>
-<span id="cb46-11"><a href="du-rmarkdown-interactif.html#cb46-11" tabindex="-1"></a>---</span></code></pre></div>
-<p>Vous pouvez voir que Rstudio vous propose désormais “Run document” au lieu de “Knit”.
-Il comprend qu’il doit désormais utiliser un moteur shiny pour permettre la visualisation du document.</p>
-<p>À partir de là, vous pouvez inclure directement des inputs et outputs Shiny dans votre document mais il y a un twist : contrairement à une application Shiny avec une logique UI / serveur où vous devez prévoir des placeholders dans l’UI pour vos sorties de serveur, dans la version Rmarkdown vous pouvez directement appeler les fonctions de la famille <code>renderXXX()</code>.</p>
-<p>Application Shiny classique :</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb47-1"><a href="du-rmarkdown-interactif.html#cb47-1" tabindex="-1"></a></span>
-<span id="cb47-2"><a href="du-rmarkdown-interactif.html#cb47-2" tabindex="-1"></a>library(shiny)</span>
-<span id="cb47-3"><a href="du-rmarkdown-interactif.html#cb47-3" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="du-rmarkdown-interactif.html#cb47-4" tabindex="-1"></a>ui &lt;- bootstrapPage(</span>
-<span id="cb47-5"><a href="du-rmarkdown-interactif.html#cb47-5" tabindex="-1"></a>  </span>
-<span id="cb47-6"><a href="du-rmarkdown-interactif.html#cb47-6" tabindex="-1"></a>  selectInput(&quot;input_utilisateur&quot;, ...),</span>
-<span id="cb47-7"><a href="du-rmarkdown-interactif.html#cb47-7" tabindex="-1"></a>  </span>
-<span id="cb47-8"><a href="du-rmarkdown-interactif.html#cb47-8" tabindex="-1"></a>  plotOutput(&quot;mon_graph&quot;, ...)</span>
-<span id="cb47-9"><a href="du-rmarkdown-interactif.html#cb47-9" tabindex="-1"></a></span>
-<span id="cb47-10"><a href="du-rmarkdown-interactif.html#cb47-10" tabindex="-1"></a>)</span>
-<span id="cb47-11"><a href="du-rmarkdown-interactif.html#cb47-11" tabindex="-1"></a></span>
-<span id="cb47-12"><a href="du-rmarkdown-interactif.html#cb47-12" tabindex="-1"></a>server &lt;- function(input, output) {</span>
-<span id="cb47-13"><a href="du-rmarkdown-interactif.html#cb47-13" tabindex="-1"></a>  </span>
-<span id="cb47-14"><a href="du-rmarkdown-interactif.html#cb47-14" tabindex="-1"></a>  output$mon_graph &lt;- renderPlot({</span>
-<span id="cb47-15"><a href="du-rmarkdown-interactif.html#cb47-15" tabindex="-1"></a>    ggplot(...)</span>
-<span id="cb47-16"><a href="du-rmarkdown-interactif.html#cb47-16" tabindex="-1"></a>  })</span>
-<span id="cb47-17"><a href="du-rmarkdown-interactif.html#cb47-17" tabindex="-1"></a>  </span>
-<span id="cb47-18"><a href="du-rmarkdown-interactif.html#cb47-18" tabindex="-1"></a>}</span>
-<span id="cb47-19"><a href="du-rmarkdown-interactif.html#cb47-19" tabindex="-1"></a></span>
-<span id="cb47-20"><a href="du-rmarkdown-interactif.html#cb47-20" tabindex="-1"></a>shinyApp(ui = ui, server = server)</span></code></pre></div>
-<p>La même chose en Rmarkdown :</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb48-1"><a href="du-rmarkdown-interactif.html#cb48-1" tabindex="-1"></a>---</span>
-<span id="cb48-2"><a href="du-rmarkdown-interactif.html#cb48-2" tabindex="-1"></a>runtime: shiny</span>
-<span id="cb48-3"><a href="du-rmarkdown-interactif.html#cb48-3" tabindex="-1"></a>output: html_document</span>
-<span id="cb48-4"><a href="du-rmarkdown-interactif.html#cb48-4" tabindex="-1"></a>---</span>
-<span id="cb48-5"><a href="du-rmarkdown-interactif.html#cb48-5" tabindex="-1"></a></span>
-<span id="cb48-6"><a href="du-rmarkdown-interactif.html#cb48-6" tabindex="-1"></a>```{r eval = FALSE}</span>
-<span id="cb48-7"><a href="du-rmarkdown-interactif.html#cb48-7" tabindex="-1"></a></span>
-<span id="cb48-8"><a href="du-rmarkdown-interactif.html#cb48-8" tabindex="-1"></a>selectInput(&quot;input_utilisateur&quot;)</span>
-<span id="cb48-9"><a href="du-rmarkdown-interactif.html#cb48-9" tabindex="-1"></a></span>
-<span id="cb48-10"><a href="du-rmarkdown-interactif.html#cb48-10" tabindex="-1"></a>```</span>
-<span id="cb48-11"><a href="du-rmarkdown-interactif.html#cb48-11" tabindex="-1"></a></span>
-<span id="cb48-12"><a href="du-rmarkdown-interactif.html#cb48-12" tabindex="-1"></a>```{r eval = FALSE}</span>
-<span id="cb48-13"><a href="du-rmarkdown-interactif.html#cb48-13" tabindex="-1"></a>renderPlot({</span>
-<span id="cb48-14"><a href="du-rmarkdown-interactif.html#cb48-14" tabindex="-1"></a>  </span>
-<span id="cb48-15"><a href="du-rmarkdown-interactif.html#cb48-15" tabindex="-1"></a>  ggplot()</span>
-<span id="cb48-16"><a href="du-rmarkdown-interactif.html#cb48-16" tabindex="-1"></a>  </span>
-<span id="cb48-17"><a href="du-rmarkdown-interactif.html#cb48-17" tabindex="-1"></a>})</span>
-<span id="cb48-18"><a href="du-rmarkdown-interactif.html#cb48-18" tabindex="-1"></a>```</span></code></pre></div>
-<p>La syntaxe s’en trouve simplifiée, c’est la structure du document Rmarkdown qui permet de gérer le placement des différents éléments dans l’interface.</p>
-<p>Une autre option consiste à directement intégrer le code l’application Shiny tel quel dans le document Rmarkdown :</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb49-1"><a href="du-rmarkdown-interactif.html#cb49-1" tabindex="-1"></a>---</span>
-<span id="cb49-2"><a href="du-rmarkdown-interactif.html#cb49-2" tabindex="-1"></a>runtime: shiny</span>
-<span id="cb49-3"><a href="du-rmarkdown-interactif.html#cb49-3" tabindex="-1"></a>output: html_document</span>
-<span id="cb49-4"><a href="du-rmarkdown-interactif.html#cb49-4" tabindex="-1"></a>---</span>
-<span id="cb49-5"><a href="du-rmarkdown-interactif.html#cb49-5" tabindex="-1"></a></span>
-<span id="cb49-6"><a href="du-rmarkdown-interactif.html#cb49-6" tabindex="-1"></a>```{r eval = FALSE}</span>
-<span id="cb49-7"><a href="du-rmarkdown-interactif.html#cb49-7" tabindex="-1"></a></span>
-<span id="cb49-8"><a href="du-rmarkdown-interactif.html#cb49-8" tabindex="-1"></a>library(shiny)</span>
-<span id="cb49-9"><a href="du-rmarkdown-interactif.html#cb49-9" tabindex="-1"></a></span>
-<span id="cb49-10"><a href="du-rmarkdown-interactif.html#cb49-10" tabindex="-1"></a>ui &lt;- bootstrapPage(</span>
-<span id="cb49-11"><a href="du-rmarkdown-interactif.html#cb49-11" tabindex="-1"></a>  </span>
-<span id="cb49-12"><a href="du-rmarkdown-interactif.html#cb49-12" tabindex="-1"></a>  selectInput(&quot;input_utilisateur&quot;, ...),</span>
-<span id="cb49-13"><a href="du-rmarkdown-interactif.html#cb49-13" tabindex="-1"></a>  </span>
-<span id="cb49-14"><a href="du-rmarkdown-interactif.html#cb49-14" tabindex="-1"></a>  plotOutput(&quot;mon_graph&quot;, ...)</span>
-<span id="cb49-15"><a href="du-rmarkdown-interactif.html#cb49-15" tabindex="-1"></a></span>
-<span id="cb49-16"><a href="du-rmarkdown-interactif.html#cb49-16" tabindex="-1"></a>)</span>
-<span id="cb49-17"><a href="du-rmarkdown-interactif.html#cb49-17" tabindex="-1"></a></span>
-<span id="cb49-18"><a href="du-rmarkdown-interactif.html#cb49-18" tabindex="-1"></a>server &lt;- function(input, output) {</span>
-<span id="cb49-19"><a href="du-rmarkdown-interactif.html#cb49-19" tabindex="-1"></a>  </span>
-<span id="cb49-20"><a href="du-rmarkdown-interactif.html#cb49-20" tabindex="-1"></a>  output$mon_graph &lt;- renderPlot({</span>
-<span id="cb49-21"><a href="du-rmarkdown-interactif.html#cb49-21" tabindex="-1"></a>    ggplot(...)</span>
-<span id="cb49-22"><a href="du-rmarkdown-interactif.html#cb49-22" tabindex="-1"></a>  })</span>
-<span id="cb49-23"><a href="du-rmarkdown-interactif.html#cb49-23" tabindex="-1"></a>  </span>
-<span id="cb49-24"><a href="du-rmarkdown-interactif.html#cb49-24" tabindex="-1"></a>}</span>
-<span id="cb49-25"><a href="du-rmarkdown-interactif.html#cb49-25" tabindex="-1"></a></span>
-<span id="cb49-26"><a href="du-rmarkdown-interactif.html#cb49-26" tabindex="-1"></a>shinyApp(ui = ui, server = server, options = list(height = 500))</span>
-<span id="cb49-27"><a href="du-rmarkdown-interactif.html#cb49-27" tabindex="-1"></a></span>
-<span id="cb49-28"><a href="du-rmarkdown-interactif.html#cb49-28" tabindex="-1"></a>```</span></code></pre></div>
-<p>L’argument “height” en option permet d’indiquer la place (ici par défaut en pixel) que doit occuper l’application dans le document.</p>
-<p>La réciproque est vraie, il est possible d’inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d’accueil) en utilisant la fonction <code>includeMarkdown("mon_markdown.md")</code> à l’intérieur de l’UI.
-Il est donc possible d’inclure dans une app Shiny un markdown qui lui même contient une application Shiny…🤯</p>
+<div id="paramétrer-le-titre-du-rapport" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Paramétrer le titre du rapport<a href="paramétrer-un-rapport.html#param%C3%A9trer-le-titre-du-rapport" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On peut utiliser du code R pour définir notre titre.
+La seule contrainte est de déplacer notre balise de titre après la définition des éléments dont il dépend.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb35-1"><a href="paramétrer-un-rapport.html#cb35-1" tabindex="-1"></a>---</span>
+<span id="cb35-2"><a href="paramétrer-un-rapport.html#cb35-2" tabindex="-1"></a>author: &quot;Moi&quot;</span>
+<span id="cb35-3"><a href="paramétrer-un-rapport.html#cb35-3" tabindex="-1"></a>date: &quot;`r format(Sys.Date(), &#39;%d %B %Y&#39;)`&quot;</span>
+<span id="cb35-4"><a href="paramétrer-un-rapport.html#cb35-4" tabindex="-1"></a>output: html_document</span>
+<span id="cb35-5"><a href="paramétrer-un-rapport.html#cb35-5" tabindex="-1"></a>params:</span>
+<span id="cb35-6"><a href="paramétrer-un-rapport.html#cb35-6" tabindex="-1"></a>  espece: setosa</span>
+<span id="cb35-7"><a href="paramétrer-un-rapport.html#cb35-7" tabindex="-1"></a>  printcode: TRUE</span>
+<span id="cb35-8"><a href="paramétrer-un-rapport.html#cb35-8" tabindex="-1"></a>title: &quot;Rapport iris - Variété `r params$espece`&quot;</span>
+<span id="cb35-9"><a href="paramétrer-un-rapport.html#cb35-9" tabindex="-1"></a>---</span></code></pre></div>
+<p><img src="assets/img/parametres/param-title2.png" alt="" width="80%" /></p>
+<p>On peut insérer le titre dans une balise yml ailleurs que dans l’entête placée en début de document si besoin de construire le titre avec des calculs R.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb36-1"><a href="paramétrer-un-rapport.html#cb36-1" tabindex="-1"></a>---</span>
+<span id="cb36-2"><a href="paramétrer-un-rapport.html#cb36-2" tabindex="-1"></a>title: &quot;`r mon_objet_R_contenant_le_titre`&quot;</span>
+<span id="cb36-3"><a href="paramétrer-un-rapport.html#cb36-3" tabindex="-1"></a>---</span></code></pre></div>
 
 </div>
 </div>
@@ -447,8 +417,8 @@ Il est donc possible d’inclure dans une app Shiny un markdown qui lui même co
           </div>
         </div>
       </div>
-<a href="de-la-page-au-livre-le-package-bookdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pour-aller-plus-loin.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="outputs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="de-la-page-au-livre-le-package-bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

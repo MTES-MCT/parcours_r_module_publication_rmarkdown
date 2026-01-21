@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 4 Intégrer du code à exécuter dans les Rmd | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
-  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 4 Intégrer du code à exécuter dans les Rmd | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2025-11-20" />
+<meta name="date" content="2026-01-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,7 +59,7 @@
 <script src="libs/ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
 <script src="libs/strftime-0.9.2/strftime-min.js"></script>
 <link href="libs/ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet" />
-<link href="libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="libs/datatables-binding-0.34.0/datatables.js"></script>
@@ -157,10 +157,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#le-parcours-de-formation"><i class="fa fa-check"></i><b>0.1</b> Le parcours de formation</a></li>
-<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i><b>0.2</b> Le groupe de référents R du pôle ministériel</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#le-parcours-de-formation"><i class="fa fa-check"></i>Le parcours de formation</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#le-groupe-de-r%C3%A9f%C3%A9rents-r-du-p%C3%B4le-minist%C3%A9riel"><i class="fa fa-check"></i>Le groupe de référents R du pôle ministériel</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#objectifs-de-ce-module"><i class="fa fa-check"></i>Objectifs de ce module</a></li>
-<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i><b>0.3</b> Exemples de productions avec R Markdown</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#exemples-de-productions-avec-r-markdown"><i class="fa fa-check"></i>Exemples de productions avec R Markdown</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
@@ -179,10 +179,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Le fichier R Markdown</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio"><i class="fa fa-check"></i><b>3.1</b> R markdown dans RStudio</a>
+<li class="chapter" data-level="3.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#r-markdown-dans-rstudio"><i class="fa fa-check"></i><b>3.1</b> R Markdown dans RStudio</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#cr%C3%A9er-un-fichier-.rmd"><i class="fa fa-check"></i><b>3.1.1</b> Créer un fichier .Rmd</a></li>
-<li class="chapter" data-level="3.1.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#lancer-la-g%C3%A9n%C3%A9ration-du-document"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document</a></li>
+<li class="chapter" data-level="3.1.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#lancer-la-g%C3%A9n%C3%A9ration-du-document-par-un-knit"><i class="fa fa-check"></i><b>3.1.2</b> Lancer la génération du document par un ‘knit’</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#les-%C3%A9l%C3%A9ments-dun-fichier-.rmd"><i class="fa fa-check"></i><b>3.2</b> Les éléments d’un fichier .Rmd</a>
 <ul>
@@ -190,6 +190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.2" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#les-%C3%A9l%C3%A9ments-texte"><i class="fa fa-check"></i><b>3.2.2</b> Les éléments texte</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#ins%C3%A9rer-des-images"><i class="fa fa-check"></i><b>3.3</b> Insérer des images</a></li>
+<li class="chapter" data-level="3.4" data-path="le-fichier-r-markdown.html"><a href="le-fichier-r-markdown.html#encodage"><i class="fa fa-check"></i><b>3.4</b> Encodage</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="chunks.html"><a href="chunks.html"><i class="fa fa-check"></i><b>4</b> Intégrer du code à exécuter dans les Rmd</a>
 <ul>
@@ -202,7 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="chunks.html"><a href="chunks.html#les-insertions-de-code-dans-le-texte-le-code-inline"><i class="fa fa-check"></i><b>4.2</b> Les insertions de code dans le texte : le code inline</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="chunks.html"><a href="chunks.html#autres-langages-autres-langages"><i class="fa fa-check"></i><b>4.2.1</b> Autres langages {autres-langages}</a></li>
+<li class="chapter" data-level="4.2.1" data-path="chunks.html"><a href="chunks.html#autres-langages"><i class="fa fa-check"></i><b>4.2.1</b> Autres langages</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="chunks.html"><a href="chunks.html#exercice-3"><i class="fa fa-check"></i><b>4.3</b> Exercice 3</a></li>
 </ul></li>
@@ -212,101 +213,67 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="5.1.1" data-path="outputs.html"><a href="outputs.html#personnaliser-le-css"><i class="fa fa-check"></i><b>5.1.1</b> Personnaliser le css</a></li>
 <li class="chapter" data-level="5.1.2" data-path="outputs.html"><a href="outputs.html#option-self_contained"><i class="fa fa-check"></i><b>5.1.2</b> Option self_contained</a></li>
+<li class="chapter" data-level="5.1.3" data-path="outputs.html"><a href="outputs.html#affichages-sur-plusieurs-colonnes"><i class="fa fa-check"></i><b>5.1.3</b> Affichages sur plusieurs colonnes</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="outputs.html"><a href="outputs.html#sorties-pdf"><i class="fa fa-check"></i><b>5.2</b> Sorties PDF</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="outputs.html"><a href="outputs.html#configuration-pr%C3%A9alable-pour-lusage-de-pdf_document"><i class="fa fa-check"></i><b>5.2.1</b> Configuration préalable pour l’usage de pdf_document</a></li>
+<li class="chapter" data-level="5.2.1" data-path="outputs.html"><a href="outputs.html#latex"><i class="fa fa-check"></i><b>5.2.1</b> Configuration préalable pour l’usage de pdf_document</a></li>
 <li class="chapter" data-level="5.2.2" data-path="outputs.html"><a href="outputs.html#sp%C3%A9cificit%C3%A9s-du-format-pdf_document"><i class="fa fa-check"></i><b>5.2.2</b> Spécificités du format pdf_document</a></li>
-<li class="chapter" data-level="5.2.3" data-path="outputs.html"><a href="outputs.html#pagedown"><i class="fa fa-check"></i><b>5.2.3</b> {Pagedown}</a></li>
+<li class="chapter" data-level="5.2.3" data-path="outputs.html"><a href="outputs.html#pagedown"><i class="fa fa-check"></i><b>5.2.3</b> <code>{Pagedown}</code></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="ajouter-des-paramètres.html"><a href="ajouter-des-paramètres.html"><i class="fa fa-check"></i><b>6</b> Ajouter des paramètres</a></li>
-<li class="chapter" data-level="7" data-path="a-ne-pas-oublier.html"><a href="a-ne-pas-oublier.html"><i class="fa fa-check"></i><b>7</b> A ne pas oublier</a></li>
-<li class="chapter" data-level="8" data-path="rappels-du-jour-1.html"><a href="rappels-du-jour-1.html"><i class="fa fa-check"></i><b>8</b> Rappels du jour 1</a></li>
-<li class="chapter" data-level="9" data-path="exercice.html"><a href="exercice.html"><i class="fa fa-check"></i><b>9</b> Exercice</a>
+<li class="chapter" data-level="6" data-path="paramétrer-un-rapport.html"><a href="paramétrer-un-rapport.html"><i class="fa fa-check"></i><b>6</b> Paramétrer un rapport</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="exercice.html"><a href="exercice.html#cadrage"><i class="fa fa-check"></i><b>9.1</b> Cadrage</a>
-<ul>
-<li class="chapter" data-level="9.1.1" data-path="exercice.html"><a href="exercice.html#probl%C3%A9matique"><i class="fa fa-check"></i><b>9.1.1</b> Problématique</a></li>
-<li class="chapter" data-level="9.1.2" data-path="exercice.html"><a href="exercice.html#rendu"><i class="fa fa-check"></i><b>9.1.2</b> Rendu</a></li>
+<li class="chapter" data-level="6.1" data-path="paramétrer-un-rapport.html"><a href="paramétrer-un-rapport.html#ajouter-une-entr%C3%A9e-params-dans-lent%C3%AAte-yaml"><i class="fa fa-check"></i><b>6.1</b> Ajouter une entrée <code>params</code> dans l’entête yaml</a></li>
+<li class="chapter" data-level="6.2" data-path="paramétrer-un-rapport.html"><a href="paramétrer-un-rapport.html#exemple-dutilisation-des-param%C3%A8tres"><i class="fa fa-check"></i><b>6.2</b> Exemple d’utilisation des paramètres</a></li>
+<li class="chapter" data-level="6.3" data-path="paramétrer-un-rapport.html"><a href="paramétrer-un-rapport.html#comment-compiler-un-rapport-pour-une-liste-de-valeurs"><i class="fa fa-check"></i><b>6.3</b> Comment compiler un rapport pour une liste de valeurs ?</a></li>
+<li class="chapter" data-level="6.4" data-path="paramétrer-un-rapport.html"><a href="paramétrer-un-rapport.html#param%C3%A9trer-le-titre-du-rapport"><i class="fa fa-check"></i><b>6.4</b> Paramétrer le titre du rapport</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html"><i class="fa fa-check"></i><b>10</b> De la page au livre, le package bookdown</a>
+<li class="chapter" data-level="7" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html"><i class="fa fa-check"></i><b>7</b> De la page au livre, le package <code>{bookdown}</code></a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#d%C3%A9marrer-un-projet-de-livre-de-la-page-blanche"><i class="fa fa-check"></i><b>10.1</b> Démarrer un projet de livre de la page blanche</a>
-<ul>
-<li class="chapter" data-level="10.1.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#installer-le-package-bookdown"><i class="fa fa-check"></i><b>10.1.1</b> Installer le package bookdown</a></li>
-<li class="chapter" data-level="10.1.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#initialiser-un-mod%C3%A8le-de-livre"><i class="fa fa-check"></i><b>10.1.2</b> Initialiser un modèle de livre</a></li>
-<li class="chapter" data-level="10.1.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#g%C3%A9n%C3%A9rer-le-livre-et-le-relire"><i class="fa fa-check"></i><b>10.1.3</b> Générer le livre et le (re)lire</a></li>
-<li class="chapter" data-level="10.1.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#se-lancer-dans-l%C3%A9criture"><i class="fa fa-check"></i><b>10.1.4</b> Se lancer dans l’écriture</a></li>
+<li class="chapter" data-level="7.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#comment-%C3%A7a-marche"><i class="fa fa-check"></i><b>7.1</b> Comment ça marche ?</a></li>
+<li class="chapter" data-level="7.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#contenu-du-projet-par-d%C3%A9faut"><i class="fa fa-check"></i><b>7.2</b> Contenu du projet par défaut</a></li>
+<li class="chapter" data-level="7.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#chaque-fichier-rmd-correspond-%C3%A0-un-chapitre."><i class="fa fa-check"></i><b>7.3</b> Chaque fichier Rmd correspond à un chapitre.</a></li>
+<li class="chapter" data-level="7.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#la-structure-du-book-le-fichier-_bookdown.yml"><i class="fa fa-check"></i><b>7.4</b> La structure du book : le fichier <code>_bookdown.yml</code></a></li>
+<li class="chapter" data-level="7.5" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#le-param%C3%A9trage-des-formats-de-sortie-le-fichier-_output.yml"><i class="fa fa-check"></i><b>7.5</b> Le paramétrage des formats de sortie : le fichier <code>_output.yml</code></a></li>
+<li class="chapter" data-level="7.6" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#styled-outputs"><i class="fa fa-check"></i><b>7.6</b> Pour des rendus stylés</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#composer-son-livre-quand-la-mati%C3%A8re-est-d%C3%A9j%C3%A0-disponible"><i class="fa fa-check"></i><b>10.2</b> Composer son livre quand la matière est déjà disponible</a>
+<li class="chapter" data-level="8" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html"><i class="fa fa-check"></i><b>8</b> Du Rmarkdown interactif</a>
 <ul>
-<li class="chapter" data-level="10.2.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#illustration-pratique-dune-composition"><i class="fa fa-check"></i><b>10.2.1</b> Illustration pratique d’une composition</a></li>
-<li class="chapter" data-level="10.2.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#organisation-des-sources-dun-bookdown"><i class="fa fa-check"></i><b>10.2.2</b> Organisation des sources d’un bookdown</a></li>
+<li class="chapter" data-level="8.1" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>8.1</b> Interactivité simple, les visuels s’animent</a></li>
+<li class="chapter" data-level="8.2" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>8.2</b> Interactivité avancée, les inputs utilisateur</a></li>
+<li class="chapter" data-level="8.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>8.3</b> Exercice X</a></li>
+<li class="chapter" data-level="8.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>8.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
 </ul></li>
-<li class="chapter" data-level="10.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#au-del%C3%A0-du-fond-sattaquer-aux-go%C3%BBts-et-couleurs"><i class="fa fa-check"></i><b>10.3</b> Au-delà du fond s’attaquer aux goûts et couleurs</a>
+<li class="chapter" data-level="9" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>9</b> Pour aller plus loin</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#les-types-de-sorties-ou-les-diff%C3%A9rents-rendus-possibles"><i class="fa fa-check"></i><b>10.3.1</b> Les types de sorties, ou les différents rendus possibles</a></li>
-<li class="chapter" data-level="10.3.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#un-choix-esth%C3%A9tique-cadr%C3%A9"><i class="fa fa-check"></i><b>10.3.2</b> Un choix esthétique cadré</a></li>
-<li class="chapter" data-level="10.3.3" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#polices-de-caract%C3%A8res-et-couleurs-imposez-votre-style"><i class="fa fa-check"></i><b>10.3.3</b> Polices de caractères et couleurs, imposez votre style</a></li>
-<li class="chapter" data-level="10.3.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#un-choix-esth%C3%A9tique-cadr%C3%A9-1"><i class="fa fa-check"></i><b>10.3.4</b> Un choix esthétique cadré</a></li>
-</ul></li>
-<li class="chapter" data-level="10.4" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#quelques-options-et-d%C3%A9tails-techniques-compl%C3%A9mentaires"><i class="fa fa-check"></i><b>10.4</b> Quelques options et détails techniques complémentaires</a>
+<li class="chapter" data-level="9.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#quarto"><i class="fa fa-check"></i><b>9.1</b> Les documents Quarto</a></li>
+<li class="chapter" data-level="9.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#formats-de-sortie"><i class="fa fa-check"></i><b>9.2</b> Formats de sortie</a>
 <ul>
-<li class="chapter" data-level="10.4.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#options-tri%C3%A9es-sur-le-volet"><i class="fa fa-check"></i><b>10.4.1</b> Options triées sur le volet</a></li>
-<li class="chapter" data-level="10.4.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#retour-sur-le-fonctionnement-global"><i class="fa fa-check"></i><b>10.4.2</b> Retour sur le fonctionnement global</a></li>
+<li class="chapter" data-level="9.2.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document"><i class="fa fa-check"></i><b>9.2.1</b> odt_document</a></li>
+<li class="chapter" data-level="9.2.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#officer-et-officedown"><i class="fa fa-check"></i><b>9.2.2</b> Officer et Officedown</a></li>
+<li class="chapter" data-level="9.2.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#pr%C3%A9sentations-diaporama-html"><i class="fa fa-check"></i><b>9.2.3</b> Présentations diaporama HTML</a></li>
 </ul></li>
-<li class="chapter" data-level="10.5" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#etude-dun-exemple-bookdown-propre.rpls"><i class="fa fa-check"></i><b>10.5</b> Etude d’un exemple bookdown : propre.rpls</a>
+<li class="chapter" data-level="9.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#le-cache"><i class="fa fa-check"></i><b>9.3</b> Le cache</a></li>
+<li class="chapter" data-level="9.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#rendre-le-param%C3%A9trage-interactif"><i class="fa fa-check"></i><b>9.4</b> Rendre le paramétrage interactif</a></li>
+<li class="chapter" data-level="9.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#transformer-les-sous-titres-en-onglets"><i class="fa fa-check"></i><b>9.5</b> Transformer les sous-titres en onglets</a></li>
+<li class="chapter" data-level="9.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>9.6</b> Bibliographie</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html"><i class="fa fa-check"></i><b>10</b> Pour aller plus loin sur Pagedown</a>
 <ul>
-<li class="chapter" data-level="10.5.1" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#exemple-dappropriation-dune-publication-rpls"><i class="fa fa-check"></i><b>10.5.1</b> Exemple d’appropriation d’une publication Rpls</a></li>
-<li class="chapter" data-level="10.5.2" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#compr%C3%A9hension-globale-de-larchitecture-du-paquet-propre.rpl"><i class="fa fa-check"></i><b>10.5.2</b> Compréhension globale de l’architecture du paquet propre.rpl</a></li>
+<li class="chapter" data-level="10.1" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#paged.js"><i class="fa fa-check"></i><b>10.1</b> Paged.js</a></li>
+<li class="chapter" data-level="10.2" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#d%C3%A9marrer-avec-pagedown"><i class="fa fa-check"></i><b>10.2</b> Démarrer avec Pagedown</a></li>
+<li class="chapter" data-level="10.3" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-yaml"><i class="fa fa-check"></i><b>10.3</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="10.4" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#quelques-balises-importantes-%C3%A0-conna%C3%AEtre"><i class="fa fa-check"></i><b>10.4</b> Quelques balises importantes à connaître</a></li>
+<li class="chapter" data-level="10.5" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#modifier-le-css"><i class="fa fa-check"></i><b>10.5</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="10.6" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-css"><i class="fa fa-check"></i><b>10.6</b> Configurer votre CSS</a></li>
 </ul></li>
-<li class="chapter" data-level="10.6" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#focus-sur-lenvoi-au-photocopieur-du-livre-ou-comment-imprime"><i class="fa fa-check"></i><b>10.6</b> Focus sur l’envoi au photocopieur du livre ou comment imprime</a></li>
-<li class="chapter" data-level="10.7" data-path="de-la-page-au-livre-le-package-bookdown.html"><a href="de-la-page-au-livre-le-package-bookdown.html#bookdown-maintenant-et-au-del%C3%A0"><i class="fa fa-check"></i><b>10.7</b> Bookdown, maintenant et au-delà</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html"><i class="fa fa-check"></i><b>11</b> Du Rmarkdown interactif</a>
+<li class="chapter" data-level="11" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>11</b> Rendu des exercices partie 2</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>11.1</b> Interactivité simple, les visuels s’animent</a></li>
-<li class="chapter" data-level="11.2" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>11.2</b> Interactivité avancée, les inputs utilisateur</a></li>
-<li class="chapter" data-level="11.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>11.3</b> Exercice X</a></li>
-<li class="chapter" data-level="11.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>11.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
-<li class="chapter" data-level="11.5" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#linteractivit%C3%A9-dans-dautres-langages"><i class="fa fa-check"></i><b>11.5</b> L’interactivité dans d’autres langages</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html"><i class="fa fa-check"></i><b>12</b> Aller plus loin bis</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#bookdown"><i class="fa fa-check"></i><b>12.1</b> Bookdown</a></li>
-<li class="chapter" data-level="12.2" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#pagedown-1"><i class="fa fa-check"></i><b>12.2</b> Pagedown</a></li>
-<li class="chapter" data-level="12.3" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#officer"><i class="fa fa-check"></i><b>12.3</b> Officer</a></li>
-<li class="chapter" data-level="12.4" data-path="aller-plus-loin-bis.html"><a href="aller-plus-loin-bis.html#la-structure-du-projet---_bookdown.yml"><i class="fa fa-check"></i><b>12.4</b> La structure du projet - _bookdown.yml</a></li>
-</ul></li>
-<li class="chapter" data-level="13" data-path="pagedown-2.html"><a href="pagedown-2.html"><i class="fa fa-check"></i><b>13</b> Pagedown</a>
-<ul>
-<li class="chapter" data-level="13.1" data-path="pagedown-2.html"><a href="pagedown-2.html#pagedown-3"><i class="fa fa-check"></i><b>13.1</b> Pagedown</a></li>
-<li class="chapter" data-level="13.2" data-path="pagedown-2.html"><a href="pagedown-2.html#paged.js"><i class="fa fa-check"></i><b>13.2</b> Paged.js</a></li>
-</ul></li>
-<li class="chapter" data-level="14" data-path="configurer-votre-yaml.html"><a href="configurer-votre-yaml.html"><i class="fa fa-check"></i><b>14</b> Configurer votre yaml</a></li>
-<li class="chapter" data-level="15" data-path="configurer-votre-yaml-1.html"><a href="configurer-votre-yaml-1.html"><i class="fa fa-check"></i><b>15</b> Configurer votre yaml</a></li>
-<li class="chapter" data-level="16" data-path="modifier-le-css.html"><a href="modifier-le-css.html"><i class="fa fa-check"></i><b>16</b> Modifier le CSS</a></li>
-<li class="chapter" data-level="17" data-path="modifier-le-css-1.html"><a href="modifier-le-css-1.html"><i class="fa fa-check"></i><b>17</b> Modifier le CSS</a></li>
-<li class="chapter" data-level="18" data-path="modifier-le-css-2.html"><a href="modifier-le-css-2.html"><i class="fa fa-check"></i><b>18</b> Modifier le CSS</a></li>
-<li class="chapter" data-level="19" data-path="modifier-le-css-3.html"><a href="modifier-le-css-3.html"><i class="fa fa-check"></i><b>19</b> Modifier le CSS</a></li>
-<li class="chapter" data-level="20" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>20</b> Pour aller plus loin</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#les-documents-quarto"><i class="fa fa-check"></i><b>20.1</b> Les documents Quarto</a></li>
-<li class="chapter" data-level="20.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#affichages-sur-plusieurs-colonnes"><i class="fa fa-check"></i><b>20.2</b> Affichages sur plusieurs colonnes</a></li>
-<li class="chapter" data-level="20.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#autres-formats-de-sortie"><i class="fa fa-check"></i><b>20.3</b> Autres formats de sortie</a></li>
-<li class="chapter" data-level="20.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document-todo"><i class="fa fa-check"></i><b>20.4</b> odt_document –&gt; TODO</a></li>
-<li class="chapter" data-level="20.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#reference-.r-files"><i class="fa fa-check"></i><b>20.5</b> reference .R files</a></li>
-<li class="chapter" data-level="20.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#le-cache"><i class="fa fa-check"></i><b>20.6</b> Le cache</a></li>
-<li class="chapter" data-level="20.7" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>20.7</b> Bibliographie</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>21</b> Rendu des exercices partie 2</a>
-<ul>
-<li class="chapter" data-level="21.1" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>21.1</b> Traitement des données</a></li>
-<li class="chapter" data-level="21.2" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>21.2</b> Nombre de LS par région</a></li>
-<li class="chapter" data-level="21.3" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>21.3</b> Graphiques d’évolution</a></li>
-<li class="chapter" data-level="21.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>21.4</b> Pour rappel</a></li>
+<li class="chapter" data-level="11.1" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#traitement-des-donn%C3%A9es"><i class="fa fa-check"></i><b>11.1</b> Traitement des données</a></li>
+<li class="chapter" data-level="11.2" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>11.2</b> Nombre de LS par région</a></li>
+<li class="chapter" data-level="11.3" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>11.3</b> Graphiques d’évolution</a></li>
+<li class="chapter" data-level="11.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>11.4</b> Pour rappel</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
@@ -343,14 +310,17 @@ Lors de la compilation du Rmd, knitr va exécuter le code contenu dans ces blocs
 <span id="cb11-2"><a href="chunks.html#cb11-2" tabindex="-1"></a>summary(cars)   </span>
 <span id="cb11-3"><a href="chunks.html#cb11-3" tabindex="-1"></a>```</span></code></pre></div>
 <p>On peut créer un nouveau chunk en cliquant sur le bouton :</p>
-<p><img src="assets/img/icone_ajout_chunk.png" /> ou grâce au raccourci clavier <code>Ctrl + Alt + I</code>.</p>
+<p><img src="assets/img/icone_ajout_chunk.png" /> ou grâce au raccourci clavier <kbd>Ctrl + Alt + I</kbd>.</p>
 <p>On peut contrôler le résultat du code en l’exécutant :</p>
 <ul>
-<li>comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier Ctrl + Entrée,<br />
+<li>comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier <kbd>Ctrl + Entrée</kbd>,<br />
 </li>
 <li>ou en utilisant le bouton en triangle vert, situé en haut à droite de chaque chunk <img src="assets/img/run_current_chunk.png" /></li>
 </ul>
 <p>RStudio contient d’autres boutons pour exécuter le code d’un fichier Rmd : ils sont placés dans le menu déroulant ‘Run’ en haut à droite. Ils sont rappelés dans le menu “Code” tout en haut, au niveau de l’entrée ’Run Region”.</p>
+<p>Dans l’environnement de travail (cadran ‘Global Environnement’, situé en haut à droite généralement dans RStudio), on retrouve les objets créés par R lors des exécutions de chunks précédents.<br />
+La commande ‘Run All Chunks Above’ que l’on peut déclencher en clic bouton ou avec le raccourci <kbd>Alt + Ctrl + Maj + P</kbd> permet d’être certains de travailler sur les objets tels que créés précédemment par le programme.
+Lors du knit, R utilise au démarrage un environnement R vierge.</p>
 </div>
 <div id="le-nom-des-chunks" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Le nom des chunks<a href="chunks.html#le-nom-des-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -363,14 +333,14 @@ Il est généralement placé en début de document, en dessous de l’en-tête.<
 </div>
 <div id="les-options-des-chunks" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Les options des <em>chunks</em><a href="chunks.html#les-options-des-chunks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf @(autres-langages).</p>
-<p>C’est dans cette accolade, après la lettre r que les options vont pouvoir être passées.</p>
+<p>Au début de chaque chunk se trouve une accolade contenant la lettre r : elle indique à knitr que le code à exécuter est en langage R, cf <a href="chunks.html#autres-langages">4.2.1</a>.</p>
+<p>C’est dans cette accolade, après la lettre r, que les options vont pouvoir être passées.</p>
 <p>Elles permettent de contrôler finement ce qui est produit par le chunk, pour choisir de faire apparaître, ou non, le code dans le rapport dynamique, ainsi que les résultats, ou encore pour définir la taille des plots.</p>
 <p>Chaque chunk peut recevoir une ou des options. Voici quelques exemples utilisés fréquemment :</p>
 <ul>
 <li><p><code>eval = TRUE</code> : Le chunk est exécuté.</p></li>
 <li><p><code>include = FALSE</code> : Le code contenu dans le chunk est executé sans que soient affichés ni le code ni son résultat.<br />
-Cela rend ses résultats sont utilisables par d’autres chunks.</p></li>
+Cela rend ses résultats utilisables par d’autres chunks.</p></li>
 <li><p><code>echo = FALSE</code> : permet de ne pas afficher le code dans le rendu. En revanche, le résultat est affiché.</p></li>
 <li><p><code>message = FALSE</code> : empêche l’affichage des messages d’information générés par le code.</p></li>
 <li><p><code>warning = FALSE</code> : empêche l’affichage des messages d’alerte générés par le code.</p></li>
@@ -390,7 +360,7 @@ Elles s’appliqueront alors à chacun des chunks du document Rmd, sauf spécifi
 <span id="cb12-4"><a href="chunks.html#cb12-4" tabindex="-1"></a>  warning = FALSE</span>
 <span id="cb12-5"><a href="chunks.html#cb12-5" tabindex="-1"></a>)</span>
 <span id="cb12-6"><a href="chunks.html#cb12-6" tabindex="-1"></a>```</span></code></pre></div>
-<p>Dans cet exemple, on demande à ne pas faire apparaître les messages ou les warnings parfois générés lors de l’exécution de code, et qui viendrait polluer le rapport mis en forme.</p>
+<p>Dans cet exemple, on demande à ne pas faire apparaître les messages ou les warnings parfois générés lors de l’exécution de code, et qui viendraient polluer le rapport mis en forme.</p>
 </div>
 <div id="intégrer-des-visualisations-r" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Intégrer des visualisations R<a href="chunks.html#int%C3%A9grer-des-visualisations-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -401,7 +371,7 @@ Elles s’appliqueront alors à chacun des chunks du document Rmd, sauf spécifi
 <span id="cb13-2"><a href="chunks.html#cb13-2" tabindex="-1"></a>plot(pressure)</span>
 <span id="cb13-3"><a href="chunks.html#cb13-3" tabindex="-1"></a>```</span></code></pre></div>
 <p>ce qui affiche le graphique dans le document, directement après le chunk :</p>
-<p><img src="support_m6_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="support_m6_files/figure-html/unnamed-chunk-9-1.png" alt="" width="672" /></p>
 <p>Ou des <strong>données</strong> non mises en forme :</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb14-1"><a href="chunks.html#cb14-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
 <span id="cb14-2"><a href="chunks.html#cb14-2" tabindex="-1"></a>summary(cars)</span>
@@ -481,8 +451,8 @@ C’est très utile pour commenter des résultats sans saisir en “dur” des v
 <span id="cb17-4"><a href="chunks.html#cb17-4" tabindex="-1"></a>Je suis actuellement en train de me former au module  `r numero`.</span></code></pre></div>
 <p>permet d’afficher dans le document :</p>
 <p>Je suis actuellement en train de me former au module 6.</p>
-<div id="autres-langages-autres-langages" class="section level3 hasAnchor" number="4.2.1">
-<h3><span class="header-section-number">4.2.1</span> Autres langages {autres-langages}<a href="chunks.html#autres-langages-autres-langages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="autres-langages" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Autres langages<a href="chunks.html#autres-langages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Les portions de code d’un document .Rmd peuvent être formulées dans d’autres langages grâce au package knitr.</p>
 <p>Le <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html">guide Rmarkdown liste les langages possibles</a> et présente comment les mobiliser.</p>
 <p>Pour retrouver cette liste :</p>
@@ -492,6 +462,12 @@ C’est très utile pour commenter des résultats sans saisir en “dur” des v
 <span id="cb19-2"><a href="chunks.html#cb19-2" tabindex="-1"></a>x = &#39;hello, python world!&#39;</span>
 <span id="cb19-3"><a href="chunks.html#cb19-3" tabindex="-1"></a>print(x.split(&#39; &#39;))</span>
 <span id="cb19-4"><a href="chunks.html#cb19-4" tabindex="-1"></a>```</span></code></pre></div>
+<p>Cela permet d’employer des langages faits pour l’interactivité évaluée côté client comme le JavaScript et s’affranchir d’un déploiement sur serveur R.</p>
+<p>Attention, si le format Rmarkdown (fichier avec extension .Rmd) supporte d’autres langages, l’inverse n’est pas vrai.
+Vous ne pourrez pas nativement ouvrir un fichier .Rmd dans votre console python par exemple.</p>
+<p>Pour une cross compatibilité complète, il faudra utiliser le format Quarto (extension .qmd) qui sera présenté dans le chapitre <a href="pour-aller-plus-loin.html#quarto">9.1</a>.</p>
+<div id="cas-particulier-du-sql" class="section level4 hasAnchor" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Cas particulier du SQL<a href="chunks.html#cas-particulier-du-sql" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Pour utiliser du SQL, il faut impérativement ajouter un paramètre de connexion à l’aide d’une variable préalablement fixée dans un chunk R :</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb20-1"><a href="chunks.html#cb20-1" tabindex="-1"></a>```{r, include = FALSE}</span>
 <span id="cb20-2"><a href="chunks.html#cb20-2" tabindex="-1"></a>library(RPostgres)</span>
@@ -513,6 +489,7 @@ C’est très utile pour commenter des résultats sans saisir en “dur” des v
 <span id="cb22-2"><a href="chunks.html#cb22-2" tabindex="-1"></a>SELECT * FROM mon_schema.matable</span>
 <span id="cb22-3"><a href="chunks.html#cb22-3" tabindex="-1"></a>```</span></code></pre></div>
 <p>Dans cet exemple, les données sélectionnées seront stockées dans <code>resultat</code>.</p>
+</div>
 </div>
 </div>
 <div id="exercice-3" class="section level2 hasAnchor" number="4.3">
