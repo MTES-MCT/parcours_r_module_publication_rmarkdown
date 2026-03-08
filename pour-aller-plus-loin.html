@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 9 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown</title>
+  <title>Chapitre 10 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 9 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:title" content="Chapitre 10 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 9 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="twitter:title" content="Chapitre 10 Pour aller plus loin | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-01-21" />
+<meta name="date" content="2026-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="du-rmarkdown-interactif.html"/>
-<link rel="next" href="pour-aller-plus-loin-sur-pagedown.html"/>
+<link rel="prev" href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"/>
+<link rel="next" href="rendu-des-exercices-partie-2.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -201,11 +201,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.3" data-path="chunks.html"><a href="chunks.html#les-options-des-chunks"><i class="fa fa-check"></i><b>4.1.3</b> Les options des <em>chunks</em></a></li>
 <li class="chapter" data-level="4.1.4" data-path="chunks.html"><a href="chunks.html#int%C3%A9grer-des-visualisations-r"><i class="fa fa-check"></i><b>4.1.4</b> Intégrer des visualisations R</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="chunks.html"><a href="chunks.html#les-insertions-de-code-dans-le-texte-le-code-inline"><i class="fa fa-check"></i><b>4.2</b> Les insertions de code dans le texte : le code inline</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="chunks.html"><a href="chunks.html#autres-langages"><i class="fa fa-check"></i><b>4.2.1</b> Autres langages</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="chunks.html"><a href="chunks.html#exercice-3"><i class="fa fa-check"></i><b>4.3</b> Exercice 3</a></li>
+<li class="chapter" data-level="4.2" data-path="chunks.html"><a href="chunks.html#les-insertions-de-code-dans-le-texte-le-code-inline"><i class="fa fa-check"></i><b>4.2</b> Les insertions de code dans le texte : le code inline</a></li>
+<li class="chapter" data-level="4.3" data-path="chunks.html"><a href="chunks.html#autres-langages"><i class="fa fa-check"></i><b>4.3</b> Autres langages</a></li>
+<li class="chapter" data-level="4.4" data-path="chunks.html"><a href="chunks.html#exercice-3"><i class="fa fa-check"></i><b>4.4</b> Exercice 3</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="outputs.html"><a href="outputs.html"><i class="fa fa-check"></i><b>5</b> Les formats de sortie</a>
 <ul>
@@ -214,6 +212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.1" data-path="outputs.html"><a href="outputs.html#personnaliser-le-css"><i class="fa fa-check"></i><b>5.1.1</b> Personnaliser le css</a></li>
 <li class="chapter" data-level="5.1.2" data-path="outputs.html"><a href="outputs.html#option-self_contained"><i class="fa fa-check"></i><b>5.1.2</b> Option self_contained</a></li>
 <li class="chapter" data-level="5.1.3" data-path="outputs.html"><a href="outputs.html#affichages-sur-plusieurs-colonnes"><i class="fa fa-check"></i><b>5.1.3</b> Affichages sur plusieurs colonnes</a></li>
+<li class="chapter" data-level="5.1.4" data-path="outputs.html"><a href="outputs.html#accessibilit%C3%A9-visuelle-des-documents-html-produits"><i class="fa fa-check"></i><b>5.1.4</b> Accessibilité visuelle des documents html produits</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="outputs.html"><a href="outputs.html#sorties-pdf"><i class="fa fa-check"></i><b>5.2</b> Sorties PDF</a>
 <ul>
@@ -245,28 +244,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>8.3</b> Exercice X</a></li>
 <li class="chapter" data-level="8.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>8.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>9</b> Pour aller plus loin</a>
+<li class="chapter" data-level="9" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><i class="fa fa-check"></i><b>9</b> Mettre en ligne les HTML produits avec Rmarkdown</a>
 <ul>
-<li class="chapter" data-level="9.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#quarto"><i class="fa fa-check"></i><b>9.1</b> Les documents Quarto</a></li>
-<li class="chapter" data-level="9.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#formats-de-sortie"><i class="fa fa-check"></i><b>9.2</b> Formats de sortie</a>
+<li class="chapter" data-level="9.1" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#publier-sur-un-serveur-html-statique"><i class="fa fa-check"></i><b>9.1</b> Publier sur un serveur HTML statique</a></li>
+<li class="chapter" data-level="9.2" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#publier-gr%C3%A2ce-aux-fonctionnalit%C3%A9s-de-d%C3%A9ploiement-continu-dune-forge-git"><i class="fa fa-check"></i><b>9.2</b> Publier grâce aux fonctionnalités de déploiement continu d’une forge git</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document"><i class="fa fa-check"></i><b>9.2.1</b> odt_document</a></li>
-<li class="chapter" data-level="9.2.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#officer-et-officedown"><i class="fa fa-check"></i><b>9.2.2</b> Officer et Officedown</a></li>
-<li class="chapter" data-level="9.2.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#pr%C3%A9sentations-diaporama-html"><i class="fa fa-check"></i><b>9.2.3</b> Présentations diaporama HTML</a></li>
+<li class="chapter" data-level="9.2.1" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#exemple"><i class="fa fa-check"></i><b>9.2.1</b> Exemple</a></li>
+<li class="chapter" data-level="9.2.2" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#concepts"><i class="fa fa-check"></i><b>9.2.2</b> Concepts</a></li>
+<li class="chapter" data-level="9.2.3" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#quelle-forge-choisir"><i class="fa fa-check"></i><b>9.2.3</b> Quelle forge choisir ?</a></li>
+<li class="chapter" data-level="9.2.4" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#comment-on-fait"><i class="fa fa-check"></i><b>9.2.4</b> Comment on fait ?</a></li>
 </ul></li>
-<li class="chapter" data-level="9.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#le-cache"><i class="fa fa-check"></i><b>9.3</b> Le cache</a></li>
-<li class="chapter" data-level="9.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#rendre-le-param%C3%A9trage-interactif"><i class="fa fa-check"></i><b>9.4</b> Rendre le paramétrage interactif</a></li>
-<li class="chapter" data-level="9.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#transformer-les-sous-titres-en-onglets"><i class="fa fa-check"></i><b>9.5</b> Transformer les sous-titres en onglets</a></li>
-<li class="chapter" data-level="9.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>9.6</b> Bibliographie</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html"><i class="fa fa-check"></i><b>10</b> Pour aller plus loin sur Pagedown</a>
+<li class="chapter" data-level="10" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html"><i class="fa fa-check"></i><b>10</b> Pour aller plus loin</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#paged.js"><i class="fa fa-check"></i><b>10.1</b> Paged.js</a></li>
-<li class="chapter" data-level="10.2" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#d%C3%A9marrer-avec-pagedown"><i class="fa fa-check"></i><b>10.2</b> Démarrer avec Pagedown</a></li>
-<li class="chapter" data-level="10.3" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-yaml"><i class="fa fa-check"></i><b>10.3</b> Configurer votre yaml</a></li>
-<li class="chapter" data-level="10.4" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#quelques-balises-importantes-%C3%A0-conna%C3%AEtre"><i class="fa fa-check"></i><b>10.4</b> Quelques balises importantes à connaître</a></li>
-<li class="chapter" data-level="10.5" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#modifier-le-css"><i class="fa fa-check"></i><b>10.5</b> Modifier le CSS</a></li>
-<li class="chapter" data-level="10.6" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-css"><i class="fa fa-check"></i><b>10.6</b> Configurer votre CSS</a></li>
+<li class="chapter" data-level="10.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#quarto"><i class="fa fa-check"></i><b>10.1</b> Les documents Quarto</a></li>
+<li class="chapter" data-level="10.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#formats-de-sortie"><i class="fa fa-check"></i><b>10.2</b> Formats de sortie</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#odt_document"><i class="fa fa-check"></i><b>10.2.1</b> odt_document</a></li>
+<li class="chapter" data-level="10.2.2" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#officer-et-officedown"><i class="fa fa-check"></i><b>10.2.2</b> Officer et Officedown</a></li>
+<li class="chapter" data-level="10.2.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#pr%C3%A9sentations-diaporama-html"><i class="fa fa-check"></i><b>10.2.3</b> Présentations diaporama HTML</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#mettre-des-r%C3%A9sultats-en-cache-pour-gagner-du-temps-de-commpilation"><i class="fa fa-check"></i><b>10.3</b> Mettre des résultats en cache pour gagner du temps de commpilation</a></li>
+<li class="chapter" data-level="10.4" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#rendre-le-param%C3%A9trage-interactif"><i class="fa fa-check"></i><b>10.4</b> Rendre le paramétrage interactif</a></li>
+<li class="chapter" data-level="10.5" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#transformer-les-sous-titres-en-onglets"><i class="fa fa-check"></i><b>10.5</b> Transformer les sous-titres en onglets</a></li>
+<li class="chapter" data-level="10.6" data-path="pour-aller-plus-loin.html"><a href="pour-aller-plus-loin.html#bibliographie"><i class="fa fa-check"></i><b>10.6</b> Bibliographie</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html"><i class="fa fa-check"></i><b>11</b> Rendu des exercices partie 2</a>
 <ul>
@@ -274,6 +275,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.2" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#nombre-de-ls-par-r%C3%A9gion"><i class="fa fa-check"></i><b>11.2</b> Nombre de LS par région</a></li>
 <li class="chapter" data-level="11.3" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#graphiques-d%C3%A9volution"><i class="fa fa-check"></i><b>11.3</b> Graphiques d’évolution</a></li>
 <li class="chapter" data-level="11.4" data-path="rendu-des-exercices-partie-2.html"><a href="rendu-des-exercices-partie-2.html#pour-rappel"><i class="fa fa-check"></i><b>11.4</b> Pour rappel</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html"><i class="fa fa-check"></i><b>12</b> Pour aller plus loin sur Pagedown</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#paged.js"><i class="fa fa-check"></i><b>12.1</b> Paged.js</a></li>
+<li class="chapter" data-level="12.2" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#d%C3%A9marrer-avec-pagedown"><i class="fa fa-check"></i><b>12.2</b> Démarrer avec Pagedown</a></li>
+<li class="chapter" data-level="12.3" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-yaml"><i class="fa fa-check"></i><b>12.3</b> Configurer votre yaml</a></li>
+<li class="chapter" data-level="12.4" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#quelques-balises-importantes-%C3%A0-conna%C3%AEtre"><i class="fa fa-check"></i><b>12.4</b> Quelques balises importantes à connaître</a></li>
+<li class="chapter" data-level="12.5" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#modifier-le-css"><i class="fa fa-check"></i><b>12.5</b> Modifier le CSS</a></li>
+<li class="chapter" data-level="12.6" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-css"><i class="fa fa-check"></i><b>12.6</b> Configurer votre CSS</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
@@ -296,11 +306,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pour-aller-plus-loin" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapitre 9</span> Pour aller plus loin<a href="pour-aller-plus-loin.html#pour-aller-plus-loin" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="pour-aller-plus-loin" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Chapitre 10</span> Pour aller plus loin<a href="pour-aller-plus-loin.html#pour-aller-plus-loin" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Derrière Rmarkdown aujourd’hui existe tout un ecosystème permettant de mixer des traitements réalisés en R et du texte dans des formats très différents, que ce soit en matière de technologie (html, pdf, …) ou de type de rendu (diaporama, rapport, livre, note, cv, …).</p>
-<div id="quarto" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Les documents Quarto<a href="pour-aller-plus-loin.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="quarto" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Les documents Quarto<a href="pour-aller-plus-loin.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Un document Quarto est un format de document qui permet de combiner du
 texte, du code et des visualisations dans un seul fichier, comme un
 Rmarkdown en somme. En revanche, Quarto n’est ni dépendant de ni
@@ -334,8 +344,8 @@ rapide, créez un nouveau document dans Rstudio en choisissant le format
 guides très complets pour s’autoformer directement <a href="https://quarto.org/">sur le site de
 Quarto</a> et également sur le <a href="https://ssm-agriculture.github.io/site-formations-R/">site de formation à R du ministère de l’Agriculture</a>.</p>
 </div>
-<div id="formats-de-sortie" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Formats de sortie<a href="pour-aller-plus-loin.html#formats-de-sortie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formats-de-sortie" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Formats de sortie<a href="pour-aller-plus-loin.html#formats-de-sortie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Il existe de nombreux packages packages permettant d’obtenir des formats de sortie spécifiques.</p>
 <p>Utiliser des formats de sorties de type bureautiques est très utile si :</p>
 <ul>
@@ -343,41 +353,41 @@ Quarto</a> et également sur le <a href="https://ssm-agriculture.github.io/site-
 <li>on souhaite faire éditer le document produit par des non-Ristes.</li>
 </ul>
 <p>Cela peut s’avérer nécessaire pour faire relire et valider le document avant sa publication, mais attention ! Il faudra dans un second temps reporter dans Rmarkdown les modifications opérées en dehors, pour tirer pleinement partie de la reproductibilité offerte par Rmarkdown.</p>
-<div id="odt_document" class="section level3 hasAnchor" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> odt_document<a href="pour-aller-plus-loin.html#odt_document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="odt_document" class="section level3 hasAnchor" number="10.2.1">
+<h3><span class="header-section-number">10.2.1</span> odt_document<a href="pour-aller-plus-loin.html#odt_document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Parmi les types de sortie possibles, <code>{rmarkdown}</code> propose le format Libre Office Writer .odt
 Il repose pour cela sur Pandoc qui traite la conversion de markdown (fichier .md) en document Libre Office Writer (fichier .odt).
 Depuis R, cette conversion offre un nombre limité de paramètres de personnalisation.</p>
 <div style="display: flex; gap: 50px;">
 <div>
 <p>Paramètres de la fonction <code>odt_document()</code> :</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="pour-aller-plus-loin.html#cb50-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
-<span id="cb50-2"><a href="pour-aller-plus-loin.html#cb50-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb50-3"><a href="pour-aller-plus-loin.html#cb50-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
-<span id="cb50-4"><a href="pour-aller-plus-loin.html#cb50-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
-<span id="cb50-5"><a href="pour-aller-plus-loin.html#cb50-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb50-6"><a href="pour-aller-plus-loin.html#cb50-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb50-7"><a href="pour-aller-plus-loin.html#cb50-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb50-8"><a href="pour-aller-plus-loin.html#cb50-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
-<span id="cb50-9"><a href="pour-aller-plus-loin.html#cb50-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb50-10"><a href="pour-aller-plus-loin.html#cb50-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
-<span id="cb50-11"><a href="pour-aller-plus-loin.html#cb50-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
-<span id="cb50-12"><a href="pour-aller-plus-loin.html#cb50-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="pour-aller-plus-loin.html#cb53-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
+<span id="cb53-2"><a href="pour-aller-plus-loin.html#cb53-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb53-3"><a href="pour-aller-plus-loin.html#cb53-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
+<span id="cb53-4"><a href="pour-aller-plus-loin.html#cb53-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
+<span id="cb53-5"><a href="pour-aller-plus-loin.html#cb53-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb53-6"><a href="pour-aller-plus-loin.html#cb53-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb53-7"><a href="pour-aller-plus-loin.html#cb53-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb53-8"><a href="pour-aller-plus-loin.html#cb53-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
+<span id="cb53-9"><a href="pour-aller-plus-loin.html#cb53-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb53-10"><a href="pour-aller-plus-loin.html#cb53-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
+<span id="cb53-11"><a href="pour-aller-plus-loin.html#cb53-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
+<span id="cb53-12"><a href="pour-aller-plus-loin.html#cb53-12" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div>
 <p>Ce qui donne pour l’entête YML</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb51-1"><a href="pour-aller-plus-loin.html#cb51-1" tabindex="-1"></a><span class="pp">--- </span></span>
-<span id="cb51-2"><a href="pour-aller-plus-loin.html#cb51-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb51-3"><a href="pour-aller-plus-loin.html#cb51-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb51-4"><a href="pour-aller-plus-loin.html#cb51-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
-<span id="cb51-5"><a href="pour-aller-plus-loin.html#cb51-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb51-6"><a href="pour-aller-plus-loin.html#cb51-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
-<span id="cb51-7"><a href="pour-aller-plus-loin.html#cb51-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
-<span id="cb51-8"><a href="pour-aller-plus-loin.html#cb51-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb51-9"><a href="pour-aller-plus-loin.html#cb51-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
-<span id="cb51-10"><a href="pour-aller-plus-loin.html#cb51-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb51-11"><a href="pour-aller-plus-loin.html#cb51-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
-<span id="cb51-12"><a href="pour-aller-plus-loin.html#cb51-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb54-1"><a href="pour-aller-plus-loin.html#cb54-1" tabindex="-1"></a><span class="pp">--- </span></span>
+<span id="cb54-2"><a href="pour-aller-plus-loin.html#cb54-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb54-3"><a href="pour-aller-plus-loin.html#cb54-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb54-4"><a href="pour-aller-plus-loin.html#cb54-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb54-5"><a href="pour-aller-plus-loin.html#cb54-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb54-6"><a href="pour-aller-plus-loin.html#cb54-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
+<span id="cb54-7"><a href="pour-aller-plus-loin.html#cb54-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
+<span id="cb54-8"><a href="pour-aller-plus-loin.html#cb54-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb54-9"><a href="pour-aller-plus-loin.html#cb54-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb54-10"><a href="pour-aller-plus-loin.html#cb54-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb54-11"><a href="pour-aller-plus-loin.html#cb54-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
+<span id="cb54-12"><a href="pour-aller-plus-loin.html#cb54-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
 </div>
 </div>
 <ul>
@@ -399,13 +409,13 @@ Depuis R, cette conversion offre un nombre limité de paramètres de personnalis
 <p>On peut également coder les styles directement en xml cf. <a href="https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html">ce tuto en français</a></p>
 <p>La gestion des <strong>tableaux</strong> est parfois moins souple qu’en HTML/PDF, mais on peut obtenir quelque chose de propre.
 Les tableaux simples sont traités correctement avec <code>knitr::kable()</code> en spécifiant le format “pandoc”.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="pour-aller-plus-loin.html#cb52-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="pour-aller-plus-loin.html#cb55-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
 <p>Il ne faut pas utiliser les fonctions spécifiques au format HTML (comme <code>kable_styling()</code>, <code>column_spec()</code>… ) car elles ne sont pas supportées.
 Mais <code>{kableExtra}</code> sait aussi générer des tableaux LaTeX et les fonctions compatibles avec le format PDF le seront généralement aussi pour ODT.</p>
 <p>Les <strong>graphiques</strong> ne sont pas automatiquement redimensionnés comme dans un format de sortie HTML, il faut rester dans les limites de largeur du corps de la page (environ 6 pouces pour le modèle par défaut).</p>
 </div>
-<div id="officer-et-officedown" class="section level3 hasAnchor" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Officer et Officedown<a href="pour-aller-plus-loin.html#officer-et-officedown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="officer-et-officedown" class="section level3 hasAnchor" number="10.2.2">
+<h3><span class="header-section-number">10.2.2</span> Officer et Officedown<a href="pour-aller-plus-loin.html#officer-et-officedown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg" alt="" width="50%" /></p>
 <p>To do
 Ajouter logo officedown
@@ -414,39 +424,47 @@ Pour les documents bureautiques de type .docx ou .pptx.</p>
 <p>Exemple
 <a href="https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&amp;plain=1" class="uri">https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&amp;plain=1</a></p>
 </div>
-<div id="présentations-diaporama-html" class="section level3 hasAnchor" number="9.2.3">
-<h3><span class="header-section-number">9.2.3</span> Présentations diaporama HTML<a href="pour-aller-plus-loin.html#pr%C3%A9sentations-diaporama-html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="présentations-diaporama-html" class="section level3 hasAnchor" number="10.2.3">
+<h3><span class="header-section-number">10.2.3</span> Présentations diaporama HTML<a href="pour-aller-plus-loin.html#pr%C3%A9sentations-diaporama-html" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Xaringan
 Pour des présentations de ninja</p>
 <p><a href="https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE" class="uri">https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE</a></p>
 </div>
 </div>
-<div id="le-cache" class="section level2 hasAnchor" number="9.3">
-<h2><span class="header-section-number">9.3</span> Le cache<a href="pour-aller-plus-loin.html#le-cache" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Si le temps d’éxecution du code est trop long, il est possible d’utiliser l’option de mise en cache de <code>knitr</code> afin d’améliorer les
-performances d’éxécution du code.</p>
+<div id="mettre-des-résultats-en-cache-pour-gagner-du-temps-de-commpilation" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Mettre des résultats en cache pour gagner du temps de commpilation<a href="pour-aller-plus-loin.html#mettre-des-r%C3%A9sultats-en-cache-pour-gagner-du-temps-de-commpilation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Compiler un document R Markdown peut être long, car il faut à chaque fois exécuter l’ensemble des blocs de code R qui le constituent.</p>
+<p>Pour accélérer cette opération, knitr propose un système de mise en cache : les résultats de chaque bloc sont enregistrés dans un fichier et à la prochaine compilation, si le code et les options du bloc n’ont pas été modifiés, c’est le contenu du fichier de cache qui est utilisé, ce qui évite de ré-exécuter ce code R.</p>
+<p>On active ou désactive la mise en cache des résultats pour chaque chunk avec l’option <code>cache = TRUE</code> ou <code>cache = FALSE</code>, et on peut aussi désactiver totalement la mise en cache pour le document en ajoutant <code>knitr::opts_chunk$set(cache = FALSE)</code> dans le premier chunk de ‘setup’.</p>
+<p>Il faut manier cette option avec beaucoup de prudence.
+Le système de cache peut fausser les résultats s’il n’est pas utilisé avec maîtrise, par exemple s’il n’est pas vidé alors que les données source changent.
+Dans ce cas les résultats de certains blocs ne seront pas être mis à jour s’ils sont présents en cache.
+On peut vider le cache du document, ce qui forcera un re-calcul de tous les blocs de code à la prochaine compilation.
+Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache… (le balai) :</p>
+<p><img src="assets/img/clear_cache.png" /></p>
+<p>(Source : <a href="https://larmarange.github.io/analyse-R/rmarkdown-les-rapports-automatises.html#mise-en-cache-des-r%C3%A9sultats">guide analyse-R de Joseph Larmarange</a>)</p>
 </div>
-<div id="rendre-le-paramétrage-interactif" class="section level2 hasAnchor" number="9.4">
-<h2><span class="header-section-number">9.4</span> Rendre le paramétrage interactif<a href="pour-aller-plus-loin.html#rendre-le-param%C3%A9trage-interactif" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="rendre-le-paramétrage-interactif" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Rendre le paramétrage interactif<a href="pour-aller-plus-loin.html#rendre-le-param%C3%A9trage-interactif" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>dernière slide de l’atelier 2</p>
 </div>
-<div id="transformer-les-sous-titres-en-onglets" class="section level2 hasAnchor" number="9.5">
-<h2><span class="header-section-number">9.5</span> Transformer les sous-titres en onglets<a href="pour-aller-plus-loin.html#transformer-les-sous-titres-en-onglets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="transformer-les-sous-titres-en-onglets" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Transformer les sous-titres en onglets<a href="pour-aller-plus-loin.html#transformer-les-sous-titres-en-onglets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ajouter l’attribut <code>.tabset</code> au titre transforme tous les sous-titres en onglets au lieu de sous-sections :</p>
 <div style="display: flex; gap: 50px;">
 <div>
 <p><strong>Code :</strong></p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb53-1"><a href="pour-aller-plus-loin.html#cb53-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
-<span id="cb53-2"><a href="pour-aller-plus-loin.html#cb53-2" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="pour-aller-plus-loin.html#cb53-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
-<span id="cb53-4"><a href="pour-aller-plus-loin.html#cb53-4" tabindex="-1"></a></span>
-<span id="cb53-5"><a href="pour-aller-plus-loin.html#cb53-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
-<span id="cb53-6"><a href="pour-aller-plus-loin.html#cb53-6" tabindex="-1"></a></span>
-<span id="cb53-7"><a href="pour-aller-plus-loin.html#cb53-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
-<span id="cb53-8"><a href="pour-aller-plus-loin.html#cb53-8" tabindex="-1"></a></span>
-<span id="cb53-9"><a href="pour-aller-plus-loin.html#cb53-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
-<span id="cb53-10"><a href="pour-aller-plus-loin.html#cb53-10" tabindex="-1"></a></span>
-<span id="cb53-11"><a href="pour-aller-plus-loin.html#cb53-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb56-1"><a href="pour-aller-plus-loin.html#cb56-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
+<span id="cb56-2"><a href="pour-aller-plus-loin.html#cb56-2" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="pour-aller-plus-loin.html#cb56-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
+<span id="cb56-4"><a href="pour-aller-plus-loin.html#cb56-4" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="pour-aller-plus-loin.html#cb56-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
+<span id="cb56-6"><a href="pour-aller-plus-loin.html#cb56-6" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="pour-aller-plus-loin.html#cb56-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
+<span id="cb56-8"><a href="pour-aller-plus-loin.html#cb56-8" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="pour-aller-plus-loin.html#cb56-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
+<span id="cb56-10"><a href="pour-aller-plus-loin.html#cb56-10" tabindex="-1"></a></span>
+<span id="cb56-11"><a href="pour-aller-plus-loin.html#cb56-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
 </div>
 <div>
 <p><strong>Résultat :</strong></p>
@@ -457,8 +475,8 @@ performances d’éxécution du code.</p>
 <p>Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide <code>### {.unlisted .unnumbered}</code> pour continuer avec des paragraphes réguliers.</p>
 <p>Plus d’options d’onglets sont présentées dans le livre de recettes Rmarkdown : <a href="https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html/</a></p>
 </div>
-<div id="bibliographie" class="section level2 hasAnchor" number="9.6">
-<h2><span class="header-section-number">9.6</span> Bibliographie<a href="pour-aller-plus-loin.html#bibliographie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="bibliographie" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> Bibliographie<a href="pour-aller-plus-loin.html#bibliographie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown mais aussi tous les packages et logiciels en lien avec ce sujet :</p>
 <ul>
 <li><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Le guide définitif de Rmarkdown</a></li>
@@ -470,6 +488,26 @@ performances d’éxécution du code.</p>
 <li>et évidemment les documentations de tous les packages cités !</li>
 </ul>
 
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD:03_rmarkdown_decortique_exo.Rmd
+<!-----
+title: "exo partie 2"
+author: "Caroline COUDRIN"
+date: "22/11/2022"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4
+    toc_float : true
+    number_sections : true
+    theme: journal
+  pdf_document: default
+params:
+  annee: "2022"
+  code_reg: "04"
+--- --></p>
+<p>========
+&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; dev:10_exo2_rmarkdown_decortique_exo.Rmd
+&gt; info importante! je n’arrive pas à installer TinyTex avec cette commande: tinytex::install_tinytex(). j’ai une erreur “Error in extract(pkg, exdir = path.expand(target)) : cannot open file ‘C:/Users/caroline.coudrin/AppData/Roaming/TinyTeX/tl-tray-menu.exe’: Permission denied”. du coup je ne peux pas tester le format PDF.</p>
 </div>
 </div>
             </section>
@@ -477,8 +515,8 @@ performances d’éxécution du code.</p>
           </div>
         </div>
       </div>
-<a href="du-rmarkdown-interactif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pour-aller-plus-loin-sur-pagedown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rendu-des-exercices-partie-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

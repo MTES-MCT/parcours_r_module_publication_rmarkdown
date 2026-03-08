@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 11 Rendu des exercices partie 2 | Module 6 - Publications reproductibles avec RMarkdown</title>
+  <title>Chapitre 9 Mettre en ligne les HTML produits avec Rmarkdown | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 11 Rendu des exercices partie 2 | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta property="og:title" content="Chapitre 9 Mettre en ligne les HTML produits avec Rmarkdown | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 11 Rendu des exercices partie 2 | Module 6 - Publications reproductibles avec RMarkdown" />
+  <meta name="twitter:title" content="Chapitre 9 Mettre en ligne les HTML produits avec Rmarkdown | Module 6 - Publications reproductibles avec RMarkdown" />
   
   <meta name="twitter:description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="pour-aller-plus-loin.html"/>
-<link rel="next" href="pour-aller-plus-loin-sur-pagedown.html"/>
+<link rel="prev" href="du-rmarkdown-interactif.html"/>
+<link rel="next" href="pour-aller-plus-loin.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -306,50 +306,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rendu-des-exercices-partie-2" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">Chapitre 11</span> Rendu des exercices partie 2<a href="rendu-des-exercices-partie-2.html#rendu-des-exercices-partie-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Voici le type de document que vous pourrez générer à la fin de la 1ere journée de formation <em>RMarkdown</em>.</p>
-<p>Pour cet exercice nous proposons de travailler avec les données RPLS sur le logement social.</p>
-<p>Pour cela il faut suivre plusieurs étapes:</p>
+<div id="mettre-en-ligne-les-html-produits-avec-rmarkdown" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapitre 9</span> Mettre en ligne les HTML produits avec Rmarkdown<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#mettre-en-ligne-les-html-produits-avec-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Les fichiers HTML ne peuvent pas simplement venir compléter nos sites institutionnels gérés avec Spip/Giseh.
+Pour les partager en interne, les déposer sur un serveur bureautique suffit.
+En revanche, pour les partager avec l’extérieur, il est souvent nécessaire d’héberger les documents sur un serveur dédié.</p>
+<div id="publier-sur-un-serveur-html-statique" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Publier sur un serveur HTML statique<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#publier-sur-un-serveur-html-statique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Le service informatique du pôle ministériel (DNUM/Sous-direction des méthodes et des services de plateforme) propose une offre d’hébergement gratuite pour toute entité du pôle ministériel Ecologie qui la demande.</p>
+<p>Il faut au préalable avoir la validation d’une nouvelle url pour votre organisme par de la direction de la communication.</p>
+<p>Cette offre est décrite sur le catalogue des offres spote : <a href="https://spote.developpement-durable.gouv.fr/offre/webstatic-publication-de-sites-de-contenus-statiques" class="uri">https://spote.developpement-durable.gouv.fr/offre/webstatic-publication-de-sites-de-contenus-statiques</a>.</p>
+<p>La DNUM procède en deux temps : 1. elle vous livre le serveur et ses identifiants d’utilisation et 2. elle vous indique que le certificat pour bénéficier de la norme https est actif.</p>
+<p>Une fois le serveur configuré par la DNUM, on envoie les fichiers HTML à publier par FTP, par exemple avec le logiciel Filezilla.</p>
+<p>Exemple de serveur statique : <a href="https://dreal.statistiques.developpement-durable.gouv.fr/" class="uri">https://dreal.statistiques.developpement-durable.gouv.fr/</a></p>
+<p>Mode opératoire pour déposer sur ce serveur : <a href="https://gitlab.com/rdes_dreal/propre.rpls/-/wikis/Diffusion-des-publications" class="uri">https://gitlab.com/rdes_dreal/propre.rpls/-/wikis/Diffusion-des-publications</a></p>
+<p>(sinon offre OVH)</p>
+</div>
+<div id="publier-grâce-aux-fonctionnalités-de-déploiement-continu-dune-forge-git" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Publier grâce aux fonctionnalités de déploiement continu d’une forge git<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#publier-gr%C3%A2ce-aux-fonctionnalit%C3%A9s-de-d%C3%A9ploiement-continu-dune-forge-git" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="exemple" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Exemple<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#exemple" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>C’est l’option retenue pour publier les supports de formations du parcours R.</p>
+<p>Chaque formation est déposée sur un répertoire github : cela permet d’avoir le suivi des versions, le travail collaboratif sur le contenu source, et surtout le déploiement public et automatique de chaque modification vers <a href="https://mtes-mct.github.io/parcours_r_module_publication_rmarkdown/" class="uri">https://mtes-mct.github.io/parcours_r_module_publication_rmarkdown/</a> par exemple pour le présent module 6.</p>
+</div>
+<div id="concepts" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Concepts<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Github et Gitlab sont deux plateformes web concurrentes, dites forge de développement, utilisées pour le travail collaboratif sur le code.
+Pour les utiliser, il faut versionner ses projets R avec git.
+Git un exécutable qui s’installe sur son PC, permettant le suivi de version des scripts et permettant le dialogue avec ces forges web.</p>
+</div>
+<div id="quelle-forge-choisir" class="section level3 hasAnchor" number="9.2.3">
+<h3><span class="header-section-number">9.2.3</span> Quelle forge choisir ?<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#quelle-forge-choisir" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Le parcours-R est hébergé sur github car à ses débuts, c’était l’offre la plus populaire.</p>
+<p>Le ministère dispose désormais d’une instance officielle de gitlab : <a href="https://gitlab-forge.din.developpement-durable.gouv.fr/" class="uri">https://gitlab-forge.din.developpement-durable.gouv.fr/</a>
+Chaque service du pôle ministériel peut disposer un dépôt gitlab-forge après avoir formulé une demande officielle, cf fiche spote <a href="https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continu" class="uri">https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continu</a>.</p>
+<p>Chaque agent disposant d’un compte CERBERE peut rejoindre un groupe gitlab-forge ou y disposer d’un dépôt personnel.</p>
+<p>Si besoin de collaborer avec des personnes qui n’ont pas de compte CERBERE, gitlab.com offre une version freemium accessible de tous. A la fin de la collaboration, on peut facilement réimporter le travail sur gitlab-forge.</p>
+</div>
+<div id="comment-on-fait" class="section level3 hasAnchor" number="9.2.4">
+<h3><span class="header-section-number">9.2.4</span> Comment on fait ?<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#comment-on-fait" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Pour configurer git et RStudio, suivre les fiches tutorielles :
+<a href="https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html" class="uri">https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html</a></p>
+<p>Une fois la configuration de git achevée, imaginons que vous vouliez publier un fichier publi.html généré à partir d’un fichier publi.Rmd.
+Voici un pas à pas de base :</p>
 <ol style="list-style-type: decimal">
-<li>Créer un fichier .Rmd</li>
-<li>Traiter les données<br />
-2.1. Importer les données
-2.2. Travailler les données
-3.3. Créer des graphiques</li>
-<li>Ecrire du texte</li>
-<li>Définir les formats de sortie</li>
-<li>Générer le document</li>
+<li><p>dans votre projet RStudio, placez les fichiers html (et leurs éventuelles dépendances) que vous voulez publier dans une dossier nommé ‘public’.
+S’il n’y a qu’un fichier, nommez les index.html, c’est intéressant pour raccourcir l’url.</p></li>
+<li><p>toujours dans votre projet RStudio, lancer <code>usethis::use_git()</code> dans la console pour activer le traking de git pour ce projet.
+RStudio vous propose d’enregistrer une version, sorte de premier point de restauration, de votre projet.
+<img src="assets/img/GitLab2.png" />
+Il faut accepter (Ici : appuyer sur 1 + entrée).</p></li>
+<li><p>Acceptez de redémarrer R pour que les fonctionnalités git s’activent dans votre projet Rstudio (nouveau panneau)</p></li>
 </ol>
-<div id="traitement-des-données" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> Traitement des données<a href="rendu-des-exercices-partie-2.html#traitement-des-donn%C3%A9es" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Tout d’abord on charge les librairies utiles.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="rendu-des-exercices-partie-2.html#cb57-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb57-2"><a href="rendu-des-exercices-partie-2.html#cb57-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb57-3"><a href="rendu-des-exercices-partie-2.html#cb57-3" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb57-4"><a href="rendu-des-exercices-partie-2.html#cb57-4" tabindex="-1"></a><span class="fu">library</span>(glue)</span>
-<span id="cb57-5"><a href="rendu-des-exercices-partie-2.html#cb57-5" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
-<blockquote>
-<p>Le fichier des données sur lequel je propose de travailler est une selection des variables RPLS pour la France et les régions, sur plusieurs millésimes. Je l’ai créé à partir du package propre.rpls. Est ce que cela vous convient?</p>
-</blockquote>
-</div>
-<div id="nombre-de-ls-par-région" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> Nombre de LS par région<a href="rendu-des-exercices-partie-2.html#nombre-de-ls-par-r%C3%A9gion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Au 1er janvier 2022, il y a 5.370446^{6} logements sociaux en France.</p>
-</div>
-<div id="graphiques-dévolution" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Graphiques d’évolution<a href="rendu-des-exercices-partie-2.html#graphiques-d%C3%A9volution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Voici l’évolution du nombre de logements sociaux en France:</p>
-<p><img src="support_m6_files/figure-html/exo%20graph-1.png" alt="" width="672" /></p>
-<blockquote>
-<p>On peut faire des traitements R aussi compliqués que de besoin dans les chunks</p>
-</blockquote>
-<p><img src="support_m6_files/figure-html/exo%20vac-1.png" alt="" width="672" /></p>
-</div>
-<div id="pour-rappel" class="section level2 hasAnchor" number="11.4">
-<h2><span class="header-section-number">11.4</span> Pour rappel<a href="rendu-des-exercices-partie-2.html#pour-rappel" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Les bases du langage sont très bien expliquées dans <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Le guide définitif de Rmarkdown</a></p>
+<p>A cette étape, votre projet a une version, prête à être partagée sur une forge git, reste à indiquer où.</p>
+<ol style="list-style-type: decimal">
+<li><p>Depuis votre dépôt gitlab-forge, créer un nouveau projet <strong>vide</strong> (décocher “read-me”).<br />
+</p></li>
+<li><p>Copier l’url https de ce projet<br />
+<img src="assets/img/GitLab1.png" /></p></li>
+<li><p>Retourner dans RStudio pour connecter votre projet R avec ce projet git, lancer dans la console :
+usethis::use_git_remote(url = “<a href="https://gitlab-forge.din.developpement-durable.gouv.fr/groupe/projet.git" class="uri">https://gitlab-forge.din.developpement-durable.gouv.fr/groupe/projet.git</a>”)</p></li>
+<li><p>Dernière étape pour partager le code : connexion des branches et premier ‘push’, dans le <strong>terminal de commande</strong><br />
+<code>git push -u origin main</code><br />
+votre projet est alors envoyé sur la forge.</p></li>
+<li><p>Intégration continue
+Par convention ce qui se situe dans le dossier public, peut être publié automatiquement par gitlab sur gitlab-pages si l’intégration continue est active.
+Pour l’activer, 2 conditions :</p></li>
+</ol>
+<ul>
+<li>un bouton à cocher dans les paramètres du dépôt (à retrouver au niveau du menu Parametres / CI-CD / Runners)
+<img src="assets/img/gitlab3.png" /></li>
+<li>et un fichier .gitlab-ci.yml à la racine du projet.<br />
+Voici un exemple de script à placer dans votre projet sous le nom <code>.gitlab-ci.yml</code></li>
+</ul>
+<pre><code>pages:
+  stage: deploy
+  script:
+  - echo &#39;Deploiement en cours&#39;
+  artifacts:
+    paths:
+    - public
+  only:
+  - master</code></pre>
 
+</div>
 </div>
 </div>
             </section>
@@ -357,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="pour-aller-plus-loin.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="pour-aller-plus-loin-sur-pagedown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="du-rmarkdown-interactif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pour-aller-plus-loin.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
