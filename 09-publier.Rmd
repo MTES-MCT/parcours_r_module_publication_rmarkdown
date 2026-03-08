@@ -1,0 +1,7 @@
+# Rendre public les HTML 
+
+# gitlab pages
+
+
+    mentionner l'exemple propre et l'offre de serveur webstatic du SNUM (exemple propre.rpls)
+    mentionner l'intrégration continue de gitlab + déploiement Gitpage. (exemple parcours-r)
