@@ -168,6 +168,49 @@ Dans rmarkdown, des div commencent par `::: {}` et finissent par `:::`.
 
 Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous devrez utiliser la propriété css `display: flex;` dans une `div` englobante.
 
+
+### Accessibilité visuelle des documents html produits 
+
+Certains choix peuvent fortement améliorer (ou dégrader) l'accessibilité pour les personnes porteuses d'un handicap visuel ou utilisant un lecteur d'écran. 
+Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.
+
+#### Structurer le document avec des titres hiérarchisés et inrégrer une table des matières
+
+Les lecteurs d'écran utilisent la structure du document pour naviguer.  
+
+1. Utiliser les niveaux de titres Markdown (#, ##, ###)
+2. Respecter la hiérarchie (ne pas passer de # à ####)
+3. Eviter de simuler un titre avec du gras
+4. Ajouter une table des matière avec `toc: true` dans l'entête yaml.  
+
+Grâce à cela, on crée un plan du document et les lecteurs d'écran peuvent naviguer de titre en titre. 
+
+
+#### Mettre un nom de substitution aux images
+
+Les images doivent avoir un texte alternatif (alt text).  
+````
+![Histogramme de la distribution des âges](histogramme.png)
+````
+Conseils pour rédiger le texte alternatif : décrire le message principal et les les tendances importantes.  
+
+#### Perception des couleurs 
+Veiller quand c'est possible, à ne pas transmettre d'informations uniquement par la couleur. 
+Cela rendrait le document illisible pour les personnes atteinte de daltonisme ou ayant une faible perception des contrastes.  
+Dans les graphiques R, il faut chercher à utiliser une palette de couleur en redondance avec les formes ou les annotations et choisir des palettes de couleurs accessibles, comme `viridis` :  
+
+````  
+ggplot(data, aes(x, y, color = groupe, shape = groupe)) +
+  geom_point() +
+  scale_color_viridis_d()
+````  
+
+#### Rendre les tableaux lisibles
+
+Pour proposer des tableaux accessibles, on limite leur largeur et on utilise des entêtes claires.  
+Si le tableau est complexe, il convient d'ajouter un titre et un texte explicatif.  
+
+
 ## Sorties PDF
 
 ### Configuration préalable pour l'usage de pdf_document {#latex}
