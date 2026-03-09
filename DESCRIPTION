@@ -25,6 +25,7 @@ Imports:
     lubridate,
     metathis,
     pagedown,
+    plotly,
     readr,
     rmarkdown,
     savoirfR,

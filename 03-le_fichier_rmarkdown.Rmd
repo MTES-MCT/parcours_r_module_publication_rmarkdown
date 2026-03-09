@@ -163,8 +163,8 @@ output:
 ---
 ````
 
-::: exo
-**Exercice 1**
+
+### Exercice 1
 
 -   Ouvrir Rstudio
 -   Créer un fichier Rmarkdown, format html
@@ -172,7 +172,7 @@ output:
 -   Se mettre en auteur du document
 -   Rajouter un theme spécifique
 -   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
-:::
+
 
 ### Les éléments texte
 
@@ -388,10 +388,9 @@ présentant des caractères accentués (comme le français).
 
 ::::
 
-::: exo
-**Exercice 2**
+## Exercice 2
 
 -   Partir du fichier .Rmd de l'exercice précédent
 -   Saisir un titre, un paragraphe, une liste d'item, un encart et un lien
 -   Appuyer sur `visual` pour avoir un aperçu du rendu final
-:::
+

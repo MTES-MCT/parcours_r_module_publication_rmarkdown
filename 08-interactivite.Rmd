@@ -73,7 +73,48 @@ leaflet(dataframe_partagee) %>%
 Attention, pour le moment, leaflet ne permet l'utilisation d'une dataframe partagée que pour une représentation ponctuelle.
 Il n'est pas possible de filtrer des objets polygonaux de cette manière.
 
-## Exercice X
+## Exemple reproductible
+
+```{r, message=FALSE}
+library(ggplot2)
+library(plotly)
+library(crosstalk)
+```
+
+```{r}
+plot <- ggplot(mtcars, aes(x = wt, y = mpg, color = cyl))+
+  geom_point()
+plot
+```
+
+```{r}
+ggplotly(plot)
+```
+
+
+```{r}
+shared_mtcars <- SharedData$new(mtcars)
+plot <- ggplot(shared_mtcars, aes(x = wt, y = mpg, color = cyl))+
+  geom_point()
+plot2 <- ggplot(shared_mtcars, aes(x = hp, y = qsec, color = cyl)) + geom_point()
+bscols(widths = c(3, 5, 4),
+  list(
+    filter_checkbox("cyl", "Nb de cylindres", shared_mtcars, ~cyl, inline = TRUE),
+    filter_slider("hp", "Puissance (cv)", shared_mtcars, ~hp, width = "100%"),
+    filter_select("auto", "Automatique", shared_mtcars, ~ifelse(am == 0, "Oui", "Non"))
+  ),
+  ggplotly(plot, width=250, height=250),
+  ggplotly(plot2, width=250, height=250)
+)
+  
+
+```
+
+
+
+
+
+## Exercice 6 (facultatif)
 
 En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
 

@@ -148,11 +148,24 @@ Pour des présentations de ninja
 
 https://support.posit.co/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-the-RStudio-IDE
 
+ 
+## Mettre des résultats en cache pour gagner du temps de commpilation 
 
-## Le cache 
+Compiler un document R Markdown peut être long, car il faut à chaque fois exécuter l'ensemble des blocs de code R qui le constituent.
 
-Si le temps d'éxecution du code est trop long, il est possible d'utiliser l'option de mise en cache de `knitr` afin d'améliorer les
-performances d'éxécution du code.
+Pour accélérer cette opération, knitr propose un système de mise en cache : les résultats de chaque bloc sont enregistrés dans un fichier et à la prochaine compilation, si le code et les options du bloc n’ont pas été modifiés, c’est le contenu du fichier de cache qui est utilisé, ce qui évite de ré-exécuter ce code R.
+
+On active ou désactive la mise en cache des résultats pour chaque chunk avec l’option `cache = TRUE` ou `cache = FALSE`, et on peut aussi désactiver totalement la mise en cache pour le document en ajoutant `knitr::opts_chunk$set(cache = FALSE)` dans le premier chunk de 'setup'.
+
+Il faut manier cette option avec beaucoup de prudence. 
+Le système de cache peut fausser les résultats s'il n'est pas utilisé avec maîtrise, par exemple s'il n'est pas vidé alors que les données source changent. 
+Dans ce cas les résultats de certains blocs ne seront pas être mis à jour s'ils sont présents en cache. 
+On peut vider le cache du document, ce qui forcera un re-calcul de tous les blocs de code à la prochaine compilation. 
+Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache… (le balai) :
+
+![](assets/img/clear_cache.png)
+
+(Source : [guide analyse-R de Joseph Larmarange](https://larmarange.github.io/analyse-R/rmarkdown-les-rapports-automatises.html#mise-en-cache-des-r%C3%A9sultats))
 
 ## Rendre le paramétrage interactif 
 dernière slide de l'atelier 2

@@ -42,7 +42,7 @@ Par exemple on ne supprime pas "à la main" des données qui sembleraient aberra
 
 Les choix méthodologiques sont documentés.
 
-Travail est organisé en mode projet avec des fichiers localisés dans une arborescence classique avec archivage des millésimes des jeux de données mobilisés.
+Le travail est organisé en mode projet avec des fichiers localisés dans une arborescence classique avec archivage des millésimes des jeux de données mobilisés.
 
 ## Origine du format *R markdown*
 
