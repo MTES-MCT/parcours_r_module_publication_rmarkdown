@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - dev
-      - grr_2026-01
-      - master
+      - main
 
   workflow_dispatch:
 
