@@ -8,10 +8,16 @@ knitr::include_graphics("https://user-images.githubusercontent.com/163582/519427
 ```
 C'est un outil puissant pour concilier les fonctionnalités HTML (donc mise en formes CSS) et la possibilité d'impression PDF, galerie :     
 
-- https://www.justice.gouv.fr/sites/default/files/2026-01/Infos_Rapides_Justice_n35.pdf
+- https://www.justice.gouv.fr/sites/default/files/2026-01/Infos_Rapides_Justice_n35.pdf  
+![](assets/img/pagedown_galerie_1_ssr.png)
+
 - https://edouard-legoupil.github.io/unhcr_paged/#graphics-with-style    
-- https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf  
-- https://github.com/rstudio/pagedown?tab=readme-ov-file#paged-html-documents-pagedownhtml_paged  
+![](assets/img/pagedown_galerie_2_unhcr.png)   
+- https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf 
+
+```{r}
+knitr::include_url("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf")
+```
 
 ## Paged.js
 
@@ -191,18 +197,19 @@ Les 3 fichiers correspondent aux éléments suivants :
 - `custom-page.css` correspond aux paramètres de la page (format de la page, orientation,...)
 - `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
 
+## Exemple d'usege : le modèles de 4 pages Info rapides Justice du SSER 
 
-<!-- [`{pagedreport}`](https://pagedreport.rfortherestofus.com/) est un package permettant de simplifier l'appropriation de pagedown, et notamment évite de devoir rentrer tout de suite dans une modification du css. -->
+Le Rmd modèle s'installe avec le package `{chartegraphique.sser}` : 
 
-<!-- Il n'est pas sur le cran, pour l'installer :  -->
+```{r}
+devtools::install_gitlab(repo="sser/chartegraphique.sser@master",
+                         host="https://git.lab.sspcloud.fr",
+                         dependencies = TRUE,
+                         upgrade = FALSE)
+```
 
-<!-- ```{r, eval = FALSE} -->
-<!-- remotes::install_github("rfortherestofus/pagedreport) -->
-<!-- ``` -->
+Après avoir redémarré R, on a une nouvelle entrée dans le menu `File / New File / R Markdown... / From Template`
 
+![](assets/img/pagedown_SSR_inforapides.png)
 
-<!-- ```{r, echo = FALSE} -->
-<!-- knitr::include_graphics("https://mk0rfortheresto0o08q.kinstacdn.com/wp-content/uploads/2021/01/windmill.gif") -->
-<!-- ``` -->
-
-<!-- https://tvroylandt.github.io/user_2024_parametrized_reporting/slides.html#/create-a-template-with-css-tools -->
+Cliquer sur cette nouvelle entrée permet d'accéder au document, puis de le compiler pour accéder au résultat. 
