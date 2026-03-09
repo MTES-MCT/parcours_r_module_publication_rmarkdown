@@ -307,8 +307,7 @@ output:
 ```
 Son fonctionnement est détaillé au niveau du chapitre [Pour aller plus loin sur Pagedown].
 
-::: {.exo}
-**Exercice 4**
+## Exercice 4
 
 En repartant du fichier .Rmd de l'exercice précédent :
 
@@ -316,5 +315,4 @@ En repartant du fichier .Rmd de l'exercice précédent :
   - Changer le thème utilisé
   - Générer le document 
   - Repartir du fichier .Rmd pour générer un document PDF. Il est important de vérifier la compatibilité des éléments définis avec ce nouveau format.  
-:::
 

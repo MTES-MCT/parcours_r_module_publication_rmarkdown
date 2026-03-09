@@ -114,7 +114,7 @@ bscols(widths = c(3, 5, 4),
 
 
 
-## Exercice X
+## Exercice 6 (facultatif)
 
 En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
 

@@ -233,13 +233,13 @@ Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
 
 
 ## Exercice 3
-::: {.exo}
+
 - Partir du fichier .Rmd de l'exercice précédent
 - Définir des options générales
 - Ajouter un chunk créant une table, qui sera traitée mais non affichée dans le document final
 - Ajouter un chunk créant un graphique, qui sera traité et affiché dans le document final 
 - Ajouter une image
 - Générer le document
-:::
+
 
 
