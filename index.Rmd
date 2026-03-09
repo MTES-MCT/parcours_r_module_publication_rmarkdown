@@ -41,16 +41,22 @@ A l'issue de la formation sur ce module, les stagiaires devraient être en capac
 
 Les points abordés comprendront :
 
-+ La syntaxe R Markdown
-+ L'insertion de code R
-+ Les outils de mise en forme
-+ Les formats de sortie .html, .pdf
++ Intérêt des publications reproductibles  
++ Articulation Markdown / pandoc / R / LateX   
++ La syntaxe R Markdown  
++ L'insertion de code R  
++ Les formats de sortie (html, pdf, bureautiques, site_web...)
++ Mise en forme d'un rapport HTML (css, gouvdown)
++ Reproduire une analyse en faisant varier un ou plusieurs paramètres (territoire, millésime...) avec le paramétrage des documents
 + L'assemblage de plusieurs documents R Markdown (package `bookdown`)
-+ La publication des documents produits
++ Les éléments interactifs : leaflet, onglet, popover, crosstalk
++ Les solutions pour publier les documents produits
++ Ouverture vers Quarto
+
 
 ## Exemples de productions avec R Markdown {.unnumbered}
 
-R markdown permet de produire des sorties dans un grand nombre de formats. Quelques exemples :
+R Markdown permet de produire des sorties dans un grand nombre de formats. Quelques exemples :
 
 + Des documents "simples" en format html, word, epub, pdf, etc.
 + Des diaporamas en formats Powerpoint, Beamer, Ioslides, Revealjs, etc.
