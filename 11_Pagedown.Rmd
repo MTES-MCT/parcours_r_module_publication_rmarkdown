@@ -197,11 +197,11 @@ Les 3 fichiers correspondent aux éléments suivants :
 - `custom-page.css` correspond aux paramètres de la page (format de la page, orientation,...)
 - `custom.css` intègre entre autre la façon dont les pages sont affichées à l'écran (couleur de fond, espacement entre les pages...)
 
-## Exemple d'usege : le modèles de 4 pages Info rapides Justice du SSER 
+## Exemple d'usage : le modèles de 4 pages Info rapides Justice du SSER 
 
 Le Rmd modèle s'installe avec le package `{chartegraphique.sser}` : 
 
-```{r}
+```{r, eval = FALSE}
 devtools::install_gitlab(repo="sser/chartegraphique.sser@master",
                          host="https://git.lab.sspcloud.fr",
                          dependencies = TRUE,
@@ -210,6 +210,6 @@ devtools::install_gitlab(repo="sser/chartegraphique.sser@master",
 
 Après avoir redémarré R, on a une nouvelle entrée dans le menu `File / New File / R Markdown... / From Template`
 
-![](assets/img/pagedown_SSR_inforapides.png)
+![](assets/img/Pagedown_exemple_Infos_Rapides_Justice.png)   
 
 Cliquer sur cette nouvelle entrée permet d'accéder au document, puis de le compiler pour accéder au résultat. 
