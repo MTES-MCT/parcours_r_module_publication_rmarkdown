@@ -65,6 +65,7 @@ styled-outputs
 du-rmarkdown-interactif
 interactivité-simple-les-visuels-saniment
 interactivité-avancée-les-inputs-utilisateur
+exemple-reproductible
 exercice-x
 interactivité-complète-lapplication-shiny-embarquée
 mettre-en-ligne-les-html-produits-avec-rmarkdown
@@ -96,3 +97,4 @@ configurer-votre-yaml
 quelques-balises-importantes-à-connaître
 modifier-le-css
 configurer-votre-css
+exemple-dusage-le-modèles-de-4-pages-info-rapides-justice-du-sser

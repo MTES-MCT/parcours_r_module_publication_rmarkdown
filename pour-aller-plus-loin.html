@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-03-08" />
+<meta name="date" content="2026-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,15 +52,21 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
-<script src="libs/selectize-0.12.4/js/selectize.min.js"></script>
+<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.25.2/plotly-latest.min.js"></script>
 <script src="libs/ionrangeslider-javascript-2.3.1/js/ion.rangeSlider.min.js"></script>
 <script src="libs/strftime-0.9.2/strftime-min.js"></script>
 <link href="libs/ionrangeslider-css-2.3.1/css/ion.rangeSlider.css" rel="stylesheet" />
-<link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/selectize-0.12.4/css/selectize.bootstrap3.css" rel="stylesheet" />
+<script src="libs/selectize-0.12.4/js/selectize.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-grid-3.4.1/bootstrap-grid.min.css" rel="stylesheet" />
 <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
 <script src="libs/datatables-binding-0.34.0/datatables.js"></script>
 <link href="libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -241,8 +247,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="8.1" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-simple-les-visuels-saniment"><i class="fa fa-check"></i><b>8.1</b> Interactivité simple, les visuels s’animent</a></li>
 <li class="chapter" data-level="8.2" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-avanc%C3%A9e-les-inputs-utilisateur"><i class="fa fa-check"></i><b>8.2</b> Interactivité avancée, les inputs utilisateur</a></li>
-<li class="chapter" data-level="8.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>8.3</b> Exercice X</a></li>
-<li class="chapter" data-level="8.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>8.4</b> Interactivité complète, l’application Shiny embarquée</a></li>
+<li class="chapter" data-level="8.3" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exemple-reproductible"><i class="fa fa-check"></i><b>8.3</b> Exemple reproductible</a></li>
+<li class="chapter" data-level="8.4" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#exercice-x"><i class="fa fa-check"></i><b>8.4</b> Exercice X</a></li>
+<li class="chapter" data-level="8.5" data-path="du-rmarkdown-interactif.html"><a href="du-rmarkdown-interactif.html#interactivit%C3%A9-compl%C3%A8te-lapplication-shiny-embarqu%C3%A9e"><i class="fa fa-check"></i><b>8.5</b> Interactivité complète, l’application Shiny embarquée</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html"><i class="fa fa-check"></i><b>9</b> Mettre en ligne les HTML produits avec Rmarkdown</a>
 <ul>
@@ -284,6 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.4" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#quelques-balises-importantes-%C3%A0-conna%C3%AEtre"><i class="fa fa-check"></i><b>12.4</b> Quelques balises importantes à connaître</a></li>
 <li class="chapter" data-level="12.5" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#modifier-le-css"><i class="fa fa-check"></i><b>12.5</b> Modifier le CSS</a></li>
 <li class="chapter" data-level="12.6" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-css"><i class="fa fa-check"></i><b>12.6</b> Configurer votre CSS</a></li>
+<li class="chapter" data-level="12.7" data-path="pour-aller-plus-loin-sur-pagedown.html"><a href="pour-aller-plus-loin-sur-pagedown.html#exemple-dusage-le-mod%C3%A8les-de-4-pages-info-rapides-justice-du-sser"><i class="fa fa-check"></i><b>12.7</b> Exemple d’usage : le modèles de 4 pages Info rapides Justice du SSER</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
@@ -361,33 +369,33 @@ Depuis R, cette conversion offre un nombre limité de paramètres de personnalis
 <div style="display: flex; gap: 50px;">
 <div>
 <p>Paramètres de la fonction <code>odt_document()</code> :</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="pour-aller-plus-loin.html#cb53-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
-<span id="cb53-2"><a href="pour-aller-plus-loin.html#cb53-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb53-3"><a href="pour-aller-plus-loin.html#cb53-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
-<span id="cb53-4"><a href="pour-aller-plus-loin.html#cb53-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
-<span id="cb53-5"><a href="pour-aller-plus-loin.html#cb53-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb53-6"><a href="pour-aller-plus-loin.html#cb53-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb53-7"><a href="pour-aller-plus-loin.html#cb53-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb53-8"><a href="pour-aller-plus-loin.html#cb53-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
-<span id="cb53-9"><a href="pour-aller-plus-loin.html#cb53-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb53-10"><a href="pour-aller-plus-loin.html#cb53-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
-<span id="cb53-11"><a href="pour-aller-plus-loin.html#cb53-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
-<span id="cb53-12"><a href="pour-aller-plus-loin.html#cb53-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="pour-aller-plus-loin.html#cb57-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
+<span id="cb57-2"><a href="pour-aller-plus-loin.html#cb57-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb57-3"><a href="pour-aller-plus-loin.html#cb57-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
+<span id="cb57-4"><a href="pour-aller-plus-loin.html#cb57-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
+<span id="cb57-5"><a href="pour-aller-plus-loin.html#cb57-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb57-6"><a href="pour-aller-plus-loin.html#cb57-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb57-7"><a href="pour-aller-plus-loin.html#cb57-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb57-8"><a href="pour-aller-plus-loin.html#cb57-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
+<span id="cb57-9"><a href="pour-aller-plus-loin.html#cb57-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb57-10"><a href="pour-aller-plus-loin.html#cb57-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
+<span id="cb57-11"><a href="pour-aller-plus-loin.html#cb57-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
+<span id="cb57-12"><a href="pour-aller-plus-loin.html#cb57-12" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div>
 <p>Ce qui donne pour l’entête YML</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb54-1"><a href="pour-aller-plus-loin.html#cb54-1" tabindex="-1"></a><span class="pp">--- </span></span>
-<span id="cb54-2"><a href="pour-aller-plus-loin.html#cb54-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb54-3"><a href="pour-aller-plus-loin.html#cb54-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb54-4"><a href="pour-aller-plus-loin.html#cb54-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
-<span id="cb54-5"><a href="pour-aller-plus-loin.html#cb54-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb54-6"><a href="pour-aller-plus-loin.html#cb54-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
-<span id="cb54-7"><a href="pour-aller-plus-loin.html#cb54-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
-<span id="cb54-8"><a href="pour-aller-plus-loin.html#cb54-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb54-9"><a href="pour-aller-plus-loin.html#cb54-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
-<span id="cb54-10"><a href="pour-aller-plus-loin.html#cb54-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb54-11"><a href="pour-aller-plus-loin.html#cb54-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
-<span id="cb54-12"><a href="pour-aller-plus-loin.html#cb54-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb58-1"><a href="pour-aller-plus-loin.html#cb58-1" tabindex="-1"></a><span class="pp">--- </span></span>
+<span id="cb58-2"><a href="pour-aller-plus-loin.html#cb58-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb58-3"><a href="pour-aller-plus-loin.html#cb58-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb58-4"><a href="pour-aller-plus-loin.html#cb58-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb58-5"><a href="pour-aller-plus-loin.html#cb58-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb58-6"><a href="pour-aller-plus-loin.html#cb58-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
+<span id="cb58-7"><a href="pour-aller-plus-loin.html#cb58-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
+<span id="cb58-8"><a href="pour-aller-plus-loin.html#cb58-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb58-9"><a href="pour-aller-plus-loin.html#cb58-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb58-10"><a href="pour-aller-plus-loin.html#cb58-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb58-11"><a href="pour-aller-plus-loin.html#cb58-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
+<span id="cb58-12"><a href="pour-aller-plus-loin.html#cb58-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
 </div>
 </div>
 <ul>
@@ -409,7 +417,7 @@ Depuis R, cette conversion offre un nombre limité de paramètres de personnalis
 <p>On peut également coder les styles directement en xml cf. <a href="https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html">ce tuto en français</a></p>
 <p>La gestion des <strong>tableaux</strong> est parfois moins souple qu’en HTML/PDF, mais on peut obtenir quelque chose de propre.
 Les tableaux simples sont traités correctement avec <code>knitr::kable()</code> en spécifiant le format “pandoc”.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="pour-aller-plus-loin.html#cb55-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="pour-aller-plus-loin.html#cb59-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
 <p>Il ne faut pas utiliser les fonctions spécifiques au format HTML (comme <code>kable_styling()</code>, <code>column_spec()</code>… ) car elles ne sont pas supportées.
 Mais <code>{kableExtra}</code> sait aussi générer des tableaux LaTeX et les fonctions compatibles avec le format PDF le seront généralement aussi pour ODT.</p>
 <p>Les <strong>graphiques</strong> ne sont pas automatiquement redimensionnés comme dans un format de sortie HTML, il faut rester dans les limites de largeur du corps de la page (environ 6 pouces pour le modèle par défaut).</p>
@@ -454,17 +462,17 @@ Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache…
 <div style="display: flex; gap: 50px;">
 <div>
 <p><strong>Code :</strong></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb56-1"><a href="pour-aller-plus-loin.html#cb56-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
-<span id="cb56-2"><a href="pour-aller-plus-loin.html#cb56-2" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="pour-aller-plus-loin.html#cb56-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
-<span id="cb56-4"><a href="pour-aller-plus-loin.html#cb56-4" tabindex="-1"></a></span>
-<span id="cb56-5"><a href="pour-aller-plus-loin.html#cb56-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
-<span id="cb56-6"><a href="pour-aller-plus-loin.html#cb56-6" tabindex="-1"></a></span>
-<span id="cb56-7"><a href="pour-aller-plus-loin.html#cb56-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
-<span id="cb56-8"><a href="pour-aller-plus-loin.html#cb56-8" tabindex="-1"></a></span>
-<span id="cb56-9"><a href="pour-aller-plus-loin.html#cb56-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
-<span id="cb56-10"><a href="pour-aller-plus-loin.html#cb56-10" tabindex="-1"></a></span>
-<span id="cb56-11"><a href="pour-aller-plus-loin.html#cb56-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb60-1"><a href="pour-aller-plus-loin.html#cb60-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
+<span id="cb60-2"><a href="pour-aller-plus-loin.html#cb60-2" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="pour-aller-plus-loin.html#cb60-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
+<span id="cb60-4"><a href="pour-aller-plus-loin.html#cb60-4" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="pour-aller-plus-loin.html#cb60-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
+<span id="cb60-6"><a href="pour-aller-plus-loin.html#cb60-6" tabindex="-1"></a></span>
+<span id="cb60-7"><a href="pour-aller-plus-loin.html#cb60-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
+<span id="cb60-8"><a href="pour-aller-plus-loin.html#cb60-8" tabindex="-1"></a></span>
+<span id="cb60-9"><a href="pour-aller-plus-loin.html#cb60-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
+<span id="cb60-10"><a href="pour-aller-plus-loin.html#cb60-10" tabindex="-1"></a></span>
+<span id="cb60-11"><a href="pour-aller-plus-loin.html#cb60-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
 </div>
 <div>
 <p><strong>Résultat :</strong></p>
