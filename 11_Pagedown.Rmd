@@ -201,7 +201,7 @@ Les 3 fichiers correspondent aux éléments suivants :
 
 Le Rmd modèle s'installe avec le package `{chartegraphique.sser}` : 
 
-```{r, eval = FALSE}
+```
 devtools::install_gitlab(repo="sser/chartegraphique.sser@master",
                          host="https://git.lab.sspcloud.fr",
                          dependencies = TRUE,

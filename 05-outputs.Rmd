@@ -171,8 +171,9 @@ Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous dev
 
 ### Accessibilité visuelle des documents html produits 
 
-Certains choix peuvent fortement améliorer (ou dégrader) l'accessibilité pour les personnes porteuses d'un handicap visuel ou utilisant un lecteur d'écran. 
-Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.
+Certains choix peuvent fortement améliorer (ou dégrader) l'accessibilité pour les personnes porteuses d'un handicap visuel ou utilisant un lecteur d'écran.  
+Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.  
+Pour une présentation complète, se référer au [Référentiel général d’amélioration de l’accessibilité (RGAA)](https://www.numerique.gouv.fr/offre-accompagnement/reference-accessibilite-rgaa/)  
 
 #### Structurer le document avec des titres hiérarchisés et inrégrer une table des matières
 
@@ -316,3 +317,4 @@ En repartant du fichier .Rmd de l'exercice précédent :
   - Générer le document 
   - Repartir du fichier .Rmd pour générer un document PDF. Il est important de vérifier la compatibilité des éléments définis avec ce nouveau format.  
 :::
+
