@@ -210,17 +210,9 @@ Notamment, le package gouvdown propose un template bookdown `gitbook_gouv`, dér
 
 Comme pour les formats de sortie Rmarkdown, il faut avoir en tête que les visualisations optimisées pour un rendu web (HTML), ne seront pas compatibles avec l'export pdf.
 
-## Exercice 5
+## Exercice 6
 
-Travail dirigé : 
-
-Objectif
-
-Utiliser les 3 .Rmd des exercice 1 à 3 vus précédemment pour expérimenter la composition
-d'un book.
-
-Prérequis
-
-Etapes
-
-
+  - Repartir du .Rmd de l'exercice 4 (celui au format HTML)
+  - Découper ce fichier en 3 .Rmd distincts, un pour l'image d'en-tête et le premier texte, un pour le premier chapitre, un pour le second chapitre
+  - Créer un book pour assembler ces 3 chapitres en un seul document
+  - Attention : pour que cela fonctionne bien, il faut placer ces .Rmd à assembler, les images, le _bookdoawn.yml et le _output.yml dans un même sous dossier et modifier votre dossier de travail en conséquence. Ce sous-dossier ne doit pas contenir d'autre .Rmd que ceux à assembler dans le book

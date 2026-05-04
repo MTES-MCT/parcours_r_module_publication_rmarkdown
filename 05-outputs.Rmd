@@ -314,5 +314,5 @@ En repartant du fichier .Rmd de l'exercice précédent :
   - Modifier les options pour avoir un sommaire flottant affichant un seul niveau de titre
   - Changer le thème utilisé
   - Générer le document 
-  - Repartir du fichier .Rmd pour générer un document PDF. Il est important de vérifier la compatibilité des éléments définis avec ce nouveau format.  
+  - Dupliquer le fichier .Rmd (on s'en resservira plus tard) et modifier ce duplicata pour qu'il génère un document PDF au lieu du HTML. Il est important de vérifier la compatibilité des éléments définis avec ce nouveau format.  
 

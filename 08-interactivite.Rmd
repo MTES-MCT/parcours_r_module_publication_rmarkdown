@@ -111,35 +111,14 @@ bscols(widths = c(3, 5, 4),
 ```
 
 
+## Exercice 7 (facultatif)
 
-
-
-## Exercice 6 (facultatif)
-
-En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
-
-À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher que les données pour une région et un slider permettant de n'afficher que certaines années.
-
-```{r, include=FALSE, echo=FALSE}
-
-library(tidyverse)
-library(glue)
-library(kableExtra)
-library(crosstalk)
-library(DT)
-
-selection_ind_rpls_fr_reg <- readr::read_csv2("selection_ind_rpls_fr_reg.csv", col_names=TRUE, na = c("", "NA")) %>% 
-  mutate(across(-c(TypeZone, CodeZone), as.numeric)) %>% 
-  filter(TypeZone == "Regions") %>% 
-  select(millesime, CodeZone, nb_logt_total, taux_vacance_tot, loyer_m2) 
-
-df_rpls_partagee <- SharedData$new(selection_ind_rpls_fr_reg)
-
-filter_select(id = "filtre_reg", label = "Choisissez une région", sharedData = df_rpls_partagee, group = ~CodeZone)
-filter_slider(id = "filtre_annee", label = "Années", sharedData = df_rpls_partagee, column = ~millesime)
-
-datatable(df_rpls_partagee)
-```
+  - Repartir du .Rmd de l'exercice 4 au format HTML
+  - Ajouter un nouveau chapitre relatif à des visualisations interactives
+  - Créer un widget HTML interactif : un graphique ggiraph, un tableau datatable, une carte leaflet...
+  - Créer une dataframe partagée à l'aide du package crosstalk
+  - Utiliser cette dataframe partagée pour créer un filtre crosstalk sur la colonne country
+  - Créer un widget interactif à partir de cette dataframe partagée
 
 ## Interactivité complète, l'application Shiny embarquée
 
