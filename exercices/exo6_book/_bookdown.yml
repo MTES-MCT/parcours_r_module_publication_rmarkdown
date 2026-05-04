@@ -1,0 +1,9 @@
+book_filename: "cheese_bookdown"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapitre "
+  label:
+    fig: "Graphique "
+    tab: "Tableau "
+rmd_files: ["index.Rmd", "01-Au_debut_etait_le_lait.Rmd", "02-Premieres_observations.Rmd"]

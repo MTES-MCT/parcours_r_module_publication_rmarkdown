@@ -1,0 +1,9 @@
+bookdown::gitbook:
+  config:
+    toc:
+      before: |
+        <li><a href="./">Cheese book down</a></li>
+      after: |
+        <li>Cheese book down</li>
+    sharing: no
+    info: no
