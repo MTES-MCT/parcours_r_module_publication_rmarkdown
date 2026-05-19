@@ -357,6 +357,11 @@ du html, permet de mieux contrôler l'affichage de l'image.
 
 Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
 
+::: {.warning}
+**Attention au répertoire de travail !**
+Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l'adresse à partir de laquelle commence le chemin de l'image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d'un projet. 
+Se référer à la partie dédiée \@ref(piege) pour s'en dépatouiller.
+:::
 
 ## Encodage 
 
