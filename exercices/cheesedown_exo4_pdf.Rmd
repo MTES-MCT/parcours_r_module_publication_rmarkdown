@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 
 <br>
 
-La présente infrographie se veut être un exemple parfaitement inutile de ce qu'on peut produire à l'aide du format Rmarkdown.
+La présente infographie se veut être un exemple parfaitement inutile de ce qu'on peut produire à l'aide du format Rmarkdown.
 
 On y présentera :
 
