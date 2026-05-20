@@ -100,7 +100,7 @@ pages:
   - master
 ``` 
 
-## Exercice 7 (facultatif)
+## Exercice 8 (facultatif)
 
 Expérimenter gitlab pages
 
