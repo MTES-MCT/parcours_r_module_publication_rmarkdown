@@ -166,12 +166,9 @@ output:
 
 ### Exercice 1
 
--   Ouvrir Rstudio
--   Créer un fichier Rmarkdown, format html
--   prévisualiser le document avant toutes modifications
--   Se mettre en auteur du document
--   Rajouter un theme spécifique
--   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
+```{r mod6_exo1, child=charge_exo("m6", "exo1.rmd"), echo=FALSE}
+```
+
 
 
 ### Les éléments texte
@@ -395,12 +392,6 @@ présentant des caractères accentués (comme le français).
 
 ## Exercice 2
 
-Nous allons travailler sur les informations du site [www.cheese.com](https://www.cheese.com/). Nous nous appuyons pour cela sur l'exemple proposé pour l'évènement [tidytuesday du 4 juin 2024](https://github.com/rfordatascience/tidytuesday/blob/main/data/2024/2024-06-04/readme.md).
-
-Le fichier markdown qui sera créé pendant toute cette formation parlera donc de fromage !
-
--   Partir du fichier .Rmd de l'exercice précédent
--   Saisir un titre, un paragraphe, une liste d'item, un encart et un lien.
-N'hésitez pas à jouer avec la mise en forme du texte en syntaxe markdown.
--   Appuyer sur `visual` pour avoir un aperçu du rendu final
+```{r mod6_exo2, child=charge_exo("m6", "exo2.rmd"), echo=FALSE}
+```
 
