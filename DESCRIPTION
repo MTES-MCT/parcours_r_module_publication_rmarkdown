@@ -22,12 +22,14 @@ Imports:
     leaflet,
     metathis,
     pagedown,
+    plotly,
     rmarkdown,
     savoirfR,
     shiny,
     stringi,
     tidyverse,
-    tinytex
+    tinytex,
+    xaringan
 Remotes:
     MaelTheuliere/COGiter,
     MTES-MCT/savoirfR,
