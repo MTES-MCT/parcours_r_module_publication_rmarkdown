@@ -210,17 +210,8 @@ Notamment, le package gouvdown propose un template bookdown `gitbook_gouv`, dér
 
 Comme pour les formats de sortie Rmarkdown, il faut avoir en tête que les visualisations optimisées pour un rendu web (HTML), ne seront pas compatibles avec l'export pdf.
 
-## Exercice 5
+## Exercice 6
 
-Travail dirigé : 
-
-Objectif
-
-Utiliser les 3 .Rmd des exercice 1 à 3 vus précédemment pour expérimenter la composition
-d'un book.
-
-Prérequis
-
-Etapes
-
+```{r mod6_exo6, child=charge_exo("m6", "exo6.rmd"), echo=FALSE}
+```
 

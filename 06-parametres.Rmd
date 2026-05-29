@@ -1,4 +1,4 @@
-# Paramétrer un rapport
+# Paramétrer un rapport {#parametres}
 
 Un des nombreux avantages de R Markdown est la possibilité de reproduire des analyses très facilement en actualisant une partie du travail ou en changeant un des entrants du document. 
 Utiliser des paramètres permet d'aller encore plus loin pour créer un document qui peut être réutilisé pour plusieurs scénarios. 
@@ -146,4 +146,10 @@ On peut insérer le titre dans une balise yml ailleurs que dans l'entête placé
 title: "`r mon_objet_R_contenant_le_titre`"
 ---
 ````
+
+## Exercice 5
+
+```{r mod6_exo5, child=charge_exo("m6", "exo5.rmd"), echo=FALSE}
+```
+
 

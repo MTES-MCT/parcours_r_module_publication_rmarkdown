@@ -166,12 +166,9 @@ output:
 
 ### Exercice 1
 
--   Ouvrir Rstudio
--   Créer un fichier Rmarkdown, format html
--   prévisualiser le document avant toutes modifications
--   Se mettre en auteur du document
--   Rajouter un theme spécifique
--   Cliquer sur *knit* pour compiler le document et identifier les correspondances entre fichier .Rmd et fichier html
+```{r mod6_exo1, child=charge_exo("m6", "exo1.rmd"), echo=FALSE}
+```
+
 
 
 ### Les éléments texte
@@ -357,6 +354,11 @@ du html, permet de mieux contrôler l'affichage de l'image.
 
 Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
 
+::: {.warning}
+**Attention au répertoire de travail !**
+Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l'adresse à partir de laquelle commence le chemin de l'image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d'un projet. 
+Se référer à la partie dédiée \@ref(piege) pour s'en dépatouiller.
+:::
 
 ## Encodage 
 
@@ -390,7 +392,6 @@ présentant des caractères accentués (comme le français).
 
 ## Exercice 2
 
--   Partir du fichier .Rmd de l'exercice précédent
--   Saisir un titre, un paragraphe, une liste d'item, un encart et un lien
--   Appuyer sur `visual` pour avoir un aperçu du rendu final
+```{r mod6_exo2, child=charge_exo("m6", "exo2.rmd"), echo=FALSE}
+```
 

@@ -74,4 +74,7 @@ R Markdown permet de produire des sorties dans un grand nombre de formats. Quelq
 
 + divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
 
+```{r, warning=FALSE, echo=FALSE}
+library(savoirfR) #on active savoir faire pour y récupérer les consignes des exercices
+```
 

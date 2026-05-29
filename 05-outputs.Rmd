@@ -307,12 +307,27 @@ output:
 ```
 Son fonctionnement est détaillé au niveau du chapitre [Pour aller plus loin sur Pagedown].
 
+
+## Multiplier les formats de sorties 
+
+Lorsqu'on utilise des sorties de tableaux ou d'illustrations basiques, ou lorsqu'on on a pris soin de ne sélectionner que des instructions compatibles avec tous les formats de sortie, ou on peut multiplier les formats de sorties d'un même document R Markdown en empilant dans l'entête la liste des formats de sorties souhaités. 
+
+```yaml
+---
+output: 
+  gouvdown::html_gouv:
+    toc:true
+  pdf_document:
+    toc:true
+  odt_document: default
+---
+```
+
+Pour comparer les options permises par chaque type de sorties, se référer à la [feuille de triche RMarkdown](https://opensource.posit.co/resources/cheatsheets/rmarkdown/rmarkdown.pdf), également accessible depuis le menu Help / Cheat Sheets / R Markdown Cheat Sheet qui comporte un comparatif. 
+
 ## Exercice 4
 
-En repartant du fichier .Rmd de l'exercice précédent :
+```{r mod6_exo4, child=charge_exo("m6", "exo4.rmd"), echo=FALSE}
+```
 
-  - Modifier les options pour avoir un sommaire flottant affichant un seul niveau de titre
-  - Changer le thème utilisé
-  - Générer le document 
-  - Repartir du fichier .Rmd pour générer un document PDF. Il est important de vérifier la compatibilité des éléments définis avec ce nouveau format.  
 

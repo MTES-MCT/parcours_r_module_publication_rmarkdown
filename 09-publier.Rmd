@@ -100,9 +100,11 @@ pages:
   - master
 ``` 
 
-## Exercice 7 (facultatif)
+## Exercice 8 (facultatif)
 
-Expérimenter gitlab pages
+```{r mod7_exo7, child=charge_exo("m6", "exo8.rmd"), echo=FALSE}
+```
+
 
 
 

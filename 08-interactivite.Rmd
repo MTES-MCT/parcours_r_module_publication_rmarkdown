@@ -111,34 +111,9 @@ bscols(widths = c(3, 5, 4),
 ```
 
 
+## Exercice 7 (facultatif)
 
-
-
-## Exercice 6 (facultatif)
-
-En repartant de la dataframe de selection de données RPLS, faites un tableau présentant, par région et par année les indicateurs : nombre de logement sociaux, taux de vacance et loyer moyen au m².
-
-À l'aide du package Crosstalk, ajoutez un filtre par menu déroulant permettant de n'afficher que les données pour une région et un slider permettant de n'afficher que certaines années.
-
-```{r, include=FALSE, echo=FALSE}
-
-library(tidyverse)
-library(glue)
-library(kableExtra)
-library(crosstalk)
-library(DT)
-
-selection_ind_rpls_fr_reg <- readr::read_csv2("selection_ind_rpls_fr_reg.csv", col_names=TRUE, na = c("", "NA")) %>% 
-  mutate(across(-c(TypeZone, CodeZone), as.numeric)) %>% 
-  filter(TypeZone == "Regions") %>% 
-  select(millesime, CodeZone, nb_logt_total, taux_vacance_tot, loyer_m2) 
-
-df_rpls_partagee <- SharedData$new(selection_ind_rpls_fr_reg)
-
-filter_select(id = "filtre_reg", label = "Choisissez une région", sharedData = df_rpls_partagee, group = ~CodeZone)
-filter_slider(id = "filtre_annee", label = "Années", sharedData = df_rpls_partagee, column = ~millesime)
-
-datatable(df_rpls_partagee)
+```{r mod6_exo7, child=charge_exo("m6", "exo7.rmd"), echo=FALSE}
 ```
 
 ## Interactivité complète, l'application Shiny embarquée
@@ -162,7 +137,8 @@ params:
 ````
 
 Vous pouvez voir que Rstudio vous propose désormais "Run document" au lieu de "Knit".
-Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la visualisation du document.
+Il comprend qu'il doit désormais utiliser un moteur shiny pour permettre la visualisation du document. 
+Attention, ce moteur "shiny" n'est pas embarqué dans le HTML produit, cela signifie qu'une installation de R doit être accessible du lecteur du document produit.  
 
 À partir de là, vous pouvez inclure directement des inputs et outputs Shiny dans votre document mais il y a un twist : contrairement à une application Shiny avec une logique UI / serveur où vous devez prévoir des placeholders dans l'UI pour vos sorties de serveur, dans la version Rmarkdown vous pouvez directement appeler les fonctions de la famille `renderXXX()`.
 
@@ -252,7 +228,7 @@ shinyApp(ui = ui, server = server, options = list(height = 500))
 ````
 L'argument "height" en option permet d'indiquer la place (ici par défaut en pixel) que doit occuper l'application dans le document.
 
-La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.
+La réciproque est vraie, il est possible d'inclure des documents markdown dans une application Shiny (souvent utilisé pour la page d'accueil) en utilisant la fonction `includeMarkdown("mon_markdown.md")` à l'intérieur de l'UI.  
 Il est donc possible d'inclure dans une app Shiny un markdown qui lui même contient une application Shiny...🤯
 
 
