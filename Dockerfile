@@ -2,6 +2,6 @@ ARG R_VERSION=4.6.0
 
 FROM inseefrlab/onyxia-rstudio:r${R_VERSION}
 RUN apt-get update && apt-get install -y cargo
-RUN R -e "install.packages('remotes', repos = c(CRAN = 'https://cloud.r-project.org'))"
+RUN R -e "install.packages('pak', repos = c(CRAN = 'https://cloud.r-project.org'))"
 COPY DESCRIPTION DESCRIPTION
-RUN R -e 'remotes::install_deps(dependencies = TRUE)'
+RUN R -e "pak::local_install_deps(upgrade = FALSE, ask = FALSE)"
