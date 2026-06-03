@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - main
-      - master
       - dev
-      - 36-CI
     paths:
       - .github/workflows/rstudio-image-build.yml
       - Dockerfile
@@ -17,7 +15,6 @@ on:
       - created
     branches:
       - main
-      - master
       - dev
     paths:
       - .github/workflows/rstudio-image-build.yml

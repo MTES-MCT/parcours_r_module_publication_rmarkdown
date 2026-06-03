@@ -2,7 +2,7 @@ name: Test compilation de parcours_r_module6_publications_reproductibles
 
 on:
   pull_request:
-    branches: [main, master, dev]
+    branches: [main, dev]
     
   workflow_dispatch:
 
