@@ -63,7 +63,7 @@ Pourquoi utiliser un langage de balisage léger ? Des avantages majeurs :
 
 Par contre, la simplicité signifie peu de fonctionnalités donc des sorties assez pauvres.
 
-L'idée, avec R Markdown, était garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation de code R, intégré aux documents sous formes de `chunks`. 
+L'idée, avec R Markdown, était de garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation du code R qui est intégré aux documents sous formes de `chunks`. 
 En fait, les versions actuelles du package `knitr` permettent d'interpréter d'autres langages comme du $\LaTeX$, du SQL ou du code Python.
 
 R Markdown est en quelque sorte un cadre pour travailler en data science. 

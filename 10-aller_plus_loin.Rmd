@@ -6,7 +6,7 @@ Derrière Rmarkdown aujourd'hui existe tout un ecosystème permettant de mixer d
 
 Un document Quarto est un format de document qui permet de combiner du
 texte, du code et des visualisations dans un seul fichier, comme un
-Rmarkdown en somme. En revanche, Quarto n'est ni dépendant de ni
+Rmarkdown en somme. En revanche, Quarto n'est ni dépendant ni
 exclusif à R et Rstudio. Il ne s'agit pas d'un package de R, il faut
 l'installer "à part" (mais il est inclus dans l'installation de
 Rstudio).
@@ -130,13 +130,8 @@ Les **graphiques** ne sont pas automatiquement redimensionnés comme dans un for
 knitr::include_graphics("https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg")
 ```
 
-
-
-To do 
-Ajouter logo officedown
-Traduire et résumer https://ardata-fr.github.io/officeverse/index.html
-Pour les documents bureautiques de type .docx ou .pptx.
-
+Les packages officer et officedown permettent de générer des documents texte ou des présentations en format MSOffice.
+https://ardata-fr.github.io/officeverse/index.html
 
 Exemple 
 https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&plain=1
@@ -159,7 +154,7 @@ On active ou désactive la mise en cache des résultats pour chaque chunk avec l
 
 Il faut manier cette option avec beaucoup de prudence. 
 Le système de cache peut fausser les résultats s'il n'est pas utilisé avec maîtrise, par exemple s'il n'est pas vidé alors que les données source changent. 
-Dans ce cas les résultats de certains blocs ne seront pas être mis à jour s'ils sont présents en cache. 
+Dans ce cas les résultats de certains blocs ne seront pas mis à jour s'ils sont présents en cache. 
 On peut vider le cache du document, ce qui forcera un re-calcul de tous les blocs de code à la prochaine compilation. 
 Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache… (le balai) :
 
@@ -214,7 +209,7 @@ Ce paramétrage en onglets ne fonctionne pas dans les projets de type bookdown c
 Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown mais aussi tous les packages et logiciels en lien avec ce sujet :
 
 -   [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html)
--   [Le guide de référence](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+-   [Le guide de référence](https://rmarkdown.rstudio.com/lesson-1.html)
 -   [La syntaxe Markdown sur laquelle s'appuie`rmarkdown`](https://daringfireball.net/projects/markdown/syntax#philosophy)
 -   [Pour en savoir plus sur PANDOC](https://pandoc.org/MANUAL.html#pandocs-markdown)
 -   [Pour en savoir plus sur TinyTeX](https://yihui.org/tinytex/)

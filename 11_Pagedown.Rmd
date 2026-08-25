@@ -25,7 +25,7 @@ knitr::include_url("https://dreal.statistiques.developpement-durable.gouv.fr/par
 knitr::include_graphics("https://www.pagedmedia.org/wp-content/uploads/2018/12/pagedjs-logo.png")
 ```
 
-[paged.js](https://www.pagedjs.org/) est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés(https://www.w3.org/TR/css-page-3/) du W3C.
+[paged.js](https://www.pagedjs.org/) est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées aux médias paginés(https://www.w3.org/TR/css-page-3/) du W3C.
 
 Ces spécifications visent à pouvoir réaliser des documents prêt pour l'impression avec les technologies du web (html, css, js).
 
@@ -55,7 +55,7 @@ La structure du yaml est relativement proche d'un document Rmarkdown classique.
 
 A noter toutefois une option utile à retenir, la balise `knit: pagedown::chrome_print` qui vous permet de compiler directement votre document en pdf grâce à la fonction `pagedown::chrome_print()` livrée dans le package. 
 
-Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout document html en pdf ou en format image. Elle utilise la technologie d'impression de google chrome.
+Cette fonction peut être utilisée par ailleurs pour imprimer tout document html en pdf ou en format image. Elle utilise la technologie d'impression de google chrome.
 
 
 ```yaml
@@ -178,7 +178,7 @@ knitr::include_graphics("assets/img/templatespublications/show_new_window.png")
 
 
 
-- Puis sur `Clear all viewer item`, pour que vos modifications puisse s'afficher en live.
+- Puis sur `Clear all viewer item`, pour que vos modifications puissent s'afficher en live.
 
 
 

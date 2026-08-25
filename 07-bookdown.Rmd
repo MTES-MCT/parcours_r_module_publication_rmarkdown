@@ -153,7 +153,6 @@ Par exemple :
 - changer l'ordre de fusion des fichiers (`rmd_files`)
 
 
-
 ```yaml
 book_filename: "mon_premier_bookdown"
 delete_merged_file: true
@@ -163,7 +162,7 @@ language:
   label:
     fig: "Graphique "
     tab: "Tableau "
-rmd_files: ["index.Rmd", "01-intro.Rmd", "05-summary.Rmd"]
+rmd_files: ["index.Rmd", "01-intro.Rmd", "03-parts.Rmd"]
 ```
 
 ## Le paramétrage des formats de sortie : le fichier `_output.yml`
