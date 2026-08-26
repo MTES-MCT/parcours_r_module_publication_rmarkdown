@@ -1,4 +1,4 @@
-# Pour aller plus loin sur Pagedown
+# Pour aller plus loin sur Pagedown 
 
 Pagedown est une implémentation pour Rmarkdown de [paged.js](https://www.pagedjs.org/), qui permet de réaliser des documents html paginés.
 

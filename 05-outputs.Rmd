@@ -32,12 +32,14 @@ Tous les formats de sorties inclus dans le package `{rmarkdown}` sont listés ci
 
 Chaque format a son propre lot d'options, qui sont documentées au niveau de la fonction associée (par exemple `?rmarkdown::html_document`).
 
-Comme souvent avec R, il existe de nombreuses extensions qui complètent les possibilités offertes par `{rmarkdown}`. Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et, pour les plus connues d'entre elles, présentées dans le [guide Rmarkdown au niveaux des chapitres 5 à 10](https://bookdown.org/yihui/rmarkdown/dashboards.html).
+Comme souvent avec R, il existe de nombreuses extensions qui complètent les possibilités offertes par `{rmarkdown}`. 
+Elles sont listées sur <https://rmarkdown.rstudio.com/formats.html/> et, pour les plus connues d'entre elles, présentées dans le [guide Rmarkdown au niveaux des chapitres 5 à 10](https://bookdown.org/yihui/rmarkdown/dashboards.html).
 
 ::: trucsetastuces
 **Trucs & Astuces**
 
-Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites et le(s) format(s) de document(s) choisi(s). Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire une sortie vers un autre type de format.
+Attention : quand on inclut du code R dans un document, il faut s'assurer de la compatibilité entre les visualisations produites et le(s) format(s) de document(s) choisi(s). 
+Généralement, quand on perfectionne une visualisation pour un meilleur affichage au format HTML, on perd la possibilité de produire une sortie vers un autre type de format.
 :::
 
 Lorsqu'on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l'entête yaml, au niveau de `output:`.
@@ -59,7 +61,8 @@ Nous allons vous présenter les formats les plus utiles.
 
 ## HTML avec html_document
 
-A l'origine, Markdown a été conçu pour générer du HTML, c'est ce format qui a le plus de possibilités parmi tous les formats. C'est aussi le plus compatible avec les différents packages R de production de visualisation.
+A l'origine, Markdown a été conçu pour générer du HTML, c'est ce format qui a le plus de possibilités parmi tous les formats. 
+C'est aussi le plus compatible avec les différents packages R de production de visualisation.
 
 Pour obtenir un document HTML basique, il faut mettre l'option `output:html_document` dans l'en-tête.
 
@@ -93,7 +96,8 @@ output:
 
 ### Personnaliser le css
 
-L'un des avantages du format HTML est la possibilité d'appliquer un style personnalisé à l'aide d'un fichier CSS. Ces documents, qui servent à mettre en forme tous les éléments d'une page HTML par la définition de styles à appliquer, utilisent une syntaxe spécifique mais relativement simple :
+L'un des avantages du format HTML est la possibilité d'appliquer un style personnalisé à l'aide d'un fichier CSS. 
+Ces documents, qui servent à mettre en forme tous les éléments d'une page HTML par la définition de styles à appliquer, utilisent une syntaxe spécifique mais relativement simple :
 
 - il faut cibler un élément de la page à partir de sa classe (pour styliser tous les éléments de ce type) ou de son identifiant (pour styliser uniquement cet élément là), on peut assigner une classe spécifique à un élément ;
 - il faut spécifier le(s) paramètre(s) qu'on veut styliser (la police, la couleur, l'alignement, l'espacement, etc.) ;
@@ -136,10 +140,13 @@ De nombreuses ressources en ligne sont disponibles pour apprendre les bases du c
 
 ### Option self_contained
 
-Par défaut, R Markdown génère des fichiers HTML auto-portants, sans dépendances externes. Tout est intégré dans le fichier .html : feuilles de style, librairies js, des images, graphiques, polices, vidéos... On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner d'un dossier "html_files" et on est certain de ce qui est restitué.\
+Par défaut, R Markdown génère des fichiers HTML auto-portants, sans dépendances externes. 
+Tout est intégré dans le fichier .html : feuilles de style, librairies js, des images, graphiques, polices, vidéos... 
+On peut ainsi partager ou publier le fichier comme un document bureautique, sans devoir l'accompagner d'un dossier "html_files" et on est certain de ce qui est restitué.\
 Mais cela peut alourdir le document et freiner son affichage web.
 
-Si on préfère conserver les dépendances dans des fichiers externes, pour faciliter l'affichage web, il faut spécifier `self_contained: false` dans les options de l'entête. Par exemple :
+Si on préfère conserver les dépendances dans des fichiers externes, pour faciliter l'affichage web, il faut spécifier `self_contained: false` dans les options de l'entête. 
+Par exemple :
 
 ``` yaml
 ---
@@ -154,7 +161,8 @@ Cela a par ailleurs l'avantage de placer les figures dans le dossier des dépend
 
 ### Affichages sur plusieurs colonnes
 
-Cela se fait très bien en format PDF, c'est plus compliqué en HTML. Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec par exemple une illustration sur une moitié de la page, un texte sur l'autre.
+Cela se fait très bien en format PDF, c'est plus compliqué en HTML. 
+Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec par exemple une illustration sur une moitié de la page, un texte sur l'autre.
 
 Pour cela vous aller devoir séparer vos colonnes dans des *"div"*.
 
@@ -164,16 +172,16 @@ Pour ensuite que le document aligne ces blocs l'un à coté de l'autre, vous dev
 
 ### Accessibilité visuelle des documents html produits
 
-Certains choix peuvent fortement améliorer (ou dégrader) l'accessibilité pour les personnes porteuses d'un handicap visuel ou utilisant un lecteur d'écran.\
-Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.\
-Pour une présentation complète, se référer au [Référentiel général d’amélioration de l’accessibilité (RGAA)](https://www.numerique.gouv.fr/offre-accompagnement/reference-accessibilite-rgaa/)
+Certains choix peuvent fortement améliorer (ou dégrader) l'accessibilité pour les personnes porteuses d'un handicap visuel ou utilisant un lecteur d'écran. 
+Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown. 
+Pour une présentation complète, se référer au [Référentiel général d’amélioration de l’accessibilité (RGAA).](https://www.numerique.gouv.fr/offre-accompagnement/reference-accessibilite-rgaa/) 
 
 #### Structurer le document avec des titres hiérarchisés et intégrer une table des matières
 
 Les lecteurs d'écran utilisent la structure du document pour naviguer.
 
-1.  Utiliser les niveaux de titres Markdown (#, ##, \###)
-2.  Respecter la hiérarchie (ne pas passer de \# à \####)
+1.  Utiliser les niveaux de titres Markdown (#, ##, ###)
+2.  Respecter la hiérarchie (ne pas passer de # à ####)
 3.  Eviter de simuler un titre avec du gras
 4.  Ajouter une table des matière avec `toc: true` dans l'entête yaml.
 
@@ -191,7 +199,9 @@ Conseils pour rédiger le texte alternatif : décrire le message principal et le
 
 #### Perception des couleurs
 
-Veiller quand c'est possible, à ne pas transmettre d'informations uniquement par la couleur. Cela rendrait le document illisible pour les personnes atteinte de daltonisme ou ayant une faible perception des contrastes.\
+Veiller quand c'est possible, à ne pas transmettre d'informations uniquement par la couleur. 
+Cela rendrait le document illisible pour les personnes atteinte de daltonisme ou ayant une faible perception des contrastes. 
+
 Dans les graphiques R, il faut chercher à utiliser une palette de couleur en redondance avec les formes ou les annotations et choisir des palettes de couleurs accessibles, comme `viridis` :
 
 ```         
@@ -202,14 +212,16 @@ ggplot(data, aes(x, y, color = groupe, shape = groupe)) +
 
 #### Rendre les tableaux lisibles
 
-Pour proposer des tableaux accessibles, on limite leur largeur et on utilise des entêtes claires.\
+Pour proposer des tableaux accessibles, on limite leur largeur et on utilise des entêtes claires.  
 Si le tableau est complexe, il convient d'ajouter un titre et un texte explicatif.
 
 ## Sorties PDF
 
 ### Configuration préalable pour l'usage de pdf_document {#latex}
 
-Pour générer des documents PDF avec `output: pdf_document`, il est nécessaire d'avoir installé LaTeX. LaTeX est un logiciel externe qui vient en complément de R pour produire des PDF. Si LaTeX n'est pas déjà installé par ailleurs, nous conseillons de passer par le package R [`{tinytex}`](https://yihui.name/tinytex/), qui guide l'utilisateur de R pour installer sur son ordinateur une distribution LaTeX légère, portable et facile à maintenir.
+Pour générer des documents PDF avec `output: pdf_document`, il est nécessaire d'avoir installé LaTeX. 
+LaTeX est un logiciel externe qui vient en complément de R pour produire des PDF. 
+Si LaTeX n'est pas déjà installé par ailleurs, nous conseillons de passer par le package R [`{tinytex}`](https://yihui.name/tinytex/), qui guide l'utilisateur de R pour installer sur son ordinateur une distribution LaTeX légère, portable et facile à maintenir.
 
 Le code suivant permet d'installer la package R `{tinytex}` :
 
@@ -217,7 +229,8 @@ Le code suivant permet d'installer la package R `{tinytex}` :
 install.packages('tinytex')
 ```
 
-On installe ensuite la distribution LaTeX sur le PC avec la commande `install_tinytex()` de `{tinytex}`. On peut spécifier le dossier d'installation souhaité (choisir un dossier sur lequel on a les droits d'écriture :-) ) :
+On installe ensuite la distribution LaTeX sur le PC avec la commande `install_tinytex()` de `{tinytex}`. 
+On peut spécifier le dossier d'installation souhaité (choisir un dossier sur lequel on a les droits d'écriture :-) ) :
 
 ``` r
 # Exemple de choix d'adresse pour l'installation sur un PC
@@ -231,7 +244,8 @@ En cas de difficultés, il est parfois nécessaire d'indiquer à R où se trouve
 
 ### Spécificités du format pdf_document
 
-Pour obtenir une conversion du Rmd en un document PDF, il faut mettre l'option `output:pdf_document` dans l'en-tête. Tous les paramètres de ce format de sortie sont accessibles depuis l'aide de la fonction rmarkdown::pdf_document (`?rmarkdown::pdf_document`)
+Pour obtenir une conversion du Rmd en un document PDF, il faut mettre l'option `output:pdf_document` dans l'en-tête. 
+Tous les paramètres de ce format de sortie sont accessibles depuis l'aide de la fonction rmarkdown::pdf_document (`?rmarkdown::pdf_document`)
 
 Voici les options utilisées fréquemment:
 
@@ -243,9 +257,12 @@ Voici les options utilisées fréquemment:
 
 Il est important de noter qu'en LaTeX, les figures sont flottantes par défaut.
 
-Même si on crée un graphique dans un bout de code présent sur la 1ère page, celui-ci peut finalement apparaître sur la page suivante. LaTeX a tendance à faire apparaître les figures au début ou à la fin des pages. Il est conseillé de ne traiter le positionnement des figures qu'à la fin du process, une fois la totalité du contenu écrite pour des ajustements pérennes.
+Même si on crée un graphique dans un bout de code présent sur la 1ère page, celui-ci peut finalement apparaître sur la page suivante. 
+LaTeX a tendance à faire apparaître les figures au début ou à la fin des pages. 
+Il est conseillé de ne traiter le positionnement des figures qu'à la fin du process, une fois la totalité du contenu écrite pour des ajustements pérennes.
 
-Pour cela il faudra utiliser les options de positionnement dans les chunks (par exemple `fig.pos="h"`) Les [valeurs possibles pour `fig.pos`](https://www.overleaf.com/learn/latex/Positioning_images_and_tables#The_figure_environment) sont détaillées dans la documentation de LaTeX.
+Pour cela il faudra utiliser les options de positionnement dans les chunks (par exemple `fig.pos="h"`). 
+Les [valeurs possibles pour `fig.pos`](https://www.overleaf.com/learn/latex/Positioning_images_and_tables#The_figure_environment) sont détaillées dans la documentation de LaTeX.
 
 | fig.pos | effet |
 |------------|------------------------------------------------------------|
@@ -256,10 +273,16 @@ Pour cela il faudra utiliser les options de positionnement dans les chunks (par 
 | ! | Remplace les paramètres par défaut LaTeX pour déterminer les « bonnes » positions. |
 | H | Place l'image à l'endroit précis où elle est définie dans le Rmd source, équivalent à `h!`. |
 
-Vous pouvez indiquer plusieurs valeurs dans le paramètre `fig.pos`. Par exemple, si vous indiquez `"ht"`, LaTeX tentera d'abord de positionner la figure à cet endroit. Si cela s'avère impossible (par exemple, faute d’espace suffisant), la figure apparaîtra en haut de la page. Il est recommandé d'utiliser plusieurs paramètres de positionnement afin d'éviter tout résultat inattendu.
+Vous pouvez indiquer plusieurs valeurs dans le paramètre `fig.pos`. 
+Par exemple, si vous indiquez `"ht"`, LaTeX tentera d'abord de positionner la figure à cet endroit. 
+Si cela s'avère impossible (par exemple, faute d’espace suffisant), la figure apparaîtra en haut de la page. 
+Il est recommandé d'utiliser plusieurs paramètres de positionnement afin d'éviter tout résultat inattendu.
 
 ::: trucsetastuces
-**Trucs & Astuces** Si vous souhaitez accéder à plus d'options de mise en forme de tableau, le package `kableExtra` contient des fonctions compatibles avec les formats HTML et PDF. Cependant cela reste compliqué de mettre en forme des tableaux complexes si vous souhaitez plusieurs formats en sortie. Nous vous conseillons d'adapter la mise en forme pour chaque format dans deux chunks distincts ou de trouver une nouvelle façon de représenter la donnée. Une autre option consiste dans un 2e temps à imprimer le html généré avec une imprimante PDF.
+**Trucs & Astuces** 
+Si vous souhaitez accéder à plus d'options de mise en forme de tableau, le package `kableExtra` contient des fonctions compatibles avec les formats HTML et PDF.  Cependant cela reste compliqué de mettre en forme des tableaux complexes si vous souhaitez plusieurs formats en sortie. 
+Nous vous conseillons d'adapter la mise en forme pour chaque format dans deux chunks distincts ou de trouver une nouvelle façon de représenter la donnée. 
+Une autre option consiste dans un 2e temps à imprimer le html généré avec une imprimante PDF.
 :::
 
 ### `{Pagedown}`

@@ -16,7 +16,8 @@ La logique et les principaux points à retenir sur Rmarkdown sont rassemblés da
 :::
 
 ::: {}
-Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
+Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. 
+C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
 
 ![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
 :::
@@ -56,11 +57,16 @@ Une pop-up s'ouvre alors pour donner quelques informations afin d'initialiser le
 
 ![](assets/img/new_rmarkdown2.jpg)
 
-Pour commencer simplement, on choisit un format de sortie HTML. C'est le format de sortie par défaut, très utilisé. D'autres types de sorties existent, elles seront détaillées pat la suite. RStudio crée un fichier contenant des exemples d'éléments structurant un fichier Rmarkdown. L'extension de ce type de fichier est `.Rmd`.
+Pour commencer simplement, on choisit un format de sortie HTML. 
+C'est le format de sortie par défaut, très utilisé. 
+D'autres types de sorties existent, elles seront détaillées pat la suite. 
+RStudio crée un fichier contenant des exemples d'éléments structurant un fichier Rmarkdown. 
+L'extension de ce type de fichier est `.Rmd`.
 
 ### Lancer la génération du document par un 'knit'
 
-Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier.
+Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. 
+Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier. 
 
 Pour générer un document à partir du fichier .Rmd, on clique sur le bouton **knit**.\
 Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le répertoire de travail (là où vous avez créé votre projet R), et le document généré s'ouvre dans le viewer de R Studio (ou dans une pop-up).
@@ -91,9 +97,10 @@ Dans les sections suivantes ces composants seront détaillés un par un.
 
 ### L'en-tête
 
-L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
+L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable. 
 
-L'en-tête est parfois appelé le Header ou le YAML. Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).\
+L'en-tête est parfois appelé le Header ou le YAML. 
+Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.). 
 Il est délimité par deux séries de `---`.
 
 ::: trucsetastuces
@@ -196,7 +203,7 @@ Contrairement à la pratique en R, le `#` indique les titres. Par défaut, dans 
 - `##` pour les titres de niveau 2\
 - `###` pour les titres de niveau 3
 
-Rend:
+rend :
 
 ![](assets/img/titres.png)
 
@@ -217,7 +224,7 @@ Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédan
       - Sous-élément 2  
 ```
 
-Rend :
+rend :
 
 - Premier élément\
 - Deuxième élément\
@@ -237,7 +244,7 @@ Rend :
       1) Sous-élément 2  
 ```
 
-Rend :
+rend :
 
 1.  Premier élément\
 2.  Deuxième élément\
@@ -288,9 +295,9 @@ La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Com
 
 Les **notes de bas de page** s'écrivent à l'intérieur de `^[]`.
 
-`...pour approfondir^[on ajoute une note de bas de page]` rend '...pour approfondir[^03-le_fichier_rmarkdown-1]'.
+`...pour approfondir^[on ajoute une note de bas de page]` rend : 
+...pour approfondir^[on ajoute une note de bas de page].
 
-[^03-le_fichier_rmarkdown-1]: on ajoute une note de bas de page
 
 #### Commentaires
 
@@ -325,7 +332,9 @@ Cette dernière méthode, préconisée quand le format de sortie n'est pas du ht
 Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
 
 ::: warning
-**Attention au répertoire de travail !** Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l'adresse à partir de laquelle commence le chemin de l'image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d'un projet. Se référer à la partie dédiée \@ref(piege) pour s'en dépatouiller.
+**Attention au répertoire de travail !** 
+Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l'adresse à partir de laquelle commence le chemin de l'image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d'un projet. 
+Se référer à la partie dédiée \@ref(piege) pour s'en dépatouiller.
 :::
 
 ## Encodage
