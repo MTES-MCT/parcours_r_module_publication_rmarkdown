@@ -199,6 +199,32 @@ conn <- dbConnect(drv = Postgres(),
 ```
 ````
 
+**ATTENTION :** il est très dangereux de noter ses informations de connexion en clair dans un script qui pourra être partagé ou versionné sur Git.
+
+Vous pouvez les stocker en variables d'environnement (à faire une fois sur son poste, dans la console R, ne pas enregistrer dans un script) avec la fonction `Sys.setenv` :
+
+```{r, eval=FALSE}
+
+Sys.setenv("user_pg" = "votre nom utilisateur",
+           "pwd_pg" = "votre mot de passe")
+
+```
+
+Puis les appeler dans vos scripts ou documents reproductibles avec la fonction `Sys.getenv` :
+
+```{r, eval=FALSE}
+
+conn <- dbConnect(drv = Postgres(),
+                  dbname = "ma_base", 
+                  host = "adresse_serveur", 
+                  port = "port", 
+                  user = Sys.getenv("user_pg"), 
+                  password = Sys.getenv("pwd_pg"))
+
+```
+
+Par suite, une fois la connexion établie, vous pouvez exécuter du code SQL en spécifiant la connexion.
+
 ````{verbatim}
 ```{sql connection=conn}
 SELECT * FROM mon_schema.matable
@@ -217,8 +243,9 @@ SELECT * FROM mon_schema.matable
 
 Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
 
+N'oubliez pas de fermer la connexion avec `dbDisconnect(conn)` une fois les données récupérées, votre gestionnaire de BdD vous remerciera !
+
 ## Exercice 3
 
 ```{r mod6_exo3, child=charge_exo("m6", "exo3.rmd"), echo=FALSE}
 ```
-   

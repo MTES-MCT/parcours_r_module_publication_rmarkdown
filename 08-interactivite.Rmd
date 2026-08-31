@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
-
 # Du Rmarkdown interactif
 
 Quand notre produit de sortie est un pdf, on va vouloir générer des graphiques et cartes qui ont le comportement d'une image simple.
@@ -17,7 +11,7 @@ Mais pas d'inquiétude, vous pouvez continuer à coder uniquement en R, le javas
 
 ## Interactivité simple, les visuels s'animent
 
-Lorsqu'on choisit le HTML comme format de sortie, on peu utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
+Lorsqu'on choisit le HTML comme format de sortie, on peut utiliser toutes les possibilités d'animation des cartes et graphes vus dans [le module 5 - "Valoriser ses données avec R".](https://mtes-mct.github.io/parcours_r_module_datavisualisation/cr%C3%A9er-des-graphiques-et-cartes-pour-le-web.html)
 
 Vous pouvez intégrer des cartes leaflet, des cartes et graphiques ggiraph, des datatables et bien d'autres widgets qui offrent des possibilités d'animations au survol, d'infobulles, de zoom etc.
 Ces widgets ne nécessitent pas de déploiement sur un serveur R pour fonctionner.
@@ -194,7 +188,7 @@ renderPlot({
 ````
 La syntaxe s'en trouve simplifiée, c'est la structure du document Rmarkdown qui permet de gérer le placement des différents éléments dans l'interface.
 
-Une autre option consiste à directement intégrer le code l'application Shiny tel quel dans le document Rmarkdown :
+Une autre option consiste à directement intégrer le code de l'application Shiny tel quel dans le document Rmarkdown :
 
 ````{verbatim}
 ---

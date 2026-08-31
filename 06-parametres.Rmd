@@ -109,7 +109,7 @@ liste_especes <- iris %>%
 generer_rapport_par_espece <- function(nom_espece) {
   rmarkdown::render("mon_premier_document.Rmd", 
                     params = list(espece = nom_espece, printcode = FALSE),
-                    output_file = paste0("doc-", nom_espece, ".Rmd"))
+                    output_file = paste0("doc-", nom_espece, ".html"))
 }
 
 ## Application de la fonction à toutes les espèces grâce à lapply
