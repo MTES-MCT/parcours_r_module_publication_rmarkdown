@@ -1,6 +1,7 @@
 tab:unnamed-chunk-14
 get-started
 créer-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux.
+piege
 paramétrage-global-de-rstudio
 paramétrage-fichier-par-fichier
 le-package-here-une-reproductibilité-garantie
@@ -47,7 +48,7 @@ personnaliser-le-css
 option-self_contained
 affichages-sur-plusieurs-colonnes
 accessibilité-visuelle-des-documents-html-produits
-structurer-le-document-avec-des-titres-hiérarchisés-et-inrégrer-une-table-des-matières
+structurer-le-document-avec-des-titres-hiérarchisés-et-intégrer-une-table-des-matières
 mettre-un-nom-de-substitution-aux-images
 perception-des-couleurs
 rendre-les-tableaux-lisibles

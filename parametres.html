@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -323,53 +326,53 @@ analyse en changeant une des hypothèses ou changer le comportement de <code>kni
 <p>Les paramètres peuvent être de type <code>character</code>, <code>numeric</code>, <code>integer</code> et <code>logical</code> mais aussi des expressions R tant qu’elles sont précédées de <code>!r</code>.
 L’en-tête, et donc le code pouvant y être présent, est exécuté avant le reste du code donc il est nécessaire d’expliciter les packages utilisés.</p>
 <p>Par exemple:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb35-1"><a href="parametres.html#cb35-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb35-2"><a href="parametres.html#cb35-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb35-3"><a href="parametres.html#cb35-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb35-4"><a href="parametres.html#cb35-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
-<span id="cb35-5"><a href="parametres.html#cb35-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb35-6"><a href="parametres.html#cb35-6" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb35-7"><a href="parametres.html#cb35-7" tabindex="-1"></a><span class="at">  </span><span class="fu">annee</span><span class="kw">:</span><span class="at"> </span><span class="dv">2024</span></span>
-<span id="cb35-8"><a href="parametres.html#cb35-8" tabindex="-1"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> Bretagne</span></span>
-<span id="cb35-9"><a href="parametres.html#cb35-9" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> !r lubricate::today()</span></span>
-<span id="cb35-10"><a href="parametres.html#cb35-10" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb37-1"><a href="parametres.html#cb37-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb37-2"><a href="parametres.html#cb37-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb37-3"><a href="parametres.html#cb37-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb37-4"><a href="parametres.html#cb37-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb37-5"><a href="parametres.html#cb37-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb37-6"><a href="parametres.html#cb37-6" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
+<span id="cb37-7"><a href="parametres.html#cb37-7" tabindex="-1"></a><span class="at">  </span><span class="fu">annee</span><span class="kw">:</span><span class="at"> </span><span class="dv">2024</span></span>
+<span id="cb37-8"><a href="parametres.html#cb37-8" tabindex="-1"></a><span class="at">  </span><span class="fu">region</span><span class="kw">:</span><span class="at"> Bretagne</span></span>
+<span id="cb37-9"><a href="parametres.html#cb37-9" tabindex="-1"></a><span class="at">  </span><span class="fu">date</span><span class="kw">:</span><span class="at"> !r lubricate::today()</span></span>
+<span id="cb37-10"><a href="parametres.html#cb37-10" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Une fois définis dans l’en-tête, ces paramètres sont accessibles depuis le fichier .Rmd (texte ou code) mais aussi depuis la console.
 Ils sont stockés dans une liste nommée <em><code>params</code></em>.</p>
 </div>
 <div id="exemple-dutilisation-des-paramètres" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Exemple d’utilisation des paramètres<a href="parametres.html#exemple-dutilisation-des-param%C3%A8tres" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le code suivant montre quelques exemples d’utilisation des paramètres, dans les options de chunks, ou dans la production des visualisations :</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb36-1"><a href="parametres.html#cb36-1" tabindex="-1"></a>---</span>
-<span id="cb36-2"><a href="parametres.html#cb36-2" tabindex="-1"></a>title: &quot;mon_premier_document&quot;</span>
-<span id="cb36-3"><a href="parametres.html#cb36-3" tabindex="-1"></a>author: &quot;Moi&quot;</span>
-<span id="cb36-4"><a href="parametres.html#cb36-4" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
-<span id="cb36-5"><a href="parametres.html#cb36-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb36-6"><a href="parametres.html#cb36-6" tabindex="-1"></a>params:</span>
-<span id="cb36-7"><a href="parametres.html#cb36-7" tabindex="-1"></a>  espece: setosa</span>
-<span id="cb36-8"><a href="parametres.html#cb36-8" tabindex="-1"></a>  printcode: TRUE</span>
-<span id="cb36-9"><a href="parametres.html#cb36-9" tabindex="-1"></a>---</span>
-<span id="cb36-10"><a href="parametres.html#cb36-10" tabindex="-1"></a></span>
-<span id="cb36-11"><a href="parametres.html#cb36-11" tabindex="-1"></a>```{r, setup, include=FALSE}</span>
-<span id="cb36-12"><a href="parametres.html#cb36-12" tabindex="-1"></a>knitr::opts_chunk$set(</span>
-<span id="cb36-13"><a href="parametres.html#cb36-13" tabindex="-1"></a>  message = FALSE, </span>
-<span id="cb36-14"><a href="parametres.html#cb36-14" tabindex="-1"></a>  warning = FALSE,</span>
-<span id="cb36-15"><a href="parametres.html#cb36-15" tabindex="-1"></a>  echo = params$printcode</span>
-<span id="cb36-16"><a href="parametres.html#cb36-16" tabindex="-1"></a>)</span>
-<span id="cb36-17"><a href="parametres.html#cb36-17" tabindex="-1"></a>```</span>
-<span id="cb36-18"><a href="parametres.html#cb36-18" tabindex="-1"></a></span>
-<span id="cb36-19"><a href="parametres.html#cb36-19" tabindex="-1"></a></span>
-<span id="cb36-20"><a href="parametres.html#cb36-20" tabindex="-1"></a>Les résultats affichés ci-dessus concernent l&#39;espèce `r params$espece`.</span>
-<span id="cb36-21"><a href="parametres.html#cb36-21" tabindex="-1"></a></span>
-<span id="cb36-22"><a href="parametres.html#cb36-22" tabindex="-1"></a>```{r}</span>
-<span id="cb36-23"><a href="parametres.html#cb36-23" tabindex="-1"></a></span>
-<span id="cb36-24"><a href="parametres.html#cb36-24" tabindex="-1"></a>print(params)</span>
-<span id="cb36-25"><a href="parametres.html#cb36-25" tabindex="-1"></a></span>
-<span id="cb36-26"><a href="parametres.html#cb36-26" tabindex="-1"></a>summary(iris)</span>
-<span id="cb36-27"><a href="parametres.html#cb36-27" tabindex="-1"></a></span>
-<span id="cb36-28"><a href="parametres.html#cb36-28" tabindex="-1"></a>extrait &lt;- iris %&gt;%</span>
-<span id="cb36-29"><a href="parametres.html#cb36-29" tabindex="-1"></a>  filter(Species==params$espece)</span>
-<span id="cb36-30"><a href="parametres.html#cb36-30" tabindex="-1"></a></span>
-<span id="cb36-31"><a href="parametres.html#cb36-31" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb38-1"><a href="parametres.html#cb38-1" tabindex="-1"></a>---</span>
+<span id="cb38-2"><a href="parametres.html#cb38-2" tabindex="-1"></a>title: &quot;mon_premier_document&quot;</span>
+<span id="cb38-3"><a href="parametres.html#cb38-3" tabindex="-1"></a>author: &quot;Moi&quot;</span>
+<span id="cb38-4"><a href="parametres.html#cb38-4" tabindex="-1"></a>date: &quot;31/10/2022&quot;</span>
+<span id="cb38-5"><a href="parametres.html#cb38-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb38-6"><a href="parametres.html#cb38-6" tabindex="-1"></a>params:</span>
+<span id="cb38-7"><a href="parametres.html#cb38-7" tabindex="-1"></a>  espece: setosa</span>
+<span id="cb38-8"><a href="parametres.html#cb38-8" tabindex="-1"></a>  printcode: TRUE</span>
+<span id="cb38-9"><a href="parametres.html#cb38-9" tabindex="-1"></a>---</span>
+<span id="cb38-10"><a href="parametres.html#cb38-10" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="parametres.html#cb38-11" tabindex="-1"></a>```{r, setup, include=FALSE}</span>
+<span id="cb38-12"><a href="parametres.html#cb38-12" tabindex="-1"></a>knitr::opts_chunk$set(</span>
+<span id="cb38-13"><a href="parametres.html#cb38-13" tabindex="-1"></a>  message = FALSE, </span>
+<span id="cb38-14"><a href="parametres.html#cb38-14" tabindex="-1"></a>  warning = FALSE,</span>
+<span id="cb38-15"><a href="parametres.html#cb38-15" tabindex="-1"></a>  echo = params$printcode</span>
+<span id="cb38-16"><a href="parametres.html#cb38-16" tabindex="-1"></a>)</span>
+<span id="cb38-17"><a href="parametres.html#cb38-17" tabindex="-1"></a>```</span>
+<span id="cb38-18"><a href="parametres.html#cb38-18" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="parametres.html#cb38-19" tabindex="-1"></a></span>
+<span id="cb38-20"><a href="parametres.html#cb38-20" tabindex="-1"></a>Les résultats affichés ci-dessus concernent l&#39;espèce `r params$espece`.</span>
+<span id="cb38-21"><a href="parametres.html#cb38-21" tabindex="-1"></a></span>
+<span id="cb38-22"><a href="parametres.html#cb38-22" tabindex="-1"></a>```{r}</span>
+<span id="cb38-23"><a href="parametres.html#cb38-23" tabindex="-1"></a></span>
+<span id="cb38-24"><a href="parametres.html#cb38-24" tabindex="-1"></a>print(params)</span>
+<span id="cb38-25"><a href="parametres.html#cb38-25" tabindex="-1"></a></span>
+<span id="cb38-26"><a href="parametres.html#cb38-26" tabindex="-1"></a>summary(iris)</span>
+<span id="cb38-27"><a href="parametres.html#cb38-27" tabindex="-1"></a></span>
+<span id="cb38-28"><a href="parametres.html#cb38-28" tabindex="-1"></a>extrait &lt;- iris %&gt;%</span>
+<span id="cb38-29"><a href="parametres.html#cb38-29" tabindex="-1"></a>  filter(Species==params$espece)</span>
+<span id="cb38-30"><a href="parametres.html#cb38-30" tabindex="-1"></a></span>
+<span id="cb38-31"><a href="parametres.html#cb38-31" tabindex="-1"></a>```</span></code></pre></div>
 <p>Il existe 3 façons de générer un document avec des paramètres :</p>
 <ul>
 <li><p>utiliser le bouton <strong>knit</strong>, ce qui prend les valeur par défaut des paramètres ;</p></li>
@@ -377,10 +380,10 @@ Ils sont stockés dans une liste nommée <em><code>params</code></em>.</p>
 <li><p>utiliser la fonction <code>rmarkdown::render()</code>. Sans autre précision cette fonction utilisera les paramètres par défaut définis dans l’en-tête. On peut aussi définir de nouvelles valeurs en utilisant l’option <code>params =</code>.
 Cela donne par exemple :</p></li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb37-1"><a href="parametres.html#cb37-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
-<span id="cb37-2"><a href="parametres.html#cb37-2" tabindex="-1"></a>rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
-<span id="cb37-3"><a href="parametres.html#cb37-3" tabindex="-1"></a>                  params = list(espece = &quot;versicolor&quot;, printcode = FALSE))</span>
-<span id="cb37-4"><a href="parametres.html#cb37-4" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb39-1"><a href="parametres.html#cb39-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb39-2"><a href="parametres.html#cb39-2" tabindex="-1"></a>rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb39-3"><a href="parametres.html#cb39-3" tabindex="-1"></a>                  params = list(espece = &quot;versicolor&quot;, printcode = FALSE))</span>
+<span id="cb39-4"><a href="parametres.html#cb39-4" tabindex="-1"></a>```</span></code></pre></div>
 <p>Cette dernière façon de faire, via la fonction <code>rmarkdown::render()</code> permet d’automatiser encore plus les choses en générant autant de documents que de valeurs différentes d’un paramètre.
 En effet, dans un script .R, il est possible de créer une fonction ayant en entrée les paramètres que l’on veut
 modifier plusieurs fois mais aussi le nom du document généré.</p>
@@ -388,42 +391,42 @@ modifier plusieurs fois mais aussi le nom du document généré.</p>
 <div id="comment-compiler-un-rapport-pour-une-liste-de-valeurs" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Comment compiler un rapport pour une liste de valeurs ?<a href="parametres.html#comment-compiler-un-rapport-pour-une-liste-de-valeurs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>En reprenant l’exemple précédent, on peut produire la sortie d’un rapport pour toutes les espèces :</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb38-1"><a href="parametres.html#cb38-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
-<span id="cb38-2"><a href="parametres.html#cb38-2" tabindex="-1"></a>## Listes des especes contenu dans le datatset iris</span>
-<span id="cb38-3"><a href="parametres.html#cb38-3" tabindex="-1"></a>liste_especes &lt;- iris %&gt;% </span>
-<span id="cb38-4"><a href="parametres.html#cb38-4" tabindex="-1"></a>  pull(Species) %&gt;%  </span>
-<span id="cb38-5"><a href="parametres.html#cb38-5" tabindex="-1"></a>  unique() %&gt;% </span>
-<span id="cb38-6"><a href="parametres.html#cb38-6" tabindex="-1"></a>  as.character()</span>
-<span id="cb38-7"><a href="parametres.html#cb38-7" tabindex="-1"></a></span>
-<span id="cb38-8"><a href="parametres.html#cb38-8" tabindex="-1"></a>## une fonction qui génère le rapport en fonction de l&#39;espèce</span>
-<span id="cb38-9"><a href="parametres.html#cb38-9" tabindex="-1"></a>generer_rapport_par_espece &lt;- function(nom_espece) {</span>
-<span id="cb38-10"><a href="parametres.html#cb38-10" tabindex="-1"></a>  rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
-<span id="cb38-11"><a href="parametres.html#cb38-11" tabindex="-1"></a>                    params = list(espece = nom_espece, printcode = FALSE),</span>
-<span id="cb38-12"><a href="parametres.html#cb38-12" tabindex="-1"></a>                    output_file = paste0(&quot;doc-&quot;, nom_espece, &quot;.Rmd&quot;))</span>
-<span id="cb38-13"><a href="parametres.html#cb38-13" tabindex="-1"></a>}</span>
-<span id="cb38-14"><a href="parametres.html#cb38-14" tabindex="-1"></a></span>
-<span id="cb38-15"><a href="parametres.html#cb38-15" tabindex="-1"></a>## Application de la fonction à toutes les espèces grâce à lapply</span>
-<span id="cb38-16"><a href="parametres.html#cb38-16" tabindex="-1"></a>lapply(X = liste_especes, FUN = generer_rapport_par_espece)</span>
-<span id="cb38-17"><a href="parametres.html#cb38-17" tabindex="-1"></a>``` </span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb40-1"><a href="parametres.html#cb40-1" tabindex="-1"></a>```{r, echo=FALSE}</span>
+<span id="cb40-2"><a href="parametres.html#cb40-2" tabindex="-1"></a>## Listes des especes contenu dans le datatset iris</span>
+<span id="cb40-3"><a href="parametres.html#cb40-3" tabindex="-1"></a>liste_especes &lt;- iris %&gt;% </span>
+<span id="cb40-4"><a href="parametres.html#cb40-4" tabindex="-1"></a>  pull(Species) %&gt;%  </span>
+<span id="cb40-5"><a href="parametres.html#cb40-5" tabindex="-1"></a>  unique() %&gt;% </span>
+<span id="cb40-6"><a href="parametres.html#cb40-6" tabindex="-1"></a>  as.character()</span>
+<span id="cb40-7"><a href="parametres.html#cb40-7" tabindex="-1"></a></span>
+<span id="cb40-8"><a href="parametres.html#cb40-8" tabindex="-1"></a>## une fonction qui génère le rapport en fonction de l&#39;espèce</span>
+<span id="cb40-9"><a href="parametres.html#cb40-9" tabindex="-1"></a>generer_rapport_par_espece &lt;- function(nom_espece) {</span>
+<span id="cb40-10"><a href="parametres.html#cb40-10" tabindex="-1"></a>  rmarkdown::render(&quot;mon_premier_document.Rmd&quot;, </span>
+<span id="cb40-11"><a href="parametres.html#cb40-11" tabindex="-1"></a>                    params = list(espece = nom_espece, printcode = FALSE),</span>
+<span id="cb40-12"><a href="parametres.html#cb40-12" tabindex="-1"></a>                    output_file = paste0(&quot;doc-&quot;, nom_espece, &quot;.html&quot;))</span>
+<span id="cb40-13"><a href="parametres.html#cb40-13" tabindex="-1"></a>}</span>
+<span id="cb40-14"><a href="parametres.html#cb40-14" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="parametres.html#cb40-15" tabindex="-1"></a>## Application de la fonction à toutes les espèces grâce à lapply</span>
+<span id="cb40-16"><a href="parametres.html#cb40-16" tabindex="-1"></a>lapply(X = liste_especes, FUN = generer_rapport_par_espece)</span>
+<span id="cb40-17"><a href="parametres.html#cb40-17" tabindex="-1"></a>``` </span></code></pre></div>
 </div>
 <div id="paramétrer-le-titre-du-rapport" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Paramétrer le titre du rapport<a href="parametres.html#param%C3%A9trer-le-titre-du-rapport" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On peut utiliser du code R pour définir notre titre.
 La seule contrainte est de déplacer notre balise de titre après la définition des éléments dont il dépend.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb39-1"><a href="parametres.html#cb39-1" tabindex="-1"></a>---</span>
-<span id="cb39-2"><a href="parametres.html#cb39-2" tabindex="-1"></a>author: &quot;Moi&quot;</span>
-<span id="cb39-3"><a href="parametres.html#cb39-3" tabindex="-1"></a>date: &quot;`r format(Sys.Date(), &#39;%d %B %Y&#39;)`&quot;</span>
-<span id="cb39-4"><a href="parametres.html#cb39-4" tabindex="-1"></a>output: html_document</span>
-<span id="cb39-5"><a href="parametres.html#cb39-5" tabindex="-1"></a>params:</span>
-<span id="cb39-6"><a href="parametres.html#cb39-6" tabindex="-1"></a>  espece: setosa</span>
-<span id="cb39-7"><a href="parametres.html#cb39-7" tabindex="-1"></a>  printcode: TRUE</span>
-<span id="cb39-8"><a href="parametres.html#cb39-8" tabindex="-1"></a>title: &quot;Rapport iris - Variété `r params$espece`&quot;</span>
-<span id="cb39-9"><a href="parametres.html#cb39-9" tabindex="-1"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb41-1"><a href="parametres.html#cb41-1" tabindex="-1"></a>---</span>
+<span id="cb41-2"><a href="parametres.html#cb41-2" tabindex="-1"></a>author: &quot;Moi&quot;</span>
+<span id="cb41-3"><a href="parametres.html#cb41-3" tabindex="-1"></a>date: &quot;`r format(Sys.Date(), &#39;%d %B %Y&#39;)`&quot;</span>
+<span id="cb41-4"><a href="parametres.html#cb41-4" tabindex="-1"></a>output: html_document</span>
+<span id="cb41-5"><a href="parametres.html#cb41-5" tabindex="-1"></a>params:</span>
+<span id="cb41-6"><a href="parametres.html#cb41-6" tabindex="-1"></a>  espece: setosa</span>
+<span id="cb41-7"><a href="parametres.html#cb41-7" tabindex="-1"></a>  printcode: TRUE</span>
+<span id="cb41-8"><a href="parametres.html#cb41-8" tabindex="-1"></a>title: &quot;Rapport iris - Variété `r params$espece`&quot;</span>
+<span id="cb41-9"><a href="parametres.html#cb41-9" tabindex="-1"></a>---</span></code></pre></div>
 <p><img src="assets/img/parametres/param-title2.png" alt="" width="80%" /></p>
 <p>On peut insérer le titre dans une balise yml ailleurs que dans l’entête placée en début de document si besoin de construire le titre avec des calculs R.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb40-1"><a href="parametres.html#cb40-1" tabindex="-1"></a>---</span>
-<span id="cb40-2"><a href="parametres.html#cb40-2" tabindex="-1"></a>title: &quot;`r mon_objet_R_contenant_le_titre`&quot;</span>
-<span id="cb40-3"><a href="parametres.html#cb40-3" tabindex="-1"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb42-1"><a href="parametres.html#cb42-1" tabindex="-1"></a>---</span>
+<span id="cb42-2"><a href="parametres.html#cb42-2" tabindex="-1"></a>title: &quot;`r mon_objet_R_contenant_le_titre`&quot;</span>
+<span id="cb42-3"><a href="parametres.html#cb42-3" tabindex="-1"></a>---</span></code></pre></div>
 </div>
 <div id="exercice-5" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Exercice 5<a href="parametres.html#exercice-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -436,27 +439,27 @@ La seule contrainte est de déplacer notre balise de titre après la définition
 </ul>
 <p>Par exemple, on peut regrouper les fromages par type simplifié et représenter le pourcentage de matières grasses par type.
 C’est l’occasion de découvrir ou re-découvrir certaines nouvelles fonctions de dplyr apparues en 2026 :</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="parametres.html#cb41-1" tabindex="-1"></a>data_fromage <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>cheeses <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="parametres.html#cb41-2" tabindex="-1"></a>  <span class="fu">filter_out</span>(<span class="fu">when_any</span>(<span class="fu">is.na</span>(fat_content),</span>
-<span id="cb41-3"><a href="parametres.html#cb41-3" tabindex="-1"></a>                      <span class="fu">is.na</span>(type))) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-4"><a href="parametres.html#cb41-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">replace_when</span>(type,</span>
-<span id="cb41-5"><a href="parametres.html#cb41-5" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;soft&#39;</span>) <span class="sc">~</span> <span class="st">&#39;molle&#39;</span>,</span>
-<span id="cb41-6"><a href="parametres.html#cb41-6" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;firm&#39;</span>) <span class="sc">~</span> <span class="st">&#39;ferme&#39;</span>,</span>
-<span id="cb41-7"><a href="parametres.html#cb41-7" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;hard&#39;</span>) <span class="sc">~</span> <span class="st">&#39;dure&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb41-8"><a href="parametres.html#cb41-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fat_content =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(fat_content, <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">d+(</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+)?&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-9"><a href="parametres.html#cb41-9" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span>params<span class="sc">$</span>country)</span>
-<span id="cb41-10"><a href="parametres.html#cb41-10" tabindex="-1"></a></span>
-<span id="cb41-11"><a href="parametres.html#cb41-11" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="parametres.html#cb41-12" tabindex="-1"></a><span class="fu">ggplot</span>(data_fromage) <span class="sc">+</span></span>
-<span id="cb41-13"><a href="parametres.html#cb41-13" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> fat_content, <span class="at">fill =</span> type)) <span class="sc">+</span></span>
-<span id="cb41-14"><a href="parametres.html#cb41-14" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;dure&quot;</span> <span class="ot">=</span> <span class="st">&quot;#EEDC82&quot;</span>, <span class="st">&quot;ferme&quot;</span> <span class="ot">=</span> <span class="st">&quot;#FFFACD&quot;</span>, <span class="st">&quot;molle&quot;</span> <span class="ot">=</span> <span class="st">&quot;#FFFAF0&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb41-15"><a href="parametres.html#cb41-15" tabindex="-1"></a>  <span class="fu">theme_gouv</span>(<span class="at">plot_title_size =</span> <span class="dv">12</span>,</span>
-<span id="cb41-16"><a href="parametres.html#cb41-16" tabindex="-1"></a>             <span class="at">subtitle_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb41-17"><a href="parametres.html#cb41-17" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;% de matière grasse par type de pâte de fromage&quot;</span>,</span>
-<span id="cb41-18"><a href="parametres.html#cb41-18" tabindex="-1"></a>       <span class="at">subtitle =</span> params<span class="sc">$</span>country,</span>
-<span id="cb41-19"><a href="parametres.html#cb41-19" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Type de pâte&quot;</span>,</span>
-<span id="cb41-20"><a href="parametres.html#cb41-20" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;% de matière grasse&quot;</span>) <span class="sc">+</span></span>
-<span id="cb41-21"><a href="parametres.html#cb41-21" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="parametres.html#cb43-1" tabindex="-1"></a>data_fromage_1 <span class="ot">&lt;-</span> data_fromage <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="parametres.html#cb43-2" tabindex="-1"></a>  <span class="fu">filter_out</span>(<span class="fu">when_any</span>(<span class="fu">is.na</span>(fat_content),</span>
+<span id="cb43-3"><a href="parametres.html#cb43-3" tabindex="-1"></a>                      <span class="fu">is.na</span>(type))) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-4"><a href="parametres.html#cb43-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">replace_when</span>(type,</span>
+<span id="cb43-5"><a href="parametres.html#cb43-5" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;soft&#39;</span>) <span class="sc">~</span> <span class="st">&#39;molle&#39;</span>,</span>
+<span id="cb43-6"><a href="parametres.html#cb43-6" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;firm&#39;</span>) <span class="sc">~</span> <span class="st">&#39;ferme&#39;</span>,</span>
+<span id="cb43-7"><a href="parametres.html#cb43-7" tabindex="-1"></a>                             <span class="fu">str_detect</span>(type, <span class="st">&#39;hard&#39;</span>) <span class="sc">~</span> <span class="st">&#39;dure&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-8"><a href="parametres.html#cb43-8" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">fat_content =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(fat_content, <span class="st">&quot;^</span><span class="sc">\\</span><span class="st">d+(</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+)?&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-9"><a href="parametres.html#cb43-9" tabindex="-1"></a>  <span class="fu">filter</span>(country<span class="sc">==</span>params<span class="sc">$</span>country)</span>
+<span id="cb43-10"><a href="parametres.html#cb43-10" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="parametres.html#cb43-11" tabindex="-1"></a></span>
+<span id="cb43-12"><a href="parametres.html#cb43-12" tabindex="-1"></a><span class="fu">ggplot</span>(data_fromage_1) <span class="sc">+</span></span>
+<span id="cb43-13"><a href="parametres.html#cb43-13" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> fat_content, <span class="at">fill =</span> type)) <span class="sc">+</span></span>
+<span id="cb43-14"><a href="parametres.html#cb43-14" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;dure&quot;</span> <span class="ot">=</span> <span class="st">&quot;#EEDC82&quot;</span>, <span class="st">&quot;ferme&quot;</span> <span class="ot">=</span> <span class="st">&quot;#FFFACD&quot;</span>, <span class="st">&quot;molle&quot;</span> <span class="ot">=</span> <span class="st">&quot;#FFFAF0&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb43-15"><a href="parametres.html#cb43-15" tabindex="-1"></a>  <span class="fu">theme_gouv</span>(<span class="at">plot_title_size =</span> <span class="dv">12</span>,</span>
+<span id="cb43-16"><a href="parametres.html#cb43-16" tabindex="-1"></a>             <span class="at">subtitle_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb43-17"><a href="parametres.html#cb43-17" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;% de matière grasse par type de pâte de fromage&quot;</span>,</span>
+<span id="cb43-18"><a href="parametres.html#cb43-18" tabindex="-1"></a>       <span class="at">subtitle =</span> params<span class="sc">$</span>country,</span>
+<span id="cb43-19"><a href="parametres.html#cb43-19" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Type de pâte&quot;</span>,</span>
+<span id="cb43-20"><a href="parametres.html#cb43-20" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;% de matière grasse&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-21"><a href="parametres.html#cb43-21" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&#39;none&#39;</span>)</span></code></pre></div>
 <ul>
 <li>Générer ce HTML à l’aide du bouton knit</li>
 <li>Créer dans un nouveau script une fonction qui génère le HTML à partir d’une liste de pays</li>

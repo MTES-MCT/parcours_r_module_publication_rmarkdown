@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -324,36 +327,36 @@ C’est un outil puissant pour concilier les fonctionnalités HTML (donc mise en
 </p></li>
 <li><p><a href="https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf" class="uri">https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf</a></p></li>
 </ul>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb64-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_url</span>(<span class="st">&quot;https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_url</span>(<span class="st">&quot;https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf&quot;</span>)</span></code></pre></div>
 <iframe src="https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2020/www/export_demarchePropre.pdf" width="672" height="400px" data-external="1">
 </iframe>
 <div id="paged.js" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Paged.js<a href="pour-aller-plus-loin-sur-pagedown.html#paged.js" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="https://www.pagedmedia.org/wp-content/uploads/2018/12/pagedjs-logo.png" alt="" width="25%" style="display: block; margin: auto 0 auto auto;" /></p>
-<p><a href="https://www.pagedjs.org/">paged.js</a> est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées au médias paginés(<a href="https://www.w3.org/TR/css-page-3/" class="uri">https://www.w3.org/TR/css-page-3/</a>) du W3C.</p>
+<p><a href="https://www.pagedjs.org/">paged.js</a> est une bibliothèque javascript visant à mettre en oeuvre [les propriétés css dédiées aux médias paginés(<a href="https://www.w3.org/TR/css-page-3/" class="uri">https://www.w3.org/TR/css-page-3/</a>) du W3C.</p>
 <p>Ces spécifications visent à pouvoir réaliser des documents prêt pour l’impression avec les technologies du web (html, css, js).</p>
 <p>Ces spécifications sont toujours en draft pour le moment au sein du W3C, donc pas vraiment reconnues par les principaux navigateurs. D’où le besoin de cette bibliothèque javascript pour pouvoir les mettre en oeuvre.</p>
 </div>
 <div id="démarrer-avec-pagedown" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Démarrer avec Pagedown<a href="pour-aller-plus-loin-sur-pagedown.html#d%C3%A9marrer-avec-pagedown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Pour installer <code>{pagedown}</code> depuis le CRAN :</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb65-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rstudio/pagedown&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb67-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;rstudio/pagedown&#39;</span>)</span></code></pre></div>
 <p>Depuis Rstudio, cela vous apporte un nouveau type de document rmarkdown, accessible depuis <code>File -&gt; New File -&gt; Rmarkdown... -&gt; From template -&gt; Paged HTML document</code>.</p>
 <p>Une fois celui ci créé, vous pouvez cliquer sur knit de l’interface de Rstudio. Cela vous compilera le document par défaut en html, qui sera accessible dans le répertoire du projet et visible par défaut dans le viewer.</p>
 <p><img src="assets/img/templatespublications/pagedown.gif" alt="" width="100%" /></p>
 <p>La structure du yaml est relativement proche d’un document Rmarkdown classique.</p>
 <p>A noter toutefois une option utile à retenir, la balise <code>knit: pagedown::chrome_print</code> qui vous permet de compiler directement votre document en pdf grâce à la fonction <code>pagedown::chrome_print()</code> livrée dans le package.</p>
-<p>Cette fonction par ailleurs peut être utilisée pour imprimer en pdf tout document html en pdf ou en format image. Elle utilise la technologie d’impression de google chrome.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb66-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-1" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A Multi-page HTML Document&quot;</span></span>
-<span id="cb66-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-2" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Yihui Xie and Romain Lesur&quot;</span></span>
-<span id="cb66-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-3" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2026-07-30&quot;</span></span>
-<span id="cb66-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-4" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb66-5"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-5" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
-<span id="cb66-6"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-6" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb66-7"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-7" tabindex="-1"></a><span class="at">    \</span><span class="co"># change to true for a self-contained document, but it&#39;ll be a litte slower for Pandoc to render</span></span>
-<span id="cb66-8"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-8" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb66-9"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-9" tabindex="-1"></a><span class="at">\</span><span class="co"># uncomment this line to produce HTML and PDF in RStudio:</span></span>
-<span id="cb66-10"><a href="pour-aller-plus-loin-sur-pagedown.html#cb66-10" tabindex="-1"></a><span class="at">\</span><span class="co">#knit: pagedown::chrome_print</span></span></code></pre></div>
+<p>Cette fonction peut être utilisée par ailleurs pour imprimer tout document html en pdf ou en format image. Elle utilise la technologie d’impression de google chrome.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb68-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-1" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A Multi-page HTML Document&quot;</span></span>
+<span id="cb68-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-2" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Yihui Xie and Romain Lesur&quot;</span></span>
+<span id="cb68-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-3" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2026-08-31&quot;</span></span>
+<span id="cb68-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-4" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb68-5"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-5" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
+<span id="cb68-6"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-6" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb68-7"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-7" tabindex="-1"></a><span class="at">    \</span><span class="co"># change to true for a self-contained document, but it&#39;ll be a litte slower for Pandoc to render</span></span>
+<span id="cb68-8"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-8" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb68-9"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-9" tabindex="-1"></a><span class="at">\</span><span class="co"># uncomment this line to produce HTML and PDF in RStudio:</span></span>
+<span id="cb68-10"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-10" tabindex="-1"></a><span class="at">\</span><span class="co">#knit: pagedown::chrome_print</span></span></code></pre></div>
 </div>
 <div id="configurer-votre-yaml" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> Configurer votre yaml<a href="pour-aller-plus-loin-sur-pagedown.html#configurer-votre-yaml" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -362,38 +365,38 @@ En voici quelques unes intéressantes à connaître :</p>
 <ul>
 <li>Pour modifier le titre du sommaire du document :</li>
 </ul>
-<div class="sourceCode" id="cb67"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb67-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb67-1" tabindex="-1"></a><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> sommaire</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb69-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb69-1" tabindex="-1"></a><span class="fu">toc-title</span><span class="kw">:</span><span class="at"> sommaire</span></span></code></pre></div>
 <ul>
 <li>Pour ajouter et configurer une liste de tableaux et de graphiques dans le sommaire.</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb68-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-1" tabindex="-1"></a><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb68-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-2" tabindex="-1"></a><span class="fu">lot-title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Tableaux&quot;</span></span>
-<span id="cb68-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-3" tabindex="-1"></a><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb68-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb68-4" tabindex="-1"></a><span class="fu">lof-title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Graphiques&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb70-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb70-1" tabindex="-1"></a><span class="fu">lot</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb70-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb70-2" tabindex="-1"></a><span class="fu">lot-title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Tableaux&quot;</span></span>
+<span id="cb70-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb70-3" tabindex="-1"></a><span class="fu">lof</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb70-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb70-4" tabindex="-1"></a><span class="fu">lof-title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Graphiques&quot;</span></span></code></pre></div>
 <p>Si vous ne voulez pas que les graphiques et tableaux apparaissent dans le sommaire, vous pouvez utiliser <code>lot-unlisted: true</code>.</p>
 <ul>
 <li>Pour modifier le préfixe du titre du chapitre.</li>
 </ul>
-<div class="sourceCode" id="cb69"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb69-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb69-1" tabindex="-1"></a><span class="fu">chapter_name</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Chapitre</span><span class="sc">\\</span><span class="st"> &quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb71-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb71-1" tabindex="-1"></a><span class="fu">chapter_name</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Chapitre</span><span class="sc">\\</span><span class="st"> &quot;</span></span></code></pre></div>
 <p>Vous pouvez ensuite insérer un chapitre en utilisant <code># Ceci est un titre de chapitre {.chapter}</code></p>
 <ul>
 <li>Pour transformer automatiquement un lien url dans votre document en note de bas de page.</li>
 </ul>
-<div class="sourceCode" id="cb70"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb70-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb70-1" tabindex="-1"></a><span class="fu">links-to-footnotes</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb72-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb72-1" tabindex="-1"></a><span class="fu">links-to-footnotes</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div>
 <p>Ainsi <code>[CRAN](https://cran.r-project.org/)</code> sera traduit comme <code>CRAN^[(https://cran.r-project.org/)]</code>.</p>
 <ul>
 <li>front_cover et back_cover pour ajouter une image pour la première de couverture et la 4e de couverture :<br />
 </li>
 </ul>
-<div class="sourceCode" id="cb71"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb71-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb71-1" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
-<span id="cb71-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb71-2" tabindex="-1"></a><span class="at">    </span><span class="fu">front_cover</span><span class="kw">:</span><span class="at"> !expr system.file(&quot;help&quot;,&quot;figures&quot;,&quot;lter_penguins.png&quot;, package = &quot;palmerpenguins&quot;)</span></span>
-<span id="cb71-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb71-3" tabindex="-1"></a><span class="at">    </span><span class="fu">back_cover</span><span class="kw">:</span><span class="at"> https://www.r-project.org/Rlogo.png</span></span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb73-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-1" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
+<span id="cb73-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-2" tabindex="-1"></a><span class="at">    </span><span class="fu">front_cover</span><span class="kw">:</span><span class="at"> !expr system.file(&quot;help&quot;,&quot;figures&quot;,&quot;lter_penguins.png&quot;, package = &quot;palmerpenguins&quot;)</span></span>
+<span id="cb73-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-3" tabindex="-1"></a><span class="at">    </span><span class="fu">back_cover</span><span class="kw">:</span><span class="at"> https://www.r-project.org/Rlogo.png</span></span></code></pre></div>
 <p>On utilise le préfixe <code>!expr</code> pour insérer du code R créant en sortie une image.</p>
 </div>
 <div id="quelques-balises-importantes-à-connaître" class="section level2 hasAnchor" number="11.4">
 <h2><span class="header-section-number">11.4</span> Quelques balises importantes à connaître<a href="pour-aller-plus-loin-sur-pagedown.html#quelques-balises-importantes-%C3%A0-conna%C3%AEtre" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><code>{.page-break-before}</code> et <code>{.page-break-after}</code> sont des classes CSS qui insèrent un saut de page avant/après le paragraphe auquel la balise est attachée.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb72-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb72-1" tabindex="-1"></a>### Nouveau chapitre après un saut de page {.page-break-before}</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb74-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-1" tabindex="-1"></a>### Nouveau chapitre après un saut de page {.page-break-before}</span></code></pre></div>
 </div>
 <div id="modifier-le-css" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> Modifier le CSS<a href="pour-aller-plus-loin-sur-pagedown.html#modifier-le-css" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -407,26 +410,26 @@ En voici quelques unes intéressantes à connaître :</p>
 </ul>
 <p>Voici déjà quelques recettes de base pour commencer à modifier votre document.</p>
 <p>Première étape : importer les css par défaut de pagedown dans votre document.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-1" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;default-fonts&quot;</span>, <span class="st">&quot;default-page&quot;</span>, <span class="st">&quot;default&quot;</span>)</span>
-<span id="cb73-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-2" tabindex="-1"></a>from <span class="ot">&lt;-</span> pagedown<span class="sc">:::</span><span class="fu">pkg_resource</span>(<span class="fu">paste0</span>(<span class="st">&quot;css/&quot;</span>, files, <span class="st">&quot;.css&quot;</span>))</span>
-<span id="cb73-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-3" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;custom-fonts.css&quot;</span>, <span class="st">&quot;custom-page.css&quot;</span>, <span class="st">&quot;custom.css&quot;</span>)</span>
-<span id="cb73-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb73-4" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> from, <span class="at">to =</span> to)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb75-1" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;default-fonts&quot;</span>, <span class="st">&quot;default-page&quot;</span>, <span class="st">&quot;default&quot;</span>)</span>
+<span id="cb75-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb75-2" tabindex="-1"></a>from <span class="ot">&lt;-</span> pagedown<span class="sc">:::</span><span class="fu">pkg_resource</span>(<span class="fu">paste0</span>(<span class="st">&quot;css/&quot;</span>, files, <span class="st">&quot;.css&quot;</span>))</span>
+<span id="cb75-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb75-3" tabindex="-1"></a>to <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;custom-fonts.css&quot;</span>, <span class="st">&quot;custom-page.css&quot;</span>, <span class="st">&quot;custom.css&quot;</span>)</span>
+<span id="cb75-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb75-4" tabindex="-1"></a><span class="fu">file.copy</span>(<span class="at">from =</span> from, <span class="at">to =</span> to)</span></code></pre></div>
 <p>Ajouter une référence à ces fichiers dans le yaml :</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb74-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-1" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb74-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-2" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
-<span id="cb74-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-3" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span></span>
-<span id="cb74-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-4" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom-fonts.css</span></span>
-<span id="cb74-5"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom-page.css</span></span>
-<span id="cb74-6"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom.css</span></span>
-<span id="cb74-7"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-7" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb74-8"><a href="pour-aller-plus-loin-sur-pagedown.html#cb74-8" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb76-1"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-1" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb76-2"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-2" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span></span>
+<span id="cb76-3"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-3" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span></span>
+<span id="cb76-4"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-4" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom-fonts.css</span></span>
+<span id="cb76-5"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-5" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom-page.css</span></span>
+<span id="cb76-6"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> custom.css</span></span>
+<span id="cb76-7"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-7" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb76-8"><a href="pour-aller-plus-loin-sur-pagedown.html#cb76-8" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code></pre></div>
 <ul>
 <li><p>Lancer dans la console <code>xaringan::inf_mr()</code>, qui permet de compiler un document Rmarkdown en ayant un aperçu live du rendu.</p></li>
 <li><p>Appuyer ensuite sur <code>Show in new window</code> pour consulter le document sur votre navigateur par défaut.</p></li>
 </ul>
 <p><img src="assets/img/templatespublications/show_new_window.png" alt="" width="188" /></p>
 <ul>
-<li>Puis sur <code>Clear all viewer item</code>, pour que vos modifications puisse s’afficher en live.</li>
+<li>Puis sur <code>Clear all viewer item</code>, pour que vos modifications puissent s’afficher en live.</li>
 </ul>
 <p><img src="assets/img/templatespublications/clear_all_viewer_item.png" alt="" width="173" /></p>
 </div>

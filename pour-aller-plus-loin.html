@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -318,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.1</span> Les documents Quarto<a href="pour-aller-plus-loin.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Un document Quarto est un format de document qui permet de combiner du
 texte, du code et des visualisations dans un seul fichier, comme un
-Rmarkdown en somme. En revanche, Quarto n’est ni dépendant de ni
+Rmarkdown en somme. En revanche, Quarto n’est ni dépendant ni
 exclusif à R et Rstudio. Il ne s’agit pas d’un package de R, il faut
 l’installer “à part” (mais il est inclus dans l’installation de
 Rstudio).</p>
@@ -366,33 +369,33 @@ Depuis R, cette conversion offre un nombre limité de paramètres de personnalis
 <div style="display: flex; gap: 50px;">
 <div>
 <p>Paramètres de la fonction <code>odt_document()</code> :</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="pour-aller-plus-loin.html#cb60-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
-<span id="cb60-2"><a href="pour-aller-plus-loin.html#cb60-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb60-3"><a href="pour-aller-plus-loin.html#cb60-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
-<span id="cb60-4"><a href="pour-aller-plus-loin.html#cb60-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
-<span id="cb60-5"><a href="pour-aller-plus-loin.html#cb60-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb60-6"><a href="pour-aller-plus-loin.html#cb60-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb60-7"><a href="pour-aller-plus-loin.html#cb60-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
-<span id="cb60-8"><a href="pour-aller-plus-loin.html#cb60-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
-<span id="cb60-9"><a href="pour-aller-plus-loin.html#cb60-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb60-10"><a href="pour-aller-plus-loin.html#cb60-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
-<span id="cb60-11"><a href="pour-aller-plus-loin.html#cb60-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
-<span id="cb60-12"><a href="pour-aller-plus-loin.html#cb60-12" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="pour-aller-plus-loin.html#cb62-1" tabindex="-1"></a><span class="fu">odt_document</span>(</span>
+<span id="cb62-2"><a href="pour-aller-plus-loin.html#cb62-2" tabindex="-1"></a>  <span class="at">number_sections =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb62-3"><a href="pour-aller-plus-loin.html#cb62-3" tabindex="-1"></a>  <span class="at">fig_width =</span> <span class="dv">5</span>,</span>
+<span id="cb62-4"><a href="pour-aller-plus-loin.html#cb62-4" tabindex="-1"></a>  <span class="at">fig_height =</span> <span class="dv">4</span>,</span>
+<span id="cb62-5"><a href="pour-aller-plus-loin.html#cb62-5" tabindex="-1"></a>  <span class="at">fig_caption =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb62-6"><a href="pour-aller-plus-loin.html#cb62-6" tabindex="-1"></a>  <span class="at">template =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb62-7"><a href="pour-aller-plus-loin.html#cb62-7" tabindex="-1"></a>  <span class="at">reference_odt =</span> <span class="st">&quot;default&quot;</span>,</span>
+<span id="cb62-8"><a href="pour-aller-plus-loin.html#cb62-8" tabindex="-1"></a>  <span class="at">includes =</span> <span class="cn">NULL</span>,</span>
+<span id="cb62-9"><a href="pour-aller-plus-loin.html#cb62-9" tabindex="-1"></a>  <span class="at">keep_md =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb62-10"><a href="pour-aller-plus-loin.html#cb62-10" tabindex="-1"></a>  <span class="at">md_extensions =</span> <span class="cn">NULL</span>,</span>
+<span id="cb62-11"><a href="pour-aller-plus-loin.html#cb62-11" tabindex="-1"></a>  <span class="at">pandoc_args =</span> <span class="cn">NULL</span></span>
+<span id="cb62-12"><a href="pour-aller-plus-loin.html#cb62-12" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div>
 <p>Ce qui donne pour l’entête YML</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb61-1"><a href="pour-aller-plus-loin.html#cb61-1" tabindex="-1"></a><span class="pp">--- </span></span>
-<span id="cb61-2"><a href="pour-aller-plus-loin.html#cb61-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb61-3"><a href="pour-aller-plus-loin.html#cb61-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb61-4"><a href="pour-aller-plus-loin.html#cb61-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
-<span id="cb61-5"><a href="pour-aller-plus-loin.html#cb61-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb61-6"><a href="pour-aller-plus-loin.html#cb61-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
-<span id="cb61-7"><a href="pour-aller-plus-loin.html#cb61-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
-<span id="cb61-8"><a href="pour-aller-plus-loin.html#cb61-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
-<span id="cb61-9"><a href="pour-aller-plus-loin.html#cb61-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
-<span id="cb61-10"><a href="pour-aller-plus-loin.html#cb61-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb61-11"><a href="pour-aller-plus-loin.html#cb61-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
-<span id="cb61-12"><a href="pour-aller-plus-loin.html#cb61-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb63-1"><a href="pour-aller-plus-loin.html#cb63-1" tabindex="-1"></a><span class="pp">--- </span></span>
+<span id="cb63-2"><a href="pour-aller-plus-loin.html#cb63-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb63-3"><a href="pour-aller-plus-loin.html#cb63-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb63-4"><a href="pour-aller-plus-loin.html#cb63-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb63-5"><a href="pour-aller-plus-loin.html#cb63-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb63-6"><a href="pour-aller-plus-loin.html#cb63-6" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span></span>
+<span id="cb63-7"><a href="pour-aller-plus-loin.html#cb63-7" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="at">  </span></span>
+<span id="cb63-8"><a href="pour-aller-plus-loin.html#cb63-8" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_width</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span></span>
+<span id="cb63-9"><a href="pour-aller-plus-loin.html#cb63-9" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_height</span><span class="kw">:</span><span class="at"> </span><span class="dv">4</span></span>
+<span id="cb63-10"><a href="pour-aller-plus-loin.html#cb63-10" tabindex="-1"></a><span class="at">    </span><span class="fu">fig_caption</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb63-11"><a href="pour-aller-plus-loin.html#cb63-11" tabindex="-1"></a><span class="at">    </span><span class="fu">reference_odt</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;chemin/vers/le/modele.odt&quot;</span></span>
+<span id="cb63-12"><a href="pour-aller-plus-loin.html#cb63-12" tabindex="-1"></a><span class="pp">--- </span></span></code></pre></div>
 </div>
 </div>
 <ul>
@@ -414,7 +417,7 @@ Depuis R, cette conversion offre un nombre limité de paramètres de personnalis
 <p>On peut également coder les styles directement en xml cf. <a href="https://www.arthurperret.fr/blog/2024-09-13-templates-feuilles-de-styles-pandoc-avantage-odt-sur-docx.html">ce tuto en français</a></p>
 <p>La gestion des <strong>tableaux</strong> est parfois moins souple qu’en HTML/PDF, mais on peut obtenir quelque chose de propre.
 Les tableaux simples sont traités correctement avec <code>knitr::kable()</code> en spécifiant le format “pandoc”.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="pour-aller-plus-loin.html#cb62-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="pour-aller-plus-loin.html#cb64-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">&quot;pipe&quot;</span>)</span></code></pre></div>
 <p>Il ne faut pas utiliser les fonctions spécifiques au format HTML (comme <code>kable_styling()</code>, <code>column_spec()</code>… ) car elles ne sont pas supportées.
 Mais <code>{kableExtra}</code> sait aussi générer des tableaux LaTeX et les fonctions compatibles avec le format PDF le seront généralement aussi pour ODT.</p>
 <p>Les <strong>graphiques</strong> ne sont pas automatiquement redimensionnés comme dans un format de sortie HTML, il faut rester dans les limites de largeur du corps de la page (environ 6 pouces pour le modèle par défaut).</p>
@@ -422,10 +425,8 @@ Mais <code>{kableExtra}</code> sait aussi générer des tableaux LaTeX et les fo
 <div id="officer-et-officedown" class="section level3 hasAnchor" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Officer et Officedown<a href="pour-aller-plus-loin.html#officer-et-officedown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="https://raw.githubusercontent.com/davidgohel/officer/master/inst/medias/officerlogo.svg" alt="" width="50%" /></p>
-<p>To do
-Ajouter logo officedown
-Traduire et résumer <a href="https://ardata-fr.github.io/officeverse/index.html" class="uri">https://ardata-fr.github.io/officeverse/index.html</a>
-Pour les documents bureautiques de type .docx ou .pptx.</p>
+<p>Les packages officer et officedown permettent de générer des documents texte ou des présentations en format MSOffice.
+<a href="https://ardata-fr.github.io/officeverse/index.html" class="uri">https://ardata-fr.github.io/officeverse/index.html</a></p>
 <p>Exemple
 <a href="https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&amp;plain=1" class="uri">https://gitlab-forge.din.developpement-durable.gouv.fr/dreal-pdl/csd/crte/-/blob/master/inst/rmarkdown/templates/portrait_territoire/skeleton/skeleton.Rmd?ref_type=heads&amp;plain=1</a></p>
 </div>
@@ -443,7 +444,7 @@ Pour des présentations de ninja</p>
 <p>On active ou désactive la mise en cache des résultats pour chaque chunk avec l’option <code>cache = TRUE</code> ou <code>cache = FALSE</code>, et on peut aussi désactiver totalement la mise en cache pour le document en ajoutant <code>knitr::opts_chunk$set(cache = FALSE)</code> dans le premier chunk de ‘setup’.</p>
 <p>Il faut manier cette option avec beaucoup de prudence.
 Le système de cache peut fausser les résultats s’il n’est pas utilisé avec maîtrise, par exemple s’il n’est pas vidé alors que les données source changent.
-Dans ce cas les résultats de certains blocs ne seront pas être mis à jour s’ils sont présents en cache.
+Dans ce cas les résultats de certains blocs ne seront pas mis à jour s’ils sont présents en cache.
 On peut vider le cache du document, ce qui forcera un re-calcul de tous les blocs de code à la prochaine compilation.
 Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache… (le balai) :</p>
 <p><img src="assets/img/clear_cache.png" /></p>
@@ -459,17 +460,17 @@ Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache…
 <div style="display: flex; gap: 50px;">
 <div>
 <p><strong>Code :</strong></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb63-1"><a href="pour-aller-plus-loin.html#cb63-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
-<span id="cb63-2"><a href="pour-aller-plus-loin.html#cb63-2" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="pour-aller-plus-loin.html#cb63-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
-<span id="cb63-4"><a href="pour-aller-plus-loin.html#cb63-4" tabindex="-1"></a></span>
-<span id="cb63-5"><a href="pour-aller-plus-loin.html#cb63-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
-<span id="cb63-6"><a href="pour-aller-plus-loin.html#cb63-6" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="pour-aller-plus-loin.html#cb63-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
-<span id="cb63-8"><a href="pour-aller-plus-loin.html#cb63-8" tabindex="-1"></a></span>
-<span id="cb63-9"><a href="pour-aller-plus-loin.html#cb63-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
-<span id="cb63-10"><a href="pour-aller-plus-loin.html#cb63-10" tabindex="-1"></a></span>
-<span id="cb63-11"><a href="pour-aller-plus-loin.html#cb63-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb65-1"><a href="pour-aller-plus-loin.html#cb65-1" tabindex="-1"></a><span class="fu">### Exemple d&#39;onglets {.tabset}</span></span>
+<span id="cb65-2"><a href="pour-aller-plus-loin.html#cb65-2" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="pour-aller-plus-loin.html#cb65-3" tabindex="-1"></a><span class="fu">#### Onglet 1</span></span>
+<span id="cb65-4"><a href="pour-aller-plus-loin.html#cb65-4" tabindex="-1"></a></span>
+<span id="cb65-5"><a href="pour-aller-plus-loin.html#cb65-5" tabindex="-1"></a>Contenu de l&#39;onglet 1</span>
+<span id="cb65-6"><a href="pour-aller-plus-loin.html#cb65-6" tabindex="-1"></a></span>
+<span id="cb65-7"><a href="pour-aller-plus-loin.html#cb65-7" tabindex="-1"></a><span class="fu">#### Onglet 2</span></span>
+<span id="cb65-8"><a href="pour-aller-plus-loin.html#cb65-8" tabindex="-1"></a></span>
+<span id="cb65-9"><a href="pour-aller-plus-loin.html#cb65-9" tabindex="-1"></a>Contenu de l&#39;onglet 2</span>
+<span id="cb65-10"><a href="pour-aller-plus-loin.html#cb65-10" tabindex="-1"></a></span>
+<span id="cb65-11"><a href="pour-aller-plus-loin.html#cb65-11" tabindex="-1"></a><span class="fu">### {.unlisted .unnumbered}</span></span></code></pre></div>
 </div>
 <div>
 <p><strong>Résultat :</strong></p>
@@ -485,7 +486,7 @@ Pour cela, ouvrir le menu Knit (la pelote bleue) et choisir Clear Knitr Cache…
 <p>Voici quelques éléments bibliographiques pour en savoir plus sur R Markdown mais aussi tous les packages et logiciels en lien avec ce sujet :</p>
 <ul>
 <li><a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Le guide définitif de Rmarkdown</a></li>
-<li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">Le guide de référence</a></li>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html">Le guide de référence</a></li>
 <li><a href="https://daringfireball.net/projects/markdown/syntax#philosophy">La syntaxe Markdown sur laquelle s’appuie<code>rmarkdown</code></a></li>
 <li><a href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pour en savoir plus sur PANDOC</a></li>
 <li><a href="https://yihui.org/tinytex/">Pour en savoir plus sur TinyTeX</a></li>

@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -314,12 +317,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="mettre-en-ligne-les-html-produits-avec-rmarkdown" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">Chapitre 9</span> Mettre en ligne les HTML produits avec Rmarkdown<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#mettre-en-ligne-les-html-produits-avec-rmarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Les fichiers HTML ne peuvent pas simplement venir compléter nos sites institutionnels gérés avec Spip/Giseh.
-Pour les partager en interne, les déposer sur un serveur bureautique suffit.
-En revanche, pour les partager avec l’extérieur, il est souvent nécessaire d’héberger les documents sur un serveur dédié.</p>
+Pour les partager en interne, les déposer sur un serveur bureautique suffit. En revanche, pour les partager avec l’extérieur, il est souvent nécessaire d’héberger les documents sur un serveur dédié.</p>
 <div id="publier-sur-un-serveur-html-statique" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Publier sur un serveur HTML statique<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#publier-sur-un-serveur-html-statique" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Le service informatique du pôle ministériel (DNUM/Sous-direction des méthodes et des services de plateforme) propose une offre d’hébergement gratuite pour toute entité du pôle ministériel Ecologie qui la demande.</p>
-<p>Il faut au préalable avoir la validation d’une nouvelle url pour votre organisme par de la direction de la communication.</p>
+<p>Il faut au préalable avoir la validation d’une nouvelle url pour votre organisme par la direction de la communication.</p>
 <p>Cette offre est décrite sur le catalogue des offres spote : <a href="https://spote.developpement-durable.gouv.fr/offre/webstatic-publication-de-sites-de-contenus-statiques" class="uri">https://spote.developpement-durable.gouv.fr/offre/webstatic-publication-de-sites-de-contenus-statiques</a>.</p>
 <p>La DNUM procède en deux temps : 1. elle vous livre le serveur et ses identifiants d’utilisation et 2. elle vous indique que le certificat pour bénéficier de la norme https est actif.</p>
 <p>Une fois le serveur configuré par la DNUM, on envoie les fichiers HTML à publier par FTP, par exemple avec le logiciel Filezilla.</p>
@@ -335,32 +337,30 @@ En revanche, pour les partager avec l’extérieur, il est souvent nécessaire d
 </div>
 <div id="concepts" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> Concepts<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#concepts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Github et Gitlab sont deux plateformes web concurrentes, dites forge de développement, utilisées pour le travail collaboratif sur le code.
-Pour les utiliser, il faut versionner ses projets R avec git.
+<p>Github et Gitlab sont deux plateformes web concurrentes, dites forge de développement, utilisées pour le travail collaboratif sur le code. Pour les utiliser, il faut versionner ses projets R avec git.
 Git un exécutable qui s’installe sur son PC, permettant le suivi de version des scripts et permettant le dialogue avec ces forges web.</p>
 </div>
 <div id="quelle-forge-choisir" class="section level3 hasAnchor" number="9.2.3">
 <h3><span class="header-section-number">9.2.3</span> Quelle forge choisir ?<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#quelle-forge-choisir" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Le parcours-R est hébergé sur github car à ses débuts, c’était l’offre la plus populaire.</p>
 <p>Le ministère dispose désormais d’une instance officielle de gitlab : <a href="https://gitlab-forge.din.developpement-durable.gouv.fr/" class="uri">https://gitlab-forge.din.developpement-durable.gouv.fr/</a>
-Chaque service du pôle ministériel peut disposer un dépôt gitlab-forge après avoir formulé une demande officielle, cf fiche spote <a href="https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continu" class="uri">https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continu</a>.</p>
+Chaque service du pôle ministériel peut disposer d’un dépôt gitlab-forge après avoir formulé une demande officielle, cf fiche spote <a href="https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continue" class="uri">https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continue</a>.</p>
 <p>Chaque agent disposant d’un compte CERBERE peut rejoindre un groupe gitlab-forge ou y disposer d’un dépôt personnel.</p>
 <p>Si besoin de collaborer avec des personnes qui n’ont pas de compte CERBERE, il est possible de faire une demande pour ‘cerberiser’ son adresse mail et l’autoriser à écrire sur un dépôt gitlab-forge.<br />
 En attendant, gitlab.com offre une version freemium accessible de tous.
-A la fin de la collaboration, on peut facilement réimporter le travail de gitlab vers sur gitlab-forge.</p>
+À la fin de la collaboration, on peut facilement réimporter le travail de gitlab vers gitlab-forge.</p>
 </div>
 <div id="comment-on-fait" class="section level3 hasAnchor" number="9.2.4">
 <h3><span class="header-section-number">9.2.4</span> Comment on fait ?<a href="mettre-en-ligne-les-html-produits-avec-rmarkdown.html#comment-on-fait" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Pour configurer git et RStudio, suivre les fiches tutorielles :
-<a href="https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html" class="uri">https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html</a></p>
+<p>Pour configurer git et RStudio, suivre les fiches tutorielles : <a href="https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html" class="uri">https://dreal-pdl.gitlab-pages.din.developpement-durable.gouv.fr/csd/geodata4apps.fiches/decouverte.html</a></p>
 <p>Une fois la configuration de git achevée, imaginons que vous vouliez publier un fichier publi.html généré à partir d’un fichier publi.Rmd.
 Voici un pas à pas de base :</p>
 <ol style="list-style-type: decimal">
-<li><p>dans votre projet RStudio, placez les fichiers html (et leurs éventuelles dépendances) que vous voulez publier dans une dossier nommé ‘public’.
+<li><p>dans votre projet RStudio, placez les fichiers html (et leurs éventuelles dépendances) que vous voulez publier dans un dossier nommé ‘public’.
 S’il n’y a qu’un fichier, nommez les index.html, c’est intéressant pour raccourcir l’url.</p></li>
 <li><p>toujours dans votre projet RStudio, lancer <code>usethis::use_git()</code> dans la console pour activer le traking de git pour ce projet.
-RStudio vous propose d’enregistrer une version, sorte de premier point de restauration, de votre projet.
-<img src="assets/img/gitlab2.png" />
+RStudio vous propose d’enregistrer une version, sorte de premier point de restauration, de votre projet :<br />
+<img src="assets/img/gitlab2.png" /><br />
 Il faut accepter (Ici : appuyer sur 1 + entrée).</p></li>
 <li><p>Acceptez de redémarrer R pour que les fonctionnalités git s’activent dans votre projet Rstudio (nouveau panneau)</p></li>
 </ol>
@@ -370,19 +370,17 @@ Il faut accepter (Ici : appuyer sur 1 + entrée).</p></li>
 </p></li>
 <li><p>Copier l’url https de ce projet<br />
 <img src="assets/img/GitLab1.png" /></p></li>
-<li><p>Retourner dans RStudio pour pointer votre projet R vers ce projet git, pour cela, lancer dans la console :
-<code>usethis::use_git_remote(url = "https://gitlab-forge.din.developpement-durable.gouv.fr/groupe/projet.git")</code></p></li>
+<li><p>Retourner dans RStudio pour pointer votre projet R vers ce projet git, pour cela, lancer dans la console : <code>usethis::use_git_remote(url = "https://gitlab-forge.din.developpement-durable.gouv.fr/groupe/projet.git")</code></p></li>
 <li><p>Dernière étape pour partager le code : il faut connecter les branches et réaliser le premier ‘push’, en lançant dans la console R :<br />
 <code>system("git push -u origin main")</code><br />
 votre projet est alors envoyé sur la forge.</p></li>
-<li><p>Intégration continue
+<li><p>Intégration continue<br />
 Par convention ce qui se situe dans le dossier public, peut être publié automatiquement par gitlab sur gitlab-pages si l’intégration continue est active.<br />
 Pour l’activer, 2 conditions :</p></li>
 </ol>
 <ul>
-<li>un bouton à cocher dans les paramètres du dépôt (à retrouver au niveau du menu Parametres / CI-CD / Runners)
-<img src="assets/img/gitlab3.png" /></li>
-<li>et un fichier .gitlab-ci.yml à la racine du projet.</li>
+<li>un bouton à cocher dans les paramètres du dépôt (à retrouver au niveau du menu Parametres / CI-CD / Runners) <img src="assets/img/gitlab3.png" /></li>
+<li>et un fichier .gitlab-ci.yml à mettre à la racine du projet.</li>
 </ul>
 <p>Voici un exemple minimaliste de script à placer dans votre projet sous le nom <code>.gitlab-ci.yml</code> qui utilise le répertoire public et le rend accessible sur ‘Pages’.</p>
 <pre><code>pages:

@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -363,7 +366,7 @@ On peut le saisir avec un éditeur de texte comme <em>Notepad</em> et il est lis
 <li>Cette simplicité permet le suivi de version par des outils comme <a href="https://fr.wikipedia.org/wiki/Git">Git</a>.</li>
 </ul>
 <p>Par contre, la simplicité signifie peu de fonctionnalités donc des sorties assez pauvres.</p>
-<p>L’idée, avec R Markdown, était garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d’interprétation de code R, intégré aux documents sous formes de <code>chunks</code>.
+<p>L’idée, avec R Markdown, était de garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d’interprétation du code R qui est intégré aux documents sous formes de <code>chunks</code>.
 En fait, les versions actuelles du package <code>knitr</code> permettent d’interpréter d’autres langages comme du <span class="math inline">\(\LaTeX\)</span>, du SQL ou du code Python.</p>
 <p>R Markdown est en quelque sorte un cadre pour travailler en data science.
 Un même document permet de sauvegarder et exécuter du code ainsi que de produire des rapports mis en forme pouvant contenir une grande diversité d’objets statiques ou dynamiques.</p>

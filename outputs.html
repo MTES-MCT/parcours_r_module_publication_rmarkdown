@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -343,9 +346,9 @@ Généralement, quand on perfectionne une visualisation pour un meilleur afficha
 </div>
 <p>Lorsqu’on fait appel à un package externe pour définir notre format de sortie, il est nécessaire de le préciser dans l’entête yaml, au niveau de <code>output:</code>.</p>
 <p>Par exemple, pour utiliser le format ‘html_gouv’ du <a href="https://spyrales.github.io/gouvdown/">package <code>{gouvdown}</code></a> qui sert mettre les productions R à la marque Etat, voici ce qu’il faut indiquer :</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb24-1"><a href="outputs.html#cb24-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb24-2"><a href="outputs.html#cb24-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> gouvdown::html_gouv</span></span>
-<span id="cb24-3"><a href="outputs.html#cb24-3" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb26-1"><a href="outputs.html#cb26-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb26-2"><a href="outputs.html#cb26-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> gouvdown::html_gouv</span></span>
+<span id="cb26-3"><a href="outputs.html#cb26-3" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>La plupart des packages proposant des modèles de documents Rmd les rendent également accessibles en clic bouton depuis le menu File <span class="math inline">\(\Rightarrow\)</span> New file <span class="math inline">\(\Rightarrow\)</span> R Markdown…</p>
 <p><img src="assets/img/Rmd_from_template.png" alt="Accès aux modèles de fichier Rmd" /><br />
 Ces menus apparaissent une fois le package qui les contient installé.</p>
@@ -359,28 +362,26 @@ C’est aussi le plus compatible avec les différents packages R de production d
 <ul>
 <li><code>toc: true</code> permet d’ajouter une table des matières (table of contents en anglais) à notre document.</li>
 <li><code>toc_depth: 2</code> permet de définir le niveau de titre le plus bas à mettre dans la table des matières (par défaut 3).</li>
-<li><code>toc_float: true</code> permet de rendre la table des matières flottante.
-Elle sera systématiquement visible, meme si on défile le document.
-Ce paramètre accepte des options.</li>
+<li><code>toc_float: true</code> permet de rendre la table des matières flottante. Elle sera systématiquement visible, meme si on défile le document. Ce paramètre accepte des options.</li>
 <li><code>number_sections : true</code> permet de numéroter les titres.</li>
-<li><code>theme: flatly</code> permet de changer le thème du document (tiré de la librairie <a href="https://bootswatch.com/3/">Bootswatch</a>.</li>
+<li><code>theme: flatly</code> permet de changer le thème du document (tiré de la librairie <a href="https://bootswatch.com/3/">Bootswatch</a>).</li>
 <li><code>fig_width : 7</code> et <code>fig_height : 5</code> permettent de définir par défaut la largeur et la hauteur des figures.</li>
-<li><code>fig_caption : true</code> permettent de définir les figures contiennent une légende.</li>
+<li><code>fig_caption : true</code> permet de définir que les figures contiennent une légende.</li>
 <li><code>css: adresse/fichier/css</code> permet d’appliquer un css particulier au document HTML rendu (cf. <a href="outputs.html#personnaliser-le-css">Personnaliser le css</a>)</li>
 <li><code>self_contained: TRUE/FALSE</code> pour générer ou non un fichier HTML autoportant (cf <a href="outputs.html#option-self_contained">Option self_contained</a>)</li>
 </ul>
 <p>L’ensemble des options est accessible depuis l’aide de la fonction rmarkdown::html_document (<code>?rmarkdown::html_document</code>)</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb25-1"><a href="outputs.html#cb25-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb25-2"><a href="outputs.html#cb25-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb25-3"><a href="outputs.html#cb25-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb25-4"><a href="outputs.html#cb25-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb25-5"><a href="outputs.html#cb25-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Toi&quot;</span></span>
-<span id="cb25-6"><a href="outputs.html#cb25-6" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
-<span id="cb25-7"><a href="outputs.html#cb25-7" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb25-8"><a href="outputs.html#cb25-8" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb25-9"><a href="outputs.html#cb25-9" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb25-10"><a href="outputs.html#cb25-10" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
-<span id="cb25-11"><a href="outputs.html#cb25-11" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb27-1"><a href="outputs.html#cb27-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb27-2"><a href="outputs.html#cb27-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb27-3"><a href="outputs.html#cb27-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb27-4"><a href="outputs.html#cb27-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb27-5"><a href="outputs.html#cb27-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Toi&quot;</span></span>
+<span id="cb27-6"><a href="outputs.html#cb27-6" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2025&quot;</span></span>
+<span id="cb27-7"><a href="outputs.html#cb27-7" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb27-8"><a href="outputs.html#cb27-8" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb27-9"><a href="outputs.html#cb27-9" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb27-10"><a href="outputs.html#cb27-10" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
+<span id="cb27-11"><a href="outputs.html#cb27-11" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <div id="personnaliser-le-css" class="section level3 hasAnchor" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Personnaliser le css<a href="outputs.html#personnaliser-le-css" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>L’un des avantages du format HTML est la possibilité d’appliquer un style personnalisé à l’aide d’un fichier CSS.
@@ -392,27 +393,27 @@ Ces documents, qui servent à mettre en forme tous les éléments d’une page H
 <li>les paramètres sont rassemblés entre accolades, séparés de leurs valeurs par un double point, séparés entre eux par un point virgule.</li>
 </ul>
 <p>Par exemple, si on veut que tous les titres de niveau H1 soient en gras rouge on écrira :</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb26-1"><a href="outputs.html#cb26-1" tabindex="-1"></a>```{css, eval = F}</span>
-<span id="cb26-2"><a href="outputs.html#cb26-2" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="outputs.html#cb26-3" tabindex="-1"></a>h1 {</span>
-<span id="cb26-4"><a href="outputs.html#cb26-4" tabindex="-1"></a>  font_weight: bold;</span>
-<span id="cb26-5"><a href="outputs.html#cb26-5" tabindex="-1"></a>  color: red;</span>
-<span id="cb26-6"><a href="outputs.html#cb26-6" tabindex="-1"></a>}</span>
-<span id="cb26-7"><a href="outputs.html#cb26-7" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="outputs.html#cb26-8" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb28-1"><a href="outputs.html#cb28-1" tabindex="-1"></a>```{css, eval = F}</span>
+<span id="cb28-2"><a href="outputs.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="outputs.html#cb28-3" tabindex="-1"></a>h1 {</span>
+<span id="cb28-4"><a href="outputs.html#cb28-4" tabindex="-1"></a>  font_weight: bold;</span>
+<span id="cb28-5"><a href="outputs.html#cb28-5" tabindex="-1"></a>  color: red;</span>
+<span id="cb28-6"><a href="outputs.html#cb28-6" tabindex="-1"></a>}</span>
+<span id="cb28-7"><a href="outputs.html#cb28-7" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="outputs.html#cb28-8" tabindex="-1"></a>```</span></code></pre></div>
 <p>Il est possible d’intégrer directement cette portion de css dans un chunk du document mais la bonne pratique est plutôt de créer un document à part (extension .css ou .scss, c’est une option proposée par Rstudio dans File &gt; New File) et de le référencer dans le yaml, en reprenant l’exemple précédent :</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb27-1"><a href="outputs.html#cb27-1" tabindex="-1"></a><span class="pp">--- </span></span>
-<span id="cb27-2"><a href="outputs.html#cb27-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb27-3"><a href="outputs.html#cb27-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb27-4"><a href="outputs.html#cb27-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
-<span id="cb27-5"><a href="outputs.html#cb27-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Toi&quot;</span></span>
-<span id="cb27-6"><a href="outputs.html#cb27-6" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2022&quot;</span></span>
-<span id="cb27-7"><a href="outputs.html#cb27-7" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb27-8"><a href="outputs.html#cb27-8" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb27-9"><a href="outputs.html#cb27-9" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb27-10"><a href="outputs.html#cb27-10" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
-<span id="cb27-11"><a href="outputs.html#cb27-11" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_style.css&quot;</span></span>
-<span id="cb27-12"><a href="outputs.html#cb27-12" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb29-1"><a href="outputs.html#cb29-1" tabindex="-1"></a><span class="pp">--- </span></span>
+<span id="cb29-2"><a href="outputs.html#cb29-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb29-3"><a href="outputs.html#cb29-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb29-4"><a href="outputs.html#cb29-4" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Moi&quot;</span></span>
+<span id="cb29-5"><a href="outputs.html#cb29-5" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">&quot;Toi&quot;</span></span>
+<span id="cb29-6"><a href="outputs.html#cb29-6" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;31/10/2022&quot;</span></span>
+<span id="cb29-7"><a href="outputs.html#cb29-7" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb29-8"><a href="outputs.html#cb29-8" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb29-9"><a href="outputs.html#cb29-9" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb29-10"><a href="outputs.html#cb29-10" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> flatly</span></span>
+<span id="cb29-11"><a href="outputs.html#cb29-11" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_style.css&quot;</span></span>
+<span id="cb29-12"><a href="outputs.html#cb29-12" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>À noter : le style fixé par un chunk au sein du document l’emportera sur le style d’un fichier css à part qui l’emportera sur le style fixé par un thème qui l’emportera sur le style de base de l’objet. La dernière information de style lue prévaudra sur les précédentes.</p>
 <p>De nombreuses ressources en ligne sont disponibles pour apprendre les bases du css, tous les paramètres qui peuvent être fixés et leurs modalités, par exemple <a href="https://developer.mozilla.org/fr/docs/Learn_web_development/Getting_started/Your_first_website/Styling_the_content#bases_de_la_syntaxe_css">celles de la fondation Mozilla</a>.</p>
 </div>
@@ -424,12 +425,12 @@ On peut ainsi partager ou publier le fichier comme un document bureautique, sans
 Mais cela peut alourdir le document et freiner son affichage web.</p>
 <p>Si on préfère conserver les dépendances dans des fichiers externes, pour faciliter l’affichage web, il faut spécifier <code>self_contained: false</code> dans les options de l’entête.
 Par exemple :</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb28-1"><a href="outputs.html#cb28-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb28-2"><a href="outputs.html#cb28-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
-<span id="cb28-3"><a href="outputs.html#cb28-3" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb28-4"><a href="outputs.html#cb28-4" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb28-5"><a href="outputs.html#cb28-5" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb28-6"><a href="outputs.html#cb28-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb30-1"><a href="outputs.html#cb30-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb30-2"><a href="outputs.html#cb30-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;mon_premier_document&quot;</span></span>
+<span id="cb30-3"><a href="outputs.html#cb30-3" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb30-4"><a href="outputs.html#cb30-4" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb30-5"><a href="outputs.html#cb30-5" tabindex="-1"></a><span class="at">    </span><span class="fu">self_contained</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb30-6"><a href="outputs.html#cb30-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Cela a par ailleurs l’avantage de placer les figures dans le dossier des dépendances du html et de pouvoir les mobiliser facilement dans d’autres contextes.</p>
 </div>
 <div id="affichages-sur-plusieurs-colonnes" class="section level3 hasAnchor" number="5.1.3">
@@ -442,11 +443,11 @@ Vous pourrez avoir besoin de définir un document en plusieurs colonnes, avec pa
 </div>
 <div id="accessibilité-visuelle-des-documents-html-produits" class="section level3 hasAnchor" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Accessibilité visuelle des documents html produits<a href="outputs.html#accessibilit%C3%A9-visuelle-des-documents-html-produits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Certains choix peuvent fortement améliorer (ou dégrader) l’accessibilité pour les personnes porteuses d’un handicap visuel ou utilisant un lecteur d’écran.<br />
-Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.<br />
-Pour une présentation complète, se référer au <a href="https://www.numerique.gouv.fr/offre-accompagnement/reference-accessibilite-rgaa/">Référentiel général d’amélioration de l’accessibilité (RGAA)</a></p>
-<div id="structurer-le-document-avec-des-titres-hiérarchisés-et-inrégrer-une-table-des-matières" class="section level4 hasAnchor" number="5.1.4.1">
-<h4><span class="header-section-number">5.1.4.1</span> Structurer le document avec des titres hiérarchisés et inrégrer une table des matières<a href="outputs.html#structurer-le-document-avec-des-titres-hi%C3%A9rarchis%C3%A9s-et-inr%C3%A9grer-une-table-des-mati%C3%A8res" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Certains choix peuvent fortement améliorer (ou dégrader) l’accessibilité pour les personnes porteuses d’un handicap visuel ou utilisant un lecteur d’écran.
+Voici les bonnes pratiques principales, adaptées aux html produits avec RMarkdown.
+Pour une présentation complète, se référer au <a href="https://www.numerique.gouv.fr/offre-accompagnement/reference-accessibilite-rgaa/">Référentiel général d’amélioration de l’accessibilité (RGAA).</a></p>
+<div id="structurer-le-document-avec-des-titres-hiérarchisés-et-intégrer-une-table-des-matières" class="section level4 hasAnchor" number="5.1.4.1">
+<h4><span class="header-section-number">5.1.4.1</span> Structurer le document avec des titres hiérarchisés et intégrer une table des matières<a href="outputs.html#structurer-le-document-avec-des-titres-hi%C3%A9rarchis%C3%A9s-et-int%C3%A9grer-une-table-des-mati%C3%A8res" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Les lecteurs d’écran utilisent la structure du document pour naviguer.</p>
 <ol style="list-style-type: decimal">
 <li>Utiliser les niveaux de titres Markdown (#, ##, ###)</li>
@@ -460,13 +461,13 @@ Pour une présentation complète, se référer au <a href="https://www.numerique
 <h4><span class="header-section-number">5.1.4.2</span> Mettre un nom de substitution aux images<a href="outputs.html#mettre-un-nom-de-substitution-aux-images" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Les images doivent avoir un texte alternatif (alt text).</p>
 <pre><code>![Histogramme de la distribution des âges](histogramme.png)</code></pre>
-<p>Conseils pour rédiger le texte alternatif : décrire le message principal et les les tendances importantes.</p>
+<p>Conseils pour rédiger le texte alternatif : décrire le message principal et les tendances importantes.</p>
 </div>
 <div id="perception-des-couleurs" class="section level4 hasAnchor" number="5.1.4.3">
 <h4><span class="header-section-number">5.1.4.3</span> Perception des couleurs<a href="outputs.html#perception-des-couleurs" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Veiller quand c’est possible, à ne pas transmettre d’informations uniquement par la couleur.
-Cela rendrait le document illisible pour les personnes atteinte de daltonisme ou ayant une faible perception des contrastes.<br />
-Dans les graphiques R, il faut chercher à utiliser une palette de couleur en redondance avec les formes ou les annotations et choisir des palettes de couleurs accessibles, comme <code>viridis</code> :</p>
+Cela rendrait le document illisible pour les personnes atteinte de daltonisme ou ayant une faible perception des contrastes.</p>
+<p>Dans les graphiques R, il faut chercher à utiliser une palette de couleur en redondance avec les formes ou les annotations et choisir des palettes de couleurs accessibles, comme <code>viridis</code> :</p>
 <pre><code>ggplot(data, aes(x, y, color = groupe, shape = groupe)) +
   geom_point() +
   scale_color_viridis_d()</code></pre>
@@ -486,18 +487,18 @@ Si le tableau est complexe, il convient d’ajouter un titre et un texte explica
 LaTeX est un logiciel externe qui vient en complément de R pour produire des PDF.
 Si LaTeX n’est pas déjà installé par ailleurs, nous conseillons de passer par le package R <a href="https://yihui.name/tinytex/"><code>{tinytex}</code></a>, qui guide l’utilisateur de R pour installer sur son ordinateur une distribution LaTeX légère, portable et facile à maintenir.</p>
 <p>Le code suivant permet d’installer la package R <code>{tinytex}</code> :</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="outputs.html#cb31-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="outputs.html#cb33-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;tinytex&#39;</span>)</span></code></pre></div>
 <p>On installe ensuite la distribution LaTeX sur le PC avec la commande <code>install_tinytex()</code> de <code>{tinytex}</code>.
 On peut spécifier le dossier d’installation souhaité (choisir un dossier sur lequel on a les droits d’écriture :-) ) :</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="outputs.html#cb32-1" tabindex="-1"></a><span class="co"># Exemple de choix d&#39;adresse pour l&#39;installation sur un PC</span></span>
-<span id="cb32-2"><a href="outputs.html#cb32-2" tabindex="-1"></a>install_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="st">&#39;LOCALAPPDATA&#39;</span>), <span class="st">&#39;tinytex&#39;</span>)</span>
-<span id="cb32-3"><a href="outputs.html#cb32-3" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>(<span class="at">dir =</span> install_path)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="outputs.html#cb34-1" tabindex="-1"></a><span class="co"># Exemple de choix d&#39;adresse pour l&#39;installation sur un PC</span></span>
+<span id="cb34-2"><a href="outputs.html#cb34-2" tabindex="-1"></a>install_path <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">Sys.getenv</span>(<span class="st">&#39;LOCALAPPDATA&#39;</span>), <span class="st">&#39;tinytex&#39;</span>)</span>
+<span id="cb34-3"><a href="outputs.html#cb34-3" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>(<span class="at">dir =</span> install_path)</span></code></pre></div>
 <p>En cas de difficultés, il est parfois nécessaire d’indiquer à R où se trouve ce nouvel exécutable.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="spécificités-du-format-pdf_document" class="section level3 hasAnchor" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Spécificités du format pdf_document<a href="outputs.html#sp%C3%A9cificit%C3%A9s-du-format-pdf_document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Pour obtenir une conversion du Rmd en un document PDF, il faut mettre l’option <code>output:pdf_document</code> dans l’en-tête.
-Toutes les paramètres de ce format de sortie sont accessibles depuis l’aide de la fonction rmarkdown::pdf_document (<code>?rmarkdown::pdf_document</code>)</p>
+Tous les paramètres de ce format de sortie sont accessibles depuis l’aide de la fonction rmarkdown::pdf_document (<code>?rmarkdown::pdf_document</code>)</p>
 <p>Voici les options utilisées fréquemment:</p>
 <ul>
 <li><code>toc: true</code> permet d’ajouter une table des matières (table of contents en anglais) à notre document.</li>
@@ -510,12 +511,12 @@ Toutes les paramètres de ce format de sortie sont accessibles depuis l’aide d
 <p>Même si on crée un graphique dans un bout de code présent sur la 1ère page, celui-ci peut finalement apparaître sur la page suivante.
 LaTeX a tendance à faire apparaître les figures au début ou à la fin des pages.
 Il est conseillé de ne traiter le positionnement des figures qu’à la fin du process, une fois la totalité du contenu écrite pour des ajustements pérennes.</p>
-<p>Pour cela il faudra utiliser les options de positionnement dans les chunks (par exemple <code>fig.pos="h"</code>)
+<p>Pour cela il faudra utiliser les options de positionnement dans les chunks (par exemple <code>fig.pos="h"</code>).
 Les <a href="https://www.overleaf.com/learn/latex/Positioning_images_and_tables#The_figure_environment">valeurs possibles pour <code>fig.pos</code></a> sont détaillées dans la documentation de LaTeX.</p>
 <table>
 <colgroup>
-<col width="6%" />
-<col width="93%" />
+<col width="16%" />
+<col width="83%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -538,7 +539,7 @@ Les <a href="https://www.overleaf.com/learn/latex/Positioning_images_and_tables#
 </tr>
 <tr class="even">
 <td>p</td>
-<td>Positionne sur une page spéciale dédiée au figures.</td>
+<td>Positionne sur une page spéciale dédiée aux figures.</td>
 </tr>
 <tr class="odd">
 <td>!</td>
@@ -556,43 +557,42 @@ Si cela s’avère impossible (par exemple, faute d’espace suffisant), la figu
 Il est recommandé d’utiliser plusieurs paramètres de positionnement afin d’éviter tout résultat inattendu.</p>
 <div class="trucsetastuces">
 <p><strong>Trucs &amp; Astuces</strong>
-Si vous souhaitez accéder à plus d’options de mise en forme de tableau, le package <code>kableExtra</code> contient des fonctions compatibles avec les formats HTML et PDF.
-Cependant cela reste compliqué de mettre en forme des tableaux complexes si vous souhaitez plusieurs formats en sortie.
+Si vous souhaitez accéder à plus d’options de mise en forme de tableau, le package <code>kableExtra</code> contient des fonctions compatibles avec les formats HTML et PDF. Cependant cela reste compliqué de mettre en forme des tableaux complexes si vous souhaitez plusieurs formats en sortie.
 Nous vous conseillons d’adapter la mise en forme pour chaque format dans deux chunks distincts ou de trouver une nouvelle façon de représenter la donnée.
 Une autre option consiste dans un 2e temps à imprimer le html généré avec une imprimante PDF.</p>
 </div>
 </div>
 <div id="pagedown" class="section level3 hasAnchor" number="5.2.3">
 <h3><span class="header-section-number">5.2.3</span> <code>{Pagedown}</code><a href="outputs.html#pagedown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" align="right" height="139" /></p>
+<p><img src="https://user-images.githubusercontent.com/163582/51942716-66be4180-23dd-11e9-8dbc-fdb4f465d1c2.png" align="right" height="139"/></p>
 <p>Le package <a href="https://pagedown.rbind.io/"><code>{pagedown}</code></a> avec sa fonction <a href="https://pagedown.rbind.io/#print-to-pdf"><code>chrome_print()</code></a> permet de produire un pdf à partir d’un Rmd conçu pour du html, sans besoin de LaTeX.</p>
 <p>La fonction se repose sur le moteur d’impression du navigateur chrome :</p>
 <ul>
-<li>plus besoin de coder différemment les sorties visuelles selon le format (html pu PDF),</li>
+<li>plus besoin de coder différemment les sorties visuelles selon le format (html ou PDF),</li>
 <li>plus besoin d’installer LaTeX (mais besoin de chrome ou chromium),</li>
 <li>et on conserve la mise en forme css lors du passage au format pdf !</li>
 </ul>
-<p>Le package propose également un format de sortie html <code>pagedown::html_paged</code> qui facilite pagination du document pdf imprimé.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb33-1"><a href="outputs.html#cb33-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb33-2"><a href="outputs.html#cb33-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb33-3"><a href="outputs.html#cb33-3" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb33-4"><a href="outputs.html#cb33-4" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb33-5"><a href="outputs.html#cb33-5" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb33-6"><a href="outputs.html#cb33-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Le package propose également un format de sortie html <code>pagedown::html_paged</code> qui facilite la pagination du document pdf imprimé.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb35-1"><a href="outputs.html#cb35-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb35-2"><a href="outputs.html#cb35-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb35-3"><a href="outputs.html#cb35-3" tabindex="-1"></a><span class="at">  pagedown:</span><span class="fu">:html_paged</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb35-4"><a href="outputs.html#cb35-4" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb35-5"><a href="outputs.html#cb35-5" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb35-6"><a href="outputs.html#cb35-6" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Son fonctionnement est détaillé au niveau du chapitre <a href="pour-aller-plus-loin-sur-pagedown.html#pour-aller-plus-loin-sur-pagedown">Pour aller plus loin sur Pagedown</a>.</p>
 </div>
 </div>
 <div id="multiplier-les-formats-de-sorties" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Multiplier les formats de sorties<a href="outputs.html#multiplier-les-formats-de-sorties" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Lorsqu’on utilise des sorties de tableaux ou d’illustrations basiques, ou lorsqu’on on a pris soin de ne sélectionner que des instructions compatibles avec tous les formats de sortie, ou on peut multiplier les formats de sorties d’un même document R Markdown en empilant dans l’entête la liste des formats de sorties souhaités.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb34-1"><a href="outputs.html#cb34-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb34-2"><a href="outputs.html#cb34-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb34-3"><a href="outputs.html#cb34-3" tabindex="-1"></a><span class="at">  gouvdown:</span><span class="fu">:html_gouv</span><span class="kw">:</span></span>
-<span id="cb34-4"><a href="outputs.html#cb34-4" tabindex="-1"></a><span class="at">    toc:true</span></span>
-<span id="cb34-5"><a href="outputs.html#cb34-5" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
-<span id="cb34-6"><a href="outputs.html#cb34-6" tabindex="-1"></a><span class="at">    toc:true</span></span>
-<span id="cb34-7"><a href="outputs.html#cb34-7" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb34-8"><a href="outputs.html#cb34-8" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb36-1"><a href="outputs.html#cb36-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb36-2"><a href="outputs.html#cb36-2" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb36-3"><a href="outputs.html#cb36-3" tabindex="-1"></a><span class="at">  gouvdown:</span><span class="fu">:html_gouv</span><span class="kw">:</span></span>
+<span id="cb36-4"><a href="outputs.html#cb36-4" tabindex="-1"></a><span class="at">    toc:true</span></span>
+<span id="cb36-5"><a href="outputs.html#cb36-5" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb36-6"><a href="outputs.html#cb36-6" tabindex="-1"></a><span class="at">    toc:true</span></span>
+<span id="cb36-7"><a href="outputs.html#cb36-7" tabindex="-1"></a><span class="at">  </span><span class="fu">odt_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb36-8"><a href="outputs.html#cb36-8" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <p>Pour comparer les options permises par chaque type de sorties, se référer à la <a href="https://opensource.posit.co/resources/cheatsheets/rmarkdown/rmarkdown.pdf">feuille de triche RMarkdown</a>, également accessible depuis le menu Help / Cheat Sheets / R Markdown Cheat Sheet qui comporte un comparatif.</p>
 </div>
 <div id="exercice-4" class="section level2 hasAnchor" number="5.4">

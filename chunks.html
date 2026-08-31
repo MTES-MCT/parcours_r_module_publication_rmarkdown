@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -489,15 +492,28 @@ Cela rend ses résultats utilisables par d’autres chunks.</p></li>
 <span id="cb20-9"><a href="chunks.html#cb20-9" tabindex="-1"></a>                  user = &quot;utilisateur&quot;, </span>
 <span id="cb20-10"><a href="chunks.html#cb20-10" tabindex="-1"></a>                  password = &quot;mdp&quot;)</span>
 <span id="cb20-11"><a href="chunks.html#cb20-11" tabindex="-1"></a>```</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb21-1"><a href="chunks.html#cb21-1" tabindex="-1"></a>```{sql connection=conn}</span>
-<span id="cb21-2"><a href="chunks.html#cb21-2" tabindex="-1"></a>SELECT * FROM mon_schema.matable</span>
-<span id="cb21-3"><a href="chunks.html#cb21-3" tabindex="-1"></a>```</span></code></pre></div>
+<p><strong>ATTENTION :</strong> il est très dangereux de noter ses informations de connexion en clair dans un script qui pourra être partagé ou versionné sur Git.</p>
+<p>Vous pouvez les stocker en variables d’environnement (à faire une fois sur son poste, dans la console R, ne pas enregistrer dans un script) avec la fonction <code>Sys.setenv</code> :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="chunks.html#cb21-1" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">&quot;user_pg&quot;</span> <span class="ot">=</span> <span class="st">&quot;votre nom utilisateur&quot;</span>,</span>
+<span id="cb21-2"><a href="chunks.html#cb21-2" tabindex="-1"></a>           <span class="st">&quot;pwd_pg&quot;</span> <span class="ot">=</span> <span class="st">&quot;votre mot de passe&quot;</span>)</span></code></pre></div>
+<p>Puis les appeler dans vos scripts ou documents reproductibles avec la fonction <code>Sys.getenv</code> :</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="chunks.html#cb22-1" tabindex="-1"></a>conn <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv =</span> <span class="fu">Postgres</span>(),</span>
+<span id="cb22-2"><a href="chunks.html#cb22-2" tabindex="-1"></a>                  <span class="at">dbname =</span> <span class="st">&quot;ma_base&quot;</span>, </span>
+<span id="cb22-3"><a href="chunks.html#cb22-3" tabindex="-1"></a>                  <span class="at">host =</span> <span class="st">&quot;adresse_serveur&quot;</span>, </span>
+<span id="cb22-4"><a href="chunks.html#cb22-4" tabindex="-1"></a>                  <span class="at">port =</span> <span class="st">&quot;port&quot;</span>, </span>
+<span id="cb22-5"><a href="chunks.html#cb22-5" tabindex="-1"></a>                  <span class="at">user =</span> <span class="fu">Sys.getenv</span>(<span class="st">&quot;user_pg&quot;</span>), </span>
+<span id="cb22-6"><a href="chunks.html#cb22-6" tabindex="-1"></a>                  <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">&quot;pwd_pg&quot;</span>))</span></code></pre></div>
+<p>Par suite, une fois la connexion établie, vous pouvez exécuter du code SQL en spécifiant la connexion.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb23-1"><a href="chunks.html#cb23-1" tabindex="-1"></a>```{sql connection=conn}</span>
+<span id="cb23-2"><a href="chunks.html#cb23-2" tabindex="-1"></a>SELECT * FROM mon_schema.matable</span>
+<span id="cb23-3"><a href="chunks.html#cb23-3" tabindex="-1"></a>```</span></code></pre></div>
 <p>Cette instruction renvoie le résultat de la requête SQL (les données sélectionnées).</p>
 <p>Pour pouvoir stocker ce résultat afin de le mobiliser ultérieurement, il faut ajouter le nom de l’objet entre “” dans les options du chunk au niveau <code>output.var=</code> :</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb22-1"><a href="chunks.html#cb22-1" tabindex="-1"></a>```{sql, connection=conn, output.var=&quot;resultat&quot;}</span>
-<span id="cb22-2"><a href="chunks.html#cb22-2" tabindex="-1"></a>SELECT * FROM mon_schema.matable</span>
-<span id="cb22-3"><a href="chunks.html#cb22-3" tabindex="-1"></a>```</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb24-1"><a href="chunks.html#cb24-1" tabindex="-1"></a>```{sql, connection=conn, output.var=&quot;resultat&quot;}</span>
+<span id="cb24-2"><a href="chunks.html#cb24-2" tabindex="-1"></a>SELECT * FROM mon_schema.matable</span>
+<span id="cb24-3"><a href="chunks.html#cb24-3" tabindex="-1"></a>```</span></code></pre></div>
 <p>Dans cet exemple, les données sélectionnées seront stockées dans <code>resultat</code>.</p>
+<p>N’oubliez pas de fermer la connexion avec <code>dbDisconnect(conn)</code> une fois les données récupérées, votre gestionnaire de BdD vous remerciera !</p>
 </div>
 </div>
 <div id="exercice-3" class="section level2 hasAnchor" number="4.4">
@@ -507,11 +523,13 @@ Cela rend ses résultats utilisables par d’autres chunks.</p></li>
 <li>Créer un chunk pour définir des options générales, il ne doit pas être visible dans le document final</li>
 <li>Créer un chunk pour charger les packages nécessaires, il ne doit pas être visible dans le document final</li>
 <li>Créer un nouveau chapitre qui aura pour objet la présentation de quelques observations du jeu de données</li>
-<li>Ajouter un chunk pour stocker les données utilisées dans une dataframe. Ni la dataframe, ni le code ne doivent s’afficher dans le document final. Pour récupérer les données tidytuesday :</li>
+<li>Ajouter un chunk pour lire les données fromage . Le code ne doit pas s’afficher dans le document final.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="chunks.html#cb23-1" tabindex="-1"></a>tuesdata <span class="ot">&lt;-</span> tidytuesdayR<span class="sc">::</span><span class="fu">tt_load</span>(<span class="st">&#39;2024-06-04&#39;</span>)</span>
-<span id="cb23-2"><a href="chunks.html#cb23-2" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="chunks.html#cb23-3" tabindex="-1"></a>data_fromage <span class="ot">&lt;-</span> tuesdata<span class="sc">$</span>cheeses</span></code></pre></div>
+<p>Pour récupérer les données tidytuesday : <code>load("extdata/data_fromage_tidytuesday.RData")</code> depuis votre projet d’exercices<br />
+créé avec savoirfR ou <code>tidytuesdayR::tt_load('2024-06-04')</code><br />
+(prérequis : avoir installé le package tidytuesdayR et configuré votre .Renviron avec un token github d’accès personnel,<br />
+ie créé une variable <code>GITHUB_PAT</code>)</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chunks.html#cb25-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;extdata/data_fromage_tidytuesday.RData&quot;</span>)</span></code></pre></div>
 <ul>
 <li><p>Ajouter une ligne de texte qui indique le nombre de fromages disponibles dans la dataframe (cette valeur doit être calculée automatiquement)</p></li>
 <li><p>Créer une variable dans cette dataframe pour indiquer si l’origine des fromages (colonne <code>country</code>) est française ou non</p></li>

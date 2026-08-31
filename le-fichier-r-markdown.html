@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-07-30" />
+<meta name="date" content="2026-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1" data-path="get-started.html"><a href="get-started.html"><i class="fa fa-check"></i><b>1</b> Bien commencer</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a></li>
+<li class="chapter" data-level="1.1" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-un-projet-sous-rstudio-pour-vous-permettre-de-recenser-vos-travaux."><i class="fa fa-check"></i><b>1.1</b> Créer un projet sous Rstudio pour vous permettre de recenser vos travaux.</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="get-started.html"><a href="get-started.html#piege"><i class="fa fa-check"></i><b>1.1.1</b> Spécificité du répertoire de travail d’un script Rmarkdown</a></li>
+</ul></li>
 <li class="chapter" data-level="1.2" data-path="get-started.html"><a href="get-started.html#utilisation-du-package-savoirfr"><i class="fa fa-check"></i><b>1.2</b> Utilisation du package <code>{savoirfR}</code></a></li>
 <li class="chapter" data-level="1.3" data-path="get-started.html"><a href="get-started.html#cr%C3%A9er-votre-arborescence-de-projet"><i class="fa fa-check"></i><b>1.3</b> Créer votre arborescence de projet</a></li>
 <li class="chapter" data-level="1.4" data-path="get-started.html"><a href="get-started.html#activer-les-packages-n%C3%A9cessaires"><i class="fa fa-check"></i><b>1.4</b> Activer les packages nécessaires</a></li>
@@ -380,7 +383,7 @@ Un fichier (html si vous avez choisi ce format de sortie) portant le même nom q
 <h3><span class="header-section-number">3.2.1</span> L’en-tête<a href="le-fichier-r-markdown.html#len-t%C3%AAte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>L’en-tête s’écrit au format <a href="https://fr.wikipedia.org/wiki/YAML">YAML</a> c’est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.</p>
 <p>L’en-tête est parfois appelé le Header ou le YAML.
-Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).<br />
+Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).
 Il est délimité par deux séries de <code>---</code>.</p>
 <div class="trucsetastuces">
 <p><strong>Trucs &amp; Astuces</strong></p>
@@ -453,7 +456,7 @@ Cela évite toute confusion lors de la génération du document (tous les proces
 </div>
 <div id="la-mise-en-forme-à-la-volée" class="section level4 hasAnchor" number="3.2.3.2">
 <h4><span class="header-section-number">3.2.3.2</span> La mise en forme à la volée<a href="le-fichier-r-markdown.html#la-mise-en-forme-%C3%A0-la-vol%C3%A9e" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Pour les <em>caractères en italique</em>, entourer de deux <code>*</code> ou deux <code>_</code> : <code>*caractères italiques*</code>.<br />
+<p>Pour les <em>caractères en italique</em>, entourer d’un <code>*</code> ou d’un <code>_</code> : <code>*caractères italiques*</code>.<br />
 </p>
 <p>Pour les <strong>caractères gras</strong>, entourer de deux <code>**</code> ou deux <code>__</code> : <code>**caractères gras**</code>.<br />
 </p>
@@ -475,22 +478,21 @@ Cela évite toute confusion lors de la génération du document (tous les proces
 </li>
 <li><code>###</code> pour les titres de niveau 3</li>
 </ul>
-<p>Rend:</p>
+<p>rend :</p>
 <p><img src="assets/img/titres.png" /></p>
 <p>Si l’on souhaite qu’une section ne soit pas numérotée, par exemple pour l’introduction ou les annexes, il faut faire suivre son titre de {-}. Exemple : # Annexe A {-}.</p>
 </div>
 <div id="les-listes" class="section level5 hasAnchor" number="3.2.3.2.2">
 <h5><span class="header-section-number">3.2.3.2.2</span> Les listes<a href="le-fichier-r-markdown.html#les-listes" class="anchor-section" aria-label="Anchor link to header"></a></h5>
 <p><strong>Liste à puces</strong></p>
-<p>Les listes à puces, sans ordre, commencent par <code>-</code> ou <code>*</code> ou <code>+</code>, en précédant la liste par une ligne vide.
-On peut créer des listes imbriquées en indentant la sous-liste.</p>
+<p>Les listes à puces, sans ordre, commencent par <code>-</code> ou <code>*</code> ou <code>+</code>, en précédant la liste par une ligne vide. On peut créer des listes imbriquées en indentant la sous-liste.</p>
 <pre><code>- Premier élément  
 - Deuxième élément     
       - Sous-élément 1  
-          - ezgtz  
-          - aergtg  
+          - est-ce bien raisonnable...  
+          - ...d&#39;imbriquer 3 niveaux ?
       - Sous-élément 2  </code></pre>
-<p>Rend :</p>
+<p>rend :</p>
 <ul>
 <li>Premier élément<br />
 </li>
@@ -500,9 +502,9 @@ On peut créer des listes imbriquées en indentant la sous-liste.</p>
 <li>Sous-élément 1<br />
 
 <ul>
-<li>aaaa<br />
+<li>est-ce bien raisonnable…<br />
 </li>
-<li>bbbb<br />
+<li>…d’imbriquer 3 niveaux ?<br />
 </li>
 </ul></li>
 <li>Sous-élément 2</li>
@@ -512,19 +514,21 @@ On peut créer des listes imbriquées en indentant la sous-liste.</p>
 <pre><code>1. Premier élément  
 2. Deuxième élément     
       1) Sous-élément 1  
-          a- aaaa  
-          b- bbbb  
+          a- Sous-sous-élément a
+          b- Sous-sous-élément b  
       1) Sous-élément 2  </code></pre>
-<p>Rend :</p>
+<p>rend :</p>
 <ol style="list-style-type: decimal">
-<li><p>Premier élément<br />
-</p></li>
-<li><p>Deuxième élément</p>
+<li>Premier élément<br />
+</li>
+<li>Deuxième élément<br />
+
 <ol style="list-style-type: decimal">
-<li><p>Sous-élément 1<br />
-a- aaaa<br />
-b- bbbb</p></li>
-<li><p>Sous-élément 2</p></li>
+<li>Sous-élément 1<br />
+a- Sous-sous-élément a<br />
+b- Sous-sous-élément b<br />
+</li>
+<li>Sous-élément 2</li>
 </ol></li>
 </ol>
 <p>Notez qu’une erreur de numérotation sera automatiquement corrigée tant que l’indentation et le style de numérotation sont corrects.</p>
@@ -565,15 +569,14 @@ b- bbbb</p></li>
 </tbody>
 </table>
 <p>Les <strong>notes de bas de page</strong> s’écrivent à l’intérieur de <code>^[]</code>.</p>
-<p><code>...pour approfondir^[on ajoute une note de bas de page]</code> rend ‘…pour approfondir<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>’.</p>
+<p><code>...pour approfondir^[on ajoute une note de bas de page]</code> rend :
+…pour approfondir<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 </div>
 </div>
 <div id="commentaires" class="section level4 hasAnchor" number="3.2.3.3">
 <h4><span class="header-section-number">3.2.3.3</span> Commentaires<a href="le-fichier-r-markdown.html#commentaires" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Pour mettre une partie du fichier en commentaires, non traitée, il
-faut encadrer la partie par <code>&lt;!-- commentaires --&gt;</code>.</p>
-<p>Pour cela on peut utiliser le raccourci clavier <kbd>Ctrl + Shift + C</kbd> ou
-la commande dans le menu “Code”.</p>
+<p>Pour mettre une partie du fichier en commentaires, non traitée, il faut encadrer la partie par <code>&lt;!-- commentaires --&gt;</code>.</p>
+<p>Pour cela on peut utiliser le raccourci clavier <kbd>Ctrl + Shift + C</kbd> ou la commande dans le menu “Code”.</p>
 </div>
 </div>
 </div>
@@ -585,27 +588,22 @@ la commande dans le menu “Code”.</p>
 <p><code>![Légende de la figure.](chemin/vers/image.png){ width=50% }</code></p>
 <div class="trucsetastuces">
 <p><strong>Trucs &amp; Astuces</strong></p>
-<p>NB : Pour définir les dimensions de l’image, les caractères ‘espace’ ne sont pas autorisés autour du signe
-égal <code>=</code>,
-ni entre la parenthèse fermante et l’accolade ouvrante.
-On a <code>){</code>.</p>
+<p>NB : Pour définir les dimensions de l’image, les caractères ‘espace’ ne sont pas autorisés autour du signe égal <code>=</code>, ni entre la parenthèse fermante et l’accolade ouvrante. On a <code>){</code>.</p>
 </div>
 <p>On peut aussi utiliser la fonction <code>knitr::include_graphics</code> :</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="le-fichier-r-markdown.html#cb10-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;assets/img/couleuvre.jpg&quot;</span>)</span></code></pre></div>
 <p><img src="assets/img/couleuvre.jpg" /><!-- --></p>
-<p>Cette dernière méthode, préconisée quand le format de sortie n’est pas
-du html, permet de mieux contrôler l’affichage de l’image.</p>
+<p>Cette dernière méthode, préconisée quand le format de sortie n’est pas du html, permet de mieux contrôler l’affichage de l’image.</p>
 <p>Cela se fait à l’intérieur d’un chunk et ça, on le verra au chapitre <a href="chunks.html#chunks">4</a></p>
 <div class="warning">
 <p><strong>Attention au répertoire de travail !</strong>
 Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l’adresse à partir de laquelle commence le chemin de l’image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d’un projet.
-Se référer à la partie dédiée <a href="#piege"><strong>??</strong></a> pour s’en dépatouiller.</p>
+Se référer à la partie dédiée <a href="get-started.html#piege">1.1.1</a> pour s’en dépatouiller.</p>
 </div>
 </div>
 <div id="encodage" class="section level2 hasAnchor" number="3.4">
 <h2><span class="header-section-number">3.4</span> Encodage<a href="le-fichier-r-markdown.html#encodage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Pour le bon fonctionnement général, tous les fichiers R Markdown doivent être encodés en UTF-8, notamment pour les langages
-présentant des caractères accentués (comme le français).</p>
+<p>Pour le bon fonctionnement général, tous les fichiers R Markdown doivent être encodés en UTF-8, notamment pour les langages présentant des caractères accentués (comme le français).</p>
 <div class="blackbox">
 <div class="center">
 <p><strong>Trucs &amp; Astuces</strong></p>
@@ -621,9 +619,7 @@ présentant des caractères accentués (comme le français).</p>
 </ul>
 <p>Fichier <span class="math inline">\(\Rightarrow\)</span> Sauvegarder avec l’encodage…</p>
 <p><img src="assets/img/enregistrer_encodage.png" /></p>
-<p>Remarquer la case à cocher au niveau de la fenêtre de dialogue “Réouvrir avec encodage…”,
-sélectionner UTF-8 et cocher l’option : “Définir comme encodage par défaut pour
-les fichiers sources”, ce sera fait une fois pour toute.</p>
+<p>Remarquer la case à cocher au niveau de la fenêtre de dialogue “Réouvrir avec encodage…”, sélectionner UTF-8 et cocher l’option : “Définir comme encodage par défaut pour les fichiers sources”, ce sera fait une fois pour toute.</p>
 </div>
 </div>
 <div id="exercice-2" class="section level2 hasAnchor" number="3.5">
