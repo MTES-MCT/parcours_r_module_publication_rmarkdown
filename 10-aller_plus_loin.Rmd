@@ -200,7 +200,8 @@ Contenu de l'onglet 2
 
 Pour finir un tabset, commencer un nouveau titre du niveau supérieur vide `### {.unlisted .unnumbered}` pour continuer avec des paragraphes réguliers.   
 
-Plus d'options d'onglets sont présentées dans le livre de recettes Rmarkdown :  <https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html/>.
+Plus d'options d'onglets sont présentées dans le livre de recettes Rmarkdown :  <https://pkg.yihui.org/rmarkdown-cookbook/html-tabs>.
+ 
 
 Ce paramétrage en onglets ne fonctionne pas dans les projets de type bookdown car les titres sont déjà mobilisés pour construire le menu de gauche. 
 

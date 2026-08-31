@@ -36,7 +36,7 @@ Git un exécutable qui s'installe sur son PC, permettant le suivi de version des
 
 Le parcours-R est hébergé sur github car à ses débuts, c'était l'offre la plus populaire.
 
-Le ministère dispose désormais d'une instance officielle de gitlab : <https://gitlab-forge.din.developpement-durable.gouv.fr/> 
+Le ministère dispose désormais d'une instance officielle de gitlab : <https://gitlab-forge.din.developpement-durable.gouv.fr/>. 
 Chaque service du pôle ministériel peut disposer d'un dépôt gitlab-forge après avoir formulé une demande officielle, cf fiche spote <https://spote.developpement-durable.gouv.fr/offre/gitlab-forge-logicielle-et-livraison-continue>.
 
 Chaque agent disposant d'un compte CERBERE peut rejoindre un groupe gitlab-forge ou y disposer d'un dépôt personnel.
