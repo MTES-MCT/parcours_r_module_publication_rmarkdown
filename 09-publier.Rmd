@@ -1,4 +1,4 @@
-# Mettre en ligne les HTML produits avec Rmarkdown
+# Mettre en ligne les HTML produits avec Rmarkdown {#publier}
 
 Les fichiers HTML ne peuvent pas simplement venir compléter nos sites institutionnels gérés avec Spip/Giseh. 
 Pour les partager en interne, les déposer sur un serveur bureautique suffit. En revanche, pour les partager avec l'extérieur, il est souvent nécessaire d'héberger les documents sur un serveur dédié.
