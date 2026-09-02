@@ -78,7 +78,7 @@ interactivité-avancée-les-inputs-utilisateur
 exemple-reproductible
 exercice-7-facultatif
 interactivité-complète-lapplication-shiny-embarquée
-mettre-en-ligne-les-html-produits-avec-rmarkdown
+publier
 publier-sur-un-serveur-html-statique
 publier-grâce-aux-fonctionnalités-de-déploiement-continu-dune-forge-git
 exemple-le-parcours-r
