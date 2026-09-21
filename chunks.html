@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 4 Intégrer du code à exécuter dans les Rmd | Module 6 - Publications reproductibles avec RMarkdown</title>
   <meta name="description" content="Support de cours du module 6 « Publications reproductibles avec RMarkdown » de la valise pédagogique Parcours-r MTES/MCTRCT" />
-  <meta name="generator" content="bookdown 0.46 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 4 Intégrer du code à exécuter dans les Rmd | Module 6 - Publications reproductibles avec RMarkdown" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Groupe des référents R" />
 
 
-<meta name="date" content="2026-09-02" />
+<meta name="date" content="2026-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -54,7 +54,7 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <link href="libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.12.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.12.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
@@ -520,24 +520,32 @@ Cela rend ses résultats utilisables par d’autres chunks.</p></li>
 <div id="exercice-3" class="section level2 hasAnchor" number="4.4">
 <h2><span class="header-section-number">4.4</span> Exercice 3<a href="chunks.html#exercice-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li>Poursuivre le fichier .Rmd de l’exercice précédent</li>
-<li>Créer un chunk pour définir des options générales, il ne doit pas être visible dans le document final</li>
-<li>Créer un chunk pour charger les packages nécessaires, il ne doit pas être visible dans le document final</li>
-<li>Créer un nouveau chapitre qui aura pour objet la présentation de quelques observations du jeu de données</li>
-<li>Ajouter un chunk pour lire les données fromage . Le code ne doit pas s’afficher dans le document final.</li>
-</ul>
-<p>Pour récupérer les données tidytuesday : <code>load("extdata/data_fromage_tidytuesday.RData")</code> depuis votre projet d’exercices<br />
-créé avec savoirfR ou <code>tidytuesdayR::tt_load('2024-06-04')</code><br />
-(prérequis : avoir installé le package tidytuesdayR et configuré votre .Renviron avec un token github d’accès personnel,<br />
-ie créé une variable <code>GITHUB_PAT</code>)</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chunks.html#cb25-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;extdata/data_fromage_tidytuesday.RData&quot;</span>)</span></code></pre></div>
+<li><p>Poursuivre le fichier .Rmd de l’exercice précédent</p></li>
+<li><p>Créer un chunk pour définir des options générales, il ne doit pas être visible dans le document final</p></li>
+<li><p>Créer un chunk pour charger les packages nécessaires (<code>library(tidyverse)</code> pour démarrer), il ne doit pas être visible dans le document final</p></li>
+<li><p>Créer un nouveau chapitre qui aura pour objet la présentation de quelques observations du jeu de données</p></li>
+<li><p>Ajouter un chunk pour lire les données fromage, le code ne doit pas s’afficher dans le document final. Pour récupérer les données tidytuesday :</p>
 <ul>
+<li><code>load("extdata/data_fromage_tidytuesday.RData")</code> depuis votre projet d’exercices créé avec savoirfR</li>
+<li>ou <code>tidytuesdayR::tt_load('2024-06-04')</code> (prérequis : avoir installé le package tidytuesdayR et configuré votre .Renviron avec un token github d’accès personnel, ie créé une variable <code>GITHUB_PAT</code>).</li>
+</ul></li>
 <li><p>Ajouter une ligne de texte qui indique le nombre de fromages disponibles dans la dataframe (cette valeur doit être calculée automatiquement)</p></li>
 <li><p>Créer une variable dans cette dataframe pour indiquer si l’origine des fromages (colonne <code>country</code>) est française ou non</p></li>
-<li><p>Ajouter un chunk créant un graphique en barres qui indique le nombre de fromage par origine (FR ou non-FR). Le graphique devra apparaître dans le document final, pas le code pour le créer.</p></li>
+<li><p>Ajouter un chunk créant un graphique en barres qui indique le nombre de fromage par origine (FR ou non-FR).</p></li>
+<li><p>Ajouter dans le graphique une ligne horizontale qui montre le nombre de fromages français référencés par le Centre National Interprofessionnel de l’Économie Laitière (= 1280 fromages).</p></li>
+<li><p>Le graphique devra apparaître dans le document final, pas le code pour le créer.</p></li>
 <li><p>Ajouter une image d’illustration en tête d’article</p></li>
 <li><p>Générer le document</p></li>
 </ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="chunks.html#cb25-1" tabindex="-1"></a><span class="fu">load</span>(<span class="st">&quot;extdata/data_fromage_tidytuesday.RData&quot;</span>)</span>
+<span id="cb25-2"><a href="chunks.html#cb25-2" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="chunks.html#cb25-3" tabindex="-1"></a>data_FRomage <span class="ot">&lt;-</span> data_fromage <span class="sc">%&gt;%</span> </span>
+<span id="cb25-4"><a href="chunks.html#cb25-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">origine =</span> <span class="fu">if_else</span>(country <span class="sc">==</span> <span class="st">&quot;France&quot;</span>, <span class="st">&quot;FR&quot;</span>, <span class="st">&quot;non FR&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="chunks.html#cb25-5" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(origine))</span>
+<span id="cb25-6"><a href="chunks.html#cb25-6" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="chunks.html#cb25-7" tabindex="-1"></a><span class="fu">ggplot</span>(data_FRomage) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="chunks.html#cb25-8" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> origine, <span class="at">fill =</span> origine)) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="chunks.html#cb25-9" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1280</span>, <span class="at">color =</span> <span class="st">&#39;#666666&#39;</span>)</span></code></pre></div>
 <p>Résultat attendu :</p>
 <iframe src="https://mtes-mct.github.io/savoirfR/cheesedown/cheesedown_exo3.html" width="100%" height="1600" data-external="1">
 </iframe>
