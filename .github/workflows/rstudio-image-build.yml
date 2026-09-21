@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - dev
     paths:
       - .github/workflows/rstudio-image-build.yml
       - Dockerfile
@@ -15,7 +14,6 @@ on:
       - created
     branches:
       - main
-      - dev
     paths:
       - .github/workflows/rstudio-image-build.yml
       - Dockerfile

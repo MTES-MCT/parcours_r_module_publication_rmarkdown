@@ -3,7 +3,6 @@ name: Déploiement de parcours_r_module6_publications_reproductibles
 on:
   push:
     branches:
-      - dev
       - main
 
   workflow_dispatch:
