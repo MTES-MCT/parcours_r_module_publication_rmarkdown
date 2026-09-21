@@ -10,6 +10,7 @@ bookdown::gitbook:
       after: |
         <li><a href="https://mtes-mct.github.io/parcours-r/">Liste des formations R</a></li>
         <li><a href="https://github.com/MTES-MCT/parcours_r_module_publication_rmarkdown">Code source du support</a></li>
+        <li><a href="https://github.com/MTES-MCT/parcours_r_module_publication_rmarkdown/support_M6_Rmarkdown.pdf">Version PDF du support</a></li>
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     pandoc_args: [
       "-M", "toc-title=Table des matières"

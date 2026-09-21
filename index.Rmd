@@ -13,10 +13,7 @@ css: assets/css/style.css
 
 ![](assets/img/couleuvre.jpg)
 
-<font size="2"> 
-*Crédit photographique Pascal Boulin*
-</font> 
-
+<font size="2"> *Crédit photographique Pascal Boulin* </font>
 
 ## Le parcours de formation {.unnumbered}
 
@@ -24,7 +21,6 @@ css: assets/css/style.css
 # Utilisation du chapitre de présentation du parcours présent dans https://github.com/MTES-MCT/parcours-r
 cat(stringi::stri_read_lines("https://raw.githubusercontent.com/MTES-MCT/parcours-r/master/parties_communes/le_parcours_R.Rmd", encoding = "UTF-8"), sep = "\n")
 ```
-
 
 ## Le groupe de référents R du pôle ministériel {.unnumbered}
 
@@ -34,47 +30,42 @@ a <- knitr::knit_child(text = stringi::stri_read_lines("https://raw.githubuserco
 cat(a, sep = '\n')
 ```
 
-
 ## Objectifs de ce module {.unnumbered}
 
 A l'issue de la formation sur ce module, les stagiaires devraient être en capacité de produire une publication reproductible et paramétrable relativement simple de A à Z. Il sera fait appel aux compétences acquises lors des précédents modules, en particulier des modules "socle". Le langage utilisé est [R Markdown], qui permet d'avoir dans un seul fichier du texte mis en forme, du code (R, mais aussi Python, Julia, C++, SQL et même SAS !) et les sorties du code.
 
 Les points abordés comprendront :
 
-+ Intérêt des publications reproductibles  
-+ Articulation Markdown / pandoc / R / LateX   
-+ La syntaxe R Markdown  
-+ L'insertion de code R  
-+ Les formats de sortie (html, pdf, bureautiques, site_web...)
-+ Mise en forme d'un rapport HTML (css, gouvdown)
-+ Reproduire une analyse en faisant varier un ou plusieurs paramètres (territoire, millésime...) avec le paramétrage des documents
-+ L'assemblage de plusieurs documents R Markdown (package `bookdown`)
-+ Les éléments interactifs : leaflet, onglet, popover, crosstalk
-+ Les solutions pour publier les documents produits
-+ Ouverture vers Quarto
-
+- Intérêt des publications reproductibles\
+- Articulation Markdown / pandoc / R / LateX\
+- La syntaxe R Markdown\
+- L'insertion de code R\
+- Les formats de sortie (html, pdf, bureautiques, site_web...)
+- Mise en forme d'un rapport HTML (css, gouvdown)
+- Reproduire une analyse en faisant varier un ou plusieurs paramètres (territoire, millésime...) avec le paramétrage des documents
+- L'assemblage de plusieurs documents R Markdown (package `bookdown`)
+- Les éléments interactifs : leaflet, onglet, popover, crosstalk
+- Les solutions pour publier les documents produits
+- Ouverture vers Quarto
 
 ## Exemples de productions avec R Markdown {.unnumbered}
 
 R Markdown permet de produire des sorties dans un grand nombre de formats. Quelques exemples :
 
-+ Des documents "simples" en format html, word, epub, pdf, etc.
-+ Des diaporamas en formats Powerpoint, Beamer, Ioslides, Revealjs, etc.
-+ Des tableaux de bord interactifs en combinant avec des widgets html ou des éléments produits par le package shiny.
-[Exemple](https://testing-apps.shinyapps.io/flexdashboard-highcharter/)
-+ Des pages web statiques comme des [supports de formation](https://mtes-mct.github.io/parcours_r_module_analyse_spatiale/)
-+ Des publications paramétrables faciles à mettre à jour  
-    - [Publications RPLS 2024 régionales]("https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2024/")  
-    - [Conjoncture logement neuf en Pays-de-Loire](http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html)  
-    - [Dans les Hauts-de-France](https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance)
-   
-+ Et même des livres : 
+- Des documents "simples" en format html, word, epub, pdf, etc.
+- Des diaporamas en formats Powerpoint, Beamer, Ioslides, Revealjs, etc.
+- Des tableaux de bord interactifs en combinant avec des widgets html ou des éléments produits par le package shiny. [Exemple](https://testing-apps.shinyapps.io/flexdashboard-highcharter/)
+- Des pages web statiques comme des [supports de formation](https://mtes-mct.github.io/parcours_r_module_analyse_spatiale/)
+- Des publications paramétrables faciles à mettre à jour
+  - [Publications RPLS régionales 2025](https://dreal.statistiques.developpement-durable.gouv.fr/parc_social/2025/)\
+  - [Conjoncture logement neuf en Pays-de-Loire](http://www.donnees.pays-de-la-loire.developpement-durable.gouv.fr/publications/ecln/ECLN_Conj_2018T4.html)\
+  - [Constructions neuves dans les Hauts-de-France](https://www.hauts-de-france.developpement-durable.gouv.fr/static/logements/sitadel-tableau-de-bord-logements-hauts-de-france.html#cartesfrance)
+- Et même des livres :
 
-![R for data science](assets/img/r4ds.png){.centered width="30%"}
+[![R for data science](assets/img/cover_R_for_datascience.jpg){.centered width="30%"}](https://r4ds.hadley.nz/)
 
-+ divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
+- divers autres formats comme des blogs, des sites web, du epub, des diaporamas, etc.
 
 ```{r, warning=FALSE, echo=FALSE}
 library(savoirfR) #on active savoir faire pour y récupérer les consignes des exercices
 ```
-

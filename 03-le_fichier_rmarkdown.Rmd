@@ -4,25 +4,20 @@ La logique et les principaux points à retenir sur Rmarkdown sont rassemblés da
 
 ![](assets/img/cheat_sheet.png)
 
-:::: {style="display: flex; gap: 50px;"}
-
+::::: {style="display: flex; gap: 50px;"}
 ::: {}
 [Le guide définitif de Rmarkdown](https://bookdown.org/yihui/rmarkdown/markdown-syntax.html) est un document très complet pour qui veut se lancer ou se perfectionner dans R markdown.
 
-![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="40%"}   
-
+![](assets/img/rmarkdown_definitive_guide_cover.png){.centered width="40%"}
 :::
-    
-::: {}
 
+::: {}
 Le [livre de recettes Rmarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) prolonge le guide Rmarkdown. 
 C'est un florilège d'exemples pratiques répondant à des besoins exprimés sur des forums.
 
 ![](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png){.centered width="30%"}
-
-::: 
-:::: 
-
+:::
+:::::
 
 ## R Markdown dans RStudio
 
@@ -67,9 +62,9 @@ L'extension de ce type de fichier est `.Rmd`.
 ### Lancer la génération du document par un 'knit'
 
 Une fois le fichier .Rmd complété et enregistré, vous pouvez visualiser la table des matières en cliquant sur l'icône ![](assets/img/icone_table_matiere.png) en haut à droite. 
-Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier.  
+Vous pouvez aussi prévisualiser le document en sortie en cliquant sur le bouton "Visual" qui donne accès au mode visuel de l'éditeur de fichier. 
 
-Pour générer un document à partir du fichier .Rmd, on clique sur le bouton **knit**.  
+Pour générer un document à partir du fichier .Rmd, on clique sur le bouton **knit**.\
 Un fichier (html si vous avez choisi ce format de sortie) portant le même nom que le fichier.Rmd est alors créé dans le répertoire de travail (là où vous avez créé votre projet R), et le document généré s'ouvre dans le viewer de R Studio (ou dans une pop-up).
 
 ::: trucsetastuces
@@ -84,10 +79,7 @@ rmarkdown::render(nom_fichier.Rmd)
 ou grâce au raccourci [Ctrl + Shift + K]{.kbd}
 :::
 
-
 Le document produit contient l'ensemble des informations du fichier .Rmd, que cela soit le texte (mis en forme), la visualisation du code intégré (si celle-ci est demandée) et ce qui est produit par ce code.
-
-
 
 ## Les éléments d'un fichier .Rmd
 
@@ -101,10 +93,10 @@ Dans les sections suivantes ces composants seront détaillés un par un.
 
 ### L'en-tête
 
-L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable.
+L'en-tête s'écrit au format [YAML](https://fr.wikipedia.org/wiki/YAML) c'est un format ayant pour objectif de représenter des informations plus élaborées que le simple CSV en gardant cependant une lisibilité presque comparable. 
 
 L'en-tête est parfois appelé le Header ou le YAML. 
-Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.).  
+Il sert à définir des paramètres comme les informations basiques sur le document ainsi que des choix relatifs au format de sortie (PDF, HTML, DOCX, etc.). 
 Il est délimité par deux séries de `---`.
 
 ::: trucsetastuces
@@ -115,25 +107,25 @@ Pour modifier l'en-tête, attention à bien respecter l'alignement des indentati
 
 C'est dans le YAML que vous allez définir notamment :
 
--   le titre (initialisé lors de la création du fichier)
--   les auteurs
--   la date de votre document (qui peut être fixe en texte ou appelée en R depuis l'horloge système)
--   le format de sortie (initialisé lors de la création du fichier)
--   des options
--   des paramètres.
+- le titre (initialisé lors de la création du fichier)
+- les auteurs
+- la date de votre document (qui peut être fixe en texte ou appelée en R depuis l'horloge système)
+- le format de sortie (initialisé lors de la création du fichier)
+- des options
+- des paramètres.
 
-````{verbatim}
+```{verbatim}
 ---
 title: "mon_premier_document"
 author: "Moi"
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
-````
+```
 
 On peut rajouter plusieurs auteurs :
 
-````{verbatim}
+```{verbatim}
 ---
 title: "mon_premier_document"
 author: 
@@ -142,13 +134,13 @@ author:
 date: "`r format(Sys.Date(), '%d %B %Y')`"
 output: html_document
 ---
-````
+```
 
 On peut rajouter des options pour un output, ce qui sera vu en détail dans le paragraphe \@ref(outputs).
 
 Il est possible de rajouter plusieurs types d'outputs :
 
-````{verbatim}
+```{verbatim}
 ---
 title: "mon_premier_document"
 author: 
@@ -161,15 +153,12 @@ output:
     toc: true
     theme: flatly
 ---
-````
-
+```
 
 ### Exercice 1
 
 ```{r mod6_exo1, child=charge_exo("m6", "exo1.rmd"), echo=FALSE}
 ```
-
-
 
 ### Les éléments texte
 
@@ -188,7 +177,7 @@ Le texte simple est directement interprété sans besoin de balisage.
 
 #### La mise en forme à la volée
 
-Pour les *caractères en italique*, entourer de deux `*` ou deux `_` : `*caractères italiques*`.\
+Pour les *caractères en italique*, entourer d'un `*` ou d'un `_` : `*caractères italiques*`.\
 
 Pour les **caractères gras**, entourer de deux `**` ou deux `__` : `**caractères gras**`.\
 
@@ -206,40 +195,39 @@ Pour forcer le retour à la ligne, terminer par un double espace ou un `\` ou sa
 
 Contrairement à la pratique en R, le `#` indique les titres. Par défaut, dans Rmarkdown, ils ne sont pas numérotés.
 
-- `#` pour les titres de niveau 1     
-- `##` pour les titres de niveau 2  
-- `###` pour les titres de niveau 3  
+- `#` pour les titres de niveau 1\
+- `##` pour les titres de niveau 2\
+- `###` pour les titres de niveau 3
 
-Rend:
+rend :
 
 ![](assets/img/titres.png)
 
-Si l'on souhaite qu'une section ne soit pas numérotée, par exemple pour l'introduction ou les annexes, il faut faire suivre son titre de {-}. Exemple : # Annexe A {-}.
+Si l'on souhaite qu'une section ne soit pas numérotée, par exemple pour l'introduction ou les annexes, il faut faire suivre son titre de {-}. Exemple : \# Annexe A {-}.
 
 ##### Les listes
 
 **Liste à puces**
 
-Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédant la liste par une ligne vide. 
-On peut créer des listes imbriquées en indentant la sous-liste.
+Les listes à puces, sans ordre, commencent par `-` ou `*` ou `+`, en précédant la liste par une ligne vide. On peut créer des listes imbriquées en indentant la sous-liste.
 
 ```         
 - Premier élément  
 - Deuxième élément     
       - Sous-élément 1  
-          - ezgtz  
-          - aergtg  
+          - est-ce bien raisonnable...  
+          - ...d'imbriquer 3 niveaux ?
       - Sous-élément 2  
 ```
 
-Rend :
+rend :
 
--   Premier élément\
--   Deuxième élément\
-    -   Sous-élément 1\
-        -   aaaa\
-        -   bbbb\
-    -   Sous-élément 2
+- Premier élément\
+- Deuxième élément\
+  - Sous-élément 1\
+    - est-ce bien raisonnable...\
+    - ...d'imbriquer 3 niveaux ?\
+  - Sous-élément 2
 
 **Liste numérotée**
 
@@ -247,25 +235,21 @@ Rend :
 1. Premier élément  
 2. Deuxième élément     
       1) Sous-élément 1  
-          a- aaaa  
-          b- bbbb  
+          a- Sous-sous-élément a
+          b- Sous-sous-élément b  
       1) Sous-élément 2  
 ```
 
-Rend :
+rend :
 
 1.  Premier élément\
-
-2.  Deuxième élément
-
+2.  Deuxième élément\
     1)  Sous-élément 1\
-        a- aaaa  
-        b- bbbb  
+        a- Sous-sous-élément a\
+        b- Sous-sous-élément b\
+    2)  Sous-élément 2
 
-    1) Sous-élément 2
-    
-Notez qu'une erreur de numérotation sera automatiquement corrigée tant que l'indentation et le style de numérotation sont corrects. 
-
+Notez qu'une erreur de numérotation sera automatiquement corrigée tant que l'indentation et le style de numérotation sont corrects.
 
 ##### Les mentions
 
@@ -289,7 +273,6 @@ rend
 
 [Cliquer sur le lien](https://mtes-mct.github.io/parcours-r/)
 
-
 Pour faire des **liens internes**, on peut utiliser la même syntaxe, après avoir inséré une balise là où on souhaite rediriger le lecteur.
 
 Exemple de placement de la balise :
@@ -300,27 +283,23 @@ Puis pour faire un lien dessus :
 
 `[Aller au § Commentaires](#commentaires)`
 
+La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Commentaires', mais renvoie son numéro.
 
-La balise `\@ref(commentaires)` crée également un lien vers le paragraphe 'Commentaires', mais renvoie son numéro. 
+| texte saisi           | résultat après knit |
+|-----------------------|---------------------|
+| `\@ref(commentaires)` | \@ref(commentaires) |
 
-| texte saisi | résultat après knit |
-| ----------- | ------------------- |
-| ` \@ref(commentaires) ` | \@ref(commentaires) | 
+Les **notes de bas de page** s'écrivent à l'intérieur de `^[]`.
 
-
-
-Les **notes de bas de page** s'écrivent à l'intérieur de `^[]`. 
-
-`...pour approfondir^[on ajoute une note de bas de page]` rend '...pour approfondir^[on ajoute une note de bas de page]'.
+`...pour approfondir^[on ajoute une note de bas de page]` rend : 
+...pour approfondir^[on ajoute une note de bas de page].
 
 
-#### Commentaires 
+#### Commentaires
 
-Pour mettre une partie du fichier en commentaires, non traitée, il
-faut encadrer la partie par `<!-- commentaires -->`.
+Pour mettre une partie du fichier en commentaires, non traitée, il faut encadrer la partie par `<!-- commentaires -->`.
 
-Pour cela on peut utiliser le raccourci clavier [Ctrl + Shift + C]{.kbd} ou
-la commande dans le menu "Code".
+Pour cela on peut utiliser le raccourci clavier [Ctrl + Shift + C]{.kbd} ou la commande dans le menu "Code".
 
 ## Insérer des images
 
@@ -332,16 +311,11 @@ On peut adapter les dimensions de l'image :
 
 `![Légende de la figure.](chemin/vers/image.png){ width=50% }`
 
-
-::::: {.trucsetastuces}::::::    
+::: trucsetastuces
 **Trucs & Astuces**
 
-NB : Pour définir les dimensions de l'image, les caractères 'espace' ne sont pas autorisés autour du signe
-égal `=`, 
-ni entre la parenthèse fermante et l'accolade ouvrante.
-On a `){`.
-:::::::::::::::::::::::::::::
-
+NB : Pour définir les dimensions de l'image, les caractères 'espace' ne sont pas autorisés autour du signe égal `=`, ni entre la parenthèse fermante et l'accolade ouvrante. On a `){`.
+:::
 
 On peut aussi utiliser la fonction `knitr::include_graphics` :
 
@@ -349,49 +323,43 @@ On peut aussi utiliser la fonction `knitr::include_graphics` :
 knitr::include_graphics("assets/img/couleuvre.jpg")
 ```
 
-Cette dernière méthode, préconisée quand le format de sortie n'est pas
-du html, permet de mieux contrôler l'affichage de l'image.
+Cette dernière méthode, préconisée quand le format de sortie n'est pas du html, permet de mieux contrôler l'affichage de l'image.
 
 Cela se fait à l'intérieur d'un chunk et ça, on le verra au chapitre \@ref(chunks)
 
-::: {.warning}
-**Attention au répertoire de travail !**
+::: warning
+**Attention au répertoire de travail !** 
 Par défaut, dans un script Rmarkdown, le répertoire de travail (donc l'adresse à partir de laquelle commence le chemin de l'image) se situe au niveau du dossier dans lequel est enregistré le fichier .Rmd, même si vous travaillez dans le cadre d'un projet. 
 Se référer à la partie dédiée \@ref(piege) pour s'en dépatouiller.
 :::
 
-## Encodage 
+## Encodage
 
-Pour le bon fonctionnement général, tous les fichiers R Markdown doivent être encodés en UTF-8, notamment pour les langages
-présentant des caractères accentués (comme le français).
+Pour le bon fonctionnement général, tous les fichiers R Markdown doivent être encodés en UTF-8, notamment pour les langages présentant des caractères accentués (comme le français).
 
 :::: {.blackbox data-latex=""}
 ::: {.center data-latex=""}
 **Trucs & Astuces**
 :::
 
-  RStudio facilite la gestion de l'encodage des fichiers édités :
-  
-  - pour ouvrir un fichier avec l'encodage qui vous convient 
-  
-  Fichier $\Rightarrow$ Réouvrir avec encodage...
-  
+RStudio facilite la gestion de l'encodage des fichiers édités :
+
+- pour ouvrir un fichier avec l'encodage qui vous convient
+
+Fichier $\Rightarrow$ Réouvrir avec encodage...
+
 ![](assets/img/ouvrir_encodage.png)
-  
-  - pour enregistrer un fichier au bon encodage 
-  
-  Fichier $\Rightarrow$ Sauvegarder avec l'encodage...
-    
+
+- pour enregistrer un fichier au bon encodage
+
+Fichier $\Rightarrow$ Sauvegarder avec l'encodage...
+
 ![](assets/img/enregistrer_encodage.png)
 
-  Remarquer la case à cocher au niveau de la fenêtre de dialogue "Réouvrir avec encodage...",
-  sélectionner UTF-8 et cocher l'option : "Définir comme encodage par défaut pour
-  les fichiers sources", ce sera fait une fois pour toute.
-
+Remarquer la case à cocher au niveau de la fenêtre de dialogue "Réouvrir avec encodage...", sélectionner UTF-8 et cocher l'option : "Définir comme encodage par défaut pour les fichiers sources", ce sera fait une fois pour toute.
 ::::
 
 ## Exercice 2
 
 ```{r mod6_exo2, child=charge_exo("m6", "exo2.rmd"), echo=FALSE}
 ```
-

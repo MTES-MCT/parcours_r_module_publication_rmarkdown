@@ -26,7 +26,7 @@ On peut contrôler le résultat du code en l'exécutant :
 - comme dans un script R, en sélectionnant les ligne(s) puis en utilisant le raccourci clavier [Ctrl + Entrée]{.kbd},\
 - ou en utilisant le bouton en triangle vert, situé en haut à droite de chaque chunk ![](assets/img/run_current_chunk.png)
 
-RStudio contient d'autres boutons pour exécuter le code d'un fichier Rmd : ils sont placés dans le menu déroulant 'Run' en haut à droite. Ils sont rappelés dans le menu "Code" tout en haut, au niveau de l'entrée 'Run Region".
+RStudio contient d'autres boutons pour exécuter le code d'un fichier Rmd : ils sont placés dans le menu déroulant "Run" en haut à droite. Ils sont rappelés dans le menu "Code" tout en haut, au niveau de l'entrée "Run Region".
 
 Dans l'environnement de travail (cadran 'Global Environnement', situé en haut à droite généralement dans RStudio), on retrouve les objets créés par R lors des exécutions de chunks précédents.\
 La commande 'Run All Chunks Above' que l'on peut déclencher en clic bouton ou avec le raccourci [Alt + Ctrl + Maj + P]{.kbd} permet d'être certains de travailler sur les objets tels que créés précédemment par le programme. Lors du knit, R utilise au démarrage un environnement R vierge.
@@ -199,6 +199,32 @@ conn <- dbConnect(drv = Postgres(),
 ```
 ````
 
+**ATTENTION :** il est très dangereux de noter ses informations de connexion en clair dans un script qui pourra être partagé ou versionné sur Git.
+
+Vous pouvez les stocker en variables d'environnement (à faire une fois sur son poste, dans la console R, ne pas enregistrer dans un script) avec la fonction `Sys.setenv` :
+
+```{r, eval=FALSE}
+
+Sys.setenv("user_pg" = "votre nom utilisateur",
+           "pwd_pg" = "votre mot de passe")
+
+```
+
+Puis les appeler dans vos scripts ou documents reproductibles avec la fonction `Sys.getenv` :
+
+```{r, eval=FALSE}
+
+conn <- dbConnect(drv = Postgres(),
+                  dbname = "ma_base", 
+                  host = "adresse_serveur", 
+                  port = "port", 
+                  user = Sys.getenv("user_pg"), 
+                  password = Sys.getenv("pwd_pg"))
+
+```
+
+Par suite, une fois la connexion établie, vous pouvez exécuter du code SQL en spécifiant la connexion.
+
 ````{verbatim}
 ```{sql connection=conn}
 SELECT * FROM mon_schema.matable
@@ -217,8 +243,9 @@ SELECT * FROM mon_schema.matable
 
 Dans cet exemple, les données sélectionnées seront stockées dans `resultat`.
 
+N'oubliez pas de fermer la connexion avec `dbDisconnect(conn)` une fois les données récupérées, votre gestionnaire de BdD vous remerciera !
+
 ## Exercice 3
 
 ```{r mod6_exo3, child=charge_exo("m6", "exo3.rmd"), echo=FALSE}
 ```
-   

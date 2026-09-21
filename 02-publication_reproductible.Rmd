@@ -17,16 +17,16 @@ Plusieurs inconvénients à cette chaîne d'opérations :
 - La publication finale n'est pas "reproductible" au sens où la traçabilité est insuffisante pour qu'un autre auteur, avec les mêmes données, arrive à la même publication $\Rightarrow$ la recherche d'erreurs est difficile et les passations délicates.
 - Les contenus sont statiques, ce qui est peu attractif par rapport aux possibilités d'interactivité offertes par les technologies web.
 
-Le fil conducteur de ce module est la production de A à Z d'un portrait de territoire, à partir de données variées, en travaillant entièrement dans RStudio au format R Markdown.
+Le fil conducteur de ce module est la production de A à Z d'une analyse thématique, à partir de données variées, en travaillant entièrement dans RStudio au format R Markdown.
 
->On appelle ici "publication reproductible" un document élaboré à partir de données et dont tout le code est fourni. C'est la disponibilité du code qui rend l'analyse réplicable, indépendament de la qualité de la documentation qui peut être fournie. 
+>On appelle ici "publication reproductible" un document élaboré à partir de données et dont tout le code est fourni. C'est la disponibilité du code qui rend l'analyse réplicable, indépendamment de la qualité de la documentation qui peut être fournie. 
 
-Travailler ainsi a pour avantages majeurs une plus grande facilité quand il s'agit de :
+Travailler ainsi a pour avantage majeur une plus grande facilité quand il s'agit de :
 
 + Rechercher d'éventuelles erreurs
 + Justifier précisément les analyses réalisées, les pré-traitements et autres choix méthodologiques
 + Mettre à jour la publication
-+ Modifier le code par exemple pour l'adapter à unnouveau document
++ Modifier le code par exemple pour l'adapter à un nouveau document
 + Partager une méthode
 
 La transparence dans le traitement de l'information est importante en termes de crédibilité pour les institutions. [Selon Wikipedia](https://fr.wikipedia.org/wiki/Crise_de_la_reproductibilit%C3%A9),  qui parle de "crise de la reproductibilité", une part très importante des études publiées dans des revues prestigieuses ne sont pas réplicables.
@@ -63,7 +63,7 @@ Pourquoi utiliser un langage de balisage léger ? Des avantages majeurs :
 
 Par contre, la simplicité signifie peu de fonctionnalités donc des sorties assez pauvres.
 
-L'idée, avec R Markdown, était garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation de code R, intégré aux documents sous formes de `chunks`. 
+L'idée, avec R Markdown, était de garder les avantages du langage existant Markdown mais en lui ajoutant des fonctionnalités d'interprétation du code R qui est intégré aux documents sous formes de `chunks`. 
 En fait, les versions actuelles du package `knitr` permettent d'interpréter d'autres langages comme du $\LaTeX$, du SQL ou du code Python.
 
 R Markdown est en quelque sorte un cadre pour travailler en data science. 
