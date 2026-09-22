@@ -87,6 +87,7 @@ output:
 ---
 ```
 
+
 ### Personnaliser le css
 
 L'un des avantages du format HTML est la possibilité d'appliquer un style personnalisé à l'aide d'un fichier CSS. 
@@ -208,6 +209,16 @@ ggplot(data, aes(x, y, color = groupe, shape = groupe)) +
 Pour proposer des tableaux accessibles, on limite leur largeur et on utilise des entêtes claires.  
 Si le tableau est complexe, il convient d'ajouter un titre et un texte explicatif.
 
+#### Métadonnées du HTML
+
+Pour déclarer la langue du document HTML, mettre dans l'entête YAML :  
+
+````  
+---
+  lang: 'fr"
+---
+````
+
 ## Sorties PDF
 
 ### Configuration préalable pour l'usage de pdf_document {#latex}
@@ -316,6 +327,15 @@ output:
     toc:true
   odt_document: default
 ---
+```
+
+Cela génère de nouvelles entrées dans le menu 'knit', auxquelles ont peut accéder en cliquant sur le petit triangle noir. 
+En clic bouton on ne peut "rendre" qu'un format à la fois. 
+En ligne de commande, on peut demander à produire toutes les sorties. 
+
+```r
+library(rmarkdown)
+render(input = "nom_de_mon_script.Rmd", output_format = "all")
 ```
 
 Pour comparer les options permises par chaque type de sorties, se référer à la [feuille de triche RMarkdown](https://opensource.posit.co/resources/cheatsheets/rmarkdown/rmarkdown.pdf), également accessible depuis le menu Help / Cheat Sheets / R Markdown Cheat Sheet qui comporte un comparatif.
