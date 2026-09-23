@@ -26,7 +26,7 @@ output: html_document
 params:
   annee: 2024
   region: Bretagne
-  date: !r lubricate::today()
+  date: !r lubridate::today()
 ---
 ```
 
